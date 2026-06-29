@@ -57,9 +57,14 @@
   color: var(--accent);
   font-size: 1.15rem;
   font-weight: 600;
+  font-style: italic;
   line-height: 1.6;
   margin-bottom: 1.25rem;
   max-width: 560px;
+}
+
+.hero-kicker span {
+  display: block;
 }
 
 .hero-subtitle {
@@ -97,24 +102,47 @@
   will-change: transform;
 }
 
-.hero-eye-blink-mask {
-  animation: hero-eye-blink 7.5s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: center;
+.hero-eye-lids {
+  pointer-events: none;
 }
 
-@keyframes hero-eye-blink {
+.hero-eye-lid {
+  transform-box: view-box;
+  will-change: transform;
+}
+
+.hero-eye-lid--top {
+  animation: hero-eye-lid-top 7.5s ease-in-out infinite;
+  transform: translateY(-115px);
+}
+
+.hero-eye-lid--bottom {
+  animation: hero-eye-lid-bottom 7.5s ease-in-out infinite;
+  transform: translateY(115px);
+}
+
+@keyframes hero-eye-lid-top {
   0%, 44%, 48%, 100% {
-    transform: scaleY(1);
+    transform: translateY(-115px);
   }
 
   46% {
-    transform: scaleY(0.05);
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-eye-lid-bottom {
+  0%, 44%, 48%, 100% {
+    transform: translateY(115px);
+  }
+
+  46% {
+    transform: translateY(0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-eye-blink-mask {
+  .hero-eye-lid {
     animation: none;
   }
 }
