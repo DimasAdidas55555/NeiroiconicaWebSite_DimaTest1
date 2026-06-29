@@ -69,6 +69,30 @@ document.addEventListener('DOMContentLoaded', () => {
     return parseInt(el.dataset.counter, 10);
   }
 
+  // ===== Hero eye follows pointer =====
+  const heroIllustration = document.querySelector('.hero-illustration');
+  const heroEye = document.querySelector('.hero-eye-follow');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (heroIllustration && heroEye && !reducedMotion) {
+    const maxX = 16;
+    const maxY = 10;
+
+    heroIllustration.addEventListener('pointermove', (event) => {
+      const rect = heroIllustration.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+      const dx = Math.max(-1, Math.min(1, x)) * maxX;
+      const dy = Math.max(-1, Math.min(1, y)) * maxY;
+
+      heroEye.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+
+    heroIllustration.addEventListener('pointerleave', () => {
+      heroEye.style.transform = 'translate(0, 0)';
+    });
+  }
+
   // ===== Floating Data Stream =====
   const dataStream = document.querySelector('.data-stream');
   if (dataStream) {

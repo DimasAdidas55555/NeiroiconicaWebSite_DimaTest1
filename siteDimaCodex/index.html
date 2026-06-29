@@ -160,30 +160,32 @@
             <!-- Inner corner -->
             <path d="M60 185 Q52 190 55 198" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
 
-            <!-- Iris -->
-            <circle cx="200" cy="185" r="58" stroke="var(--accent)" stroke-width="1.5" opacity="0.7" fill="none"/>
-            <circle cx="200" cy="185" r="52" stroke="var(--accent)" stroke-width="0.4" opacity="0.2" fill="var(--accent)" fill-opacity="0.04"/>
+            <g class="hero-eye-follow">
+              <!-- Iris -->
+              <circle cx="200" cy="185" r="58" stroke="var(--accent)" stroke-width="1.5" opacity="0.7" fill="none"/>
+              <circle cx="200" cy="185" r="52" stroke="var(--accent)" stroke-width="0.4" opacity="0.2" fill="var(--accent)" fill-opacity="0.04"/>
 
-            <!-- Iris radial spokes -->
-            <line x1="200" y1="127" x2="200" y2="138" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
-            <line x1="200" y1="232" x2="200" y2="243" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
-            <line x1="142" y1="185" x2="153" y2="185" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
-            <line x1="247" y1="185" x2="258" y2="185" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
-            <line x1="159" y1="144" x2="166" y2="151" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
-            <line x1="234" y1="219" x2="241" y2="226" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
-            <line x1="234" y1="144" x2="241" y2="151" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
-            <line x1="159" y1="219" x2="166" y2="226" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
+              <!-- Iris radial spokes -->
+              <line x1="200" y1="127" x2="200" y2="138" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
+              <line x1="200" y1="232" x2="200" y2="243" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
+              <line x1="142" y1="185" x2="153" y2="185" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
+              <line x1="247" y1="185" x2="258" y2="185" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
+              <line x1="159" y1="144" x2="166" y2="151" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
+              <line x1="234" y1="219" x2="241" y2="226" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
+              <line x1="234" y1="144" x2="241" y2="151" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
+              <line x1="159" y1="219" x2="166" y2="226" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
 
-            <!-- Pupil layers -->
-            <circle cx="200" cy="185" r="26" fill="var(--accent)" opacity="0.3"/>
-            <circle cx="200" cy="185" r="19" fill="var(--accent)" opacity="0.5"/>
-            <circle cx="200" cy="185" r="12" fill="var(--accent)" opacity="0.85">
-              <animate attributeName="r" values="12;14;12" dur="3s" repeatCount="indefinite"/>
-            </circle>
+              <!-- Pupil layers -->
+              <circle cx="200" cy="185" r="26" fill="var(--accent)" opacity="0.3"/>
+              <circle cx="200" cy="185" r="19" fill="var(--accent)" opacity="0.5"/>
+              <circle cx="200" cy="185" r="12" fill="var(--accent)" opacity="0.85">
+                <animate attributeName="r" values="12;14;12" dur="3s" repeatCount="indefinite"/>
+              </circle>
 
-            <!-- Corneal reflections -->
-            <circle cx="186" cy="174" r="5" fill="white" opacity="0.12"/>
-            <circle cx="209" cy="177" r="3" fill="white" opacity="0.08"/>
+              <!-- Corneal reflections -->
+              <circle cx="186" cy="174" r="5" fill="white" opacity="0.12"/>
+              <circle cx="209" cy="177" r="3" fill="white" opacity="0.08"/>
+            </g>
 
             <!-- Tracker bar -->
             <rect x="120" y="300" width="160" height="10" rx="3" stroke="var(--accent)" stroke-width="1" fill="var(--accent)" fill-opacity="0.08" opacity="0.5"/>
@@ -408,7 +410,7 @@
       <div class="trust-stats reveal">
         <div class="trust-stat">
           <span class="trust-stat-number" data-counter-from-date="2017-03-24" data-suffix="">0</span>
-          <span class="trust-stat-label">Лет с регистрации</span>
+          <span class="trust-stat-label">Лет на рынке</span>
           <span class="trust-stat-note">с 24.03.2017</span>
         </div>
         <div class="trust-stat">

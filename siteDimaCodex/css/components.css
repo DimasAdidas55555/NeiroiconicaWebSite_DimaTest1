@@ -120,6 +120,13 @@
   position: relative;
 }
 
+.hero-eye-follow {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 120ms ease-out;
+  will-change: transform;
+}
+
 @media (max-width: 768px) {
   .hero-content {
     grid-template-columns: 1fr;
