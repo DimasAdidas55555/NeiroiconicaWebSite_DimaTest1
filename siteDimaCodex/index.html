@@ -110,7 +110,7 @@
         <h1 class="hero-title">
           <span class="text-gradient">Нейроиконика</span>
         </h1>
-        <p class="hero-kicker">Оборудование и ПО для исследований взгляда, поведения и нейрофизиологии</p>
+        <p class="hero-kicker">Технологии, которые читают взгляд. От взгляда — к пониманию.</p>
         <p class="hero-subtitle">
           Оборудование и программное обеспечение для когнитивных исследований, клинической диагностики, нейромаркетинга и образования. Мы помогаем понять человека — через то, куда он смотрит и как реагирует.
         </p>
@@ -118,24 +118,15 @@
           <a href="#solutions" class="btn btn-primary">Подобрать решение</a>
           <a href="about/contacts.html" class="btn btn-outline">Связаться</a>
         </div>
-        <div class="hero-proof" aria-label="Ключевые факты о Нейроиконике">
-          <div class="hero-proof-item">
-            <span>100+</span>
-            <p>организаций используют наши решения</p>
-          </div>
-          <div class="hero-proof-item">
-            <span>9</span>
-            <p>модальностей синхронной записи</p>
-          </div>
-          <div class="hero-proof-item">
-            <span>44-ФЗ</span>
-            <p>работаем с закупочными процедурами</p>
-          </div>
-        </div>
       </div>
       <div class="hero-visual">
         <div class="hero-illustration">
           <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="hero-eye-blink">
+                <rect class="hero-eye-blink-mask" x="60" y="90" width="280" height="180" rx="80"/>
+              </clipPath>
+            </defs>
 
             <!-- Corner brackets -->
             <path d="M30 60 L30 30 L60 30" stroke="var(--accent)" stroke-width="1" opacity="0.2"/>
@@ -161,7 +152,7 @@
             <!-- Inner corner -->
             <path d="M60 185 Q52 190 55 198" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
 
-            <g class="hero-eye-follow">
+            <g class="hero-eye-follow" clip-path="url(#hero-eye-blink)">
               <!-- Iris -->
               <circle cx="200" cy="185" r="58" stroke="var(--accent)" stroke-width="1.5" opacity="0.7" fill="none"/>
               <circle cx="200" cy="185" r="52" stroke="var(--accent)" stroke-width="0.4" opacity="0.2" fill="var(--accent)" fill-opacity="0.04"/>
