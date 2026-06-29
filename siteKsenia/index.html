@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Нейроиконика — нейронаука и технологии</title>
+  <meta name="description" content="Российский лидер в области нейротехнологий: айтрекинг, fNIRS, экранированные помещения и исследовательские платформы для науки, клиники и бизнеса.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body data-product="neurobureau">
+
+  <div class="grid-bg"></div>
+  <div class="data-stream"></div>
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+        </span>
+        Нейроиконика
+      </a>
+
+      <button class="nav-burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Оборудование
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Нейробюро
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="neurobureau/training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="neurobureau/cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Ассистив
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="assistiv/pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="assistiv/games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="assistiv/training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="assistiv/manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="assistiv/cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            О нас
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+
+        <li class="nav-cta">
+          <a href="about/contacts.html" class="btn btn-primary">Связаться</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge"><span>Российский разработчик нейротехнологий</span></div>
+        <h1 class="hero-title">
+          <span class="text-gradient">Нейроиконика</span>
+        </h1>
+        <p style="color:var(--accent);font-size:1.15rem;font-weight:500;margin-bottom:1.25rem;font-style:italic;">
+          Технологии, которые читают взгляд. От взгляда — к пониманию.
+        </p>
+        <p class="hero-subtitle">
+          Оборудование и программное обеспечение для когнитивных исследований, клинической диагностики, нейромаркетинга и образования. Мы помогаем понять человека — через то, куда он смотрит и как реагирует.
+        </p>
+        <div class="hero-actions">
+          <a href="#solutions" class="btn btn-primary">Наши решения</a>
+          <a href="#contact" class="btn btn-outline">Связаться</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-illustration">
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+            <!-- Corner brackets -->
+            <path d="M30 60 L30 30 L60 30" stroke="var(--accent)" stroke-width="1" opacity="0.2"/>
+            <path d="M340 30 L370 30 L370 60" stroke="var(--accent)" stroke-width="1" opacity="0.2"/>
+            <path d="M370 340 L370 370 L340 370" stroke="var(--accent)" stroke-width="1" opacity="0.2"/>
+            <path d="M60 370 L30 370 L30 340" stroke="var(--accent)" stroke-width="1" opacity="0.2"/>
+
+            <!-- Ambient rings -->
+            <circle cx="200" cy="185" r="150" stroke="var(--accent)" stroke-width="0.3" opacity="0.06" stroke-dasharray="3 12"/>
+            <circle cx="200" cy="185" r="120" stroke="var(--accent)" stroke-width="0.25" opacity="0.08" stroke-dasharray="2 8"/>
+
+            <!-- Eyelid fill -->
+            <path d="M60 185 Q130 95 200 90 Q270 95 340 185 Q270 265 200 270 Q130 265 60 185Z"
+                  fill="var(--accent)" fill-opacity="0.03"/>
+
+            <!-- Upper eyelid -->
+            <path d="M60 185 Q130 95 200 90 Q270 95 340 185"
+                  stroke="var(--accent)" stroke-width="2" opacity="0.75" fill="none" stroke-linecap="round"/>
+            <!-- Lower eyelid -->
+            <path d="M60 185 Q130 265 200 270 Q270 265 340 185"
+                  stroke="var(--accent)" stroke-width="1.5" opacity="0.6" fill="none" stroke-linecap="round"/>
+
+            <!-- Inner corner -->
+            <path d="M60 185 Q52 190 55 198" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+
+            <!-- Iris -->
+            <circle cx="200" cy="185" r="58" stroke="var(--accent)" stroke-width="1.5" opacity="0.7" fill="none"/>
+            <circle cx="200" cy="185" r="52" stroke="var(--accent)" stroke-width="0.4" opacity="0.2" fill="var(--accent)" fill-opacity="0.04"/>
+
+            <!-- Iris radial spokes -->
+            <line x1="200" y1="127" x2="200" y2="138" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
+            <line x1="200" y1="232" x2="200" y2="243" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
+            <line x1="142" y1="185" x2="153" y2="185" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
+            <line x1="247" y1="185" x2="258" y2="185" stroke="var(--accent)" stroke-width="0.7" opacity="0.4"/>
+            <line x1="159" y1="144" x2="166" y2="151" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
+            <line x1="234" y1="219" x2="241" y2="226" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
+            <line x1="234" y1="144" x2="241" y2="151" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
+            <line x1="159" y1="219" x2="166" y2="226" stroke="var(--accent)" stroke-width="0.6" opacity="0.35"/>
+
+            <!-- Pupil layers -->
+            <circle cx="200" cy="185" r="26" fill="var(--accent)" opacity="0.3"/>
+            <circle cx="200" cy="185" r="19" fill="var(--accent)" opacity="0.5"/>
+            <circle cx="200" cy="185" r="12" fill="var(--accent)" opacity="0.85">
+              <animate attributeName="r" values="12;14;12" dur="3s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- Corneal reflections -->
+            <circle cx="186" cy="174" r="5" fill="white" opacity="0.12"/>
+            <circle cx="209" cy="177" r="3" fill="white" opacity="0.08"/>
+
+            <!-- Tracker bar -->
+            <rect x="120" y="300" width="160" height="10" rx="3" stroke="var(--accent)" stroke-width="1" fill="var(--accent)" fill-opacity="0.08" opacity="0.5"/>
+
+            <!-- IR emitter dots -->
+            <circle cx="150" cy="305" r="2.5" fill="var(--accent)" opacity="0.8">
+              <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="305" r="2.5" fill="var(--accent)" opacity="0.8">
+              <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="250" cy="305" r="2.5" fill="var(--accent)" opacity="0.8">
+              <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" begin="1.4s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- IR beams to eye -->
+            <line x1="150" y1="300" x2="180" y2="250" stroke="var(--accent)" stroke-width="0.6" opacity="0.25" stroke-dasharray="4 3"/>
+            <line x1="200" y1="300" x2="200" y2="248" stroke="var(--accent)" stroke-width="0.6" opacity="0.25" stroke-dasharray="4 3"/>
+            <line x1="250" y1="300" x2="220" y2="250" stroke="var(--accent)" stroke-width="0.6" opacity="0.25" stroke-dasharray="4 3"/>
+
+            <!-- Pulse ring -->
+            <circle cx="200" cy="305" r="10" stroke="var(--accent)" stroke-width="0.5">
+              <animate attributeName="r" from="10" to="50" dur="3s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.3" to="0" dur="3s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- Tech label -->
+            <text x="50" y="385" fill="var(--accent)" font-family="var(--font-mono)" font-size="7" opacity="0.3">НЕЙРОИКОНИКА // АЙТРЕКИНГ</text>
+
+            </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== SOLUTIONS ===== -->
+  <section id="solutions">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Продукты</div>
+        <h2>Четыре направления</h2>
+        <p>Каждое — самостоятельное решение. Вместе — полная инфраструктура для исследований.</p>
+      </div>
+
+      <style>
+        .solution-card { border-left: 4px solid var(--card-color, var(--accent)) !important; transition: transform 0.2s, border-color 0.2s; }
+        .solution-card:hover { transform: translateY(-4px); }
+        .solution-card .solution-card-label { color: var(--card-color, var(--accent)) !important; font-weight: 700; }
+        .solution-card h3 { color: var(--card-color, var(--accent)) !important; }
+      </style>
+
+      <div class="solutions-showcase reveal-stagger">
+
+        <!-- Нейробюро -->
+        <a href="neurobureau/universe.html" class="solution-card is-flagship" style="--card-color: #3b82f6;">
+          <svg class="solution-card-visual" viewBox="0 0 300 300" fill="none">
+            <circle cx="150" cy="150" r="100" stroke="var(--accent)" stroke-width="0.5" opacity="0.4"/>
+            <circle cx="150" cy="150" r="60" stroke="var(--accent)" stroke-width="0.5" opacity="0.5"/>
+            <circle cx="150" cy="150" r="25" fill="var(--accent)" opacity="0.15"/>
+            <path d="M50 150 Q150 80 250 150 Q150 220 50 150Z" stroke="var(--accent)" stroke-width="0.7" opacity="0.3"/>
+            <circle cx="150" cy="150" r="12" stroke="var(--accent)" stroke-width="0.5" opacity="0.4"/>
+            <path d="M80 80 Q115 50 150 80 Q185 110 220 80" stroke="var(--accent)" stroke-width="0.5" opacity="0.25" fill="none"/>
+          </svg>
+          <div class="solution-card-label">ПЛАТФОРМА</div>
+          <h3>Нейробюро</h3>
+          <p>Аппаратно-программная платформа для когнитивных исследований. Синхронная запись девяти модальностей — от движений глаз до ЭЭГ. Собственный айтрекер, анализ без программирования, 28 показателей по областям интереса. Полностью на русском языке.</p>
+          <div class="solution-card-arrow">Подробнее &rarr;</div>
+        </a>
+
+        <!-- Ассистив -->
+        <a href="assistiv/index.html" class="solution-card" style="--card-color: #e2e8f0;">
+          <svg class="solution-card-visual" viewBox="0 0 300 300" fill="none">
+            <!-- Hand -->
+            <path d="M130 220 L130 140 Q130 130 140 130 Q150 130 150 140 L150 180" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+            <path d="M150 170 L150 120 Q150 110 160 110 Q170 110 170 120 L170 170" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+            <path d="M170 175 L170 130 Q170 120 180 120 Q190 120 190 130 L190 175" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+            <path d="M190 180 L190 145 Q190 135 200 135 Q210 135 210 145 L210 200 Q210 240 180 250 L130 250 Q110 250 110 230 L110 220" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+            <!-- Accessibility circle -->
+            <circle cx="170" cy="80" r="30" stroke="var(--accent)" stroke-width="0.6" opacity="0.3"/>
+            <circle cx="170" cy="70" r="6" fill="var(--accent)" opacity="0.2"/>
+            <line x1="170" y1="76" x2="170" y2="95" stroke="var(--accent)" stroke-width="0.7" opacity="0.25"/>
+            <line x1="155" y1="82" x2="185" y2="82" stroke="var(--accent)" stroke-width="0.7" opacity="0.25"/>
+          </svg>
+          <div class="solution-card-label">АССИСТИВНЫЕ ТЕХНОЛОГИИ</div>
+          <h3>Ассистив</h3>
+          <p>Управление компьютером с помощью движений глаз для людей с двигательными нарушениями. Комплекс Стерх: аппаратное решение, программы коммуникации, развивающие игры. Российская разработка.</p>
+          <div class="solution-card-arrow">Подробнее &rarr;</div>
+        </a>
+
+        <!-- Стационарный айтрекер -->
+        <a href="products/stationary-eyetracker.html" class="solution-card" style="--card-color: #f59e0b;">
+          <svg class="solution-card-visual" viewBox="0 0 300 300" fill="none">
+            <!-- Monitor -->
+            <rect x="70" y="80" width="160" height="110" rx="6" stroke="var(--accent)" stroke-width="0.7" opacity="0.35" fill="none"/>
+            <rect x="80" y="90" width="140" height="85" rx="2" stroke="var(--accent)" stroke-width="0.3" opacity="0.2" fill="none"/>
+            <line x1="120" y1="190" x2="180" y2="190" stroke="var(--accent)" stroke-width="0.5" opacity="0.3"/>
+            <line x1="150" y1="190" x2="150" y2="210" stroke="var(--accent)" stroke-width="0.5" opacity="0.3"/>
+            <line x1="115" y1="210" x2="185" y2="210" stroke="var(--accent)" stroke-width="0.7" opacity="0.3"/>
+            <!-- Eye on screen -->
+            <path d="M110 135 Q150 110 190 135 Q150 160 110 135Z" stroke="var(--accent)" stroke-width="0.6" opacity="0.35" fill="none"/>
+            <circle cx="150" cy="135" r="10" stroke="var(--accent)" stroke-width="0.5" opacity="0.3"/>
+            <circle cx="150" cy="135" r="4" fill="var(--accent)" opacity="0.2"/>
+          </svg>
+          <div class="solution-card-label">ОБОРУДОВАНИЕ</div>
+          <h3>Айтрекер Нейробюро</h3>
+          <p>Стационарный айтрекер собственной разработки. Частота от 60 до 500 Гц, точность 0,5°. Бесконтактный, крепится под монитором. Работает в связке с платформой Нейробюро и программой PsychoPy.</p>
+          <div class="solution-card-arrow">Подробнее &rarr;</div>
+        </a>
+
+        <!-- Экранированные помещения -->
+        <a href="products/shielded-rooms.html" class="solution-card" style="--card-color: #94a3b8;">
+          <svg class="solution-card-visual" viewBox="0 0 300 300" fill="none">
+            <!-- Cube -->
+            <path d="M150 70 L250 120 L250 220 L150 270 L50 220 L50 120 Z" stroke="var(--accent)" stroke-width="0.7" opacity="0.35" fill="none"/>
+            <path d="M150 70 L150 170 L250 220" stroke="var(--accent)" stroke-width="0.4" opacity="0.2" fill="none"/>
+            <path d="M150 170 L50 220" stroke="var(--accent)" stroke-width="0.4" opacity="0.2" fill="none"/>
+            <!-- Waves bouncing off -->
+            <path d="M30 140 Q40 130 30 120" stroke="var(--accent)" stroke-width="0.6" opacity="0.3" fill="none"/>
+            <path d="M20 145 Q35 130 20 115" stroke="var(--accent)" stroke-width="0.4" opacity="0.2" fill="none"/>
+            <path d="M270 140 Q260 130 270 120" stroke="var(--accent)" stroke-width="0.6" opacity="0.3" fill="none"/>
+            <path d="M280 145 Q265 130 280 115" stroke="var(--accent)" stroke-width="0.4" opacity="0.2" fill="none"/>
+            <path d="M130 50 Q140 40 150 50" stroke="var(--accent)" stroke-width="0.6" opacity="0.3" fill="none"/>
+            <path d="M270 240 Q260 230 270 220" stroke="var(--accent)" stroke-width="0.5" opacity="0.25" fill="none"/>
+          </svg>
+          <div class="solution-card-label">ИНФРАСТРУКТУРА</div>
+          <h3>Экранированные камеры</h3>
+          <p>Экранированные помещения для высокоточных исследований. Защита от электромагнитных помех и звуковых шумов. Три модификации: Профессионал, Эксперт, Акустик. Запатентованная технология, поставка за 1–2 месяца.</p>
+          <div class="solution-card-arrow">Подробнее &rarr;</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== AREAS / USE CASES ===== -->
+  <section style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Применение</div>
+        <h2>Области применения</h2>
+        <p>Наши технологии используются в ведущих университетах, клиниках и компаниях.</p>
+      </div>
+
+      <div class="areas-grid reveal-stagger">
+        <div class="area-item area-item--wide">
+          <div class="area-icon benefit-icon--rings"></div>
+          <h4>Когнитивная психология</h4>
+        </div>
+        <div class="area-item">
+          <div class="area-icon benefit-icon--scanlines"></div>
+          <h4>Нейромаркетинг</h4>
+        </div>
+        <div class="area-item">
+          <div class="area-icon benefit-icon--dots"></div>
+          <h4>Юзабилити-исследования</h4>
+        </div>
+        <div class="area-item">
+          <div class="area-icon benefit-icon--grid"></div>
+          <h4>Клиническая психология</h4>
+        </div>
+        <div class="area-item">
+          <div class="area-icon benefit-icon--wave"></div>
+          <h4>Психолингвистика</h4>
+        </div>
+        <div class="area-item area-item--wide">
+          <div class="area-icon benefit-icon--hex"></div>
+          <h4>Образование и наука</h4>
+        </div>
+        <div class="area-item">
+          <div class="area-icon benefit-icon--rings"></div>
+          <h4>Нейрофизиология</h4>
+        </div>
+        <div class="area-item area-item--wide">
+          <div class="area-icon benefit-icon--wave"></div>
+          <h4>Медицинская реабилитация</h4>
+        </div>
+        <div class="area-item">
+          <div class="area-icon benefit-icon--scanlines"></div>
+          <h4>ЭЭГ-исследования</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CTA BANNER ===== -->
+  <section>
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2>Не нашли готовое решение?</h2>
+        <p>Мы подберём индивидуальную конфигурацию оборудования и программного обеспечения под задачи вашей лаборатории — даже если такого решения нет на сайте.</p>
+        <p style="font-size:0.85rem;opacity:0.75;margin-top:0.5rem;margin-bottom:1.5rem">Аккредитованы на основных площадках для государственных закупок. Работаем по 44-ФЗ и 223-ФЗ. Полный пакет документов для закупочных процедур.</p>
+        <a href="about/contacts.html" class="btn btn-primary">Расскажите о задаче</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== TRUST ===== -->
+  <section class="trust">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom:2rem;">
+        <div class="section-label">Нам доверяют</div>
+        <h2>Нам доверяют более 100 организаций</h2>
+      </div>
+      <div class="trust-stats reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:3rem;">
+        <div class="trust-stat">
+          <span class="trust-stat-number" data-counter="0" data-suffix="">0</span>
+          <span class="trust-stat-label">Лет на рынке</span>
+        </div>
+        <div class="trust-stat">
+          <span class="trust-stat-number" data-counter="100" data-suffix="+">0</span>
+          <span class="trust-stat-label">Заказчиков</span>
+        </div>
+        <div class="trust-stat">
+          <span class="trust-stat-number" data-counter="80" data-suffix="+">0</span>
+          <span class="trust-stat-label">Пользователей Нейробюро</span>
+        </div>
+        <div class="trust-stat">
+          <span class="trust-stat-number" data-counter="85" data-suffix="+">0</span>
+          <span class="trust-stat-label">Публикаций</span>
+        </div>
+      </div>
+      <div class="trust-carousel">
+        <div class="trust-carousel-track">
+          <span class="trust-carousel-item">МГТУ им. Н. Э. Баумана</span>
+          <span class="trust-carousel-item">НИУ «Высшая школа экономики»</span>
+          <span class="trust-carousel-item">РНИМУ им. Н. И. Пирогова</span>
+          <span class="trust-carousel-item">Российский государственный гуманитарный университет</span>
+          <span class="trust-carousel-item">МГППУ</span>
+          <span class="trust-carousel-item">Российский новый университет</span>
+          <span class="trust-carousel-item">Государственный академический университет гуманитарных наук</span>
+          <span class="trust-carousel-item">Институт психологии РАН</span>
+          <span class="trust-carousel-item">Институт физиологии им. И. П. Павлова РАН</span>
+          <span class="trust-carousel-item">Институт языкознания РАН</span>
+          <span class="trust-carousel-item">Экспертный институт социальных исследований</span>
+          <span class="trust-carousel-item">СПбГУ</span>
+          <span class="trust-carousel-item">СПбПУ Петра Великого</span>
+          <span class="trust-carousel-item">Военно-медицинская академия им. С. М. Кирова</span>
+          <span class="trust-carousel-item">РГПУ им. А. И. Герцена</span>
+          <span class="trust-carousel-item">Институт эволюционной физиологии и биохимии им. И. М. Сеченова РАН</span>
+          <span class="trust-carousel-item">Новгородский государственный университет им. Ярослава Мудрого</span>
+          <span class="trust-carousel-item">ФИЦ Коми НЦ УрО РАН</span>
+          <span class="trust-carousel-item">Белгородский государственный НИУ</span>
+          <span class="trust-carousel-item">Курский государственный медицинский университет</span>
+          <span class="trust-carousel-item">ННГУ им. Н. И. Лобачевского</span>
+          <span class="trust-carousel-item">Приволжский исследовательский медицинский университет</span>
+          <span class="trust-carousel-item">СГУ им. Н. Г. Чернышевского</span>
+          <span class="trust-carousel-item">Пензенский государственный университет</span>
+          <span class="trust-carousel-item">Башкирский государственный медицинский университет</span>
+          <span class="trust-carousel-item">Южно-Уральский государственный университет</span>
+          <span class="trust-carousel-item">Алтайский государственный университет</span>
+          <span class="trust-carousel-item">СВФУ им. М. К. Аммосова</span>
+          <span class="trust-carousel-item">Научно-технологический университет «Сириус»</span>
+          <span class="trust-carousel-item">НМИЦ психиатрии и наркологии им. В. П. Сербского</span>
+          <span class="trust-carousel-item">НИИ прикладной акустики</span>
+          <span class="trust-carousel-item">Институт бизнеса и дизайна</span>
+          <!-- дубль для бесшовной прокрутки -->
+          <span class="trust-carousel-item">МГТУ им. Н. Э. Баумана</span>
+          <span class="trust-carousel-item">НИУ «Высшая школа экономики»</span>
+          <span class="trust-carousel-item">РНИМУ им. Н. И. Пирогова</span>
+          <span class="trust-carousel-item">Российский государственный гуманитарный университет</span>
+          <span class="trust-carousel-item">МГППУ</span>
+          <span class="trust-carousel-item">Институт психологии РАН</span>
+          <span class="trust-carousel-item">Институт физиологии им. И. П. Павлова РАН</span>
+          <span class="trust-carousel-item">Институт языкознания РАН</span>
+          <span class="trust-carousel-item">СПбГУ</span>
+          <span class="trust-carousel-item">СПбПУ Петра Великого</span>
+          <span class="trust-carousel-item">Военно-медицинская академия им. С. М. Кирова</span>
+          <span class="trust-carousel-item">РГПУ им. А. И. Герцена</span>
+          <span class="trust-carousel-item">Институт эволюционной физиологии и биохимии им. И. М. Сеченова РАН</span>
+          <span class="trust-carousel-item">Научно-технологический университет «Сириус»</span>
+          <span class="trust-carousel-item">НМИЦ психиатрии и наркологии им. В. П. Сербского</span>
+          <span class="trust-carousel-item">ННГУ им. Н. И. Лобачевского</span>
+          <span class="trust-carousel-item">Алтайский государственный университет</span>
+          <span class="trust-carousel-item">СВФУ им. М. К. Аммосова</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== NEWS ===== -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Обновления</div>
+        <h2>Новости</h2>
+      </div>
+
+      <div class="news-grid reveal-stagger" id="news-grid-home"></div>
+    </div>
+  </section>
+
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Контакт</div>
+          <h2>Свяжитесь с нами</h2>
+          <p>Расскажите о ваших задачах — мы подберём решение, организуем демонстрацию и поможем с оформлением закупки.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              neiroiconica@yandex.ru
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></span>
+              +7 (931) 521-29-29
+            </div>
+          </div>
+        </div>
+        <div class="b24-form-wrapper reveal">
+          <script data-b24-form="inline/48/l1gd1w" data-skip-moving="true">
+          (function(w,d,u){
+          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/news-data.js"></script>
+  <script>
+    (function() {
+      const grid = document.getElementById('news-grid-home');
+      if (!grid || !window.NEWS) return;
+      NEWS.slice(0, 3).forEach((n, i) => {
+        const card = document.createElement('div');
+        card.className = 'news-card' + (i === 0 ? ' news-card--featured' : '');
+        card.innerHTML = `<div class="news-card-date">${n.date} · ${n.tag}</div><h4>${n.title}</h4><p>${n.text}</p>`;
+        grid.appendChild(card);
+      });
+    })();
+  </script>
+  <script src="js/cursor-glow.js"></script>
+</body>
+</html>

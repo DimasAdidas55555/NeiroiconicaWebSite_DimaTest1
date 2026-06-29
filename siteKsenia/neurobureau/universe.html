@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вселенная Нейробюро — модульная платформа для нейроисследований | Нейроиконика</title>
+  <meta name="description" content="Восемь продуктов Нейробюро: мультимодальная платформа, анализ эмоций, облако, чтение, юзабилити, стимулы, образование, когнитивное развитие. Десять модальностей, более 80 пользователей.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+
+<body data-product="neurobureau">
+
+  <div class="grid-bg"></div>
+  <div class="data-stream"></div>
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+        </span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Оборудование
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Нейробюро
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Ассистив
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="../assistiv/pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="../assistiv/games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="../assistiv/training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="../assistiv/manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="../assistiv/cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            О нас
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta">
+          <a href="../about/contacts.html" class="btn btn-primary">Связаться</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO (compact) ===== -->
+  <section class="hero hero--compact">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge"><span>Вселенная</span></div>
+        <h1 class="hero-title">
+          Вселенная
+          <span class="text-gradient">Нейробюро</span>
+        </h1>
+        <p class="hero-subtitle">
+          Восемь продуктов, объединённых единой целью — дать исследователю полный набор инструментов для каждого этапа работы. Компонуйте в любом сочетании: каждый модуль дополняет остальные в исследовательском цикле.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ECOSYSTEM INTRO ===== -->
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="hub-intro reveal">
+        <div class="hub-intro-text">
+          <div class="section-label">Вселенная</div>
+          <h2>Один цикл — от стимула до результата</h2>
+          <p>Нейробюро — это семейство продуктов, покрывающих весь исследовательский цикл: подготовка стимулов, предъявление, синхронная запись одиннадцати модальностей, обработка и анализ. Каждый продукт самостоятелен, но вместе они усиливают друг друга — вы сами решаете, какая комбинация нужна под вашу задачу.</p>
+        </div>
+        <div class="hub-intro-stats reveal-stagger">
+          <div class="hub-stat">
+            <div class="hub-stat-number" data-counter="8">0</div>
+            <div class="hub-stat-label">продуктов</div>
+          </div>
+          <div class="hub-stat">
+            <div class="hub-stat-number" data-counter="11">0</div>
+            <div class="hub-stat-label">модальностей</div>
+          </div>
+          <div class="hub-stat">
+            <div class="hub-stat-number" data-counter="80" data-suffix="+">0</div>
+            <div class="hub-stat-label">пользователей</div>
+          </div>
+          <div class="hub-stat">
+            <div class="hub-stat-number" data-counter="1" data-suffix=" мс">0</div>
+            <div class="hub-stat-label">точность синхр.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== PRODUCT GRID ===== -->
+  <section id="products">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Продукты</div>
+        <h2>Выберите свой набор</h2>
+        <p>Платформа и модули, которые дополняют друг друга на каждом этапе исследования.</p>
+      </div>
+
+      <style>
+        .universe-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+        .universe-grid-bottom {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.5rem;
+        }
+        @media (max-width: 900px) {
+          .universe-grid, .universe-grid-bottom {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .uni-card {
+          display: block;
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          border-left: 4px solid var(--card-color, var(--accent));
+          border-radius: var(--radius-md);
+          padding: 1.75rem;
+          text-decoration: none;
+          color: inherit;
+          transition: transform 0.2s, border-color 0.2s, background 0.2s;
+          position: relative;
+          overflow: hidden;
+        }
+        .uni-card:hover {
+          transform: translateY(-3px);
+          background: var(--bg-card-hover);
+          border-color: var(--card-color, var(--accent));
+        }
+        .uni-card-marker {
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          background: var(--card-color, var(--accent));
+          border-radius: 50%;
+          margin-bottom: 1rem;
+          box-shadow: 0 0 12px var(--card-color, var(--accent));
+        }
+        .uni-card-title {
+          color: var(--card-color, var(--accent));
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        }
+        .uni-card-desc {
+          color: var(--text-secondary);
+          font-size: 0.9rem;
+          line-height: 1.65;
+          margin: 0;
+        }
+        .uni-card-status {
+          font-family: var(--font-mono);
+          font-size: 0.7rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: var(--text-muted);
+          margin-top: 1rem;
+          display: block;
+        }
+        .uni-card-status--ready { color: var(--card-color, var(--accent)); }
+
+        /* Большая карточка платформы */
+        .uni-card--featured {
+          grid-column: 1 / -1;
+          padding: 2.5rem;
+          background: linear-gradient(135deg, var(--bg-card) 0%, rgba(59,130,246,0.05) 100%);
+          border-left-width: 6px;
+        }
+        .uni-card--featured .uni-card-title {
+          font-size: 2rem;
+          margin-bottom: 0.75rem;
+        }
+        .uni-card--featured .uni-card-desc {
+          font-size: 1.05rem;
+          line-height: 1.75;
+          max-width: 700px;
+        }
+
+        /* Маленькие карточки */
+        .uni-card--small {
+          padding: 1.25rem;
+        }
+        .uni-card--small .uni-card-title {
+          font-size: 1rem;
+          margin-bottom: 0.4rem;
+        }
+        .uni-card--small .uni-card-desc {
+          font-size: 0.85rem;
+          line-height: 1.55;
+        }
+      </style>
+
+      <!-- Большая карточка платформы -->
+      <div style="margin-bottom: 1.5rem;">
+        <a href="../products/neurobureau.html" class="uni-card uni-card--featured" style="--card-color: #3b82f6;">
+          <span class="uni-card-marker"></span>
+          <h3 class="uni-card-title">Нейробюро — мультимодальная платформа</h3>
+          <p class="uni-card-desc">
+            Ядро Вселенной и наш главный продукт. Айтрекинг — основной модуль, к которому подключаются физиология, ЭЭГ, мимика и голос. Синхронная запись, анализ без программирования, 28 показателей по областям интереса.
+          </p>
+          <span class="uni-card-status uni-card-status--ready">Доступно</span>
+        </a>
+      </div>
+
+      <!-- 4 средних карточки -->
+      <div class="universe-grid">
+        <a href="emotions.html" class="uni-card" style="--card-color: #6366f1;">
+          <span class="uni-card-marker"></span>
+          <h3 class="uni-card-title">Анализ эмоций</h3>
+          <p class="uni-card-desc">Распознавание эмоциональных реакций по мимике с веб-камеры. Автоматическая классификация базовых эмоций, валентности и интенсивности в реальном времени.</p>
+          <span class="uni-card-status uni-card-status--ready">Доступно</span>
+        </a>
+
+        <a href="cloud.html" class="uni-card" style="--card-color: #06b6d4;">
+          <span class="uni-card-marker"></span>
+          <h3 class="uni-card-title">Нейробюро.Облако</h3>
+          <p class="uni-card-desc">Облачное хранилище исследовательских данных. Совместный доступ для команды, управление проектами, автоматические отчёты.</p>
+          <span class="uni-card-status uni-card-status--ready">Доступно</span>
+        </a>
+
+        <a href="reading.html" class="uni-card" style="--card-color: #0ea5e9;">
+          <span class="uni-card-marker"></span>
+          <h3 class="uni-card-title">Нейробюро.Чтение</h3>
+          <p class="uni-card-desc">Расширенный конструктор экспериментов для исследования чтения. Автоматическое деление текстов на области интереса, уникальные методы коррекции вертикального дрейфа.</p>
+          <span class="uni-card-status">Скоро</span>
+        </a>
+
+        <a href="ux.html" class="uni-card" style="--card-color: #8b5cf6;">
+          <span class="uni-card-marker"></span>
+          <h3 class="uni-card-title">Нейробюро.Юзабилити</h3>
+          <p class="uni-card-desc">Анализ взаимодействия пользователей с сайтами, мобильными приложениями и прототипами интерфейсов. Объективные данные о том, как люди используют ваш продукт.</p>
+          <span class="uni-card-status">Скоро</span>
+        </a>
+      </div>
+
+      <!-- 3 маленьких карточки -->
+      <div class="universe-grid-bottom">
+        <a href="stimuli.html" class="uni-card uni-card--small" style="--card-color: #14b8a6;">
+          <span class="uni-card-marker"></span>
+          <h3 class="uni-card-title">Генератор стимулов</h3>
+          <p class="uni-card-desc">Пакетная генерация стимулов для основных когнитивных парадигм. Модуль оценки визуальной салиентности.</p>
+          <span class="uni-card-status">Скоро</span>
+        </a>
+
+        <a href="education.html" class="uni-card uni-card--small" style="--card-color: #0284c7;">
+          <span class="uni-card-marker"></span>
+          <h3 class="uni-card-title">Образовательный модуль</h3>
+          <p class="uni-card-desc">Готовые практикумы для школьников и студентов. Мотивирует на создание первых собственных исследований.</p>
+          <span class="uni-card-status">Скоро</span>
+        </a>
+
+        <a href="cognitive.html" class="uni-card uni-card--small" style="--card-color: #7c3aed;">
+          <span class="uni-card-marker"></span>
+          <h3 class="uni-card-title">Развивающий модуль</h3>
+          <p class="uni-card-desc">Методики развития когнитивных функций для детей и взрослых. Работает с айтрекером и без него.</p>
+          <span class="uni-card-status">Скоро</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CTA ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Начать</div>
+          <h2>Соберите свою Вселенную</h2>
+          <p>Расскажите о ваших задачах — мы подберём набор модулей и организуем демонстрацию. Более 80 исследователей в России и СНГ уже работают с Нейробюро.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              neiroiconica@yandex.ru
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></span>
+              +7 (931) 521-29-29
+            </div>
+          </div>
+        </div>
+        <div class="b24-form-wrapper reveal"><p style="color:var(--text-muted);font-style:italic;text-align:center;padding:2rem;">Форма обратной связи загружается...</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/form.js"></script>
+  <script src="../js/cursor-glow.js"></script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aSee Glasses — портативные айтрекинг-очки 7invensun — Нейроиконика</title>
+  <meta name="description" content="aSee Glasses — портативные айтрекинг-очки от 7invensun для исследований в реальных условиях. Частота до 240 Гц, точность 0.5°, вес 50 г.">
+<!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+
+<!--
+  ╔══════════════════════════════════════════════════════╗
+  ║  ШАБЛОН СТРАНИЦЫ ПРОДУКТА                           ║
+  ║  Для нового продукта:                               ║
+  ║  1. Скопируйте этот файл                            ║
+  ║  2. Замените data-product на body                    ║
+  ║     Варианты: eyetracker, fnirs, shielded-cameras    ║
+  ║  3. Обновите текст, изображения и SVG                ║
+  ╚══════════════════════════════════════════════════════╝
+-->
+
+<body data-product="asee">
+
+  <!-- Animated background grid -->
+  <div class="grid-bg"></div>
+  <div class="data-stream"></div>
+
+  <!-- Mobile overlay -->
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+        </span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Оборудование
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Нейробюро
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="../neurobureau/training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="../neurobureau/cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Ассистив
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="../assistiv/pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="../assistiv/games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="../assistiv/training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="../assistiv/manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="../assistiv/cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            О нас
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta">
+          <a href="../about/contacts.html" class="btn btn-primary">Связаться</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span>Технология айтрекинга</span>
+        </div>
+        <h1 class="hero-title">
+          Портативные
+          <span class="text-gradient">айтрекинг-очки</span>
+          нового поколения
+        </h1>
+        <p class="hero-subtitle">
+          Портативные айтрекинг-очки aSee Glasses от 7invensun для исследований в реальных условиях. До 240 Гц, точность 0.5°, всего 50 граммов.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Запросить демо</a>
+          <a href="#solution" class="btn btn-outline">Узнать больше</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-illustration">
+          <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background scanpath dots -->
+            <circle cx="60" cy="80" r="2" fill="var(--accent)" opacity="0.3"/>
+            <circle cx="140" cy="55" r="1.5" fill="var(--accent)" opacity="0.2"/>
+            <circle cx="240" cy="100" r="2.5" fill="var(--accent)" opacity="0.25"/>
+            <circle cx="340" cy="70" r="2" fill="var(--accent)" opacity="0.2"/>
+            <circle cx="420" cy="90" r="1.5" fill="var(--accent)" opacity="0.3"/>
+            <circle cx="80" cy="240" r="2" fill="var(--accent)" opacity="0.2"/>
+            <circle cx="190" cy="260" r="1.5" fill="var(--accent)" opacity="0.25"/>
+            <circle cx="390" cy="250" r="2" fill="var(--accent)" opacity="0.2"/>
+            <!-- Scanpath connecting lines -->
+            <path d="M60 80 L140 55 L240 100 L340 70 L420 90" stroke="var(--accent)" stroke-width="0.8" opacity="0.15" stroke-dasharray="3 5"/>
+            <path d="M80 240 L190 260 L390 250" stroke="var(--accent)" stroke-width="0.8" opacity="0.12" stroke-dasharray="3 5"/>
+
+            <!-- Glasses frame — left lens -->
+            <rect x="60" y="120" width="155" height="90" rx="18" stroke="var(--accent)" stroke-width="2.5" fill="rgba(96,165,250,0.04)"/>
+            <!-- Left lens inner glow -->
+            <rect x="68" y="128" width="139" height="74" rx="14" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+            <!-- Left pupil / gaze origin -->
+            <circle cx="137" cy="165" r="18" fill="rgba(96,165,250,0.08)" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="137" cy="165" r="8" fill="rgba(96,165,250,0.15)" stroke="var(--accent)" stroke-width="1" opacity="0.8"/>
+            <circle cx="137" cy="165" r="3" fill="var(--accent)" opacity="0.9"/>
+            <!-- Left camera sensor -->
+            <circle cx="88" cy="135" r="5" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="88" cy="135" r="2" fill="var(--accent)" opacity="0.4"/>
+            <circle cx="186" cy="135" r="5" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="186" cy="135" r="2" fill="var(--accent)" opacity="0.4"/>
+
+            <!-- Bridge -->
+            <path d="M215 155 Q240 145 265 155" stroke="var(--accent)" stroke-width="2.2" fill="none"/>
+
+            <!-- Glasses frame — right lens -->
+            <rect x="265" y="120" width="155" height="90" rx="18" stroke="var(--accent)" stroke-width="2.5" fill="rgba(96,165,250,0.04)"/>
+            <rect x="273" y="128" width="139" height="74" rx="14" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+            <!-- Right pupil / gaze origin -->
+            <circle cx="343" cy="165" r="18" fill="rgba(96,165,250,0.08)" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="343" cy="165" r="8" fill="rgba(96,165,250,0.15)" stroke="var(--accent)" stroke-width="1" opacity="0.8"/>
+            <circle cx="343" cy="165" r="3" fill="var(--accent)" opacity="0.9"/>
+            <!-- Right camera sensors -->
+            <circle cx="293" cy="135" r="5" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="293" cy="135" r="2" fill="var(--accent)" opacity="0.4"/>
+            <circle cx="392" cy="135" r="5" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="392" cy="135" r="2" fill="var(--accent)" opacity="0.4"/>
+
+            <!-- Left temple arm -->
+            <path d="M60 145 L10 148" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+            <!-- Right temple arm -->
+            <path d="M420 145 L470 148" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+
+            <!-- Gaze rays from left lens -->
+            <line x1="125" y1="155" x2="80" y2="240" stroke="var(--accent)" stroke-width="0.8" opacity="0.25" stroke-dasharray="4 4"/>
+            <line x1="137" y1="183" x2="140" y2="265" stroke="var(--accent)" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 4"/>
+            <!-- Gaze rays from right lens -->
+            <line x1="355" y1="155" x2="390" y2="240" stroke="var(--accent)" stroke-width="0.8" opacity="0.25" stroke-dasharray="4 4"/>
+            <line x1="343" y1="183" x2="345" y2="265" stroke="var(--accent)" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 4"/>
+
+            <!-- Data labels -->
+            <text x="62" y="115" fill="var(--accent)" font-family="monospace" font-size="8" opacity="0.5">КН:Л</text>
+            <text x="267" y="115" fill="var(--accent)" font-family="monospace" font-size="8" opacity="0.5">КН:П</text>
+            <text x="195" y="250" fill="var(--accent)" font-family="monospace" font-size="7" opacity="0.4">200Hz · ±0.5°</text>
+            <text x="330" y="285" fill="var(--accent)" font-family="monospace" font-size="7" opacity="0.35">ОТСЛЕЖИВАНИЕ ВЗГЛЯДА АКТИВНО</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== О МЕТОДЕ ===== -->
+  <section class="about-method" id="method">
+    <div class="container">
+      <div class="about-method-grid reveal">
+        <div class="about-method-visual">
+          <!-- Placeholder SVG: signal waveform -->
+          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Grid lines -->
+            <line x1="0" y1="150" x2="400" y2="150" stroke="var(--accent)" stroke-width="0.5" opacity="0.2"/>
+            <line x1="0" y1="75" x2="400" y2="75" stroke="var(--accent)" stroke-width="0.3" opacity="0.1" stroke-dasharray="4 4"/>
+            <line x1="0" y1="225" x2="400" y2="225" stroke="var(--accent)" stroke-width="0.3" opacity="0.1" stroke-dasharray="4 4"/>
+
+            <!-- Waveform -->
+            <path d="M0 150 Q25 150 50 120 T100 80 T150 150 T200 180 T250 100 T300 150 T350 130 T400 150" stroke="var(--accent)" stroke-width="2" fill="none" opacity="0.7" class="eye-path"/>
+
+            <!-- Heat points -->
+            <circle cx="100" cy="80" r="20" fill="var(--accent)" opacity="0.08"/>
+            <circle cx="250" cy="100" r="15" fill="var(--accent)" opacity="0.1"/>
+            <circle cx="200" cy="180" r="12" fill="var(--accent-light)" opacity="0.06"/>
+
+            <!-- Labels -->
+            <text x="10" y="20" fill="var(--accent)" font-family="monospace" font-size="9" opacity="0.5">АНАЛИЗ ФИКСАЦИЙ</text>
+            <text x="10" y="290" fill="var(--accent)" font-family="monospace" font-size="8" opacity="0.3">t(ms) 0 ——— 500 ——— 1000 ——— 1500 ——— 2000</text>
+          </svg>
+        </div>
+        <div class="about-method-text">
+          <div class="section-label">О методе</div>
+          <h2>Что такое портативные айтрекинг-очки</h2>
+          <p>
+            Портативные айтрекинг-очки позволяют исследовать зрительное поведение человека в естественных условиях — в магазине, на рабочем месте, в учебном классе, при вождении, на производстве.
+          </p>
+          <p>
+            В отличие от стационарного айтрекера, мобильные очки не ограничивают участника монитором: он свободно перемещается, взаимодействует с людьми и предметами, а камеры фиксируют и сцену перед ним, и направление его взгляда. Технология основана на роговичном отражении инфракрасного излучения.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ЧТО ДАЁТ МЕТОД ===== -->
+  <section class="benefits" id="benefits">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Преимущества</div>
+        <h2>Что дают портативные айтрекинг-очки</h2>
+        <p>Объективные данные о зрительном поведении в естественных условиях.</p>
+      </div>
+      <div class="benefits-grid reveal-stagger">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Исследования в реальном мире</h3>
+          <p>Участник свободно перемещается в естественной среде: магазин, музей, улица, рабочее место, учебный класс.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Минимальный вес</h3>
+          <p>Всего 50 граммов — очки не мешают естественному поведению и не утомляют при длительных сессиях.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Высокая частота записи</h3>
+          <p>До 240 Гц для точного анализа саккад, фиксаций и микродвижений глаз в динамичной среде.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <h3>Совместимость с коррекцией зрения</h3>
+          <p>Съёмные линзы для коррекции близорукости и ИК-фильтр в комплекте.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== НАШЕ РЕШЕНИЕ ===== -->
+  <section class="solution" id="solution">
+    <div class="container">
+      <div class="solution-grid reveal">
+        <div class="solution-image">
+          <div style="width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.03);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.1em;">ФОТО ПРОДУКТА</div>
+        </div>
+        <div class="solution-text">
+          <div class="section-label">Партнёрское оборудование</div>
+          <h2>aSee Glasses от 7invensun</h2>
+          <p>
+            Портативные айтрекинг-очки для исследований зрительного поведения в реальных условиях.
+          </p>
+          <ul class="solution-highlights">
+            <li>Частота дискретизации: 60 / 120 / 240 Гц</li>
+            <li>Точность: 0.5° визуального угла</li>
+            <li>Задержка: ≤10 мс</li>
+            <li>Вес: 50 г ± 3 г</li>
+            <li>Размеры: 152 × 28 × 175 мм</li>
+            <li>Подключение: USB 3.0</li>
+            <li>Встроенный микрофон</li>
+            <li>Съёмные линзы для коррекции зрения</li>
+            <li>ПО в комплекте: тепловые карты, графики взгляда, автоматическое картирование взгляда</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ФУНКЦИОНАЛ И ХАРАКТЕРИСТИКИ ===== -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Характеристики</div>
+        <h2>Функционал и спецификации aSee Glasses</h2>
+        <p>Всё, что нужно для профессиональных исследований в полевых условиях.</p>
+      </div>
+      <div class="features-grid reveal-stagger" style="grid-template-columns:repeat(2,1fr);">
+        <div class="feature-item feature-item--lg">
+          <span class="feature-num">01</span>
+          <div>
+            <h4>Частота до 240 Гц</h4>
+            <p>Три режима (60/120/240 Гц) для баланса между детализацией и длительностью записи.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-num">02</span>
+          <div>
+            <h4>Точность 0.5°</h4>
+            <p>Роговичное отражение обеспечивает надёжное отслеживание даже при движении головы.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-num">03</span>
+          <div>
+            <h4>Задержка ≤10 мс</h4>
+            <p>Данные о направлении взгляда передаются практически в реальном времени.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-num">04</span>
+          <div>
+            <h4>Вес 50 граммов</h4>
+            <p>Одни из самых лёгких портативных айтрекинг-очков на рынке, комфорт при длительном ношении.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-num">05</span>
+          <div>
+            <h4>Встроенный микрофон</h4>
+            <p>Запись аудио синхронно с данными о взгляде для анализа вербального поведения.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-num">06</span>
+          <div>
+            <h4>Съёмные корригирующие линзы</h4>
+            <p>Поддержка участников с нарушениями зрения без необходимости надевать очки поверх очков.</p>
+          </div>
+        </div>
+        <div class="feature-item feature-item--lg">
+          <span class="feature-num">07</span>
+          <div>
+            <h4>Программное обеспечение</h4>
+            <p>Иерархическое управление проектами, множественные схемы калибровки, тепловые карты, графики взгляда, автоматическое картирование взгляда.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-num">08</span>
+          <div>
+            <h4>Более 20 параметров</h4>
+            <p>Диаметр зрачка, координаты фиксации, данные саккад, морганий и другие показатели в сыром формате.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- ===== ФОРМА ОБРАТНОЙ СВЯЗИ ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Контакт</div>
+          <h2>Свяжитесь с нами</h2>
+          <p>Подберём конфигурацию портативных айтрекинг-очков под ваши задачи — от нейромаркетинга и юзабилити-исследований до спортивной науки и эргономики. Организуем демонстрацию и обучение.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="contact-detail-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              neiroiconica@yandex.ru
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              </span>
+              +7 (931) 521-29-29
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              Санкт-Петербург, Россия
+            </div>
+          </div>
+        </div>
+
+        <div class="b24-form-wrapper reveal">
+          <script data-b24-form="inline/48/l1gd1w" data-skip-moving="true">
+          (function(w,d,u){
+          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cursor-glow.js"></script>
+</body>
+</html>

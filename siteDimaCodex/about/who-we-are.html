@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О компании — Нейроиконика</title>
+  <meta name="description" content="Нейробюро — лидер в области нейротехнологий. Узнайте о нашей миссии, истории и команде.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/components.css">
+<style>
+.timeline { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 3rem; }
+.timeline::before { content: ''; position: absolute; left: 0.85rem; top: 0.5rem; bottom: 0.5rem; width: 1px; background: var(--border); }
+.timeline-item { display: grid; grid-template-columns: 5rem 1fr; gap: 1.5rem; padding: 1.5rem 0; position: relative; }
+.timeline-item::before { content: ''; position: absolute; left: -2.17rem; top: 1.8rem; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+.timeline-year { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); font-weight: 700; padding-top: 0.2rem; letter-spacing: 0.05em; }
+.timeline-content h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
+.timeline-content p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; }
+@media (max-width: 768px) { .timeline { padding-left: 2rem; } .timeline-item { grid-template-columns: 3.5rem 1fr; gap: 1rem; } }
+</style>
+</head>
+
+<body data-product="neurobureau">
+
+  <canvas id="constellation"></canvas>
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+        </span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Оборудование
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Нейробюро
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="../neurobureau/training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="../neurobureau/cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Ассистив
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="../assistiv/pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="../assistiv/games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="../assistiv/training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="../assistiv/manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="../assistiv/cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            О нас
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta">
+          <a href="contacts.html" class="btn btn-primary">Связаться</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO (compact) ===== -->
+  <section class="hero hero--compact">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge"><span>О компании</span></div>
+        <h1 class="hero-title">
+          Кто
+          <span class="text-gradient">мы</span>
+        </h1>
+        <p class="hero-subtitle">
+          Лидеры в области нейротехнологий и научного оборудования для исследований когнитивных процессов.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="dev-banner-wrap">
+    <div class="dev-page-banner">
+      <span><strong>В разработке</strong> — раздел готовится. Скоро здесь появится информация о миссии, истории и команде Нейроиконики.</span>
+    </div>
+  </div>
+
+
+  <!-- ===== НАША МИССИЯ ===== -->
+  <section>
+    <div class="container">
+      <div class="section-centered reveal">
+          <div class="section-label">Миссия</div>
+          <h2>Наша миссия</h2>
+          <p style="color:var(--text-muted);font-style:italic;border:1px dashed var(--border);padding:2rem;border-radius:var(--radius-md);text-align:center;">Раздел в разработке. Здесь будет текст о миссии компании, истории создания и ценностях.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ИСТОРИЯ ===== -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">История</div>
+        <h2>Наш путь</h2>
+      </div>
+      <div class="reveal">
+        <p style="color:var(--text-muted);font-style:italic;border:1px dashed var(--border);padding:2rem;border-radius:var(--radius-md);text-align:center;">Раздел в разработке. Здесь будет таймлайн с ключевыми этапами развития компании.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ЦИФРЫ ===== -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Компания в цифрах</div>
+        <h2>Цифры, которые говорят за нас</h2>
+      </div>
+      <div class="reveal">
+        <p style="color:var(--text-muted);font-style:italic;border:1px dashed var(--border);padding:2rem;border-radius:var(--radius-md);text-align:center;">Раздел в разработке. Здесь будут ключевые показатели компании: годы работы, количество сотрудников, пользователей и публикаций.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/constellation.js"></script>
+  <script src="../js/cursor-glow.js"></script>
+</body>
+</html>

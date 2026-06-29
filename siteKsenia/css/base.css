@@ -1,0 +1,329 @@
+/* ===== CSS Custom Properties (Theme System) ===== */
+:root {
+  /* Dark theme defaults (Нейробюро) */
+  --bg-primary: #06090f;
+  --bg-secondary: #0c1120;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2234;
+  --bg-nav: rgba(6, 9, 15, 0.85);
+
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --border: rgba(148, 163, 184, 0.12);
+  --border-hover: rgba(148, 163, 184, 0.25);
+
+  /* Accent — override per product */
+  --accent: #60a5fa;
+  --accent-light: #93c5fd;
+  --accent-dark: #2563eb;
+  --accent-glow: rgba(96, 165, 250, 0.15);
+  --accent-glow-strong: rgba(96, 165, 250, 0.3);
+
+  /* Grid / oscilloscope */
+  --grid-color: rgba(96, 165, 250, 0.06);
+  --grid-color-bright: rgba(96, 165, 250, 0.12);
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* Spacing */
+  --section-gap: 7rem;
+  --container-width: 1200px;
+  --container-padding: 1.5rem;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Border radius — sharp/angular aesthetic */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-full: 9999px; /* pills & badges only */
+}
+
+/* ===== Product accent overrides ===== */
+/* Нейробюро — синий (основной фирменный) */
+body[data-product="neurobureau"] {
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --accent-dark: #1d4ed8;
+  --accent-glow: rgba(59, 130, 246, 0.15);
+  --accent-glow-strong: rgba(59, 130, 246, 0.3);
+  --grid-color: rgba(59, 130, 246, 0.06);
+  --grid-color-bright: rgba(59, 130, 246, 0.12);
+}
+
+/* Айтрекер Нейробюро — янтарный */
+body[data-product="eyetracker"] {
+  --accent: #f59e0b;
+  --accent-light: #fbbf24;
+  --accent-dark: #d97706;
+  --accent-glow: rgba(245, 158, 11, 0.15);
+  --accent-glow-strong: rgba(245, 158, 11, 0.3);
+  --grid-color: rgba(245, 158, 11, 0.06);
+  --grid-color-bright: rgba(245, 158, 11, 0.12);
+}
+
+/* Ассистив / Стерх — белый */
+body[data-product="assistiv"] {
+  --accent: #e2e8f0;
+  --accent-light: #f1f5f9;
+  --accent-dark: #cbd5e1;
+  --accent-glow: rgba(226, 232, 240, 0.12);
+  --accent-glow-strong: rgba(226, 232, 240, 0.25);
+  --grid-color: rgba(226, 232, 240, 0.05);
+  --grid-color-bright: rgba(226, 232, 240, 0.1);
+}
+
+/* fNIRS / InfraMind II — фиолетовый */
+body[data-product="fnirs"] {
+  --accent: #a78bfa;
+  --accent-light: #c4b5fd;
+  --accent-dark: #7c3aed;
+  --accent-glow: rgba(167, 139, 250, 0.15);
+  --accent-glow-strong: rgba(167, 139, 250, 0.3);
+  --grid-color: rgba(167, 139, 250, 0.06);
+  --grid-color-bright: rgba(167, 139, 250, 0.12);
+}
+
+/* aSee Glasses — зелёный (партнёрский) */
+body[data-product="asee"] {
+  --accent: #10b981;
+  --accent-light: #34d399;
+  --accent-dark: #059669;
+  --accent-glow: rgba(16, 185, 129, 0.15);
+  --accent-glow-strong: rgba(16, 185, 129, 0.3);
+  --grid-color: rgba(16, 185, 129, 0.06);
+  --grid-color-bright: rgba(16, 185, 129, 0.12);
+}
+
+/* Экранированные камеры — серый (инфраструктура) */
+body[data-product="shielded-cameras"] {
+  --accent: #94a3b8;
+  --accent-light: #cbd5e1;
+  --accent-dark: #64748b;
+  --accent-glow: rgba(148, 163, 184, 0.15);
+  --accent-glow-strong: rgba(148, 163, 184, 0.3);
+  --grid-color: rgba(148, 163, 184, 0.06);
+  --grid-color-bright: rgba(148, 163, 184, 0.12);
+}
+
+/* ===== Цвета модулей Вселенной Нейробюро ===== */
+/* Используются как точечные акценты на карточках, не меняют --accent страницы */
+:root {
+  --color-emotions: #6366f1;      /* индиго */
+  --color-cloud: #06b6d4;         /* бирюзовый */
+  --color-reading: #0ea5e9;       /* небесный */
+  --color-usability: #8b5cf6;     /* фиалковый */
+  --color-stimuli: #14b8a6;       /* тил */
+  --color-education: #0284c7;     /* глубокий голубой */
+  --color-cognitive: #7c3aed;     /* тёмно-фиолетовый */
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; }
+h2 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+h4 { font-size: 1.125rem; }
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 65ch;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-light);
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+section {
+  padding: var(--section-gap) 0;
+  position: relative;
+}
+
+/* Чередование фонов между секциями для лучшей читаемости */
+main > section:nth-of-type(even),
+body > section:nth-of-type(even) {
+  background: var(--bg-secondary);
+}
+
+/* ===== Section Header ===== */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid var(--accent);
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.25rem;
+}
+
+.section-header h2 {
+  margin-bottom: 1.25rem;
+}
+
+.section-header p {
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  opacity: 0.85;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 20px var(--accent-glow-strong);
+}
+
+.btn-primary:hover {
+  background: var(--accent-light);
+  color: #fff;
+  box-shadow: 0 0 30px var(--accent-glow-strong);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.btn-outline:hover {
+  background: var(--accent-glow);
+  color: var(--accent-light);
+  border-color: var(--accent-light);
+}
+
+/* ===== Utility ===== */
+.mono {
+  font-family: var(--font-mono);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Scroll Reveal ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.35s; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.4s; }
+.reveal-stagger.visible > *:nth-child(7) { transition-delay: 0.45s; }
+.reveal-stagger.visible > *:nth-child(8) { transition-delay: 0.5s; }
+.reveal-stagger.visible > *:nth-child(9) { transition-delay: 0.55s; }
+.reveal-stagger.visible > *:nth-child(10) { transition-delay: 0.6s; }
+.reveal-stagger.visible > *:nth-child(11) { transition-delay: 0.65s; }
+.reveal-stagger.visible > *:nth-child(12) { transition-delay: 0.7s; }
+
+.reveal-stagger.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  :root {
+    --section-gap: 4rem;
+    --container-padding: 1rem;
+  }
+}

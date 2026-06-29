@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Руководство пользователя — Нейробюро | Нейроиконика</title>
+  <meta name="description" content="Документация и руководство пользователя для продуктов Нейробюро. Установка, настройка, калибровка, запись данных, анализ и экспорт.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+
+<body data-product="neurobureau">
+
+  <div class="grid-bg"></div>
+  <div class="data-stream"></div>
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+        </span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Оборудование
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Нейробюро
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Ассистив
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="../assistiv/pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="../assistiv/games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="../assistiv/training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="../assistiv/manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="../assistiv/cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            О нас
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta">
+          <a href="../about/contacts.html" class="btn btn-primary">Связаться</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO (compact) ===== -->
+  <section class="hero hero--compact">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge"><span>Документация</span></div>
+        <h1 class="hero-title">
+          Руководство
+          <span class="text-gradient">пользователя</span>
+        </h1>
+        <p class="hero-subtitle">
+          Полная документация по установке, настройке и работе с платформой Нейробюро. От первого запуска до продвинутого анализа данных.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== DOCS LAYOUT ===== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="docs-layout">
+
+        <!-- Sidebar -->
+        <div class="docs-sidebar">
+          <ul class="docs-nav">
+            <li class="docs-nav-section">1. Главное окно</li>
+            <li><a href="#main-window" class="active">Главное окно и навигация</a></li>
+
+            <li class="docs-nav-section">2. Создание эксперимента</li>
+            <li><a href="#create-experiment">Создание эксперимента</a></li>
+
+            <li class="docs-nav-section">3. Проведение эксперимента</li>
+            <li><a href="#sample-criteria">3.1. Выборка: критерии исключения</a></li>
+            <li><a href="#conditions">3.2. Условия проведения</a></li>
+            <li><a href="#eyetracking-utility">3.3. Айтрекинг: запуск утилиты</a></li>
+            <li><a href="#sensors-connect-pc">3.4. Датчики: подключение к ПК</a></li>
+            <li><a href="#sensors-connect-subject">3.5. Датчики: подключение электродов</a></li>
+            <li><a href="#run-settings">3.6. Настройки</a></li>
+            <li><a href="#baseline">3.7. Запись базового уровня</a></li>
+            <li><a href="#drift-correction">3.8. Коррекция дрейфа</a></li>
+            <li><a href="#equipment-list">3.9. Список оборудования</a></li>
+            <li><a href="#run-experiment">3.10. Запуск эксперимента</a></li>
+            <li><a href="#signal-preview">3.11. Предпросмотр сигнала</a></li>
+            <li><a href="#calibration">3.12. Калибровка</a></li>
+
+            <li class="docs-nav-section">4. Анализ эксперимента</li>
+            <li><a href="#analysis-menu">4.1. Главное меню</a></li>
+            <li><a href="#analysis-settings">4.2. Настройки</a></li>
+            <li><a href="#stimuli-list">4.3. Список стимулов</a></li>
+            <li><a href="#subjects-list">4.4. Список испытуемых</a></li>
+            <li><a href="#charts">4.5. Графики</a></li>
+            <li><a href="#visualizations">4.6. Визуализации</a></li>
+            <li><a href="#transition-matrix">4.7. Матрица переходов</a></li>
+            <li><a href="#aoi">4.8. Области интереса</a></li>
+            <li><a href="#scanpath-comparison">4.9. Сравнение путей сканирования</a></li>
+            <li><a href="#physio-analysis">4.10. Анализ физиологических данных</a></li>
+            <li><a href="#export-wizard">4.11. Мастер экспорта</a></li>
+
+            <li class="docs-nav-section">5. Приложения</li>
+            <li><a href="#appendices">Приложения</a></li>
+          </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="docs-content">
+          <h1>Руководство пользователя</h1>
+          <p>Руководство пользователя платформы Нейробюро. Документация охватывает весь цикл работы — от создания эксперимента до экспорта результатов.</p>
+
+          <!-- 1. Главное окно и навигация -->
+          <h2 id="main-window">1. Главное окно и навигация по экспериментам</h2>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <!-- 2. Создание эксперимента -->
+          <h2 id="create-experiment">2. Создание эксперимента</h2>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <!-- 3. Проведение эксперимента -->
+          <h2 id="run-section">3. Проведение эксперимента</h2>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="sample-criteria">3.1. Выборка: критерии исключения в айтрекинг исследованиях</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="conditions">3.2. Условия проведения психофизиологических исследований</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="eyetracking-utility">3.3. Айтрекинг: запуск утилиты</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="sensors-connect-pc">3.4. Физиологические датчики: подключение к компьютеру</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="sensors-connect-subject">3.5. Физиологические датчики: подключение электродов к испытуемому</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="run-settings">3.6. Настройки</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="baseline">3.7. Настройка записи базового уровня сигнала</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="drift-correction">3.8. Настройка автоматической коррекции дрейфа</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="equipment-list">3.9. Список доступного оборудования</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="run-experiment">3.10. Запуск эксперимента</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="signal-preview">3.11. Предпросмотр сигнала с физиологических датчиков</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="calibration">3.12. Калибровка</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <!-- 4. Анализ эксперимента -->
+          <h2 id="analysis-section">4. Анализ эксперимента</h2>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="analysis-menu">4.1. Главное меню</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="analysis-settings">4.2. Настройки</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="stimuli-list">4.3. Список стимулов</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="subjects-list">4.4. Список испытуемых</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="charts">4.5. Графики</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="visualizations">4.6. Визуализации (карта движения взгляда, тепловая карта, туманная карта, пчелиный рой)</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="transition-matrix">4.7. Матрица переходов между областями интереса</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="aoi">4.8. Области интереса (выделение, редактирование, метрики)</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="scanpath-comparison">4.9. Сравнение путей сканирования</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="physio-analysis">4.10. Анализ физиологических данных (зрачок, моргания, КГР, ЭМГ, ЭКГ)</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <h3 id="export-wizard">4.11. Мастер экспорта</h3>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+          <!-- 5. Приложения -->
+          <h2 id="appendices">5. Приложения</h2>
+          <div style="border:1px dashed var(--border);padding:1.5rem;border-radius:var(--radius-md);margin:1rem 0 2rem;text-align:center;color:var(--text-muted);font-style:italic;font-size:0.9rem;">
+            Раздел в разработке
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cursor-glow.js"></script>
+</body>
+</html>

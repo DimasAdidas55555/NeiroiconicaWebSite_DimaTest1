@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EyeCommunicator — Нейроиконика Ассистив</title>
+  <meta name="description" content="EyeCommunicator — российский ассистивный аппаратно-программный комплекс. Управление компьютером взглядом, синтез речи, доступ в интернет и мессенджеры. Айтрекер Стерх, планшет Пионер, крепления и аксессуары.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/assistiv.css">
+  <style>
+    /* ─── Hero illustration ─── */
+    .hero-illustration { display: flex; align-items: center; justify-content: center; }
+    .hero-illustration svg { width: 100%; max-width: 460px; height: auto; filter: drop-shadow(0 8px 32px rgba(26, 79, 204,0.15)); }
+
+    /* ─── Hero two-column ─── */
+    .hero--twocol .hero-content { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(26,79,204,0.12); border: 1px solid rgba(26,79,204,0.25); border-radius: 9999px; padding: 0.35em 1em; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 1.5rem; }
+
+    /* ─── Numbered section blocks (à la Нейробюро) ─── */
+    .num-grid { display: grid; gap: 1.5rem; }
+    .num-grid--2 { grid-template-columns: 1fr 1fr; }
+    .num-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .num-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 1.75rem 1.5rem 1.5rem;
+      transition: border-color .2s, transform .2s, background .2s;
+    }
+    .num-card:hover { border-color: var(--accent); border-left-color: var(--accent-light); transform: translateY(-3px); }
+    .num-card .num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.55rem;
+      display: block;
+    }
+    .num-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
+    .num-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin: 0; }
+    .num-card-status {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-glow);
+      padding: 0.2em 0.7em;
+      margin-top: 1rem;
+    }
+    .num-card-status--soon { color: var(--text-muted); background: rgba(74,111,165,0.08); }
+
+    /* ─── About / О методе ─── */
+    .about { background: var(--bg-secondary); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-svg { display: flex; align-items: center; justify-content: center; }
+    .about-svg svg { width: 100%; max-width: 340px; height: auto; }
+    .about-text .section-label { margin-bottom: 1rem; }
+    .about-text h2 { margin-bottom: 1.25rem; }
+    .about-text p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 1rem; }
+
+    /* ─── Hardware models ─── */
+    .models-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .model-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2rem 1.75rem;
+      position: relative;
+      transition: border-color .2s, transform .2s;
+    }
+    .model-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .model-card .model-tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.5rem; display: inline-block; }
+    .model-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .model-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; }
+    .model-card .model-meta { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+
+    /* ─── Pioneer feature card (большая, кликабельная) ─── */
+    .pioneer-promo {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      overflow: hidden;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .pioneer-promo:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(26,79,204,0.12); color: inherit; }
+    .pioneer-promo-visual {
+      background: linear-gradient(135deg, rgba(26,79,204,0.08) 0%, rgba(26,79,204,0.02) 100%);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2.5rem;
+      min-height: 320px;
+    }
+    .pioneer-promo-visual svg { width: 100%; max-width: 320px; height: auto; }
+    .pioneer-promo-body { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+    .pioneer-promo-tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.75rem; }
+    .pioneer-promo h3 { font-size: 1.85rem; line-height: 1.15; margin-bottom: 1rem; }
+    .pioneer-promo p { color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem; }
+    .pioneer-promo-features { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; margin-bottom: 1.75rem; }
+    .pioneer-promo-features span { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); }
+    .pioneer-promo-features span::before { content: "→ "; color: var(--accent); }
+    .pioneer-promo-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-sans); font-weight: 600; font-size: 0.95rem;
+      color: var(--accent); letter-spacing: 0.01em;
+    }
+    .pioneer-promo-cta svg { width: 18px; height: 18px; transition: transform .25s; }
+    .pioneer-promo:hover .pioneer-promo-cta svg { transform: translateX(4px); }
+
+    /* ─── Mounts (in-development) ─── */
+    .mounts-section { background: var(--bg-secondary); }
+    .mounts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+    .mount-card {
+      background: var(--bg-card);
+      border: 1px dashed var(--border);
+      padding: 1.5rem 1.25rem;
+      position: relative;
+    }
+    .mount-card .mount-num { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.5rem; display: block; }
+    .mount-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-primary); }
+    .mount-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+    .dev-banner {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.78rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.4rem 0.85rem;
+      background: rgba(74,111,165,0.08);
+      border: 1px dashed var(--border);
+      margin-bottom: 1rem;
+    }
+
+    /* ─── Audience cards ─── */
+    .audience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .audience-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.75rem 1.5rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .audience-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .audience-card .audience-icon { width: 40px; height: 40px; background: rgba(26,79,204,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .audience-card .audience-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .audience-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
+    .audience-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* ─── Contact ─── */
+    .contact { background: var(--bg-secondary); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact-text h2 { margin-bottom: 1rem; }
+    .contact-text p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 0.75rem; }
+    .trial-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(26,79,204,0.12);
+      border: 1px solid rgba(26,79,204,0.25);
+      border-radius: 9999px;
+      padding: 0.35em 1em;
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--accent);
+      margin-top: 0.75rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero--twocol .hero-content { grid-template-columns: 1fr; }
+      .hero-illustration { order: -1; }
+      .num-grid--2, .num-grid--4 { grid-template-columns: 1fr 1fr; }
+      .about-grid, .models-grid, .contact-grid, .pioneer-promo { grid-template-columns: 1fr; }
+      .audience-grid { grid-template-columns: 1fr 1fr; }
+      .mounts-grid { grid-template-columns: 1fr; }
+      .pioneer-promo-visual { min-height: 220px; padding: 1.5rem; }
+      .pioneer-promo-body { padding: 1.75rem; }
+    }
+    @media (max-width: 560px) {
+      .num-grid--2, .num-grid--4, .audience-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body data-product="assistiv">
+  <div class="grid-bg"></div>
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg></span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Оборудование <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Нейробюро <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="../neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="../neurobureau/training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="../neurobureau/cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Ассистив <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">О нас <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta"><a href="../about/contacts.html" class="btn btn-primary">Связаться</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero hero--twocol">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge">Ассистивные технологии</div>
+          <h1 class="hero-title">EyeCommunicator —<br><span class="text-gradient">голос для каждого</span></h1>
+          <p class="hero-subtitle">Российский аппаратно-программный комплекс для управления компьютером с помощью движений глаз. Айтрекер Стерх, программа коммуникации, синтез речи на русском языке — мы возвращаем голос тем, кто не может говорить.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Запросить демо</a>
+            <a href="#features" class="btn btn-outline">Узнать больше</a>
+          </div>
+        </div>
+        <div class="hero-illustration reveal">
+          <svg viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="bg-grad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="rgba(45,106,237,0.08)"/>
+                <stop offset="100%" stop-color="rgba(45,106,237,0)"/>
+              </radialGradient>
+              <radialGradient id="iris-grad" cx="38%" cy="35%" r="60%">
+                <stop offset="0%" stop-color="#7aabff"/>
+                <stop offset="100%" stop-color="#1a4fcc"/>
+              </radialGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <ellipse cx="230" cy="210" rx="200" ry="170" fill="url(#bg-grad)"/>
+            <!-- Eye -->
+            <path d="M 60 170 Q 130 120 200 170 Q 130 220 60 170 Z" fill="white" opacity="0.9"/>
+            <circle cx="130" cy="170" r="32" fill="url(#iris-grad)"/>
+            <circle cx="130" cy="170" r="24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <circle cx="130" cy="170" r="16" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <circle cx="130" cy="170" r="12" fill="#0d1b3e"/>
+            <circle cx="124" cy="164" r="4" fill="white" opacity="0.7"/>
+            <path d="M 60 170 Q 130 120 200 170" fill="none" stroke="#1a4fcc" stroke-width="2" stroke-linecap="round"/>
+            <path d="M 60 170 Q 130 218 200 170" fill="none" stroke="#1a4fcc" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="90" y1="139" x2="86" y2="130" stroke="#2d6aed" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="110" y1="127" x2="108" y2="118" stroke="#2d6aed" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="130" y1="122" x2="130" y2="113" stroke="#2d6aed" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="150" y1="127" x2="152" y2="118" stroke="#2d6aed" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="170" y1="139" x2="174" y2="130" stroke="#2d6aed" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Gaze ray -->
+            <path d="M 200 170 C 270 165 300 220 320 240" fill="none" stroke="#2d6aed" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" opacity="0.7"/>
+            <circle cx="320" cy="240" r="6" fill="#2d6aed" opacity="0.85" filter="url(#glow)"/>
+            <circle cx="320" cy="240" r="12" fill="none" stroke="#2d6aed" stroke-width="1.5" opacity="0.4"/>
+            <!-- Screen -->
+            <rect x="245" y="265" width="170" height="115" rx="10" fill="#0d1b3e" stroke="#1a4fcc" stroke-width="1.5"/>
+            <rect x="253" y="273" width="154" height="99" rx="6" fill="#0a1228"/>
+            <rect x="261" y="281" width="138" height="83" rx="4" fill="rgba(45,106,237,0.07)"/>
+            <circle cx="322" cy="320" r="5" fill="#2d6aed" opacity="0.9"/>
+            <circle cx="322" cy="320" r="10" fill="none" stroke="#2d6aed" stroke-width="1.5" opacity="0.5" stroke-dasharray="3 3"/>
+            <rect x="269" y="289" width="60" height="6" rx="3" fill="rgba(45,106,237,0.25)"/>
+            <rect x="269" y="301" width="90" height="4" rx="2" fill="rgba(45,106,237,0.15)"/>
+            <rect x="269" y="311" width="75" height="4" rx="2" fill="rgba(45,106,237,0.15)"/>
+            <rect x="269" y="321" width="50" height="4" rx="2" fill="rgba(45,106,237,0.1)"/>
+            <rect x="269" y="331" width="80" height="4" rx="2" fill="rgba(45,106,237,0.1)"/>
+            <rect x="269" y="341" width="60" height="4" rx="2" fill="rgba(45,106,237,0.1)"/>
+            <path d="M 238 380 L 422 380 L 436 395 Q 436 400 430 400 L 230 400 Q 224 400 224 395 Z" fill="#0d1b3e" stroke="#1a4fcc" stroke-width="1.2"/>
+            <rect x="302" y="378" width="56" height="4" rx="2" fill="#1a4fcc" opacity="0.5"/>
+            <!-- IR cluster -->
+            <circle cx="390" cy="100" r="40" fill="rgba(45,106,237,0.06)" stroke="rgba(45,106,237,0.1)" stroke-width="1"/>
+            <circle cx="390" cy="100" r="22" fill="rgba(45,106,237,0.08)"/>
+            <circle cx="378" cy="88" r="3" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="390" cy="82" r="3" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="402" cy="88" r="3" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="402" cy="100" r="3" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="390" cy="106" r="3" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="378" cy="100" r="3" fill="#2d6aed" opacity="0.4"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== О МЕТОДЕ ===== -->
+  <section class="about" id="method">
+    <div class="container">
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <div class="section-label">О методе</div>
+          <h2>Инфракрасная видеоокулография</h2>
+          <p>В основе комплекса — метод инфракрасной видеоокулографии: компактная видеокамера с невидимой ИК-подсветкой, закреплённая под монитором, определяет точку фиксации взгляда пользователя.</p>
+          <p>Движение взгляда приравнивается к движению курсора, фиксация взгляда — к нажатию кнопки мыши. Метод неинвазивный и бесконтактный — никаких креплений на голове, никаких электродов.</p>
+          <p>EyeCommunicator работает в ОС Windows на стационарных компьютерах и планшетах. Полностью русскоязычный интерфейс и поддержка.</p>
+        </div>
+        <div class="about-svg">
+          <svg viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="dot-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#2d6aed" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#2d6aed" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect x="20" y="20" width="300" height="220" rx="14" fill="#0a1228" stroke="#1a4fcc" stroke-width="1.5"/>
+            <rect x="28" y="28" width="284" height="204" rx="10" fill="#111f1a"/>
+            <text x="170" y="52" text-anchor="middle" font-size="11" fill="#2d6aed" opacity="0.6" font-family="Inter, sans-serif" font-weight="500">Калибровка взгляда</text>
+            <circle cx="80" cy="90" r="20" fill="url(#dot-glow)" opacity="0.5"/>
+            <circle cx="80" cy="90" r="7" fill="#2d6aed"/>
+            <circle cx="80" cy="90" r="11" fill="none" stroke="#2d6aed" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6">
+              <animateTransform attributeName="transform" type="rotate" from="0 80 90" to="360 80 90" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="170" cy="90" r="5" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="170" cy="90" r="9" fill="none" stroke="#2d6aed" stroke-width="1" opacity="0.2"/>
+            <circle cx="260" cy="90" r="5" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="260" cy="90" r="9" fill="none" stroke="#2d6aed" stroke-width="1" opacity="0.2"/>
+            <circle cx="80" cy="155" r="5" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="80" cy="155" r="9" fill="none" stroke="#2d6aed" stroke-width="1" opacity="0.2"/>
+            <circle cx="170" cy="155" r="5" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="170" cy="155" r="9" fill="none" stroke="#2d6aed" stroke-width="1" opacity="0.2"/>
+            <circle cx="260" cy="155" r="5" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="260" cy="155" r="9" fill="none" stroke="#2d6aed" stroke-width="1" opacity="0.2"/>
+            <circle cx="80" cy="220" r="5" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="80" cy="220" r="9" fill="none" stroke="#2d6aed" stroke-width="1" opacity="0.2"/>
+            <circle cx="170" cy="220" r="5" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="170" cy="220" r="9" fill="none" stroke="#2d6aed" stroke-width="1" opacity="0.2"/>
+            <circle cx="260" cy="220" r="5" fill="#2d6aed" opacity="0.4"/>
+            <circle cx="260" cy="220" r="9" fill="none" stroke="#2d6aed" stroke-width="1" opacity="0.2"/>
+            <circle cx="80" cy="90" r="5" fill="white" opacity="0.8"/>
+            <path d="M 14 240 L 326 240 L 338 256 Q 338 262 332 262 L 8 262 Q 2 262 2 256 Z" fill="#1e2d28" stroke="#1a4fcc" stroke-width="1.2"/>
+            <rect x="142" y="239" width="56" height="4" rx="2" fill="#1a4fcc" opacity="0.4"/>
+            <rect x="28" y="274" width="284" height="5" rx="2.5" fill="rgba(74,163,120,0.1)"/>
+            <rect x="28" y="274" width="95" height="5" rx="2.5" fill="#2d6aed" opacity="0.7"/>
+            <text x="28" y="294" font-size="10" fill="#2d6aed" opacity="0.5" font-family="Inter, sans-serif">Точка 1 из 9 — смотрите на точку</text>
+            <ellipse cx="170" cy="325" rx="30" ry="13" fill="none" stroke="#2d6aed" stroke-width="1.5" opacity="0.4"/>
+            <circle cx="170" cy="325" r="7" fill="#2d6aed" opacity="0.3"/>
+            <circle cx="170" cy="325" r="3" fill="#2d6aed" opacity="0.5"/>
+            <line x1="170" y1="312" x2="170" y2="268" stroke="#2d6aed" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.35"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ЧТО ДАЁТ ===== -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Преимущества</div>
+        <h2>Что даёт управление взглядом</h2>
+      </div>
+      <div class="num-grid num-grid--4 reveal-stagger">
+        <div class="num-card">
+          <span class="num">01</span>
+          <h3>Голос для тех, кто не может говорить</h3>
+          <p>Синтез речи на русском языке озвучивает набранный текст. Программа произносит выбранные фразы вслух — голосом, понятным окружающим.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">02</span>
+          <h3>Управление компьютером без рук</h3>
+          <p>Полный доступ к ОС Windows, программам, интернету и мессенджерам с помощью одних только глаз. Движение взгляда — это движение курсора.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">03</span>
+          <h3>Независимость и общение</h3>
+          <p>Пользователь самостоятельно пишет сообщения, выходит в интернет, общается в мессенджерах и социальных сетях — без посторонней помощи.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">04</span>
+          <h3>Российская разработка</h3>
+          <p>Создано с учётом отечественных стандартов и потребностей пользователей. Русскоязычный интерфейс и техподдержка, работа без интернета.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== АППАРАТНАЯ ЧАСТЬ ===== -->
+  <section style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Аппаратная часть</div>
+        <h2>Айтрекер Стерх — модели комплекса</h2>
+        <p>ИК-камера с невидимой подсветкой устанавливается под монитором. Все модели работают в ОС Windows на стационарных компьютерах.</p>
+      </div>
+      <div class="models-grid reveal-stagger">
+        <div class="model-card">
+          <span class="model-tag">01 · Домашний</span>
+          <h3>Стерх Домашний</h3>
+          <p>Компактный комплект для использования дома: ИК-камера + программное обеспечение EyeCommunicator + монитор 21.5". Устанавливается на рабочее место и интегрируется с обычным компьютером.</p>
+          <div class="model-meta">→ Для индивидуального пользователя</div>
+        </div>
+        <div class="model-card">
+          <span class="model-tag">02 · Профессиональный</span>
+          <h3>Стерх Профессиональный</h3>
+          <p>Для реабилитационных центров и учреждений: увеличенный экран 23.8", усиленная конструкция, расширенная техподдержка. Рассчитан на интенсивное использование несколькими специалистами.</p>
+          <div class="model-meta">→ Для центров и учреждений</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ФУНКЦИОНАЛ ===== -->
+  <section id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Возможности</div>
+        <h2>Функционал программы</h2>
+        <p>Всё, что нужно для полноценного общения и работы за компьютером — в одном программном комплексе.</p>
+      </div>
+      <div class="num-grid num-grid--2 reveal-stagger">
+        <div class="num-card">
+          <span class="num">01 · Ввод текста</span>
+          <h3>Экранная клавиатура с управлением взглядом</h3>
+          <p>Полноценная экранная клавиатура, управляемая движениями глаз. Пользователь набирает текст, выбирая буквы и слова взглядом, для переписки, работы с документами и поиска в интернете.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">02 · Интеллект</span>
+          <h3>Предиктивный ввод</h3>
+          <p>Предсказание следующего слова ускоряет набор текста и снижает утомляемость пользователя. Программа учится на основе словаря и истории ввода.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">03 · Речь</span>
+          <h3>Синтез речи на русском языке</h3>
+          <p>Программа озвучивает набранный текст через синтезатор речи на русском языке, возвращая возможность голосового общения тем, кто не может говорить.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">04 · Коммуникация</span>
+          <h3>Библиотека быстрых фраз</h3>
+          <p>Заранее заготовленные высказывания для частых ситуаций доступны одним взглядом. Можно создавать собственные наборы под индивидуальные нужды.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">05 · Интернет</span>
+          <h3>Доступ к браузеру, мессенджерам, соцсетям</h3>
+          <p>Полноценный доступ к веб-сайтам, мессенджерам и социальным сетям, переписка в email — всё с помощью управления взглядом, без участия рук.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">06 · Настройка</span>
+          <h3>Адаптация под пользователя</h3>
+          <p>Скорость отклика, чувствительность, размер элементов и цветовые схемы настраиваются под индивидуальные особенности и предпочтения пользователя.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ПИОНЕР PROMO ===== -->
+  <section style="background: var(--bg-secondary);" id="pioneer">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left;margin-bottom:2.5rem;">
+        <div class="section-label">Готовое решение</div>
+        <h2>Планшет Пионер</h2>
+        <p style="margin:0;">Если нужно решение «из коробки» — без подбора компьютера, монитора, креплений.</p>
+      </div>
+
+      <a href="pioner.html" class="pioneer-promo reveal">
+        <div class="pioneer-promo-visual">
+          <svg viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="screen-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0a1228"/>
+                <stop offset="100%" stop-color="#142850"/>
+              </linearGradient>
+            </defs>
+            <!-- Tablet body -->
+            <rect x="30" y="30" width="220" height="260" rx="14" fill="#1a1a1f" stroke="#1a4fcc" stroke-width="1.5"/>
+            <!-- Screen -->
+            <rect x="42" y="42" width="196" height="218" rx="6" fill="url(#screen-grad)"/>
+            <!-- Screen content: AAC grid -->
+            <rect x="50" y="50" width="180" height="22" rx="4" fill="rgba(45,106,237,0.15)"/>
+            <text x="140" y="65" text-anchor="middle" font-size="9" fill="#7aabff" font-family="Inter,sans-serif">Я хочу...</text>
+            <!-- Symbol grid 3x3 -->
+            <rect x="50" y="80" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
+            <rect x="112" y="80" width="56" height="44" rx="4" fill="rgba(45,106,237,0.3)" stroke="#2d6aed" stroke-width="1.5"/>
+            <rect x="174" y="80" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
+            <rect x="50" y="130" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
+            <rect x="112" y="130" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
+            <rect x="174" y="130" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
+            <rect x="50" y="180" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
+            <rect x="112" y="180" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
+            <rect x="174" y="180" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
+            <!-- Cursor on active cell -->
+            <circle cx="140" cy="100" r="6" fill="#2d6aed" opacity="0.85"/>
+            <circle cx="140" cy="100" r="11" fill="none" stroke="#2d6aed" stroke-width="1.5" opacity="0.5"/>
+            <!-- Bottom strip — eyetracker bar -->
+            <rect x="50" y="232" width="180" height="20" rx="3" fill="rgba(26,26,31,0.8)" stroke="rgba(45,106,237,0.4)"/>
+            <circle cx="80" cy="242" r="2.5" fill="#2d6aed" opacity="0.7"/>
+            <circle cx="140" cy="242" r="3.5" fill="#2d6aed" opacity="0.9"/>
+            <circle cx="200" cy="242" r="2.5" fill="#2d6aed" opacity="0.7"/>
+            <!-- Stand suggestion -->
+            <rect x="125" y="290" width="30" height="6" rx="2" fill="#1a4fcc" opacity="0.4"/>
+            <!-- Soft shadow / glow -->
+            <ellipse cx="140" cy="305" rx="100" ry="6" fill="rgba(26,79,204,0.15)"/>
+          </svg>
+        </div>
+        <div class="pioneer-promo-body">
+          <span class="pioneer-promo-tag">→ Пионер · 590 000 ₽</span>
+          <h3>Готовый планшет со встроенным айтрекером и предустановленным ПО</h3>
+          <p>12.9″ IPS-дисплей, Windows 11, EyeCommunicator и обучающие игры «Стерх: поймай взглядом» в комплекте. Айтрекер с точностью до 1°, рабочее расстояние 45–80 см, калибровка занимает менее 3 минут.</p>
+          <div class="pioneer-promo-features">
+            <span>12.9″ 2880×1920</span>
+            <span>12 ГБ RAM · 512 ГБ SSD</span>
+            <span>Windows 11</span>
+            <span>VESA 100×100, 75×75</span>
+            <span>1.5 кг</span>
+          </div>
+          <span class="pioneer-promo-cta">
+            Узнать больше о Пионере
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ===== КРЕПЛЕНИЯ И АКСЕССУАРЫ ===== -->
+  <section class="mounts-section" id="mounts">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left;margin-bottom:1.5rem;">
+        <div class="dev-banner">⏳ Раздел в разработке</div>
+        <div class="section-label">Аксессуары</div>
+        <h2>Крепления и аксессуары</h2>
+        <p style="margin:0;">Кронштейны для инвалидной коляски и медицинской кровати, защитные чехлы, дополнительные блоки питания, рюкзаки для переноски. Подбираются индивидуально под условия и физические особенности пользователя.</p>
+      </div>
+      <div class="mounts-grid reveal-stagger">
+        <div class="mount-card">
+          <span class="mount-num">01</span>
+          <h4>Кронштейны для коляски</h4>
+          <p>Крепления к инвалидным коляскам, регулируемые по высоте и углу наклона. Совместимы со стандартом VESA 75×75 и 100×100.</p>
+        </div>
+        <div class="mount-card">
+          <span class="mount-num">02</span>
+          <h4>Крепления к кровати</h4>
+          <p>Стойки и держатели для медицинских кроватей — для лежачих пациентов и людей с тяжёлыми двигательными нарушениями.</p>
+        </div>
+        <div class="mount-card">
+          <span class="mount-num">03</span>
+          <h4>Защита и переноска</h4>
+          <p>Защитные чехлы, рюкзаки для транспортировки, дополнительные аккумуляторы и блоки питания для автономной работы.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ДЛЯ КОГО ===== -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Применение</div>
+        <h2>Для кого это важно</h2>
+      </div>
+      <div class="audience-grid reveal-stagger">
+        <div class="audience-card">
+          <div class="audience-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+          </div>
+          <h3>Люди с двигательными нарушениями</h3>
+          <p>ДЦП, последствия инсультов и травм, БАС. Полный доступ к цифровому миру через движения глаз — общение, работа, обучение.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <h3>Дети с особенностями развития</h3>
+          <p>Программы коммуникации и развивающие игры для детей с особенностями. Обучение управлению взглядом, развитие когнитивных навыков и речи.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Реабилитационные центры</h3>
+          <p>Решения для специалистов по реабилитации, логопедов и нейропсихологов. Интегрируются в программы восстановления после инсультов и травм.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 4 3 6 3s6-2 6-3v-5"/></svg>
+          </div>
+          <h3>Образовательные учреждения</h3>
+          <p>Адаптированные программы для специальных школ и коррекционных центров. Дети с нарушениями коммуникации получают доступ к обучению.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CTA ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid reveal">
+        <div class="contact-text">
+          <div class="section-label">Попробовать</div>
+          <h2>Не знаете с чего начать?</h2>
+          <p>Расскажите о ситуации — подберём конфигурацию (домашний комплекс, профессиональный или планшет Пионер), проведём демонстрацию, обучим работе с программой. Первая консультация бесплатна.</p>
+          <div class="trial-badge">30 дней бесплатно</div>
+        </div>
+        <div class="b24-form-wrapper">
+          <script data-b24-form="inline/50/lr7z6c" data-skip-moving="true">
+          (function(w,d,u){
+          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_50.js');
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cursor-trail.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local assistant/tool settings
+.claude/
+**/.claude/
+.codex/
+.agents/
+
+# Other experimental local copies
+siteDimaClode/
+
+# Dependencies/build output, if the static site later grows tooling
+node_modules/
+dist/
+build/
+.cache/
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak

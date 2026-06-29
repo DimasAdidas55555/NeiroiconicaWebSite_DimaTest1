@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Инструкция «Стерх: поймай взглядом» — Нейроиконика Ассистив</title>
+  <meta name="description" content="Руководство пользователя комплекса обучающих игр «Стерх: поймай взглядом». Создание профилей, обзор интерфейса, шесть игр, статистика и тепловые карты.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/assistiv.css">
+  <style>
+    .crumbs { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .crumbs a { color: var(--text-muted); text-decoration: none; transition: color .2s; }
+    .crumbs a:hover { color: var(--accent); }
+    .crumbs .sep { opacity: 0.5; }
+
+    .docs-layout { display: grid; grid-template-columns: 280px 1fr; gap: 3rem; }
+    .docs-sidebar { position: sticky; top: 100px; align-self: start; max-height: calc(100vh - 120px); overflow-y: auto; }
+    .docs-nav { list-style: none; display: flex; flex-direction: column; padding: 0; margin: 0; }
+    .docs-nav-section { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); padding: 1.25rem 1rem 0.5rem; }
+    .docs-nav a { display: block; padding: 0.55rem 1rem; font-size: 0.88rem; color: var(--text-muted); border-left: 2px solid transparent; text-decoration: none; transition: color .2s, background .2s, border-color .2s; }
+    .docs-nav a:hover { color: var(--text-primary); background: var(--accent-glow); border-left-color: var(--accent); }
+
+    .docs-content { max-width: 760px; }
+    .docs-content h1 { margin-bottom: 1rem; }
+    .docs-content h2 { margin-top: 3.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent-glow); }
+    .docs-content h3 { margin-top: 2.25rem; margin-bottom: 0.75rem; color: var(--accent-dark); }
+    .docs-content h4 { margin-top: 1.75rem; margin-bottom: 0.5rem; font-size: 1rem; font-weight: 700; }
+    .docs-content p { margin-bottom: 1rem; line-height: 1.75; }
+    .docs-content ul, .docs-content ol { margin: 0 0 1rem 1.5rem; line-height: 1.75; }
+    .docs-content ul li, .docs-content ol li { margin-bottom: 0.4rem; color: var(--text-secondary); }
+    .docs-content strong { color: var(--text-primary); font-weight: 700; }
+
+    /* Note callout */
+    .note {
+      display: flex;
+      gap: 0.85rem;
+      padding: 1rem 1.25rem;
+      background: var(--accent-glow);
+      border-left: 3px solid var(--accent);
+      margin: 1.25rem 0;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+    .note::before {
+      content: "📌";
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .note strong { color: var(--accent-dark); }
+
+    /* Tip callout */
+    .tip {
+      display: flex;
+      gap: 0.85rem;
+      padding: 1rem 1.25rem;
+      background: rgba(74,111,165,0.06);
+      border-left: 3px solid var(--text-muted);
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+    .tip::before {
+      content: "💡";
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+
+    /* Tables */
+    .docs-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.92rem;
+    }
+    .docs-content th,
+    .docs-content td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .docs-content th {
+      background: var(--bg-card);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .docs-content td:first-child {
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+    .docs-content tr.is-highlighted td {
+      background: rgba(255,221,87,0.10);
+    }
+
+    /* Sysreq grid */
+    .sysreq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      margin: 1.25rem 0;
+    }
+    .sysreq-row {
+      display: grid;
+      grid-template-columns: 0.6fr 1.4fr;
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .sysreq-row:nth-child(2n) { border-right: 1px solid var(--border); }
+    .sysreq-row:nth-last-child(-n+2) { border-bottom: none; }
+    .sysreq-key { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+    .sysreq-val { color: var(--text-primary); font-size: 0.92rem; font-weight: 500; }
+
+    /* Game card */
+    .game-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 1.5rem 1.75rem;
+      margin: 1.25rem 0;
+    }
+    .game-block .game-num {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .game-block h3 { margin: 0 0 0.5rem; font-size: 1.3rem; color: var(--text-primary); }
+    .game-block .game-goal {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--accent-glow);
+      border-radius: 2px;
+      display: inline-block;
+    }
+    .game-block .game-goal strong { color: var(--accent-dark); }
+
+    .placeholder {
+      border: 1px dashed var(--border);
+      padding: 1.25rem;
+      margin: 1rem 0 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 0.85rem;
+      background: rgba(74,111,165,0.04);
+    }
+
+    .stat-block {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1rem;
+    }
+    .stat-block h4 {
+      margin-top: 0;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .stat-block ul { margin-bottom: 0.5rem; }
+
+    .legend {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 0.4rem;
+    }
+    .legend--green { background: #4caf50; }
+    .legend--red-dark { background: #c62828; }
+    .legend--red-light { background: #ef9a9a; }
+    .legend--blue { background: #1a4fcc; }
+    .legend--pink { background: #e91e63; }
+    .legend--yellow { background: #fbc02d; }
+
+    @media (max-width: 900px) {
+      .docs-layout { grid-template-columns: 1fr; }
+      .docs-sidebar { position: static; max-height: none; }
+      .sysreq-grid { grid-template-columns: 1fr; }
+      .sysreq-row:nth-child(2n) { border-right: none; }
+      .sysreq-row { border-bottom: 1px solid var(--border); }
+      .sysreq-row:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+
+<body data-product="assistiv">
+  <div class="grid-bg"></div>
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg></span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Оборудование <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Нейробюро <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="../neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="../neurobureau/training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="../neurobureau/cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Ассистив <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">О нас <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta"><a href="../about/contacts.html" class="btn btn-primary">Связаться</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero hero--compact">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="crumbs"><a href="manuals.html">Инструкции</a><span class="sep">/</span>Стерх: поймай взглядом</div>
+          <h1 class="hero-title">Стерх: <span class="text-gradient">поймай взглядом</span></h1>
+          <p class="hero-subtitle">Руководство пользователя по комплексу обучающих игр для сенсомоторной тренировки. ООО «Нейроиконика Ассистив», Санкт-Петербург, 2025.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== DOCS LAYOUT ===== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="docs-layout">
+
+        <div class="docs-sidebar">
+          <ul class="docs-nav">
+            <li class="docs-nav-section">1. О программе</li>
+            <li><a href="#purpose">Назначение</a></li>
+            <li><a href="#audience">Целевая аудитория</a></li>
+            <li><a href="#sysreq">Системные требования</a></li>
+
+            <li class="docs-nav-section">2. Первый запуск</li>
+            <li><a href="#create-user">Создание пользователя</a></li>
+            <li><a href="#select-user">Выбор пользователя</a></li>
+            <li><a href="#delete-user">Удаление пользователя</a></li>
+            <li><a href="#control">Управление</a></li>
+
+            <li class="docs-nav-section">3. Интерфейс</li>
+            <li><a href="#main-menu">Главное меню</a></li>
+            <li><a href="#game-buttons">Кнопки в играх</a></li>
+            <li><a href="#options">Меню «Опции»</a></li>
+
+            <li class="docs-nav-section">4. Игры</li>
+            <li><a href="#flowers">Цветочный сад</a></li>
+            <li><a href="#aquarium">Аквариум</a></li>
+            <li><a href="#butterflies">Бабочки</a></li>
+            <li><a href="#snowflakes">Снежинки</a></li>
+            <li><a href="#cards">Карточки</a></li>
+            <li><a href="#fruits">Фруктовая битва</a></li>
+
+            <li class="docs-nav-section">5. Статистика</li>
+            <li><a href="#total-stats">Общая статистика пользователя</a></li>
+
+            <li class="docs-nav-section">6. Дополнительно</li>
+            <li><a href="#extra">Дополнительная информация</a></li>
+          </ul>
+        </div>
+
+
+        <div class="docs-content">
+          <h1>Руководство пользователя</h1>
+          <p>Документ описывает работу программного комплекса «Стерх: поймай взглядом» — набора обучающих игр для сенсомоторной тренировки и развития базовых навыков управления взглядом.</p>
+
+
+          <!-- ===== 1. О ПРОГРАММЕ ===== -->
+          <h2 id="about">1. О программе</h2>
+
+          <h3 id="purpose">1.1. Назначение</h3>
+          <p>Программный комплекс «Стерх: поймай взглядом» представляет собой набор обучающих игр для сенсомоторной тренировки и развития базовых навыков управления взглядом. Игры помогают:</p>
+          <ul>
+            <li>развивать зрительно-моторную координацию;</li>
+            <li>тренировать устойчивую фиксацию взора;</li>
+            <li>отрабатывать навыки переключения внимания и зрительного поиска;</li>
+            <li>адаптироваться к использованию ассистивных технологий для коммуникации и обучения.</li>
+          </ul>
+          <p>Комплекс разработан для использования с системами айтрекинга и обеспечивает постепенное освоение управления компьютером с помощью взгляда в игровой форме.</p>
+
+          <h3 id="audience">1.2. Целевая аудитория</h3>
+          <p>Программа предназначена для:</p>
+          <ul>
+            <li>детей с особенностями развития, которым требуется тренировка зрительно-моторных функций;</li>
+            <li>пользователей с ограниченной моторикой, которым затруднено использование традиционной мыши или клавиатуры;</li>
+            <li>педагогов, логопедов и специалистов по реабилитации, которые могут применять игры в работе с учениками и пациентами.</li>
+          </ul>
+
+          <h3 id="sysreq">1.3. Системные требования</h3>
+          <div class="sysreq-grid">
+            <div class="sysreq-row"><span class="sysreq-key">ОС</span><span class="sysreq-val">Windows 10 или Windows 11</span></div>
+            <div class="sysreq-row"><span class="sysreq-key">Процессор</span><span class="sysreq-val">не ниже Intel Core i3 (рекомендуется i5 или выше)</span></div>
+            <div class="sysreq-row"><span class="sysreq-key">ОЗУ</span><span class="sysreq-val">от 4 ГБ (рекомендуется 8 ГБ и более)</span></div>
+            <div class="sysreq-row"><span class="sysreq-key">Диск</span><span class="sysreq-val">не менее 500 МБ свободного пространства</span></div>
+            <div class="sysreq-row"><span class="sysreq-key">Графика</span><span class="sysreq-val">встроенная или дискретная видеокарта с поддержкой DirectX 11</span></div>
+            <div class="sysreq-row"><span class="sysreq-key">Ввод</span><span class="sysreq-val">мышь и клавиатура (вспомогательно), айтрекер Tobii 4C/5 или совместимый</span></div>
+            <div class="sysreq-row"><span class="sysreq-key">Дополнительно</span><span class="sysreq-val">интернет-соединение для обновлений и сохранения статистики на сервер</span></div>
+          </div>
+
+
+          <!-- ===== 2. ПЕРВЫЙ ЗАПУСК ===== -->
+          <h2 id="first-start">2. Первый запуск</h2>
+
+          <h3 id="create-user">2.1. Создание пользователя</h3>
+          <p>При первом запуске программы отображается окно <strong>«Новый пользователь»</strong>. Если в системе ещё нет профилей, появится надпись <em>«Профили не найдены»</em>.</p>
+          <p>Чтобы создать пользователя:</p>
+          <ol>
+            <li>Щёлкните в поле с надписью <em>«Введите имя…»</em>.</li>
+            <li>Введите имя пользователя.</li>
+            <li>Нажмите кнопку <strong>«Создать»</strong>.</li>
+          </ol>
+          <p>После этого профиль будет добавлен в список доступных пользователей.</p>
+          <div class="placeholder">Рисунок 1 — Создание нового пользователя</div>
+
+          <h3 id="select-user">2.2. Выбор пользователя</h3>
+          <p>Если в программе уже есть созданные профили, они отображаются в выпадающем списке в нижней части окна.</p>
+          <p>Чтобы войти под существующим пользователем:</p>
+          <ol>
+            <li>Нажмите на стрелочку справа от поля выбора.</li>
+            <li>Выберите нужное имя из списка.</li>
+            <li>Нажмите кнопку <strong>«Выбрать»</strong>.</li>
+          </ol>
+          <div class="placeholder">Рисунок 2 — Выбор пользователя</div>
+
+          <h3 id="delete-user">2.3. Удаление пользователя</h3>
+          <p>Если требуется удалить профиль:</p>
+          <ol>
+            <li>Выберите его в списке.</li>
+            <li>Нажмите значок <strong>корзины</strong> справа от кнопки «Выбрать».</li>
+            <li>В появившемся окне подтвердите действие:
+              <ul>
+                <li>красная кнопка <strong>«Удалить»</strong> — для удаления;</li>
+                <li>зелёная кнопка <strong>«Отмена»</strong> — для отказа от действия.</li>
+              </ul>
+            </li>
+          </ol>
+          <div class="placeholder">Рисунок 3 — Удаление пользователя</div>
+
+          <h3 id="control">2.4. Управление</h3>
+          <p>В программе предусмотрено два способа управления:</p>
+          <p><strong>Мышь (тачскрин):</strong> щёлкните (коснитесь) по нужной кнопке или наведите курсор и удерживайте его 2 секунды.</p>
+          <p><strong>Курсор-взгляд:</strong> если мышь не используется более 2 секунд, появляется фиолетовый кружок — «курсор-взгляд»:</p>
+          <ul>
+            <li>Для выбора наведите курсор-взгляд на иконку.</li>
+            <li>Удерживайте 2 секунды.</li>
+            <li>Вокруг иконки появится зелёная дуга-индикатор, которая замкнётся при успешном выборе.</li>
+          </ul>
+          <div class="note">
+            <span><strong>Примечание:</strong> все действия, описанные для курсора-взгляда, можно выполнять также мышью (касанием). Исключение составляют кнопки <strong>«Опции»</strong> и <strong>«Статистика»</strong>, которые удобнее активировать кликом мыши (касанием).</span>
+          </div>
+
+
+          <!-- ===== 3. ИНТЕРФЕЙС ===== -->
+          <h2 id="interface">3. Обзор интерфейса</h2>
+
+          <h3 id="main-menu">3.1. Главное меню</h3>
+          <p>После выбора пользователя открывается экран <strong>«Игры»</strong>. На нём расположены кнопки запуска игр, а также кнопки для управления программой.</p>
+          <div class="placeholder">Рисунок 5 — Главное меню программы</div>
+
+          <h4>Таблица 1. Кнопки главного меню</h4>
+          <table>
+            <thead>
+              <tr><th>Название</th><th>Функция</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Цветочный сад</td><td>Запуск игры. Цель — распустить все цветы на поляне.</td></tr>
+              <tr><td>Аквариум</td><td>Запуск игры. Цель — найти совпадающую рыбку среди карточек.</td></tr>
+              <tr><td>Бабочки</td><td>Запуск игры. Цель — поймать всех бабочек на экране.</td></tr>
+              <tr><td>Снежинки</td><td>Запуск игры. Цель — ловить снежинки до исчезновения.</td></tr>
+              <tr><td>Карточки</td><td>Запуск игры. Цель — найти все пары одинаковых карт.</td></tr>
+              <tr><td>Фруктовая битва</td><td>Запуск игры. Цель — разрезать как можно больше фруктов.</td></tr>
+              <tr class="is-highlighted"><td>Инверсия</td><td>Включает или отключает режим инверсии цветов (улучшает видимость элементов).</td></tr>
+              <tr class="is-highlighted"><td>Статистика</td><td>Открывает статистику пользователя: результаты сессий и общую статистику.</td></tr>
+              <tr class="is-highlighted"><td>Выход</td><td>Завершает работу программы.</td></tr>
+            </tbody>
+          </table>
+
+          <h3 id="game-buttons">3.2. Универсальные кнопки в играх</h3>
+          <p>Во время игры на экране всегда доступны вспомогательные кнопки. Они расположены в фиксированных местах, что облегчает их поиск.</p>
+
+          <h4>Таблица 2. Универсальные кнопки в играх</h4>
+          <table>
+            <thead>
+              <tr><th>Кнопка</th><th>Функция</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Старт</td><td>Запускает выбранную игру с экрана описания.</td></tr>
+              <tr><td>Начать заново</td><td>Перезапускает текущую игру с самого начала.</td></tr>
+              <tr><td>Назад</td><td>Возвращает на предыдущий экран или экран выбора игр.</td></tr>
+              <tr class="is-highlighted"><td>Опции</td><td>Доступна после завершения игры. Открывает меню дополнительных действий (см. раздел 3.3).</td></tr>
+            </tbody>
+          </table>
+
+          <h3 id="options">3.3. Меню «Опции»</h3>
+          <p>Кнопка «Опции» открывает дополнительные функции после завершения игры.</p>
+
+          <h4>Таблица 3. Функции меню «Опции»</h4>
+          <table>
+            <thead>
+              <tr><th>Название</th><th>Функция</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Показать тепловую карту</td><td>Отображает зоны фиксации взгляда игрока на экране.</td></tr>
+              <tr><td>Скрыть тепловую карту</td><td>Убирает тепловую карту с экрана.</td></tr>
+              <tr><td>Сохранить тепловую карту</td><td>Сохраняет изображение тепловой карты на устройство.</td></tr>
+              <tr><td>Статистика</td><td>Открывает экран статистики текущей сессии.</td></tr>
+            </tbody>
+          </table>
+          <div class="note">
+            <span>Кнопки, выделенные цветом (<strong>Инверсия, Статистика, Опции</strong>), рекомендуется нажимать мышью (или касанием), так как они требуют более точного выбора. Все остальные кнопки можно активировать взглядом, наведением курсора или нажатием.</span>
+          </div>
+
+
+          <!-- ===== 4. ИГРЫ ===== -->
+          <h2 id="games">4. Игры</h2>
+          <p>Каждая игра запускается одинаково: после выбора открывается сцена с описанием правил. Чтобы начать игру, нужно нажать кнопку <strong>«Старт»</strong>. Далее загружается игровая сцена.</p>
+          <p>По завершении каждой игры на экране отображается сообщение о её окончании и становятся доступны дополнительные действия через кнопку <strong>«Опции»</strong>. Для всех игр можно показать тепловую карту. Для игр <strong>«Цветочный сад», «Аквариум»</strong> и <strong>«Бабочки»</strong> дополнительно доступна <strong>статистика игровой сессии</strong>.</p>
+
+
+          <!-- 4.1 Цветочный сад -->
+          <div class="game-block" id="flowers">
+            <span class="game-num">4.1 · Игра 1 из 6</span>
+            <h3>Цветочный сад</h3>
+            <span class="game-goal"><strong>Цель:</strong> распустить все цветы на поляне.</span>
+            <p><strong>В игровой сцене:</strong></p>
+            <ul>
+              <li>на экране расположены цветы с закрытыми бутонами;</li>
+              <li>чтобы распустить цветок, наведите взгляд на бутон и удерживайте 2 секунды;</li>
+              <li>в это время отображается зелёная дуга-индикатор;</li>
+              <li>если отвести взгляд раньше — бутон снова закроется, и процесс придётся начинать сначала;</li>
+              <li>когда индикатор замыкается, бутон полностью <strong>распускается в цветок</strong>.</li>
+            </ul>
+            <div class="placeholder">Рисунок 6 — Игра «Цветочный сад»</div>
+
+            <div class="stat-block">
+              <h4>4.1.1 · Статистика</h4>
+              <p>Отображает:</p>
+              <ul>
+                <li>информацию о пользователе и сессии;</li>
+                <li>диаграмму <strong>«Успех/неудача»</strong>:
+                  <ul>
+                    <li>успешные попытки — удержание взгляда до полного замыкания индикатора (цветок распустился);</li>
+                    <li>неуспешные попытки — взгляд отведён раньше, чем индикатор замкнулся (цветок не распустился);</li>
+                  </ul>
+                </li>
+                <li>диаграмму <strong>«Время в игре»</strong>: время удержания взгляда на цветках и остальное время;</li>
+                <li>гистограмму <strong>«Попытки выбора элемента»</strong>: <span class="legend legend--green"></span>зелёные столбцы — успешные попытки, <span class="legend legend--red-light"></span>красные — неуспешные.</li>
+              </ul>
+              <div class="placeholder">Рисунок 7 — Статистика для игровой сессии «Цветочный сад»</div>
+            </div>
+          </div>
+
+
+          <!-- 4.2 Аквариум -->
+          <div class="game-block" id="aquarium">
+            <span class="game-num">4.2 · Игра 2 из 6</span>
+            <h3>Аквариум</h3>
+            <span class="game-goal"><strong>Цель:</strong> найти совпадающую рыбку среди карточек.</span>
+            <p><strong>В игровой сцене:</strong></p>
+            <ul>
+              <li>в верхней части экрана плывёт рыбка-образец;</li>
+              <li>в нижней части расположены карточки с разными рыбами;</li>
+              <li>нужно найти совпадающую и удерживать взгляд 2 секунды, пока заполняется индикатор вокруг неё;</li>
+              <li>при правильном выборе рыбка-образец исчезает, появляется новая.</li>
+            </ul>
+            <div class="placeholder">Рисунок 8 — Игра «Аквариум»</div>
+
+            <div class="stat-block">
+              <h4>4.2.1 · Статистика</h4>
+              <p>Отображает:</p>
+              <ul>
+                <li>информацию о пользователе и сессии;</li>
+                <li>диаграмму «Успех/неудача»;</li>
+                <li>диаграмму «Время в игре»;</li>
+                <li>гистограмму «Попытки выбора элемента»:
+                  <ul>
+                    <li><span class="legend legend--green"></span>зелёные столбцы — правильные совпадения (удержание до конца на нужной рыбке);</li>
+                    <li><span class="legend legend--red-dark"></span>тёмно-красные — удержание до конца на неправильной рыбке;</li>
+                    <li><span class="legend legend--red-light"></span>светло-красные — взгляд убран до замыкания индикатора.</li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="placeholder">Рисунок 9 — Статистика для игровой сессии «Аквариум»</div>
+            </div>
+          </div>
+
+
+          <!-- 4.3 Бабочки -->
+          <div class="game-block" id="butterflies">
+            <span class="game-num">4.3 · Игра 3 из 6</span>
+            <h3>Бабочки</h3>
+            <span class="game-goal"><strong>Цель:</strong> поймать всех бабочек на экране.</span>
+            <p><strong>В игровой сцене:</strong></p>
+            <ul>
+              <li>на экране появляются бабочки разных цветов;</li>
+              <li>игрок должен поймать их все;</li>
+              <li>для этого удерживайте взгляд на бабочке 2 секунды, пока вокруг неё заполняется кольцо-индикатор;</li>
+              <li>пойманные бабочки отображаются в коллекции внизу экрана.</li>
+            </ul>
+            <div class="placeholder">Рисунок 10 — Игра «Бабочки»</div>
+
+            <div class="stat-block">
+              <h4>4.3.1 · Статистика</h4>
+              <p>Отображает:</p>
+              <ul>
+                <li>информацию о пользователе и сессии;</li>
+                <li>диаграмму «Успех/неудача»:
+                  <ul>
+                    <li>успешные попытки — удержание взгляда до полного замыкания индикатора (бабочка поймана);</li>
+                    <li>неуспешные попытки — взгляд отведён раньше, чем индикатор замкнулся (бабочка не поймана);</li>
+                  </ul>
+                </li>
+                <li>диаграмму «Время в игре»: время удержания взгляда на бабочках и остальное время;</li>
+                <li>гистограмму «Попытки выбора элемента»: <span class="legend legend--green"></span>зелёные столбцы — успешные попытки, <span class="legend legend--red-light"></span>красные — неуспешные.</li>
+              </ul>
+              <div class="placeholder">Рисунок 11 — Статистика для игровой сессии «Бабочки»</div>
+            </div>
+          </div>
+
+
+          <!-- 4.4 Снежинки -->
+          <div class="game-block" id="snowflakes">
+            <span class="game-num">4.4 · Игра 4 из 6</span>
+            <h3>Снежинки</h3>
+            <span class="game-goal"><strong>Цель:</strong> лопнуть все снежинки.</span>
+            <p><strong>В игровой сцене:</strong></p>
+            <ul>
+              <li>на экране находятся снежинки;</li>
+              <li>чтобы лопнуть снежинку, на неё нужно просто посмотреть.</li>
+            </ul>
+            <div class="placeholder">Рисунок 12 — Игра «Снежинки»</div>
+          </div>
+
+
+          <!-- 4.5 Карточки -->
+          <div class="game-block" id="cards">
+            <span class="game-num">4.5 · Игра 5 из 6</span>
+            <h3>Карточки</h3>
+            <span class="game-goal"><strong>Цель:</strong> найти все пары одинаковых карт.</span>
+            <p>На сцене с описанием игры в верхней части экрана расположен слайдер выбора уровня (Легко/Сложно). Чтобы изменить уровень, нужно удерживать взгляд на слайдере в течение 1,5 секунд.</p>
+            <p><strong>В игровой сцене:</strong></p>
+            <ul>
+              <li>сначала все карты кратковременно показываются лицевой стороной;</li>
+              <li>затем они переворачиваются рубашкой вверх;</li>
+              <li>игрок открывает карты по две;</li>
+              <li>если карты совпадают — пара исчезает с поля;</li>
+              <li>если не совпадают — карты переворачиваются обратно рубашкой вверх;</li>
+              <li>на экране отображаются две надписи:
+                <ul>
+                  <li><strong>«Пары»</strong> — количество оставшихся пар, которые нужно найти;</li>
+                  <li><strong>«Ошибки»</strong> — количество открытых пар, которые не совпали.</li>
+                </ul>
+              </li>
+            </ul>
+            <div class="placeholder">Рисунок 13 — Игра «Карточки»</div>
+          </div>
+
+
+          <!-- 4.6 Фруктовая битва -->
+          <div class="game-block" id="fruits">
+            <span class="game-num">4.6 · Игра 6 из 6</span>
+            <h3>Фруктовая битва</h3>
+            <span class="game-goal"><strong>Цель:</strong> разрезать как можно больше фруктов.</span>
+            <p><strong>В игровой сцене:</strong></p>
+            <ul>
+              <li>на экране появляются фрукты;</li>
+              <li>чтобы разрезать фрукт, достаточно просто посмотреть на него;</li>
+              <li>в этот момент появляется нож, который разрезает фрукт;</li>
+              <li>разрезанный фрукт исчезает, и появляется новый.</li>
+            </ul>
+            <div class="placeholder">Рисунок 14 — Игра «Фруктовая битва»</div>
+          </div>
+
+
+          <!-- ===== 5. ОБЩАЯ СТАТИСТИКА ===== -->
+          <h2 id="total-stats">5. Общая статистика пользователя</h2>
+
+          <h3>1. Информация о пользователе (верхний левый блок)</h3>
+          <p>Отображаются:</p>
+          <ul>
+            <li>имя;</li>
+            <li>дата регистрации профиля;</li>
+            <li>дата и время последней активности.</li>
+          </ul>
+
+          <h3>2. Общее время игр (верхний центральный блок)</h3>
+          <p>Показывает суммарное время, проведённое в каждой игре, в формате минуты:секунды.</p>
+          <p>Цветовое соответствие:</p>
+          <ul>
+            <li><span class="legend legend--blue"></span><strong>Синий</strong> — «Аквариум»</li>
+            <li><span class="legend legend--red-dark"></span><strong>Красный</strong> — «Бабочки»</li>
+            <li><span class="legend legend--green"></span><strong>Зелёный</strong> — «Цветочный сад»</li>
+          </ul>
+
+          <h3>3. Распределение игрового времени (верхний правый блок)</h3>
+          <p>Круговая диаграмма показывает процентное соотношение времени, потраченного на каждую игру относительно общего времени всех сессий.</p>
+
+          <h3>4. Нижние графики — статистика по отдельным играм</h3>
+
+          <h4>а) Цветочный сад (левый график)</h4>
+          <ul>
+            <li><strong>Ось X</strong> — даты проведения игровых сессий.</li>
+            <li><strong>Ось Y</strong> — время в секундах.</li>
+            <li><span class="legend legend--green"></span><strong>Зелёная линия</strong> — длительность сессии.</li>
+            <li><span class="legend legend--yellow"></span><strong>Жёлтая линия</strong> — время до первого ответа в каждой сессии.</li>
+          </ul>
+
+          <h4>б) Аквариум (центральный график)</h4>
+          <ul>
+            <li><strong>Ось X</strong> — даты сессий.</li>
+            <li><strong>Ось Y</strong> — количество выбранных рыбок.</li>
+            <li><span class="legend legend--blue"></span><strong>Синие столбцы</strong> — количество правильных выборов рыбок.</li>
+            <li><span class="legend legend--red-dark"></span><strong>Красные столбцы</strong> — количество неправильных выборов.</li>
+            <li><span class="legend legend--yellow"></span><strong>Жёлтая линия</strong> — время до первого ответа в каждой сессии.</li>
+          </ul>
+          <div class="note">
+            <span><strong>Примечание:</strong> длительность каждой игровой сессии в «Аквариуме» фиксирована и составляет 60 секунд, поэтому учитывается не время, а количество правильных и неправильных ответов.</span>
+          </div>
+
+          <h4>в) Бабочки (правый график)</h4>
+          <ul>
+            <li><strong>Ось X</strong> — даты сессий.</li>
+            <li><strong>Ось Y</strong> — длительность игры в секундах.</li>
+            <li><span class="legend legend--pink"></span><strong>Розовая линия</strong> — общее время прохождения сессии.</li>
+            <li><span class="legend legend--yellow"></span><strong>Жёлтая линия</strong> — время до первого ответа в каждой сессии.</li>
+          </ul>
+          <div class="placeholder">Рисунок 15 — Общая статистика пользователя</div>
+
+
+          <!-- ===== 6. ДОПОЛНИТЕЛЬНО ===== -->
+          <h2 id="extra">6. Дополнительная информация</h2>
+          <p>Программный комплекс «Стерх: поймай взглядом» создан для тренировки зрительно-моторной координации и освоения навыков управления взглядом в игровой форме.</p>
+          <p>В данном руководстве представлены правила использования программы, описание игр и возможности анализа статистики.</p>
+          <p>При возникновении вопросов или для получения обновлений программы вы можете обращаться в службу поддержки:</p>
+          <ul>
+            <li>Email: <strong>info@neuroiconica.ru</strong></li>
+            <li>Сайт: <a href="https://assistive.ru/" target="_blank" rel="noopener">https://assistive.ru/</a></li>
+          </ul>
+          <div class="tip">
+            <span>Рекомендуется регулярно обновлять программу, чтобы получать новые функции и улучшения.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cursor-trail.js"></script>
+</body>
+</html>

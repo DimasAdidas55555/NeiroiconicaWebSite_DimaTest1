@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Стационарный айтрекер — Нейроиконика</title>
+  <meta name="description" content="Стационарный айтрекер для лабораторных исследований: высокочастотный настольный трекер взгляда с максимальной точностью.">
+<!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+
+<body data-product="eyetracker">
+
+  <!-- Animated background grid -->
+  <div class="grid-bg"></div>
+  <div class="data-stream"></div>
+
+  <!-- Mobile overlay -->
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+        </span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Оборудование
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Нейробюро
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="../neurobureau/training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="../neurobureau/cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Ассистив
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="../assistiv/pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="../assistiv/games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="../assistiv/training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="../assistiv/manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="../assistiv/cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            О нас
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta">
+          <a href="../about/contacts.html" class="btn btn-primary">Связаться</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span>Стационарный айтрекинг</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="text-gradient">Айтрекер Нейробюро</span><br>
+          <span style="font-size:0.7em;color:var(--text-secondary);font-weight:500;">собственная разработка</span>
+        </h1>
+        <p class="hero-subtitle">
+          Стационарный айтрекер с инфракрасной подсветкой для точных лабораторных исследований. Частота от 60 до 500 Гц, точность 0,5°, калибровка по 9 точкам. Работает в связке с платформой Нейробюро и программой PsychoPy.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Запросить демо</a>
+          <a href="#solution" class="btn btn-outline">Узнать больше</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-illustration">
+          <!-- Schematic: monitor with eye below, infrared rays, scan crosshair -->
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Corner brackets -->
+            <path d="M30 60 L30 30 L60 30" stroke="var(--accent)" stroke-width="1" opacity="0.25"/>
+            <path d="M340 30 L370 30 L370 60" stroke="var(--accent)" stroke-width="1" opacity="0.25"/>
+            <path d="M370 340 L370 370 L340 370" stroke="var(--accent)" stroke-width="1" opacity="0.25"/>
+            <path d="M60 370 L30 370 L30 340" stroke="var(--accent)" stroke-width="1" opacity="0.25"/>
+
+            <!-- Monitor frame -->
+            <rect x="90" y="50" width="220" height="150" rx="6" stroke="var(--accent)" stroke-width="1.5" fill="none" opacity="0.5"/>
+            <!-- Screen inner -->
+            <rect x="100" y="60" width="200" height="125" rx="2" stroke="var(--accent)" stroke-width="0.5" fill="var(--accent-glow)" opacity="0.3"/>
+            <!-- Monitor stand -->
+            <line x1="170" y1="200" x2="230" y2="200" stroke="var(--accent)" stroke-width="1" opacity="0.4"/>
+            <line x1="200" y1="200" x2="200" y2="220" stroke="var(--accent)" stroke-width="1" opacity="0.4"/>
+            <line x1="155" y1="220" x2="245" y2="220" stroke="var(--accent)" stroke-width="1.2" opacity="0.4"/>
+
+            <!-- Tracker bar under monitor -->
+            <rect x="140" y="225" width="120" height="10" rx="3" stroke="var(--accent)" stroke-width="1" fill="var(--accent-glow)" opacity="0.5"/>
+            <!-- IR emitter dots on tracker -->
+            <circle cx="165" cy="230" r="2" fill="var(--accent)" opacity="0.8">
+              <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="230" r="2" fill="var(--accent)" opacity="0.8">
+              <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="235" cy="230" r="2" fill="var(--accent)" opacity="0.8">
+              <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" begin="1.4s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- Eye below tracker -->
+            <path d="M150 310 Q200 275 250 310 Q200 345 150 310Z" stroke="var(--accent-light)" stroke-width="1.5" fill="none" opacity="0.5"/>
+            <circle cx="200" cy="310" r="14" stroke="var(--accent-light)" stroke-width="1" fill="var(--accent-glow)" opacity="0.4"/>
+            <circle cx="200" cy="310" r="6" fill="var(--accent)" opacity="0.5"/>
+
+            <!-- IR rays from tracker to eye -->
+            <line x1="165" y1="235" x2="185" y2="296" stroke="var(--accent)" stroke-width="0.8" opacity="0.35" stroke-dasharray="4 3"/>
+            <line x1="200" y1="235" x2="200" y2="296" stroke="var(--accent)" stroke-width="0.8" opacity="0.35" stroke-dasharray="4 3"/>
+            <line x1="235" y1="235" x2="215" y2="296" stroke="var(--accent)" stroke-width="0.8" opacity="0.35" stroke-dasharray="4 3"/>
+
+            <!-- Scan crosshair on screen -->
+            <line x1="200" y1="80" x2="200" y2="170" stroke="var(--accent)" stroke-width="0.5" opacity="0.3" stroke-dasharray="3 3"/>
+            <line x1="115" y1="122" x2="285" y2="122" stroke="var(--accent)" stroke-width="0.5" opacity="0.3" stroke-dasharray="3 3"/>
+            <!-- Crosshair center circle -->
+            <circle cx="200" cy="122" r="8" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.5"/>
+            <circle cx="200" cy="122" r="3" fill="var(--accent)" opacity="0.6"/>
+
+            <!-- Heatmap spots on screen -->
+            <circle cx="160" cy="100" r="15" fill="var(--accent)" opacity="0.06"/>
+            <circle cx="230" cy="140" r="12" fill="var(--accent)" opacity="0.08"/>
+
+            <!-- Pulse from tracker -->
+            <circle cx="200" cy="230" r="10" stroke="var(--accent)" stroke-width="0.5">
+              <animate attributeName="r" from="10" to="60" dur="3s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.3" to="0" dur="3s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- Tech labels -->
+            <text x="50" y="385" fill="var(--accent)" font-family="var(--font-mono)" font-size="7" opacity="0.35">СТАЦ.ТРЕКЕР // ИК БИНОКУЛЯР</text>
+            <text x="250" y="25" fill="var(--accent)" font-family="var(--font-mono)" font-size="7" opacity="0.35">РАЗР: 0.01° ТОЧН</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== О МЕТОДЕ ===== -->
+  <section class="about-method" id="method">
+    <div class="container">
+      <div class="about-method-grid reveal">
+        <div class="about-method-visual">
+          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="10" y="20" fill="var(--accent)" font-family="monospace" font-size="9" opacity="0.5">ПРИНЦИП СТАЦИОНАРНОГО АЙТРЕКИНГА</text>
+
+            <!-- Monitor outline -->
+            <rect x="50" y="40" width="160" height="110" rx="4" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.3"/>
+            <!-- Screen content: heatmap -->
+            <circle cx="100" cy="80" r="20" fill="var(--accent)" opacity="0.08"/>
+            <circle cx="150" cy="100" r="15" fill="var(--accent)" opacity="0.06"/>
+
+            <!-- Tracker bar -->
+            <rect x="70" y="155" width="120" height="8" rx="3" stroke="var(--accent)" stroke-width="0.8" fill="var(--accent-glow)" opacity="0.4"/>
+
+            <!-- IR rays -->
+            <line x1="100" y1="163" x2="85" y2="210" stroke="var(--accent)" stroke-width="0.7" opacity="0.3" stroke-dasharray="3 3"/>
+            <line x1="130" y1="163" x2="130" y2="210" stroke="var(--accent)" stroke-width="0.7" opacity="0.3" stroke-dasharray="3 3"/>
+            <line x1="160" y1="163" x2="145" y2="210" stroke="var(--accent)" stroke-width="0.7" opacity="0.3" stroke-dasharray="3 3"/>
+
+            <!-- Eye -->
+            <path d="M90 230 Q130 210 170 230 Q130 250 90 230Z" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.4"/>
+            <circle cx="130" cy="230" r="8" fill="var(--accent)" opacity="0.15"/>
+
+            <!-- Signal chart on right -->
+            <text x="240" y="55" fill="var(--accent)" font-family="monospace" font-size="7" opacity="0.4">ВЗГЛЯД X:</text>
+            <path d="M240 70 L260 65 L280 72 L300 60 L320 68 L340 62 L360 70 L380 65" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.4"/>
+
+            <text x="240" y="115" fill="var(--accent)" font-family="monospace" font-size="7" opacity="0.4">ВЗГЛЯД Y:</text>
+            <path d="M240 130 L260 135 L280 125 L300 140 L320 128 L340 138 L360 130 L380 132" stroke="var(--accent-light)" stroke-width="1" fill="none" opacity="0.4"/>
+
+            <text x="240" y="175" fill="var(--accent)" font-family="monospace" font-size="7" opacity="0.4">ЗРАЧОК:</text>
+            <path d="M240 190 L260 188 L280 192 L300 185 L320 195 L340 187 L360 190 L380 188" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.35"/>
+
+            <text x="10" y="290" fill="var(--accent)" font-family="monospace" font-size="7" opacity="0.3">t(ms) 0 --- 500 --- 1000 --- 1500 --- 2000</text>
+          </svg>
+        </div>
+        <div class="about-method-text">
+          <div class="section-label">О методе</div>
+          <h2>Что такое айтрекинг</h2>
+          <p>
+            Айтрекер — это прибор, который записывает, куда человек смотрит. Небольшая камера с инфракрасной подсветкой крепится под монитором, участник просто смотрит на экран — никаких проводов, шлемов или контакта с кожей. Камера отслеживает положение зрачка и определяет точку взгляда с высокой точностью.
+          </p>
+          <p>
+            Зачем это нужно? Движения глаз отражают то, как работает внимание, память, принятие решений. По записи взгляда можно понять, что привлекло человека, что он проигнорировал, где задумался, а где запутался. Это используют в психологии, медицине, образовании, при разработке интерфейсов и в маркетинге.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ЧТО ДАЁТ МЕТОД ===== -->
+  <section class="benefits" id="benefits">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Преимущества</div>
+        <h2>Где применяется</h2>
+        <p>Айтрекинг открывает то, что невозможно узнать из опросников и времени реакции.</p>
+      </div>
+      <div class="benefits-grid reveal-stagger">
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--rings"></div>
+          <h3>Когнитивные исследования</h3>
+          <p>Изучение внимания, восприятия, памяти, принятия решений. Как человек рассматривает изображение, читает текст, решает задачу — всё это видно по движениям глаз.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--scanlines"></div>
+          <h3>Клиническая практика</h3>
+          <p>Диагностика нарушений чтения, оценка когнитивного дефицита, скрининг тревожных и стрессовых расстройств. Объективные данные, не зависящие от самоотчёта пациента.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--dots"></div>
+          <h3>Образование</h3>
+          <p>Как школьники читают учебники, на что обращают внимание студенты-медики, какие элементы интерфейса вызывают затруднения — айтрекинг отвечает на эти вопросы.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--grid"></div>
+          <h3>Маркетинг и дизайн</h3>
+          <p>Какой элемент упаковки замечают первым, какие зоны сайта игнорируют, куда падает взгляд на рекламном макете. Данные вместо догадок.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== НАШЕ РЕШЕНИЕ ===== -->
+  <section class="solution" id="solution">
+    <div class="container">
+      <div class="solution-grid reveal">
+        <div class="solution-image">
+          <!-- Пустая заглушка для изображения продукта -->
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;padding:2rem;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.4">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);opacity:0.5">Изображение продукта</span>
+          </div>
+        </div>
+        <div class="solution-text">
+          <div class="section-label">Наше решение</div>
+          <h2>Айтрекер Нейробюро</h2>
+          <p>
+            Стационарный айтрекер собственной разработки. Компактная камера с инфракрасной подсветкой крепится под монитором и записывает направление взгляда обоих глаз. Работает в связке с платформой Нейробюро и программой PsychoPy.
+          </p>
+          <ul class="solution-highlights">
+            <li>Частота дискретизации от 60 до 500 Гц</li>
+            <li>Точность 0,5° визуального угла</li>
+            <li>Бинокулярное отслеживание взгляда</li>
+            <li>Калибровка по 9 точкам</li>
+            <li>Совместимость с Нейробюро и PsychoPy</li>
+            <li>Подключение по USB, не требует внешнего питания</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ФУНКЦИОНАЛ (Asymmetric) ===== -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Характеристики</div>
+        <h2>Характеристики айтрекера</h2>
+        <p>Собственная разработка — от оптики до программного обеспечения.</p>
+      </div>
+      <div class="features-grid reveal-stagger" style="grid-template-columns:repeat(2,1fr);">
+        <div class="feature-item feature-item--lg">
+          <span class="feature-num">01</span>
+          <h4>Частота от 60 до 500 Гц</h4>
+          <p>Выбирайте режим под задачу: 60 Гц достаточно для исследований свободного просмотра, 500 Гц — для анализа микросаккад, быстрых саккад и тонких паттернов чтения.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">02</span>
+          <h4>Точность 0,5°</h4>
+          <p>Достаточно для пословного и побуквенного анализа чтения, разграничения фиксаций между близко расположенными объектами и работы с мелкими зонами интереса.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">03</span>
+          <h4>Бинокулярное отслеживание</h4>
+          <p>Запись положения обоих глаз одновременно. Помимо направления взгляда фиксируется абсолютный диаметр зрачка — объективный маркер когнитивной нагрузки и эмоционального состояния.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">04</span>
+          <h4>Калибровка по 9 точкам</h4>
+          <p>Быстрая процедура занимает менее минуты. Участник следит за точкой на экране, система автоматически подстраивается под индивидуальные особенности его глаз.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">05</span>
+          <h4>Бесконтактный метод</h4>
+          <p>Участник не надевает никаких устройств — просто смотрит на экран. Инфракрасная подсветка невидима и безопасна. Голову не нужно фиксировать — зона захвата позволяет двигаться естественно.</p>
+        </div>
+        <div class="feature-item feature-item--lg">
+          <span class="feature-num">06</span>
+          <h4>Совместимость с Нейробюро и PsychoPy</h4>
+          <p>Полная интеграция с платформой Нейробюро: синхронная запись с физиологическими датчиками и ЭЭГ, автоматический анализ, визуализации. Совместимость с PsychoPy для создания экспериментальных парадигм.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ===== ФОРМА ОБРАТНОЙ СВЯЗИ ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Контакт</div>
+          <h2>Свяжитесь с нами</h2>
+          <p>Нам доверяют ведущие лаборатории России, в том числе МГППУ, СПбГУ и Институт физиологии им. Павлова РАН. Расскажем о стационарных айтрекерах, подберём модель под ваши задачи и организуем демонстрацию.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              neiroiconica@yandex.ru
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></span>
+              +7 (931) 521-29-29
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              Санкт-Петербург, Россия
+            </div>
+          </div>
+        </div>
+
+        <div class="b24-form-wrapper reveal">
+          <script data-b24-form="inline/48/l1gd1w" data-skip-moving="true">
+          (function(w,d,u){
+          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cursor-glow.js"></script>
+</body>
+</html>

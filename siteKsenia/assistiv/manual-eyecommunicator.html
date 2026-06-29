@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Инструкция EyeCommunicator — Нейроиконика Ассистив</title>
+  <meta name="description" content="Руководство пользователя программы EyeCommunicator: установка, калибровка, настройка профиля, работа с экранной клавиатурой, синтезом речи и быстрыми фразами.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/assistiv.css">
+  <style>
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(26,79,204,0.12); border: 1px solid rgba(26,79,204,0.25); border-radius: 9999px; padding: 0.35em 1em; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 1.5rem; }
+
+    .crumbs {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.78rem;
+      color: var(--text-muted); margin-bottom: 1rem;
+    }
+    .crumbs a { color: var(--text-muted); text-decoration: none; transition: color .2s; }
+    .crumbs a:hover { color: var(--accent); }
+    .crumbs .sep { opacity: 0.5; }
+
+    .dev-banner {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: var(--font-mono); font-size: 0.78rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      background: rgba(74,111,165,0.08);
+      border: 1px dashed var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .dev-banner::before {
+      content: "";
+      width: 8px; height: 8px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+    .docs-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 3rem;
+    }
+    .docs-sidebar { position: sticky; top: 100px; align-self: start; }
+    .docs-nav { list-style: none; display: flex; flex-direction: column; padding: 0; margin: 0; }
+    .docs-nav-section {
+      font-family: var(--font-mono);
+      font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent);
+      padding: 1.25rem 1rem 0.5rem;
+    }
+    .docs-nav a {
+      display: block;
+      padding: 0.55rem 1rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-left: 2px solid transparent;
+      text-decoration: none;
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    .docs-nav a:hover { color: var(--text-primary); background: var(--accent-glow); border-left-color: var(--accent); }
+
+    .docs-content { max-width: 760px; }
+    .docs-content h2 { margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    .docs-content h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+    .docs-content p { margin-bottom: 1rem; line-height: 1.75; }
+
+    .placeholder {
+      border: 1px dashed var(--border);
+      padding: 1.5rem;
+      margin: 1rem 0 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 0.9rem;
+      background: rgba(74,111,165,0.04);
+    }
+
+    @media (max-width: 900px) {
+      .docs-layout { grid-template-columns: 1fr; }
+      .docs-sidebar { position: static; }
+    }
+  </style>
+</head>
+
+<body data-product="assistiv">
+  <div class="grid-bg"></div>
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg></span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Оборудование <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Нейробюро <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="../neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="../neurobureau/training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="../neurobureau/cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Ассистив <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">О нас <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta"><a href="../about/contacts.html" class="btn btn-primary">Связаться</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero hero--compact">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="crumbs"><a href="manuals.html">Инструкции</a><span class="sep">/</span>EyeCommunicator</div>
+          <div class="dev-banner">Раздел в разработке</div>
+          <h1 class="hero-title">Инструкция<br><span class="text-gradient">EyeCommunicator</span></h1>
+          <p class="hero-subtitle">Полное руководство по программе альтернативной и дополнительной коммуникации EyeCommunicator. Установка, калибровка, экранная клавиатура, синтез речи, библиотека быстрых фраз.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== DOCS LAYOUT ===== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="docs-layout">
+
+        <div class="docs-sidebar">
+          <ul class="docs-nav">
+            <li class="docs-nav-section">1. Установка</li>
+            <li><a href="#install">Системные требования</a></li>
+            <li><a href="#first-run">Первый запуск</a></li>
+
+            <li class="docs-nav-section">2. Калибровка</li>
+            <li><a href="#calibration">Калибровка по точкам</a></li>
+            <li><a href="#profile">Профиль пользователя</a></li>
+
+            <li class="docs-nav-section">3. Работа с программой</li>
+            <li><a href="#keyboard">Экранная клавиатура</a></li>
+            <li><a href="#speech">Синтез речи</a></li>
+            <li><a href="#phrases">Быстрые фразы</a></li>
+            <li><a href="#predictive">Предиктивный ввод</a></li>
+
+            <li class="docs-nav-section">4. Интернет и общение</li>
+            <li><a href="#browser">Встроенный браузер</a></li>
+            <li><a href="#messengers">Мессенджеры и соцсети</a></li>
+
+            <li class="docs-nav-section">5. Настройка</li>
+            <li><a href="#sensitivity">Чувствительность и скорость</a></li>
+            <li><a href="#appearance">Внешний вид и цвета</a></li>
+
+            <li class="docs-nav-section">6. Поддержка</li>
+            <li><a href="#troubleshooting">Решение проблем</a></li>
+            <li><a href="#contacts">Связаться с нами</a></li>
+          </ul>
+        </div>
+
+        <div class="docs-content">
+          <h1>Руководство пользователя EyeCommunicator</h1>
+          <p>Подробная документация по программе EyeCommunicator: от первой установки до тонкой настройки под конкретного пользователя. Раздел сейчас в разработке — мы готовим иллюстрированные пошаговые инструкции, скриншоты и видеоуроки.</p>
+          <p>Если у вас уже есть программа и нужна срочная помощь — напишите нам на <strong>info@neuroiconica.ru</strong>, и мы ответим лично.</p>
+
+          <h2 id="install">1. Установка</h2>
+          <h3 id="install-req">Системные требования</h3>
+          <div class="placeholder">Раздел в разработке</div>
+          <h3 id="first-run">Первый запуск</h3>
+          <div class="placeholder">Раздел в разработке</div>
+
+          <h2 id="calibration">2. Калибровка</h2>
+          <h3 id="calibration-points">Калибровка по точкам</h3>
+          <div class="placeholder">Раздел в разработке</div>
+          <h3 id="profile">Профиль пользователя</h3>
+          <div class="placeholder">Раздел в разработке</div>
+
+          <h2 id="usage">3. Работа с программой</h2>
+          <h3 id="keyboard">Экранная клавиатура</h3>
+          <div class="placeholder">Раздел в разработке</div>
+          <h3 id="speech">Синтез речи</h3>
+          <div class="placeholder">Раздел в разработке</div>
+          <h3 id="phrases">Быстрые фразы</h3>
+          <div class="placeholder">Раздел в разработке</div>
+          <h3 id="predictive">Предиктивный ввод</h3>
+          <div class="placeholder">Раздел в разработке</div>
+
+          <h2 id="internet">4. Интернет и общение</h2>
+          <h3 id="browser">Встроенный браузер</h3>
+          <div class="placeholder">Раздел в разработке</div>
+          <h3 id="messengers">Мессенджеры и соцсети</h3>
+          <div class="placeholder">Раздел в разработке</div>
+
+          <h2 id="settings">5. Настройка</h2>
+          <h3 id="sensitivity">Чувствительность и скорость</h3>
+          <div class="placeholder">Раздел в разработке</div>
+          <h3 id="appearance">Внешний вид и цвета</h3>
+          <div class="placeholder">Раздел в разработке</div>
+
+          <h2 id="support">6. Поддержка</h2>
+          <h3 id="troubleshooting">Решение проблем</h3>
+          <div class="placeholder">Раздел в разработке</div>
+          <h3 id="contacts">Связаться с нами</h3>
+          <p>Email: <strong>info@neuroiconica.ru</strong><br>Телефон: <strong>+7 (931) 521-29-29</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cursor-trail.js"></script>
+</body>
+</html>

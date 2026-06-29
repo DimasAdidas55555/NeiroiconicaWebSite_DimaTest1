@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Экранированные камеры — Нейроиконика</title>
+  <meta name="description" content="Экранированные камеры для проведения высокоточных исследований. Отдельное или встраиваемое помещение, экранированное от внешних электромагнитных помех и звуковых шумов.">
+<!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+
+<body data-product="shielded-cameras">
+
+  <!-- Animated background grid -->
+  <div class="grid-bg"></div>
+  <div class="data-stream"></div>
+
+  <!-- Mobile overlay -->
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+        </span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Оборудование
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Нейробюро
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="../neurobureau/training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="../neurobureau/cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Ассистив
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="../assistiv/pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="../assistiv/games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="../assistiv/training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="../assistiv/manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="../assistiv/cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            О нас
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta">
+          <a href="../about/contacts.html" class="btn btn-primary">Связаться</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span>Экранирование</span>
+        </div>
+        <h1 class="hero-title">
+          Экранированные
+          <span class="text-gradient">камеры</span>
+        </h1>
+        <p class="hero-subtitle">
+          Отдельное или встраиваемое помещение, экранированное от внешних электромагнитных помех, звуковых шумов и обеспечивающее внутри постоянные и стабильные условия. Незаменимое решение для проведения научных психофизиологических исследований, в которых требуется точность регистрации показателей.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Запросить расчёт</a>
+          <a href="#solution" class="btn btn-outline">Модификации</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-illustration">
+          <!-- Schematic: cube/room with EM waves blocked, clean signal inside -->
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Corner brackets -->
+            <path d="M30 60 L30 30 L60 30" stroke="var(--accent)" stroke-width="1" opacity="0.25"/>
+            <path d="M340 30 L370 30 L370 60" stroke="var(--accent)" stroke-width="1" opacity="0.25"/>
+            <path d="M370 340 L370 370 L340 370" stroke="var(--accent)" stroke-width="1" opacity="0.25"/>
+            <path d="M60 370 L30 370 L30 340" stroke="var(--accent)" stroke-width="1" opacity="0.25"/>
+
+            <!-- Room/cube structure (isometric) -->
+            <path d="M120 140 L280 140 L280 310 L120 310 Z" stroke="var(--accent)" stroke-width="1.5" fill="var(--accent-glow)" opacity="0.15"/>
+            <path d="M120 140 L180 90 L340 90 L280 140" stroke="var(--accent)" stroke-width="1.2" fill="none" opacity="0.3"/>
+            <path d="M280 140 L340 90 L340 260 L280 310" stroke="var(--accent)" stroke-width="1.2" fill="none" opacity="0.2"/>
+            <path d="M120 140 L280 140" stroke="var(--accent)" stroke-width="1" opacity="0.4"/>
+            <path d="M280 140 L280 310" stroke="var(--accent)" stroke-width="1" opacity="0.4"/>
+            <path d="M280 140 L340 90" stroke="var(--accent)" stroke-width="0.8" opacity="0.3"/>
+
+            <!-- EM waves approaching from LEFT - BLOCKED -->
+            <path d="M30 160 L40 150 L50 160 L60 150 L70 160 L80 150 L90 160" stroke="var(--accent)" stroke-width="1" opacity="0.4" fill="none"/>
+            <path d="M30 200 L40 190 L50 200 L60 190 L70 200 L80 190 L90 200" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+            <path d="M30 240 L40 230 L50 240 L60 230 L70 240 L80 230 L90 240" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+            <path d="M105 155 L115 145" stroke="var(--accent)" stroke-width="1.5" opacity="0.5"/>
+            <path d="M108 148 L118 158" stroke="var(--accent)" stroke-width="1.5" opacity="0.5"/>
+            <path d="M105 195 L115 185" stroke="var(--accent)" stroke-width="1.5" opacity="0.5"/>
+            <path d="M108 188 L118 198" stroke="var(--accent)" stroke-width="1.5" opacity="0.5"/>
+
+            <!-- EM waves from RIGHT - BLOCKED -->
+            <path d="M355 120 L365 110 L375 120 L385 110" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+            <path d="M355 170 L365 160 L375 170 L385 160" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+            <path d="M345 125 L350 115" stroke="var(--accent)" stroke-width="1.2" opacity="0.4"/>
+            <path d="M347 118 L352 128" stroke="var(--accent)" stroke-width="1.2" opacity="0.4"/>
+
+            <!-- EM waves from TOP - BLOCKED -->
+            <path d="M200 30 L210 40 L200 50 L210 60 L200 70" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
+            <path d="M260 35 L270 45 L260 55 L270 65" stroke="var(--accent)" stroke-width="0.7" opacity="0.25" fill="none"/>
+            <path d="M205 78 L215 83" stroke="var(--accent)" stroke-width="1.2" opacity="0.4"/>
+            <path d="M215 78 L205 83" stroke="var(--accent)" stroke-width="1.2" opacity="0.4"/>
+
+            <!-- EM waves from BOTTOM - BLOCKED -->
+            <path d="M160 345 L170 355 L160 365 L170 375" stroke="var(--accent)" stroke-width="0.7" opacity="0.25" fill="none"/>
+            <path d="M220 350 L230 360 L220 370" stroke="var(--accent)" stroke-width="0.7" opacity="0.2" fill="none"/>
+
+            <!-- Labels -->
+            <text x="35" y="145" fill="var(--accent)" font-family="var(--font-mono)" font-size="7" opacity="0.4">РЧ</text>
+            <text x="35" y="225" fill="var(--accent)" font-family="var(--font-mono)" font-size="7" opacity="0.4">ЭМП</text>
+            <text x="360" y="105" fill="var(--accent)" font-family="var(--font-mono)" font-size="7" opacity="0.35">50Hz</text>
+
+            <!-- Clean signal inside -->
+            <path d="M150 210 L170 210 L175 195 L180 220 L185 205 L190 210 L230 210 L235 195 L240 220 L245 205 L250 210 L265 210" stroke="var(--accent)" stroke-width="1.2" fill="none" opacity="0.6"/>
+            <text x="160" y="250" fill="var(--accent)" font-family="var(--font-mono)" font-size="7" opacity="0.5">ЧИСТЫЙ СИГНАЛ</text>
+            <text x="40" y="280" fill="var(--accent)" font-family="var(--font-mono)" font-size="7" opacity="0.3">ШУМ</text>
+
+            <!-- Shielding layer glow -->
+            <rect x="118" y="138" width="164" height="174" rx="2" stroke="var(--accent)" stroke-width="2" fill="none" opacity="0.15">
+              <animate attributeName="opacity" values="0.15;0.25;0.15" dur="3s" repeatCount="indefinite"/>
+            </rect>
+
+            <!-- Tech labels -->
+            <text x="50" y="385" fill="var(--accent)" font-family="var(--font-mono)" font-size="7" opacity="0.35">ЗАЩИТА // ПАТЕНТ. ТЕХНОЛОГИЯ</text>
+            <text x="260" y="25" fill="var(--accent)" font-family="var(--font-mono)" font-size="7" opacity="0.35">РЧ + ЭМП БЛОК</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== О МЕТОДЕ ===== -->
+  <section class="about-method" id="method">
+    <div class="container">
+      <div class="about-method-grid reveal">
+        <div class="about-method-visual">
+          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="10" y="20" fill="var(--accent)" font-family="monospace" font-size="9" opacity="0.5">МНОГОСЛОЙНАЯ СТРУКТУРА ЭКРАНИРОВАНИЯ</text>
+
+            <!-- Outer shell -->
+            <rect x="40" y="40" width="320" height="220" rx="4" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.1"/>
+
+            <!-- Layers (10+ materials) -->
+            <rect x="55" y="55" width="290" height="190" rx="3" stroke="var(--accent)" stroke-width="1.2" fill="var(--accent)" opacity="0.03"/>
+            <text x="58" y="52" fill="var(--accent)" font-family="monospace" font-size="6" opacity="0.35">ЭМ ЭКРАН</text>
+            <rect x="70" y="70" width="260" height="160" rx="3" stroke="var(--accent)" stroke-width="1" fill="var(--accent)" opacity="0.04"/>
+            <text x="73" y="67" fill="var(--accent)" font-family="monospace" font-size="6" opacity="0.35">ЗВУКОИЗОЛЯЦИЯ</text>
+            <rect x="85" y="85" width="230" height="130" rx="3" stroke="var(--accent)" stroke-width="0.8" fill="var(--accent)" opacity="0.05"/>
+            <text x="88" y="82" fill="var(--accent)" font-family="monospace" font-size="6" opacity="0.35">ВИБРОИЗОЛЯЦИЯ</text>
+            <rect x="100" y="100" width="200" height="100" rx="3" stroke="var(--accent)" stroke-width="0.6" fill="var(--accent)" opacity="0.07"/>
+            <text x="103" y="97" fill="var(--accent)" font-family="monospace" font-size="6" opacity="0.35">АКУСТИЧЕСКИЙ ПОРОЛОН</text>
+
+            <!-- Clean zone label -->
+            <text x="135" y="145" fill="var(--accent)" font-family="monospace" font-size="9" opacity="0.5">КОНТРОЛИРУЕМАЯ</text>
+            <text x="135" y="162" fill="var(--accent)" font-family="monospace" font-size="9" opacity="0.5">СРЕДА</text>
+
+            <!-- Blocked arrows -->
+            <path d="M15 100 L45 100" stroke="var(--accent)" stroke-width="0.8" opacity="0.3"/>
+            <path d="M15 150 L45 150" stroke="var(--accent)" stroke-width="0.8" opacity="0.3"/>
+            <path d="M15 200 L45 200" stroke="var(--accent)" stroke-width="0.8" opacity="0.3"/>
+            <text x="5" y="96" fill="var(--accent)" font-family="monospace" font-size="5" opacity="0.3">РЧ</text>
+            <text x="5" y="146" fill="var(--accent)" font-family="monospace" font-size="5" opacity="0.3">ЭМП</text>
+            <text x="5" y="196" fill="var(--accent)" font-family="monospace" font-size="5" opacity="0.3">ШУМ</text>
+            <path d="M47 96 L57 106 M57 96 L47 106" stroke="var(--accent)" stroke-width="1" opacity="0.4"/>
+            <path d="M47 146 L57 156 M57 146 L47 156" stroke="var(--accent)" stroke-width="1" opacity="0.4"/>
+            <path d="M47 196 L57 206 M57 196 L47 206" stroke="var(--accent)" stroke-width="1" opacity="0.4"/>
+
+            <text x="60" y="280" fill="var(--accent)" font-family="monospace" font-size="7" opacity="0.3">10+ СЛОЁВ // ПАТЕНТ И СЕРТИФИКАТ</text>
+          </svg>
+        </div>
+        <div class="about-method-text">
+          <div class="section-label">Зачем это нужно</div>
+          <h2>Почему без камеры не обойтись</h2>
+          <p>
+            Современные исследования в нейронауках достигли такого уровня, когда дальнейший прогресс требует радикального повышения точности данных. Для этого необходимо стремиться к максимальной защите от помех.
+          </p>
+          <p>
+            Но даже при идеальной записи остаются факторы внешней среды, вносящие дополнительные артефакты. Поэтому экранированные камеры нужны даже в тех исследованиях, где не используются методы электрофизиологии (айтрекинг, fNIRS).
+          </p>
+          <p>
+            В основе технологии лежит запатентованная и сертифицированная разработка. Решение представляет многослойную структуру из более десятка специальных материалов.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ЧТО ДАЁТ МЕТОД ===== -->
+  <section class="benefits" id="benefits">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Преимущества</div>
+        <h2>Что получает исследователь</h2>
+        <p>Результаты, которые невозможно достичь в обычном помещении.</p>
+      </div>
+      <div class="benefits-grid reveal-stagger">
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--rings"></div>
+          <h3>Данные без артефактов</h3>
+          <p>Регистрируемые показатели полностью освобождаются от внешних электромагнитных наводок. Соотношение сигнал/шум радикально возрастает, позволяя работать с тонкими эффектами.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--scanlines"></div>
+          <h3>Воспроизводимость результатов</h3>
+          <p>Постоянные и стабильные условия внутри камеры гарантируют, что каждый повторный эксперимент проходит в идентичной среде, исключая влияние неконтролируемых факторов.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--dots"></div>
+          <h3>Точность за пределами электрофизиологии</h3>
+          <p>Камера устраняет средовые факторы, которые вносят артефакты даже в айтрекинг и fNIRS: изменения освещённости, фоновый шум, вибрации, перепады температуры.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--grid"></div>
+          <h3>Полный контроль среды</h3>
+          <p>Исследователь управляет всеми параметрами: электромагнитный фон, акустика, освещение, температура. Ни один внешний фактор не влияет на ход эксперимента.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== НАШЕ РЕШЕНИЕ ===== -->
+  <section class="benefits" id="solution">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Модификации</div>
+        <h2>Конфигурации под ваши задачи</h2>
+        <p>Адаптация решений под потребности заказчика. Собственная научно-производственная база, запатентованная и сертифицированная разработка. Срок поставки 1-2 месяца. Участие в тендерных процедурах, 223-ФЗ, 44-ФЗ, ГОЗ.</p>
+      </div>
+      <div class="benefits-grid reveal-stagger">
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--rings"></div>
+          <h3>Профессионал</h3>
+          <p style="color:var(--accent);font-size:0.85rem;margin-bottom:0.75rem;opacity:0.8;">Для ЭЭГ скрининга, больниц и клиник</p>
+          <p>Экранирование от ЭМ-помех, базовая шумоизоляция, принудительная приточно-вытяжная вентиляция, Светодиодное освещение, внутренняя отделка устойчивая к санитарной обработке.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--scanlines"></div>
+          <h3>Эксперт</h3>
+          <p style="color:var(--accent);font-size:0.85rem;margin-bottom:0.75rem;opacity:0.8;">Для научных исследований</p>
+          <p>Экранирование от ЭМ-помех, усиленная вибро- и шумоизоляция, принудительная приточно-вытяжная вентиляция, регулируемое Светодиодное освещение, внутренняя отделка акустическим поролоном.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--dots"></div>
+          <h3>Акустик</h3>
+          <p style="color:var(--accent);font-size:0.85rem;margin-bottom:0.75rem;opacity:0.8;">Для аудиальных исследований и звукозаписи</p>
+          <p>Усиленная вибро- и шумоизоляция, климат-контроль, регулируемое Светодиодное освещение, внутренняя отделка декоративными панелями.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--grid"></div>
+          <h3>Детская лаборатория</h3>
+          <p style="color:var(--accent);font-size:0.85rem;margin-bottom:0.75rem;opacity:0.8;">Для исследований с участием детей</p>
+          <p>На основе модификации Эксперт. Индивидуальная отделка экологичными акустическими панелями из дерева с фигурками.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ГАЛЕРЕЯ — фото-карусель ===== -->
+  <section id="gallery">
+    <style>
+      .sr-carousel { position: relative; margin-top: 2.5rem; }
+      .sr-track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
+        gap: 1.25rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .sr-track::-webkit-scrollbar { display: none; }
+      .sr-slide {
+        scroll-snap-align: center;
+        aspect-ratio: 16/9;
+        background: var(--bg-card);
+        border: 1px dashed var(--border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        color: var(--text-muted);
+      }
+      .sr-slide-num {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        opacity: 0.55;
+      }
+      .sr-slide-label { font-size: 0.95rem; opacity: 0.7; }
+      .sr-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+      }
+      .sr-dots { display: flex; gap: 0.5rem; }
+      .sr-dot {
+        width: 10px; height: 10px;
+        background: var(--border);
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: background var(--transition-fast), transform var(--transition-fast);
+      }
+      .sr-dot.active { background: var(--accent); transform: scale(1.2); }
+      .sr-buttons { display: flex; gap: 0.5rem; }
+      .sr-btn {
+        width: 44px; height: 44px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.1rem;
+        transition: border-color var(--transition-fast), background var(--transition-fast);
+      }
+      .sr-btn:hover { border-color: var(--accent); background: var(--accent-glow); }
+      .sr-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    </style>
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left;">
+        <div class="section-label">Галерея</div>
+        <h2>Камеры в работе</h2>
+        <p style="margin:0;">Реальные установки в исследовательских центрах, клиниках и образовательных учреждениях.</p>
+      </div>
+
+      <div class="sr-carousel reveal">
+        <div class="sr-track" id="srTrack">
+          <div class="sr-slide">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span class="sr-slide-num">Фото 01 · 16:9</span>
+            <span class="sr-slide-label">Профессионал — общий план</span>
+          </div>
+          <div class="sr-slide">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span class="sr-slide-num">Фото 02 · 16:9</span>
+            <span class="sr-slide-label">Эксперт — рабочее место исследователя</span>
+          </div>
+          <div class="sr-slide">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span class="sr-slide-num">Фото 03 · 16:9</span>
+            <span class="sr-slide-label">Акустик — внутренняя отделка</span>
+          </div>
+          <div class="sr-slide">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span class="sr-slide-num">Фото 04 · 16:9</span>
+            <span class="sr-slide-label">Детская лаборатория</span>
+          </div>
+          <div class="sr-slide">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span class="sr-slide-num">Фото 05 · 16:9</span>
+            <span class="sr-slide-label">Сборка и пусконаладка</span>
+          </div>
+        </div>
+
+        <div class="sr-controls">
+          <div class="sr-dots" id="srDots"></div>
+          <div class="sr-buttons">
+            <button class="sr-btn" id="srPrev" aria-label="Назад">←</button>
+            <button class="sr-btn" id="srNext" aria-label="Вперёд">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        const track = document.getElementById('srTrack');
+        const dotsBox = document.getElementById('srDots');
+        const prevBtn = document.getElementById('srPrev');
+        const nextBtn = document.getElementById('srNext');
+        if (!track) return;
+        const slides = track.querySelectorAll('.sr-slide');
+
+        // Build dots
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'sr-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Слайд ' + (i + 1));
+          dot.addEventListener('click', () => {
+            slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          });
+          dotsBox.appendChild(dot);
+        });
+
+        const dots = dotsBox.querySelectorAll('.sr-dot');
+
+        function updateActive() {
+          const trackRect = track.getBoundingClientRect();
+          const center = trackRect.left + trackRect.width / 2;
+          let nearestIdx = 0, nearestDist = Infinity;
+          slides.forEach((s, i) => {
+            const r = s.getBoundingClientRect();
+            const d = Math.abs((r.left + r.width / 2) - center);
+            if (d < nearestDist) { nearestDist = d; nearestIdx = i; }
+          });
+          dots.forEach((d, i) => d.classList.toggle('active', i === nearestIdx));
+          prevBtn.disabled = nearestIdx === 0;
+          nextBtn.disabled = nearestIdx === slides.length - 1;
+        }
+
+        track.addEventListener('scroll', updateActive, { passive: true });
+        updateActive();
+
+        prevBtn.addEventListener('click', () => {
+          const cur = [...dots].findIndex(d => d.classList.contains('active'));
+          if (cur > 0) slides[cur - 1].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+        nextBtn.addEventListener('click', () => {
+          const cur = [...dots].findIndex(d => d.classList.contains('active'));
+          if (cur < slides.length - 1) slides[cur + 1].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+      })();
+    </script>
+  </section>
+
+
+  <!-- ===== ФУНКЦИОНАЛ (Asymmetric) ===== -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Характеристики</div>
+        <h2>Как это устроено</h2>
+        <p>Технические решения, из которых складывается контролируемая среда внутри камеры.</p>
+      </div>
+      <div class="features-grid reveal-stagger" style="grid-template-columns:repeat(2,1fr);">
+        <div class="feature-item feature-item--lg">
+          <span class="feature-num">01</span>
+          <h4>Экранирование от электромагнитных помех</h4>
+          <p>Многослойная экранирующая оболочка блокирует внешние электромагнитные поля — наводки от сети 50 Гц, радиочастотные передатчики, сигналы Wi-Fi и мобильных сетей.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">02</span>
+          <h4>Комплексная шумоизоляция</h4>
+          <p>Внешний звуковой шум полностью исключается с помощью комплексной звукоизоляции конструкции. Специальные материалы снижают вибрацию от здания и окружающей среды.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">03</span>
+          <h4>Звукопоглощение</h4>
+          <p>Звукопоглощающий пенополиуретан устраняет эхо и реверберацию внутри камеры — критично для аудиальных экспериментов и звукозаписи.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">04</span>
+          <h4>Светодиодное освещение</h4>
+          <p>Светильники позволяют настраивать цветовую температуру и яркость. В изолированном помещении полностью устраняется фактор различий, вызванных изменением светового дня, — важно для константности зрительного восприятия.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">05</span>
+          <h4>Заземление и фильтрация</h4>
+          <p>Камера обязательно заземляется для экранирования и фильтрации сетевых помех. Все инженерные вводы оснащены фильтрами, исключающими проникновение помех по проводным линиям.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">06</span>
+          <h4>Вентиляция и климат-контроль</h4>
+          <p>Тихие вентиляторы обеспечивают постоянный воздухообмен. Опциональная фильтрация воздуха и подключение к системам климат-контроля для поддержания стабильной температуры.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">07</span>
+          <h4>Варианты внутренней отделки</h4>
+          <p>Акустический поролон «Т-образный» и «Ромб», акустическая ламинированная фанера, индивидуальные акустические панели, ковролиновое покрытие, внешняя декоративная отделка.</p>
+        </div>
+        <div class="feature-item feature-item--lg">
+          <span class="feature-num">08</span>
+          <h4>Опциональное оснащение</h4>
+          <p>Видеонаблюдение, переговорное устройство (Интерком), RGB подсветка, басовые ловушки, акустические перегородки, зеркало Гезелла. Комплектация айтрекерами, нейроинтерфейсами (ЭЭГ, ЭКГ, ЭМГ), системами fNIRS и другим научным оборудованием.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ===== ФОРМА ОБРАТНОЙ СВЯЗИ ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Контакт</div>
+          <h2>Свяжитесь с нами</h2>
+          <p>Рассчитаем стоимость экранированного помещения, подберём уровень экранирования под ваши задачи и организуем выезд специалиста для оценки площадки. Реализуем проекты любого масштаба — от кабин до полноценных исследовательских лабораторий.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              neiroiconica@yandex.ru
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></span>
+              +7 (931) 521-29-29
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              Санкт-Петербург, Россия
+            </div>
+          </div>
+        </div>
+
+        <div class="b24-form-wrapper reveal">
+          <script data-b24-form="inline/48/l1gd1w" data-skip-moving="true">
+          (function(w,d,u){
+          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cursor-glow.js"></script>
+</body>
+</html>

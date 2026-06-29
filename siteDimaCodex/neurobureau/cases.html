@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кейсы — Нейробюро | Нейроиконика</title>
+  <meta name="description" content="Примеры исследований и кейсы использования продуктов Нейробюро в когнитивной психологии, нейромаркетинге, юзабилити-исследованиях и образовании.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/components.css">
+
+  <style>
+    .case-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .case-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .case-item:hover {
+      border-color: var(--border-hover);
+    }
+    .case-item.active {
+      border-color: var(--accent);
+    }
+    .case-header {
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      user-select: none;
+    }
+    .case-header h3 {
+      font-size: 1.05rem;
+      margin: 0;
+      color: var(--text-primary);
+    }
+    .case-header p {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-style: italic;
+      margin: 0.25rem 0 0;
+      opacity: 0.8;
+    }
+    .case-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      color: var(--accent);
+    }
+    .case-item.active .case-chevron {
+      transform: rotate(180deg);
+    }
+    .case-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 2rem;
+    }
+    .case-item.active .case-body {
+      max-height: 800px;
+      padding: 0 2rem 2rem;
+    }
+    .case-grid-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 768px) {
+      .case-grid-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+    .case-tile {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm, 8px);
+      padding: 1.25rem;
+      border-top: 2px solid var(--accent);
+    }
+    .case-tile h4 {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin: 0 0 0.5rem;
+    }
+    .case-tile p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin: 0;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+
+<body data-product="neurobureau">
+
+  <div class="grid-bg"></div>
+  <div class="data-stream"></div>
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+        </span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Оборудование
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Нейробюро
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Ассистив
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="../assistiv/pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="../assistiv/games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="../assistiv/training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="../assistiv/manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="../assistiv/cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            О нас
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta">
+          <a href="../about/contacts.html" class="btn btn-primary">Связаться</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO (compact) ===== -->
+  <section class="hero hero--compact">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge"><span>Кейсы</span></div>
+        <h1 class="hero-title">
+          Кейсы и
+          <span class="text-gradient">исследования</span>
+        </h1>
+        <p class="hero-subtitle">
+          Реальные исследования с использованием оборудования и программного обеспечения Нейроиконика.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CASES ===== -->
+  <section style="padding:4rem 0;">
+    <div class="container">
+      <div class="case-accordion">
+
+        <div class="case-item active">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Окуломоторные стратегии и предикторы точности в задаче ментального вращения</h3>
+              <p>Как глаза «решают» задачу вместо нас</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Выяснить, как именно человек рассматривает фигуры в процессе ментального вращения — существуют ли разные стратегии зрительного обследования и что отличает ошибочные попытки от успешных.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>С помощью айтрекера записали движения глаз участников при решении задач на поиск повёрнутой копии фигуры среди четырёх вариантов, затем латентным профильным анализом выделили типы стратегий не по ответам, а по тому, куда и как долго смотрел каждый участник.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>Обнаружены четыре стратегии — от избирательной, когда взгляд игнорирует очевидно неправильные варианты, до исчерпывающей, когда человек методично проверяет каждый. Главная причина ошибки — не избыточное внимание к неправильному варианту, а недостаток внимания к правильному: ошибка начинается не в момент выбора, а раньше — на этапе кодирования задания.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Ошибки в пространственных задачах можно прогнозировать по движениям глаз ещё до того, как человек даст ответ — это открывает возможности для адаптивных обучающих систем, которые отслеживают взгляд в реальном времени и подсказывают, когда ученик пропустил ключевой элемент задачи.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-item">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Компонентная декомпозиция смещения внимания при восприятии эмоционально окрашенных сцен: система окулографических индексов</h3>
+              <p>Пять способов измерить, как эмоции управляют взглядом</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Разработать систему независимых окулографических индексов, которая разлагает единый феномен «смещения внимания к эмоциям» на отдельные измеримые компоненты — вместо традиционного подхода, где всё сводится к общему времени просмотра.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>Участники свободно рассматривали изображения с зонами разной эмоциональной валентности — нейтральные, угрожающие, дисфорические, позитивные. Айтрекер фиксировал маршрут взгляда, на основе которого рассчитывались пять индексов: скорость ориентировки, частота возвратов, объём обработки, регулярность фиксаций и амплитуда сканирования.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>Негативные эмоции перехватывают внимание, позитивные — нет. При этом угроза и дисфория делают это по-разному: угроза ускоряет первичную ориентировку взгляда, а дисфория сужает зону сканирования. Эти два эффекта независимы и не сводимы друг к другу — впервые показана двойная диссоциация компонентов эмоционального внимания.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Система индексов позволяет дифференцированно измерять компоненты нарушения внимания — это первый шаг к стандартизированной окулографической диагностике тревожных, депрессивных и стрессовых расстройств.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-item">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Особенности глазодвигательной активности при тревожности</h3>
+              <p>Что видит тревожный человек, когда смотрит на мир</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Установить, как уровень тревожности связан с параметрами зрительного внимания при восприятии эмоционально окрашенных сцен — социальных и несоциальных.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>Участники с разным уровнем тревожности свободно рассматривали изображения четырёх валентностей, а айтрекер записывал количество, длительность фиксаций и маршруты сканирования. Уровень тревожности измерялся шкалой GAD-7.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>Тревожность перестраивает зрительное внимание по-разному в зависимости от типа сцены: при нейтральных социальных сценах увеличивается длительность фиксаций — как если бы человек искал скрытую угрозу. При позитивных сценах снижается активность сканирования. При дисфорических — наоборот, возникает гиперфокусировка с увеличением и количества, и длительности фиксаций.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Айтрекинг-данные могут дополнить традиционную диагностику тревожности объективными показателями и лечь в основу моделей, способных оценивать риск развития тревожных расстройств.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-item">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Окулографические компоненты зрительного внимания при ПТСР с коморбидной аффективно-тревожной симптоматикой</h3>
+              <p>Как отделить ПТСР от сопутствующей депрессии и тревоги по движениям глаз</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Определить, какие компоненты нарушения зрительного внимания специфичны именно для ПТСР, а какие обусловлены сопутствующей депрессией или тревогой — при помощи системы окулографических индексов.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>Разработан протокол клинического исследования: пациенты с ПТСР и здоровые участники свободно рассматривают специально созданные стимулы, а пять окулографических индексов фиксируют разные аспекты смещения внимания. Сопутствующие расстройства не исключаются, а контролируются как ковариаты.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>Ожидается, что ПТСР проявится гипервигильностью — ускоренной ориентировкой взгляда на угрозу. Депрессия должна независимо сужать зону сканирования при дисфорических сценах. Тревога — аддитивно усиливать реакцию на угрозу. Стереотипность маршрутов сканирования рассматривается как возможный маркер ригидности внимания при ПТСР.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Первое применение компонентной системы индексов в клинической выборке ПТСР — возможность объективно разграничить вклад разных расстройств в нарушения внимания, что напрямую влияет на выбор терапевтической стратегии.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-item">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Окуломоторный градиент нагрузки как показатель когнитивной эффективности при пространственном вращении</h3>
+              <p>Правильный ответ ещё не значит эффективное решение</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Создать интегральный окуломоторный индекс, который измеряет не результативность (правильно/неправильно), а когнитивную «стоимость» правильного решения — сколько зрительных ресурсов потребовалось для достижения результата.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>Участники решали задачи на пространственное вращение матричных паттернов с разным типом преобразования — от простого поворота до зеркального отражения. Айтрекер фиксировал пять показателей, отражающих три когнитивных субпроцесса: кодирование, удержание репрезентации в памяти и верификацию ответа.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>Интегральный индекс (окуломоторный градиент нагрузки) нормально распределён и не сводится к скорости решения — он измеряет именно эффективность, а не быстроту. Индекс устойчив к выбору опорного условия, что делает его пригодным для стандартизации.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Методология позволяет выявлять когнитивный дефицит, замаскированный компенсаторными механизмами — когда человек даёт правильный ответ, но ценой непропорционально высоких затрат. Это перспективно для ранней диагностики нейрокогнитивных нарушений.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-item">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Аттенциональные смещения при визуальном поиске эмоционально окрашенных слов</h3>
+              <p>Почему угрожающие слова мешают искать нужное</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Выяснить, как эмоциональная окраска целевого слова и окружающих слов-дистракторов влияет на распределение внимания при визуальном поиске — и проявляется ли приоритет угрозы для вербальных стимулов.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>Участники искали целевые слова разных категорий (нейтральные, угрожающие, дисфорические, позитивные) в сетках из слов с эмоционально окрашенным фоном. Айтрекер записывал маршруты поиска, параллельно измерялись тревожность, депрессивность и импульсивность.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>Категория целевого слова сама по себе не ускоряет и не замедляет его нахождение. Эффект угрозы проявляется на уровне дистракторов: угрожающие слова-дистракторы захватывают внимание и заставляют перепроверять уже найденный ответ. Эмоциональный фон в целом увеличивает число повторных обращений к цели.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Для вербальных стимулов эффект угрозы работает не через ускорение обнаружения, а через затруднение игнорирования — это уточняет когнитивные модели тревожности и важно при разработке диагностических и терапевтических инструментов.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-item">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Стратегии решения прогрессивных матриц Равена</h3>
+              <p>Не тип стратегии, а её нестабильность предсказывает провал</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Определить, какие зрительные стратегии используются при решении матриц Равена, как они взаимодействуют со сложностью заданий, и является ли нестабильность стратегии самостоятельным предиктором результативности.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>Участники выполняли стандартные прогрессивные матрицы Равена, а айтрекер записывал распределение внимания между матрицей и вариантами ответа. Кластерный анализ выделил типы стратегий по соотношению времени на анализ матрицы и частоте переключений между зонами.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>Выделены три стратегии: конструктивная (долгий анализ матрицы), элиминационная (частые переключения между вариантами) и импульсивная (поверхностный осмотр). На сложных заданиях конструктивная стратегия даёт лучший результат. Но главная находка: нестабильность стратегии от задания к заданию — самостоятельный предиктор низкого балла, независимый от типа стратегии.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Нестабильность стратегии отражает слабый метакогнитивный контроль и может использоваться как объективный маркер интеллектуальной продуктивности. Айтрекинг позволяет верифицировать качество решения без ожидания ответа — по распределению внимания на правильном варианте.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-item">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Окуломоторные особенности восприятия лиминальных пространств подростками и взрослыми</h3>
+              <p>Почему подростков одновременно пугают и притягивают пустые коридоры</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Выяснить, чем отличается восприятие лиминальных пространств — пустых, переходных, «неуютных» помещений — у подростков и у взрослых, и как эмоциональная реакция связана с паттернами зрительного обследования.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>Подростки и взрослые рассматривали изображения лиминальных пространств, а айтрекер фиксировал маршруты их взгляда. Параллельно участники оценивали свою тревогу и желание оказаться в этом пространстве.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>Подростки демонстрировали разведочное сканирование — больше коротких фиксаций с большей амплитудой саккад. Взрослые — сфокусированное: меньше, но более длительные фиксации. При этом подростки испытывали одновременно и большую тревогу, и большее желание оказаться внутри — амбивалентная реакция, характерная для возраста поиска идентичности.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Результаты важны для адаптации медиаконтента и архитектурного проектирования с учётом возрастных различий в восприятии пространства.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-item">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Взаимосвязь самоотношения и глазодвигательных паттернов при восприятии женщинами собственного лица</h3>
+              <p>Куда смотрит женщина, разглядывая себя — зависит от возраста</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Установить, как компоненты самоотношения связаны с тем, куда именно женщина направляет взгляд при рассматривании собственного лица.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>Молодым и зрелым женщинам предъявлялась их собственная портретная фотография, а айтрекер фиксировал, какие области лица привлекали больше внимания. Параллельно измерялись компоненты самоотношения.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>Обнаружены два механизма самовосприятия. У молодых женщин внимание к привлекательным чертам связано с аутосимпатией, а фиксация на недостатках — с ожиданием оценки окружающих. У зрелых женщин внимание к привлекательным чертам связано с самоуважением, а общее время рассматривания лица — с самоинтересом. Молодые ориентируются на внешнюю оценку, зрелые — на внутреннюю.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Результаты полезны для практики косметологов и пластических хирургов — айтрекинг может объективно показать, что именно беспокоит пациентку, не полагаясь только на слова.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-item">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Зрительный поиск ошибок в текстах исходного программного кода</h3>
+              <p>Как опыт программиста меняет способ чтения кода</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Выяснить, как профессиональный опыт программиста влияет на процесс зрительного поиска ошибок в коде.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>Программисты с разным стажем искали ошибки в коде на Python и объясняли логику программ, а айтрекер записывал их маршруты сканирования.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>С ростом опыта время поиска ошибок сокращается, число фиксаций уменьшается, но каждая фиксация становится длительнее — опытные программисты группируют элементы кода в более крупные смысловые блоки и обрабатывают их глубже. Начинающие тратят на поиск ошибки гораздо больше времени, чем на объяснение кода, а эксперты справляются с обеими задачами за одинаковое время.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Чтение кода принципиально отличается от чтения текста — оно управляется знанием семантики языка программирования. Результаты могут помочь в оптимизации сред разработки и обучении начинающих программистов.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-item">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Восприятие лиц пациентов врачами-дерматокосметологами в зависимости от их опыта медицинской практики</h3>
+              <p>Как глаз врача учится видеть диагноз</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Установить, как стаж врача-дерматокосметолога связан с паттернами зрительного обследования лиц пациентов при диагностике.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>Врачи с разным стажем рассматривали фотографии лиц с дерматологическими нарушениями, а айтрекер фиксировал их маршруты сканирования.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>Начинающие врачи совершают множество неупорядоченных движений по всей поверхности лица. С ростом опыта фиксации объединяются в кластеры вокруг диагностических точек. Эксперты сразу направляют внимание на критически значимые области — их маршрут минимален и точен.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Демонстрация экспертных маршрутов сканирования в медицинском образовании эффективнее вербальных описаний. Айтрекинг может служить инструментом оценки формирования диагностического навыка у молодых врачей.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-item">
+          <div class="case-header" onclick="this.parentElement.classList.toggle('active')">
+            <div>
+              <h3>Сравнительный анализ окуломоторной активности при просмотре эмоционально окрашенных сцен, содержащих лица людей и содержащих животных или предметы</h3>
+              <p>Почему подростки, молодые и зрелые взрослые по-разному смотрят на лица</p>
+            </div>
+            <svg class="case-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="case-body">
+            <div class="case-grid-inner">
+              <div class="case-tile">
+                <h4>Задача исследования</h4>
+                <p>Выяснить, как возраст влияет на зрительное обследование социальных стимулов (с лицами людей) по сравнению с несоциальными (с животными или предметами) при разной эмоциональной окраске.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Как исследовали</h4>
+                <p>Подростки, молодые и зрелые взрослые свободно рассматривали изображения, где рядом располагались стимулы четырёх валентностей — с лицами людей или с животными и предметами. Айтрекер фиксировал, что привлекает взгляд первым, что удерживает его дольше и как отличаются маршруты сканирования между возрастными группами.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Результаты</h4>
+                <p>Лица людей во всех возрастных группах привлекают взгляд быстрее и анализируются детальнее, чем несоциальные стимулы. Однако характер этого эффекта меняется с возрастом: подростки дольше задерживаются на эмоционально насыщенных лицах, молодые взрослые демонстрируют более избирательное сканирование, а зрелые — наиболее экономичное. Дисфорические лица вызывают избегание у взрослых, тогда как подростки продолжают их исследовать.</p>
+              </div>
+              <div class="case-tile">
+                <h4>Практическая значимость</h4>
+                <p>Возрастная динамика социального восприятия важна для понимания нарушений обработки эмоциональной информации при депрессии, тревожности и расстройствах аутистического спектра — особенно в подростковом возрасте, когда эти расстройства чаще всего дебютируют.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== SUBMIT RESEARCH ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Поделитесь</div>
+          <h2>Расскажите о своём исследовании</h2>
+          <p>Если вы используете продукты Нейробюро в своих исследованиях — расскажите о вашем опыте. Лучшие кейсы мы опубликуем на нашем сайте и в научных рассылках.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              cases@neurobureau.ru
+            </div>
+          </div>
+        </div>
+
+        <div class="b24-form-wrapper reveal"><p style="color:var(--text-muted);font-style:italic;text-align:center;padding:2rem;">Форма обратной связи загружается...</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/form.js"></script>
+  <script src="../js/cursor-glow.js"></script>
+</body>
+</html>

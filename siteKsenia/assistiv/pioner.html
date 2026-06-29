@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Планшет Пионер — Нейроиконика Ассистив</title>
+  <meta name="description" content="Планшет Пионер — готовое ассистивное решение со встроенным айтрекером и предустановленным ПО EyeCommunicator. Windows 11, 12.9″ дисплей, для коммуникации и управления компьютером взглядом.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/assistiv.css">
+  <style>
+    .hero--twocol .hero-content { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3rem; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(26,79,204,0.12); border: 1px solid rgba(26,79,204,0.25); border-radius: 9999px; padding: 0.35em 1em; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 1.5rem; }
+    .hero-illustration { display: flex; align-items: center; justify-content: center; }
+    .hero-illustration svg { width: 100%; max-width: 360px; height: auto; filter: drop-shadow(0 12px 36px rgba(26,79,204,0.18)); }
+
+    /* Price banner */
+    .price-banner {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.85rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      margin-top: 1.25rem;
+      font-family: var(--font-mono);
+    }
+    .price-banner .price-num { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    .price-banner .price-label { font-size: 0.78rem; opacity: 0.8; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* Numbered cards */
+    .num-grid { display: grid; gap: 1.5rem; }
+    .num-grid--2 { grid-template-columns: 1fr 1fr; }
+    .num-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .num-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 1.75rem 1.5rem 1.5rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .num-card:hover { border-color: var(--accent); border-left-color: var(--accent-light); transform: translateY(-3px); }
+    .num-card .num { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.55rem; display: block; }
+    .num-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
+    .num-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin: 0; }
+
+    /* Specs table */
+    .specs { background: var(--bg-secondary); }
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+    .spec-row {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .spec-row:nth-child(2n) { border-right: 1px solid var(--border); }
+    .spec-row:nth-last-child(-n+2) { border-bottom: none; }
+    .spec-key {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .spec-val { color: var(--text-primary); font-size: 0.92rem; font-weight: 500; }
+
+    /* Kit list */
+    .kit-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 2rem;
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+    }
+    .kit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+    .kit-list li::before {
+      content: "→";
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Software badges */
+    .software-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .software-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      position: relative;
+    }
+    .software-card .software-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-glow);
+      padding: 0.25em 0.7em;
+      margin-bottom: 0.75rem;
+    }
+    .software-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .software-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* Accessories */
+    .accessories-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
+    .access-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .access-row .access-name { font-weight: 500; color: var(--text-primary); font-size: 0.95rem; }
+    .access-row .access-price { font-family: var(--font-mono); font-size: 0.88rem; color: var(--accent); font-weight: 700; }
+
+    /* Disclaimer */
+    .disclaimer {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(74,111,165,0.06);
+      border-left: 3px solid var(--text-muted);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Contact */
+    .contact { background: var(--bg-secondary); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact-text h2 { margin-bottom: 1rem; }
+    .contact-text p { color: var(--text-secondary); line-height: 1.75; }
+
+    @media (max-width: 900px) {
+      .hero--twocol .hero-content { grid-template-columns: 1fr; }
+      .hero-illustration { order: -1; }
+      .num-grid--2, .num-grid--3, .specs-grid, .software-grid, .accessories-grid, .contact-grid, .kit-list { grid-template-columns: 1fr; }
+      .spec-row:nth-child(2n) { border-right: none; }
+      .spec-row { border-bottom: 1px solid var(--border); }
+      .spec-row:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+
+<body data-product="assistiv">
+  <div class="grid-bg"></div>
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg></span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Оборудование <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Нейробюро <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="../neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="../neurobureau/training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="../neurobureau/cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Ассистив <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">О нас <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta"><a href="../about/contacts.html" class="btn btn-primary">Связаться</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero hero--twocol">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge">Готовое решение</div>
+          <h1 class="hero-title">Планшет<br><span class="text-gradient">Пионер</span></h1>
+          <p class="hero-subtitle">Готовый ассистивный планшет со встроенным айтрекером и предустановленным ПО — для общения и управления компьютером без рук и голоса. Точность ≤ 1°, рабочее расстояние 45–80 см, калибровка занимает менее 3 минут.</p>
+          <div class="price-banner">
+            <span class="price-num">590 000 ₽</span>
+            <span class="price-label">в комплекте всё нужное</span>
+          </div>
+          <div class="hero-actions" style="margin-top:1.75rem;">
+            <a href="#contact" class="btn btn-primary">Запросить демо</a>
+            <a href="#specs" class="btn btn-outline">Характеристики</a>
+          </div>
+        </div>
+        <div class="hero-illustration reveal">
+          <svg viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="screen-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0a1228"/>
+                <stop offset="100%" stop-color="#142850"/>
+              </linearGradient>
+              <radialGradient id="halo-grad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="rgba(45,106,237,0.15)"/>
+                <stop offset="100%" stop-color="rgba(45,106,237,0)"/>
+              </radialGradient>
+            </defs>
+            <!-- Halo -->
+            <circle cx="160" cy="200" r="170" fill="url(#halo-grad)"/>
+            <!-- Tablet body -->
+            <rect x="40" y="40" width="240" height="320" rx="16" fill="#1a1a1f" stroke="#1a4fcc" stroke-width="2"/>
+            <!-- Screen -->
+            <rect x="54" y="54" width="212" height="270" rx="6" fill="url(#screen-grad)"/>
+            <!-- Top bar (output) -->
+            <rect x="62" y="62" width="196" height="26" rx="4" fill="rgba(45,106,237,0.18)"/>
+            <text x="160" y="80" text-anchor="middle" font-size="10" fill="#7aabff" font-family="Inter,sans-serif">Привет, мама!</text>
+            <!-- Symbol grid 3x3 -->
+            <rect x="62" y="98" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
+            <rect x="130" y="98" width="60" height="48" rx="4" fill="rgba(45,106,237,0.35)" stroke="#2d6aed" stroke-width="1.8"/>
+            <rect x="198" y="98" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
+            <rect x="62" y="154" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
+            <rect x="130" y="154" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
+            <rect x="198" y="154" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
+            <rect x="62" y="210" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
+            <rect x="130" y="210" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
+            <rect x="198" y="210" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
+            <!-- Cursor on active cell -->
+            <circle cx="160" cy="122" r="7" fill="#2d6aed" opacity="0.85"/>
+            <circle cx="160" cy="122" r="13" fill="none" stroke="#2d6aed" stroke-width="1.8" opacity="0.5"/>
+            <!-- Quick phrases bar -->
+            <rect x="62" y="270" width="196" height="44" rx="4" fill="rgba(45,106,237,0.06)" stroke="rgba(45,106,237,0.15)"/>
+            <rect x="70" y="282" width="60" height="20" rx="2" fill="rgba(45,106,237,0.18)"/>
+            <rect x="138" y="282" width="55" height="20" rx="2" fill="rgba(45,106,237,0.12)"/>
+            <rect x="201" y="282" width="50" height="20" rx="2" fill="rgba(45,106,237,0.12)"/>
+            <!-- Eyetracker bar at bottom edge -->
+            <rect x="54" y="332" width="212" height="20" rx="3" fill="#0a1228" stroke="rgba(45,106,237,0.5)"/>
+            <circle cx="84" cy="342" r="3" fill="#2d6aed" opacity="0.7"/>
+            <circle cx="160" cy="342" r="4" fill="#2d6aed"/>
+            <circle cx="236" cy="342" r="3" fill="#2d6aed" opacity="0.7"/>
+            <!-- IR shine -->
+            <circle cx="160" cy="342" r="2" fill="white" opacity="0.6"/>
+            <!-- Camera at top -->
+            <circle cx="160" cy="48" r="3" fill="#2d6aed" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ЧТО ВХОДИТ ===== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left; margin-bottom:2rem;">
+        <div class="section-label">В комплекте</div>
+        <h2>Всё для работы — в одной коробке</h2>
+        <p style="margin:0;">Не нужно искать совместимый компьютер, монитор и крепления. Открыли коробку — настроили — пользуетесь.</p>
+      </div>
+      <ul class="kit-list reveal-stagger">
+        <li>Планшет Пионер с предустановленным ПО</li>
+        <li>Айтрекинг-приставка (встроенная, под экраном)</li>
+        <li>Защитный чехол с ручкой</li>
+        <li>Крепления VESA 100×100 и 75×75</li>
+        <li>Блок питания</li>
+        <li>Крепление на выбор (под коляску или стол)</li>
+        <li>Рюкзак для переноски</li>
+        <li>Руководство пользователя</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ===== ПО В КОМПЛЕКТЕ ===== -->
+  <section style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left; margin-bottom:2rem;">
+        <div class="section-label">Программное обеспечение</div>
+        <h2>Два продукта без доплат</h2>
+      </div>
+      <div class="software-grid reveal-stagger">
+        <div class="software-card">
+          <span class="software-tag">01 · Коммуникация</span>
+          <h3>EyeCommunicator</h3>
+          <p>Управление курсором Windows взглядом, экранная клавиатура с предиктивным вводом, синтез речи на русском языке, библиотека быстрых фраз, открытое API. Доступ к мессенджерам, браузеру и любым программам Windows.</p>
+        </div>
+        <div class="software-card">
+          <span class="software-tag">02 · Тренировка</span>
+          <h3>Стерх: Поймай взглядом</h3>
+          <p>Шесть обучающих игр для сенсомоторной тренировки и развития навыков управления взглядом: Цветочный сад, Аквариум, Бабочки, Снежинки, Карточки, Фруктовая битва. Со статистикой и тепловыми картами для специалистов.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ХАРАКТЕРИСТИКИ ===== -->
+  <section class="specs" id="specs">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left; margin-bottom:2rem;">
+        <div class="section-label">Характеристики</div>
+        <h2>Технические параметры</h2>
+      </div>
+      <div class="specs-grid reveal">
+        <div class="spec-row">
+          <span class="spec-key">Дисплей</span>
+          <span class="spec-val">12.9″ IPS, 2880×1920, 60 Гц, 430 нит, сенсорный</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Процессор</span>
+          <span class="spec-val">Intel Alder Lake-N N100</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Память</span>
+          <span class="spec-val">12 ГБ RAM · 512 ГБ SSD</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">ОС</span>
+          <span class="spec-val">Windows 11 Home</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Порты</span>
+          <span class="spec-val">2× USB-C, USB 3.2 Type-A, Micro HDMI, 3.5 мм</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Беспроводные</span>
+          <span class="spec-val">Wi-Fi 6, Bluetooth 5</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Камеры</span>
+          <span class="spec-val">8 Мп тыловая · 5 Мп фронтальная</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Аудио</span>
+          <span class="spec-val">Стереодинамики 2×1 Вт</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Аккумулятор</span>
+          <span class="spec-val">4800 мА·ч, до 3 часов работы</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Крепление</span>
+          <span class="spec-val">VESA 100×100 и 75×75</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Габариты</span>
+          <span class="spec-val">287.4 × 208.5 × 9 мм</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Вес и цвет</span>
+          <span class="spec-val">1.5 кг · чёрный</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ПАРАМЕТРЫ АЙТРЕКЕРА ===== -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Параметры айтрекера</div>
+        <h2>Технология и точность</h2>
+        <p>Инфракрасная окулография — без креплений на голове, без электродов.</p>
+      </div>
+      <div class="num-grid num-grid--3 reveal-stagger">
+        <div class="num-card">
+          <span class="num">01 · Точность</span>
+          <h3>≤ 1° углового разрешения</h3>
+          <p>Точное определение точки фиксации взгляда. Достаточно для уверенной работы с экранной клавиатурой и интерфейсами Windows.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">02 · Расстояние</span>
+          <h3>45–80 см от экрана</h3>
+          <p>Естественное рабочее расстояние — как при обычной работе с планшетом. Без необходимости фиксировать голову или придвигаться вплотную.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">03 · Калибровка</span>
+          <h3>Менее 3 минут</h3>
+          <p>Быстрая настройка по точкам на экране. Профиль сохраняется и подгружается при следующем запуске.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ДЛЯ КОГО ===== -->
+  <section style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left; margin-bottom:2rem;">
+        <div class="section-label">Для кого</div>
+        <h2>Кому подойдёт Пионер</h2>
+      </div>
+      <div class="num-grid num-grid--2 reveal-stagger">
+        <div class="num-card">
+          <span class="num">01 · Дома</span>
+          <h3>Люди с БАС, ДЦП, после инсульта или травмы</h3>
+          <p>Готовое решение для индивидуального использования: всё уже настроено, остаётся включить и пройти калибровку.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">02 · Дети</span>
+          <h3>Дети с расстройствами аутистического спектра</h3>
+          <p>Развитие коммуникации и доступ к обучению через визуально-понятный интерфейс с символами.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">03 · Реабилитация</span>
+          <h3>Реабилитационные центры и паллиативная помощь</h3>
+          <p>Мобильное решение, которое легко переносить между палатами и кабинетами. VESA-крепления для коляски и кровати.</p>
+        </div>
+        <div class="num-card">
+          <span class="num">04 · Образование</span>
+          <h3>Инклюзивные классы и коррекционные школы</h3>
+          <p>Один планшет — всё нужное ПО для уроков, общения с одноклассниками и работы с учебными материалами.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== АКСЕССУАРЫ ===== -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left; margin-bottom:1.5rem;">
+        <div class="section-label">Аксессуары</div>
+        <h2>Дополнительные опции</h2>
+        <p style="margin:0;">Покупаются отдельно, под условия конкретного пользователя.</p>
+      </div>
+      <div class="accessories-grid reveal">
+        <div class="access-row">
+          <span class="access-name">Кронштейн КН-1 для коляски</span>
+          <span class="access-price">30 000 ₽</span>
+        </div>
+        <div class="access-row">
+          <span class="access-name">Кронштейн универсальный КУ-1</span>
+          <span class="access-price">30 000 ₽</span>
+        </div>
+        <div class="access-row">
+          <span class="access-name">Кронштейн универсальный КУ-2</span>
+          <span class="access-price">30 000 ₽</span>
+        </div>
+        <div class="access-row">
+          <span class="access-name">Кронштейн универсальный КУ-3</span>
+          <span class="access-price">30 000 ₽</span>
+        </div>
+        <div class="access-row">
+          <span class="access-name">Беспроводная клавиатура и мышь</span>
+          <span class="access-price">5 000 ₽</span>
+        </div>
+        <div class="access-row">
+          <span class="access-name">Power bank</span>
+          <span class="access-price">15 000 ₽</span>
+        </div>
+        <div class="access-row">
+          <span class="access-name">Рюкзак для переноски</span>
+          <span class="access-price">19 000 ₽</span>
+        </div>
+      </div>
+
+      <div class="disclaimer reveal">
+        Планшет Пионер не является изделием медицинского назначения. Производитель — ООО «Нейроиконика Ассистив» (Санкт-Петербург, ИНН 7813275036).
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CTA ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid reveal">
+        <div class="contact-text">
+          <div class="section-label">Заказать</div>
+          <h2>Хотите попробовать Пионер?</h2>
+          <p>Расскажите о ситуации — обсудим, подойдёт ли вам Пионер или вариант со стационарным комплексом Стерх. Организуем демонстрацию, поможем подобрать крепления, проведём обучение.</p>
+        </div>
+        <div class="b24-form-wrapper">
+          <script data-b24-form="inline/50/lr7z6c" data-skip-moving="true">
+          (function(w,d,u){
+          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_50.js');
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cursor-trail.js"></script>
+</body>
+</html>

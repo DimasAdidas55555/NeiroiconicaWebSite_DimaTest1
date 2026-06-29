@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Диагностика и обучение — Нейроиконика Ассистив</title>
+  <meta name="description" content="Раздел для специалистов и родителей: диагностика готовности к управлению взглядом, методические материалы, обучение работе с EyeCommunicator и развивающими играми.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/assistiv.css">
+  <style>
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(26,79,204,0.12); border: 1px solid rgba(26,79,204,0.25); border-radius: 9999px; padding: 0.35em 1em; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 1.5rem; }
+
+    .dev-banner {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: var(--font-mono); font-size: 0.78rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      background: rgba(74,111,165,0.08);
+      border: 1px dashed var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .dev-banner::before {
+      content: "";
+      width: 8px; height: 8px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+    /* Sections placeholder cards — bento with 2 wide highlighted */
+    .planned-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .planned-card { grid-column: span 2; }
+    .planned-card.is-priority {
+      grid-column: span 2;
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
+      border-style: solid;
+      border-left: 4px solid var(--accent);
+      padding: 2.25rem 2rem;
+    }
+    .planned-card.is-priority h3 { font-size: 1.3rem; }
+    .planned-card.is-narrow { grid-column: span 1; }
+    @media (max-width: 900px) {
+      .planned-grid { grid-template-columns: 1fr; }
+      .planned-card, .planned-card.is-priority, .planned-card.is-narrow { grid-column: auto; }
+    }
+    .planned-card {
+      background: var(--bg-card);
+      border: 1px dashed var(--border);
+      padding: 2rem 1.75rem;
+      transition: border-color .2s;
+    }
+    .planned-card:hover { border-color: var(--accent); border-style: solid; }
+    .planned-card .num { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.55rem; display: block; }
+    .planned-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text-primary); }
+    .planned-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0.75rem; }
+    .planned-card .planned-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: rgba(74,111,165,0.06);
+      padding: 0.25em 0.75em;
+      margin-top: 0.5rem;
+    }
+
+    .audience-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .audience-tab {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 2rem;
+    }
+    .audience-tab .audience-tab-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .audience-tab h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .audience-tab p { color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; }
+    .audience-tab ul { list-style: none; padding: 0; margin: 0; }
+    .audience-tab ul li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      border-bottom: 1px solid var(--border);
+    }
+    .audience-tab ul li:last-child { border-bottom: none; }
+    .audience-tab ul li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .planned-grid, .audience-tabs { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body data-product="assistiv">
+  <div class="grid-bg"></div>
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg></span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Оборудование <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Нейробюро <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="../neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="../neurobureau/training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="../neurobureau/cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Ассистив <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">О нас <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta"><a href="../about/contacts.html" class="btn btn-primary">Связаться</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero hero--compact">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="dev-banner">Раздел в разработке</div>
+          <div class="hero-badge">Для специалистов и родителей</div>
+          <h1 class="hero-title">Диагностика<br>и <span class="text-gradient">обучение</span></h1>
+          <p class="hero-subtitle">Методические материалы, обучающие программы и диагностические инструменты для специалистов по реабилитации, логопедов, нейропсихологов, педагогов и родителей. Помогаем понять, готов ли пользователь к управлению взглядом и как организовать занятия.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ДЛЯ КОГО ===== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left; margin-bottom:2rem;">
+        <div class="section-label">Аудитория</div>
+        <h2>Кому будет полезно</h2>
+      </div>
+      <div class="audience-tabs reveal-stagger">
+        <div class="audience-tab">
+          <span class="audience-tab-tag">01 · Специалисты</span>
+          <h3>Реабилитологи, логопеды, нейропсихологи, педагоги</h3>
+          <p>Профессиональные материалы для работы с пациентами и учениками: оценка готовности, протоколы занятий, разбор статистики из обучающих игр, индивидуальные планы тренировки.</p>
+          <ul>
+            <li>Диагностика готовности к управлению взглядом</li>
+            <li>Методики занятий с обучающими играми</li>
+            <li>Интерпретация тепловых карт и отчётов</li>
+            <li>Сертификационные программы и курсы</li>
+          </ul>
+        </div>
+        <div class="audience-tab">
+          <span class="audience-tab-tag">02 · Родители и близкие</span>
+          <h3>Родители, опекуны, родственники пользователей</h3>
+          <p>Понятные материалы для тех, кто помогает ребёнку или близкому в освоении управления взглядом дома: с чего начинать, как настроить рабочее место, как поддерживать мотивацию.</p>
+          <ul>
+            <li>С чего начать: первые шаги дома</li>
+            <li>Организация рабочего места и крепления</li>
+            <li>Игровые упражнения для ежедневной практики</li>
+            <li>Когда и как обращаться к специалисту</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ЧТО БУДЕТ В РАЗДЕЛЕ ===== -->
+  <section style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left;">
+        <div class="section-label">Содержание раздела</div>
+        <h2>Что появится здесь</h2>
+        <p style="margin:0;">Сейчас раздел готовится. Пока разрабатываем материалы — оставьте контакт, и мы пришлём, как только появится.</p>
+      </div>
+      <div class="planned-grid reveal-stagger">
+        <div class="planned-card is-priority">
+          <span class="num">01 · Стартовая точка</span>
+          <h3>Диагностика готовности к управлению взглядом</h3>
+          <p>Чек-листы и протоколы для оценки сенсомоторных, когнитивных и поведенческих предпосылок. Помогает понять, с чего лучше начинать работу с конкретным пользователем.</p>
+          <span class="planned-tag">В разработке</span>
+        </div>
+        <div class="planned-card is-priority">
+          <span class="num">02 · Для специалистов</span>
+          <h3>Методические рекомендации</h3>
+          <p>Протоколы занятий, программы реабилитации, разборы клинических случаев. Как встроить айтрекинг в комплексную работу с пациентом или учеником.</p>
+          <span class="planned-tag">В разработке</span>
+        </div>
+        <div class="planned-card is-narrow">
+          <span class="num">03</span>
+          <h3>Обучающие курсы и вебинары</h3>
+          <p>Видеокурсы для специалистов и родителей.</p>
+          <span class="planned-tag">В разработке</span>
+        </div>
+        <div class="planned-card is-narrow">
+          <span class="num">04</span>
+          <h3>Памятки для родителей</h3>
+          <p>Пошаговые инструкции для дома.</p>
+          <span class="planned-tag">В разработке</span>
+        </div>
+        <div class="planned-card is-narrow">
+          <span class="num">05</span>
+          <h3>Анализ статистики из игр</h3>
+          <p>Как читать графики и карты прогресса.</p>
+          <span class="planned-tag">В разработке</span>
+        </div>
+        <div class="planned-card is-narrow">
+          <span class="num">06</span>
+          <h3>Шаблоны отчётов</h3>
+          <p>Формы для ИПРА и медкарт.</p>
+          <span class="planned-tag">В разработке</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CTA ===== -->
+  <section>
+    <div class="container">
+      <div class="reveal" style="text-align:center; max-width:680px; margin:0 auto;">
+        <div class="section-label">Хотите получить материалы первыми?</div>
+        <h2 style="margin-top:1rem; margin-bottom:1rem;">Подпишитесь на обновления</h2>
+        <p style="margin:0 auto 2rem;">Когда появятся первые материалы раздела — пришлём вам письмо. Никакого спама, только уведомление о готовности.</p>
+        <a href="../about/contacts.html" class="btn btn-primary">Оставить контакт</a>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cursor-trail.js"></script>
+</body>
+</html>

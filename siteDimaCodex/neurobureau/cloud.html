@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Нейробюро.Облако — Нейробюро | Нейроиконика</title>
+  <meta name="description" content="Облачная платформа Нейробюро для совместной работы с исследовательскими данными. Общее хранилище, автоматические отчёты, дашборды и программный интерфейс.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+
+<body data-product="neurobureau">
+
+  <div class="grid-bg"></div>
+  <div class="nav-overlay"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+        </span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Оборудование
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="dropdown-group-label">Наши решения</div>
+            <a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
+            <a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
+            <div class="dropdown-group-label">Партнёрское оборудование</div>
+            <a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
+            <a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Нейробюро
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Ассистив
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="../assistiv/pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="../assistiv/games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="../assistiv/training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+            <a href="../assistiv/manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+            <a href="../assistiv/cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            О нас
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta">
+          <a href="../about/contacts.html" class="btn btn-primary">Связаться</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span>Облачная платформа</span>
+        </div>
+        <h1 class="hero-title">
+          Нейробюро.<span class="text-gradient">Облако</span>
+        </h1>
+        <p class="hero-subtitle">
+          Тот же функционал анализа, что и в основном Нейробюро — но в браузере, без установки, без требований к компьютеру. Для команд, которые работают из разных городов, часто в командировках или ведут дистанционное обучение.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Запросить доступ</a>
+          <a href="#solution" class="btn btn-outline">Узнать больше</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <svg viewBox="0 0 520 380" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-width:500px">
+  <defs>
+    <radialGradient id="cloudGlow" cx="50%" cy="55%" r="55%">
+      <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background glow -->
+  <ellipse cx="260" cy="200" rx="230" ry="180" fill="url(#cloudGlow)"/>
+
+  <!-- ═══ LARGE CLOUD SILHOUETTE ═══ -->
+  <path d="
+    M 85 295
+    C 55 295 40 265 48 238
+    C 28 220 30 182 62 166
+    C 52 128 78 105 115 112
+    C 118 72 150 52 188 64
+    C 206 32 248 24 278 46
+    C 296 20 336 22 356 52
+    C 384 38 422 58 422 94
+    C 450 100 464 138 448 162
+    C 468 182 462 222 438 238
+    C 448 268 430 298 400 300
+    L 85 295 Z"
+    fill="var(--accent)" fill-opacity="0.07"
+    stroke="var(--accent)" stroke-width="1.8" opacity="0.7"/>
+
+  <!-- Cloud inner glow area -->
+  <path d="
+    M 115 275
+    C 88 275 75 252 82 228
+    C 65 213 68 180 95 167
+    C 88 136 110 118 140 123
+    C 143 89 168 73 198 82
+    C 214 55 250 48 275 66
+    C 290 44 324 46 340 70
+    C 364 58 396 74 397 104
+    C 420 110 432 142 418 162
+    C 432 179 428 210 408 224
+    C 415 250 400 272 375 276
+    Z"
+    fill="var(--accent)" fill-opacity="0.05"/>
+
+  <!-- ═══ SCANPATH ═══ -->
+  <!-- Saccade lines between fixations -->
+  <line x1="155" y1="215" x2="235" y2="175" stroke="var(--accent)" stroke-width="1.2" opacity="0.45"/>
+  <line x1="235" y1="175" x2="305" y2="195" stroke="var(--accent)" stroke-width="1.2" opacity="0.45"/>
+  <line x1="305" y1="195" x2="375" y2="165" stroke="var(--accent)" stroke-width="1.2" opacity="0.45"/>
+  <line x1="375" y1="165" x2="350" y2="245" stroke="var(--accent)" stroke-width="1.2" opacity="0.4"/>
+  <line x1="350" y1="245" x2="215" y2="250" stroke="var(--accent)" stroke-width="1.2" opacity="0.4"/>
+  <line x1="215" y1="250" x2="275" y2="210" stroke="var(--accent)" stroke-width="1.2" opacity="0.35"/>
+
+  <!-- Fixation points (size = dwell time) -->
+  <!-- F1: small -->
+  <circle cx="155" cy="215" r="7" fill="var(--accent)" opacity="0.5"/>
+  <circle cx="155" cy="215" r="12" stroke="var(--accent)" stroke-width="0.8" opacity="0.2" fill="none"/>
+  <!-- F2: medium -->
+  <circle cx="235" cy="175" r="9" fill="var(--accent)" opacity="0.55"/>
+  <circle cx="235" cy="175" r="15" stroke="var(--accent)" stroke-width="0.8" opacity="0.2" fill="none"/>
+  <!-- F3: large (main AOI) -->
+  <circle cx="305" cy="195" r="13" fill="var(--accent)" opacity="0.6"/>
+  <circle cx="305" cy="195" r="20" stroke="var(--accent)" stroke-width="1" opacity="0.25" fill="none"/>
+  <circle cx="305" cy="195" r="27" stroke="var(--accent)" stroke-width="0.5" opacity="0.12" fill="none"/>
+  <!-- F4: small -->
+  <circle cx="375" cy="165" r="6" fill="var(--accent)" opacity="0.48"/>
+  <circle cx="375" cy="165" r="11" stroke="var(--accent)" stroke-width="0.8" opacity="0.18" fill="none"/>
+  <!-- F5: medium -->
+  <circle cx="350" cy="245" r="10" fill="var(--accent)" opacity="0.52"/>
+  <circle cx="350" cy="245" r="17" stroke="var(--accent)" stroke-width="0.8" opacity="0.2" fill="none"/>
+  <!-- F6: medium -->
+  <circle cx="215" cy="250" r="9" fill="var(--accent)" opacity="0.5"/>
+  <circle cx="215" cy="250" r="15" stroke="var(--accent)" stroke-width="0.8" opacity="0.18" fill="none"/>
+  <!-- F7: small -->
+  <circle cx="275" cy="210" r="7" fill="var(--accent)" opacity="0.45"/>
+
+  <!-- Fixation order numbers -->
+  <text x="152" y="219" font-family="monospace" font-size="6" fill="var(--accent)" opacity="0.5" text-anchor="middle">1</text>
+  <text x="232" y="179" font-family="monospace" font-size="6" fill="var(--accent)" opacity="0.5" text-anchor="middle">2</text>
+  <text x="302" y="199" font-family="monospace" font-size="6" fill="white" opacity="0.7" text-anchor="middle">3</text>
+  <text x="372" y="169" font-family="monospace" font-size="6" fill="var(--accent)" opacity="0.5" text-anchor="middle">4</text>
+  <text x="347" y="249" font-family="monospace" font-size="6" fill="var(--accent)" opacity="0.5" text-anchor="middle">5</text>
+  <text x="212" y="254" font-family="monospace" font-size="6" fill="var(--accent)" opacity="0.5" text-anchor="middle">6</text>
+
+  <!-- ═══ SMALL EYE ICONS scattered on cloud ═══ -->
+  <!-- Eye icon 1 (left area) -->
+  <g opacity="0.55">
+    <path d="M 100 145 Q 122 130 144 145 Q 122 160 100 145 Z" fill="var(--accent)" fill-opacity="0.1" stroke="var(--accent)" stroke-width="1"/>
+    <circle cx="122" cy="145" r="8" fill="none" stroke="var(--accent)" stroke-width="1"/>
+    <circle cx="122" cy="145" r="4" fill="var(--accent)" opacity="0.7"/>
+  </g>
+  <!-- Eye icon 2 (top center) -->
+  <g opacity="0.5">
+    <path d="M 230 105 Q 252 92 274 105 Q 252 118 230 105 Z" fill="var(--accent)" fill-opacity="0.1" stroke="var(--accent)" stroke-width="1"/>
+    <circle cx="252" cy="105" r="8" fill="none" stroke="var(--accent)" stroke-width="1"/>
+    <circle cx="252" cy="105" r="4" fill="var(--accent)" opacity="0.7"/>
+  </g>
+  <!-- Eye icon 3 (right area) -->
+  <g opacity="0.5">
+    <path d="M 386 115 Q 408 102 430 115 Q 408 128 386 115 Z" fill="var(--accent)" fill-opacity="0.1" stroke="var(--accent)" stroke-width="1"/>
+    <circle cx="408" cy="115" r="8" fill="none" stroke="var(--accent)" stroke-width="1"/>
+    <circle cx="408" cy="115" r="4" fill="var(--accent)" opacity="0.7"/>
+  </g>
+
+  <!-- Scanpath label -->
+  <text x="88" y="310" font-family="monospace" font-size="7" fill="var(--accent)" opacity="0.4" letter-spacing="1">СКАН-ПУТЬ — 6 ФИКСАЦИЙ — 1240мс</text>
+
+</svg>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== О МЕТОДЕ ===== -->
+  <section class="about-method" id="method">
+    <div class="container">
+      <div class="about-method-grid reveal">
+        <div class="about-method-visual">
+          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="10" y="20" fill="var(--accent)" font-family="monospace" font-size="9" opacity="0.5">ПЛАТФОРМА СОВМЕСТНЫХ ИССЛЕДОВАНИЙ</text>
+
+            <!-- Researcher nodes -->
+            <circle cx="60" cy="100" r="24" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity="0.65"/>
+            <text x="60" y="97" text-anchor="middle" fill="var(--accent)" font-family="monospace" font-size="6.5" opacity="0.55">ПОЛЬЗ.</text>
+            <text x="60" y="107" text-anchor="middle" fill="var(--accent)" font-family="monospace" font-size="6.5" opacity="0.55">A</text>
+
+            <circle cx="60" cy="200" r="24" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity="0.65"/>
+            <text x="60" y="197" text-anchor="middle" fill="var(--accent)" font-family="monospace" font-size="6.5" opacity="0.55">ПОЛЬЗ.</text>
+            <text x="60" y="207" text-anchor="middle" fill="var(--accent)" font-family="monospace" font-size="6.5" opacity="0.55">B</text>
+
+            <circle cx="340" cy="100" r="24" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity="0.65"/>
+            <text x="340" y="97" text-anchor="middle" fill="var(--accent)" font-family="monospace" font-size="6.5" opacity="0.55">ПОЛЬЗ.</text>
+            <text x="340" y="107" text-anchor="middle" fill="var(--accent)" font-family="monospace" font-size="6.5" opacity="0.55">C</text>
+
+            <circle cx="340" cy="200" r="24" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity="0.65"/>
+            <text x="340" y="197" text-anchor="middle" fill="var(--accent)" font-family="monospace" font-size="6.5" opacity="0.55">ПОЛЬЗ.</text>
+            <text x="340" y="207" text-anchor="middle" fill="var(--accent)" font-family="monospace" font-size="6.5" opacity="0.55">D</text>
+
+            <!-- Central cloud node -->
+            <rect x="150" y="120" width="100" height="60" rx="6" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.75"/>
+            <text x="200" y="145" text-anchor="middle" fill="var(--accent)" font-family="monospace" font-size="7.5" opacity="0.65">НЕЙРО</text>
+            <text x="200" y="158" text-anchor="middle" fill="var(--accent)" font-family="monospace" font-size="7.5" opacity="0.65">БЮРО</text>
+            <text x="200" y="171" text-anchor="middle" fill="var(--accent)" font-family="monospace" font-size="6" opacity="0.4">ОБЛАКО</text>
+
+            <!-- Connection lines -->
+            <line x1="84" y1="100" x2="150" y2="138" stroke="var(--accent)" stroke-width="1" opacity="0.3" stroke-dasharray="4,3"/>
+            <line x1="84" y1="200" x2="150" y2="162" stroke="var(--accent)" stroke-width="1" opacity="0.3" stroke-dasharray="4,3"/>
+            <line x1="316" y1="100" x2="250" y2="138" stroke="var(--accent)" stroke-width="1" opacity="0.3" stroke-dasharray="4,3"/>
+            <line x1="316" y1="200" x2="250" y2="162" stroke="var(--accent)" stroke-width="1" opacity="0.3" stroke-dasharray="4,3"/>
+
+            <!-- Sync pulse dots -->
+            <circle cx="117" cy="119" r="3" fill="var(--accent)" opacity="0.5"/>
+            <circle cx="117" cy="181" r="3" fill="var(--accent)" opacity="0.5"/>
+            <circle cx="283" cy="119" r="3" fill="var(--accent)" opacity="0.5"/>
+            <circle cx="283" cy="181" r="3" fill="var(--accent)" opacity="0.5"/>
+
+            <!-- Status bar -->
+            <text x="10" y="270" fill="var(--accent)" font-family="monospace" font-size="7" opacity="0.3">СТАТУС: ВСЕ УЗЛЫ СИНХР. · ЗАДЕРЖКА &lt; 200мс</text>
+            <text x="10" y="290" fill="var(--accent)" font-family="monospace" font-size="7" opacity="0.25">ЭКСПЕРИМЕНТОВ: 347 · НАБОРОВ ДАННЫХ: 1.2К · ОТЧЁТОВ: 89</text>
+          </svg>
+        </div>
+        <div class="about-method-text">
+          <div class="section-label">Зачем облако</div>
+          <h2>Когда обычного Нейробюро не хватает</h2>
+          <p>
+            Основное Нейробюро — это локальная установка: запись и анализ на одном компьютере, в одной лаборатории. Это работает, если вы — исследователь-одиночка. Но если в вашей команде несколько человек, если кто-то работает удалённо, ездит в командировки или ваши коллеги находятся в другом городе — нужно общее рабочее пространство.
+          </p>
+          <p>
+            Нейробюро.Облако — это тот же аналитический функционал, но в браузере. Запись данных по-прежнему делается локально, а обработка, разметка и анализ — в облаке, с любого устройства, без установки, без мощного компьютера. Нужен только интернет.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ЧТО ДАЁТ ===== -->
+  <section class="benefits" id="benefits">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Преимущества</div>
+        <h2>Для кого это решение</h2>
+        <p>Ситуации, в которых облачная версия решает задачу лучше локальной.</p>
+      </div>
+      <div class="benefits-grid reveal-stagger">
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--rings"></div>
+          <h3>Распределённые команды</h3>
+          <p>Исследователи в разных городах работают с общими данными — каждый видит актуальную версию проекта, может размечать области интереса и анализировать результаты.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--scanlines"></div>
+          <h3>Командировки и удалёнка</h3>
+          <p>Данные собираются в одной лаборатории, а обрабатываются откуда угодно — из гостиницы, из дома, из другого учреждения. Нужен только браузер.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--dots"></div>
+          <h3>Образовательный процесс</h3>
+          <p>Общий класс для студентов — в том числе дистанционный. Преподаватель выдаёт задания, студенты обрабатывают данные каждый на своём устройстве, результаты видны всем.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon benefit-icon--grid"></div>
+          <h3>Слабый компьютер — не проблема</h3>
+          <p>Облако не требовательно к характеристикам компьютера. Вся вычислительная нагрузка на стороне сервера — достаточно интернета и любого современного браузера.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== НАШЕ РЕШЕНИЕ ===== -->
+  <section class="solution" id="solution">
+    <div class="container">
+      <div class="solution-grid reveal">
+        <div class="solution-image">
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;padding:2rem;aspect-ratio:4/3;background:rgba(255,255,255,0.02);border:1px solid var(--border);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.4">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);opacity:0.5;letter-spacing:0.1em">ФОТО ПРОДУКТА</span>
+          </div>
+        </div>
+        <div class="solution-text">
+          <div class="section-label">Как это работает</div>
+          <h2>Запись — локально, анализ — в облаке</h2>
+          <p>
+            Сбор данных по-прежнему происходит на локальной станции с оборудованием. После записи данные загружаются в облако, и дальнейшая работа ведётся через браузер — разметка, обработка, визуализация, экспорт. Весь аналитический функционал основного Нейробюро доступен без установки.
+          </p>
+          <ul class="solution-highlights">
+            <li>Тот же набор инструментов анализа, что и в основном Нейробюро</li>
+            <li>Работает в браузере — без установки и обновлений</li>
+            <li>Совместный доступ для всей команды с разделением ролей</li>
+            <li>Не требует мощного компьютера — нужен только интернет</li>
+            <li>Подходит для дистанционного обучения</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ФУНКЦИОНАЛ ===== -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Функционал</div>
+        <h2>Что доступно в облаке</h2>
+        <p>Весь аналитический функционал основного Нейробюро — плюс возможности командной работы.</p>
+      </div>
+      <div class="features-grid reveal-stagger" style="grid-template-columns:repeat(2,1fr);">
+        <div class="feature-item feature-item--lg">
+          <span class="feature-num">01</span>
+          <h4>Полный набор инструментов анализа</h4>
+          <p>Области интереса, 28 показателей, визуализации, коррекция дрейфа, матрицы переходов, сравнение путей сканирования — всё то же самое, что и в локальном Нейробюро, но в браузере.</p>
+        </div>
+        <div class="feature-item feature-item--lg">
+          <span class="feature-num">02</span>
+          <h4>Совместный доступ</h4>
+          <p>Несколько исследователей работают с одним проектом. Гибкое разделение ролей: кто-то размечает области интереса, кто-то анализирует данные, руководитель видит общую картину.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">03</span>
+          <h4>Облачное хранилище</h4>
+          <p>Данные загружаются после записи и доступны всей команде. Не нужно пересылать файлы, носить флешки или настраивать общие папки.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">04</span>
+          <h4>Работает на любом устройстве</h4>
+          <p>Достаточно современного браузера и интернета. Ноутбук, планшет, рабочий компьютер в чужой лаборатории — подойдёт всё, что открывает веб-страницу.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">05</span>
+          <h4>Учебный класс</h4>
+          <p>Преподаватель создаёт общий проект, студенты подключаются со своих устройств. Подходит для очного и дистанционного формата — каждый работает в собственном темпе.</p>
+        </div>
+        <div class="feature-item feature-item--md">
+          <span class="feature-num">06</span>
+          <h4>Экспорт данных</h4>
+          <p>Выгрузка сырых и обработанных данных для дальнейшей работы в статистических пакетах. Все показатели, все модальности, все участники.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ФОРМА ОБРАТНОЙ СВЯЗИ ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Контакт</div>
+          <h2>Свяжитесь с нами</h2>
+          <p>Расскажем, подойдёт ли облачная версия для вашей ситуации, и поможем настроить доступ для всей команды.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              neiroiconica@yandex.ru
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></span>
+              +7 (931) 521-29-29
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              Санкт-Петербург, Россия
+            </div>
+          </div>
+        </div>
+
+        <div class="b24-form-wrapper reveal">
+          <script data-b24-form="inline/48/l1gd1w" data-skip-moving="true">
+          (function(w,d,u){
+          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cursor-glow.js"></script>
+</body>
+</html>
