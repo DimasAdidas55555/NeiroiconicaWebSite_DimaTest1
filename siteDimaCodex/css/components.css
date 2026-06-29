@@ -500,6 +500,10 @@
   margin-bottom: 2rem;
 }
 
+#solutions .section-header p span {
+  display: block;
+}
+
 .trust-stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
