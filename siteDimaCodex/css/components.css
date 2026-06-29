@@ -380,6 +380,10 @@
   gap: 1rem;
 }
 
+.features-grid--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 /* Primary features — larger, span 2 columns or have more padding */
 .feature-item {
   display: flex;
@@ -462,6 +466,33 @@
   font-size: 0.825rem;
   line-height: 1.55;
   margin: 0;
+}
+
+.feature-points {
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feature-points li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.feature-points li::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow-strong);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
