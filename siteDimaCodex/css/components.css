@@ -53,18 +53,57 @@
   margin-bottom: 1.5rem;
 }
 
+.hero-kicker {
+  color: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  max-width: 560px;
+}
+
 .hero-subtitle {
   font-size: 1.15rem;
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-bottom: 2.5rem;
-  max-width: 480px;
+  margin-bottom: 2rem;
+  max-width: 560px;
 }
 
 .hero-actions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.hero-proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 620px;
+}
+
+.hero-proof-item {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.hero-proof-item span {
+  display: block;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+}
+
+.hero-proof-item p {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin: 0;
 }
 
 .hero-visual {
@@ -90,6 +129,13 @@
   .hero-text { max-width: 100%; }
   .hero-subtitle { max-width: 100%; margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
+  .hero-proof {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
   .hero-visual { order: -1; }
   .hero-illustration { max-width: 280px; }
 }
@@ -466,6 +512,7 @@
 .trust {
   background: var(--bg-secondary);
   padding: 4rem 0;
+  overflow: hidden;
 }
 
 .trust-compact {
@@ -474,17 +521,23 @@
   gap: 2.5rem;
 }
 
+.section-header--compact {
+  margin-bottom: 2rem;
+}
+
 .trust-stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
+  margin-bottom: 3rem;
 }
 
 .trust-stat {
-  flex: 1;
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  min-width: 0;
 }
 
 .trust-stat:last-child {
@@ -580,6 +633,7 @@
 
 .trust-carousel {
   overflow: hidden;
+  max-width: 100%;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
@@ -608,6 +662,35 @@
 
 .trust-carousel-item:hover {
   color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .trust-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .trust-stat {
+    padding: 1.25rem 1rem;
+  }
+
+  .trust-stat-label {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 420px) {
+  .trust-stats {
+    grid-template-columns: 1fr;
+    margin-bottom: 2rem;
+  }
+
+  .trust-stat {
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
 }
 
 @keyframes trust-scroll {
@@ -1264,15 +1347,16 @@
   position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border);
+  border-left: 4px solid var(--card-color, var(--accent));
   border-radius: var(--radius-lg);
   padding: 2.5rem;
   overflow: hidden;
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
   text-decoration: none;
   color: inherit;
   display: flex;
   flex-direction: column;
-  min-height: 320px;
+  min-height: 380px;
 }
 
 .solution-card:hover {
@@ -1301,18 +1385,47 @@
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent);
+  color: var(--card-color, var(--accent));
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .solution-card h3 {
+  color: var(--card-color, var(--accent));
   font-size: 1.35rem;
   margin-bottom: 0.75rem;
 }
 
 .solution-card p {
   font-size: 0.9rem;
+}
+
+.solution-card-points {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
   flex: 1;
+}
+
+.solution-card-points li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.solution-card-points li::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 5px;
+  height: 5px;
+  background: var(--card-color, var(--accent));
+  box-shadow: 0 0 10px var(--accent-glow-strong);
+  transform: translateY(-2px);
 }
 
 .solution-card-arrow {
@@ -1334,7 +1447,10 @@
   .solutions-showcase {
     grid-template-columns: 1fr;
   }
-  .solution-card { min-height: 240px; }
+  .solution-card {
+    min-height: 0;
+    padding: 2rem;
+  }
 }
 
 /* ===== HOMEPAGE: Areas / Use cases ===== */

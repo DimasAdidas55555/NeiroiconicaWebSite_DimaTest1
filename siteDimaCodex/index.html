@@ -109,15 +109,27 @@
         <h1 class="hero-title">
           <span class="text-gradient">Нейроиконика</span>
         </h1>
-        <p style="color:var(--accent);font-size:1.15rem;font-weight:500;margin-bottom:1.25rem;font-style:italic;">
-          Технологии, которые читают взгляд. От взгляда — к пониманию.
-        </p>
+        <p class="hero-kicker">Оборудование и ПО для исследований взгляда, поведения и нейрофизиологии</p>
         <p class="hero-subtitle">
-          Оборудование и программное обеспечение для когнитивных исследований, клинической диагностики, нейромаркетинга и образования. Мы помогаем понять человека — через то, куда он смотрит и как реагирует.
+          Создаём российские решения для лабораторий, клиник, университетов и ассистивной коммуникации: айтрекеры, исследовательскую платформу Нейробюро, экранированные камеры и технологии управления компьютером взглядом.
         </p>
         <div class="hero-actions">
-          <a href="#solutions" class="btn btn-primary">Наши решения</a>
-          <a href="#contact" class="btn btn-outline">Связаться</a>
+          <a href="#solutions" class="btn btn-primary">Подобрать решение</a>
+          <a href="about/contacts.html" class="btn btn-outline">Запросить консультацию</a>
+        </div>
+        <div class="hero-proof" aria-label="Ключевые факты о Нейроиконике">
+          <div class="hero-proof-item">
+            <span>100+</span>
+            <p>организаций используют наши решения</p>
+          </div>
+          <div class="hero-proof-item">
+            <span>9</span>
+            <p>модальностей синхронной записи</p>
+          </div>
+          <div class="hero-proof-item">
+            <span>44-ФЗ</span>
+            <p>работаем с закупочными процедурами</p>
+          </div>
         </div>
       </div>
       <div class="hero-visual">
@@ -213,16 +225,9 @@
     <div class="container">
       <div class="section-header reveal">
         <div class="section-label">Продукты</div>
-        <h2>Четыре направления</h2>
-        <p>Каждое — самостоятельное решение. Вместе — полная инфраструктура для исследований.</p>
+        <h2>Решения под задачи лаборатории, клиники и коммуникации</h2>
+        <p>Можно выбрать отдельный продукт или собрать инфраструктуру целиком: от регистрации взгляда до анализа данных и защищённой исследовательской среды.</p>
       </div>
-
-      <style>
-        .solution-card { border-left: 4px solid var(--card-color, var(--accent)) !important; transition: transform 0.2s, border-color 0.2s; }
-        .solution-card:hover { transform: translateY(-4px); }
-        .solution-card .solution-card-label { color: var(--card-color, var(--accent)) !important; font-weight: 700; }
-        .solution-card h3 { color: var(--card-color, var(--accent)) !important; }
-      </style>
 
       <div class="solutions-showcase reveal-stagger">
 
@@ -238,8 +243,13 @@
           </svg>
           <div class="solution-card-label">ПЛАТФОРМА</div>
           <h3>Нейробюро</h3>
-          <p>Аппаратно-программная платформа для когнитивных исследований. Синхронная запись девяти модальностей — от движений глаз до ЭЭГ. Собственный айтрекер, анализ без программирования, 28 показателей по областям интереса. Полностью на русском языке.</p>
-          <div class="solution-card-arrow">Подробнее &rarr;</div>
+          <p>Платформа для когнитивных исследований с синхронной записью взгляда, ЭЭГ и других сигналов. Подходит для экспериментов, UX, психолингвистики и клинических задач.</p>
+          <ul class="solution-card-points">
+            <li>анализ без программирования</li>
+            <li>28 показателей по областям интереса</li>
+            <li>интерфейс и поддержка на русском языке</li>
+          </ul>
+          <div class="solution-card-arrow">Перейти к платформе &rarr;</div>
         </a>
 
         <!-- Ассистив -->
@@ -258,8 +268,13 @@
           </svg>
           <div class="solution-card-label">АССИСТИВНЫЕ ТЕХНОЛОГИИ</div>
           <h3>Ассистив</h3>
-          <p>Управление компьютером с помощью движений глаз для людей с двигательными нарушениями. Комплекс Стерх: аппаратное решение, программы коммуникации, развивающие игры. Российская разработка.</p>
-          <div class="solution-card-arrow">Подробнее &rarr;</div>
+          <p>Комплексы для управления компьютером взглядом, коммуникации и занятий с людьми с двигательными нарушениями. Для семей, специалистов и реабилитационных центров.</p>
+          <ul class="solution-card-points">
+            <li>аппаратное решение и ПО</li>
+            <li>коммуникация, обучение и игры</li>
+            <li>российская разработка</li>
+          </ul>
+          <div class="solution-card-arrow">Смотреть ассистивные решения &rarr;</div>
         </a>
 
         <!-- Стационарный айтрекер -->
@@ -278,8 +293,13 @@
           </svg>
           <div class="solution-card-label">ОБОРУДОВАНИЕ</div>
           <h3>Айтрекер Нейробюро</h3>
-          <p>Стационарный айтрекер собственной разработки. Частота от 60 до 500 Гц, точность 0,5°. Бесконтактный, крепится под монитором. Работает в связке с платформой Нейробюро и программой PsychoPy.</p>
-          <div class="solution-card-arrow">Подробнее &rarr;</div>
+          <p>Бесконтактный стационарный айтрекер собственной разработки для исследований взгляда на экране. Крепится под монитором и работает в связке с Нейробюро и PsychoPy.</p>
+          <ul class="solution-card-points">
+            <li>частота от 60 до 500 Гц</li>
+            <li>точность до 0,5°</li>
+            <li>для лабораторий и прикладных исследований</li>
+          </ul>
+          <div class="solution-card-arrow">Изучить айтрекер &rarr;</div>
         </a>
 
         <!-- Экранированные помещения -->
@@ -299,8 +319,13 @@
           </svg>
           <div class="solution-card-label">ИНФРАСТРУКТУРА</div>
           <h3>Экранированные камеры</h3>
-          <p>Экранированные помещения для высокоточных исследований. Защита от электромагнитных помех и звуковых шумов. Три модификации: Профессионал, Эксперт, Акустик. Запатентованная технология, поставка за 1–2 месяца.</p>
-          <div class="solution-card-arrow">Подробнее &rarr;</div>
+          <p>Экранированные помещения для точных нейрофизиологических исследований, где важна защита от электромагнитных помех и акустических шумов.</p>
+          <ul class="solution-card-points">
+            <li>модификации Профессионал, Эксперт, Акустик</li>
+            <li>запатентованная технология</li>
+            <li>поставка за 1-2 месяца</li>
+          </ul>
+          <div class="solution-card-arrow">Подобрать камеру &rarr;</div>
         </a>
 
       </div>
@@ -375,11 +400,11 @@
   <!-- ===== TRUST ===== -->
   <section class="trust">
     <div class="container">
-      <div class="section-header reveal" style="margin-bottom:2rem;">
+      <div class="section-header section-header--compact reveal">
         <div class="section-label">Нам доверяют</div>
         <h2>Нам доверяют более 100 организаций</h2>
       </div>
-      <div class="trust-stats reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:3rem;">
+      <div class="trust-stats reveal">
         <div class="trust-stat">
           <span class="trust-stat-number" data-counter="0" data-suffix="">0</span>
           <span class="trust-stat-label">Лет на рынке</span>
