@@ -140,11 +140,28 @@
                   fill="var(--accent)" fill-opacity="0.03"/>
 
             <!-- Upper eyelid -->
-            <path d="M60 185 Q130 95 200 90 Q270 95 340 185"
-                  stroke="var(--accent)" stroke-width="2" opacity="0.75" fill="none" stroke-linecap="round"/>
+            <path class="hero-eye-line hero-eye-line--upper"
+                  d="M60 185 Q130 95 200 90 Q270 95 340 185"
+                  stroke="var(--accent)" stroke-width="2" opacity="0.75" fill="none" stroke-linecap="round">
+              <animate attributeName="d"
+                       values="M60 185 Q130 95 200 90 Q270 95 340 185; M60 185 Q130 184 200 185 Q270 184 340 185; M60 185 Q130 95 200 90 Q270 95 340 185"
+                       keyTimes="0; 0.5; 1"
+                       dur="0.18s"
+                       begin="6.8s; heroBlink.end + 6.8s"
+                       repeatCount="1"/>
+            </path>
             <!-- Lower eyelid -->
-            <path d="M60 185 Q130 265 200 270 Q270 265 340 185"
-                  stroke="var(--accent)" stroke-width="1.5" opacity="0.6" fill="none" stroke-linecap="round"/>
+            <path class="hero-eye-line hero-eye-line--lower"
+                  d="M60 185 Q130 265 200 270 Q270 265 340 185"
+                  stroke="var(--accent)" stroke-width="1.5" opacity="0.6" fill="none" stroke-linecap="round">
+              <animate id="heroBlink"
+                       attributeName="d"
+                       values="M60 185 Q130 265 200 270 Q270 265 340 185; M60 185 Q130 186 200 185 Q270 186 340 185; M60 185 Q130 265 200 270 Q270 265 340 185"
+                       keyTimes="0; 0.5; 1"
+                       dur="0.18s"
+                       begin="6.8s; heroBlink.end + 6.8s"
+                       repeatCount="1"/>
+            </path>
 
             <!-- Inner corner -->
             <path d="M60 185 Q52 190 55 198" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
@@ -174,18 +191,6 @@
               <!-- Corneal reflections -->
               <circle cx="186" cy="174" r="5" fill="white" opacity="0.12"/>
               <circle cx="209" cy="177" r="3" fill="white" opacity="0.08"/>
-            </g>
-
-            <!-- Blinking eyelids -->
-            <g class="hero-eye-lids" aria-hidden="true">
-              <path class="hero-eye-lid hero-eye-lid--top"
-                    d="M40 50 H360 V185 Q270 95 200 90 Q130 95 60 185 H40 Z"
-                    fill="var(--bg-primary)" fill-opacity="0.96"
-                    stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.45"/>
-              <path class="hero-eye-lid hero-eye-lid--bottom"
-                    d="M40 320 H360 V185 Q270 265 200 270 Q130 265 60 185 H40 Z"
-                    fill="var(--bg-primary)" fill-opacity="0.96"
-                    stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.35"/>
             </g>
 
             <!-- Tracker bar -->
