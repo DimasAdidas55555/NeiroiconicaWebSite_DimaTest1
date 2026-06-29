@@ -22,6 +22,7 @@
     /* ─── Numbered section blocks (à la Нейробюро) ─── */
     .num-grid { display: grid; gap: 1.5rem; }
     .num-grid--2 { grid-template-columns: 1fr 1fr; }
+    .num-grid--3 { grid-template-columns: repeat(3, 1fr); }
     .num-grid--4 { grid-template-columns: repeat(4, 1fr); }
     .num-card {
       position: relative;
@@ -43,6 +44,40 @@
     }
     .num-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
     .num-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin: 0; }
+    .compact-list {
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+      margin: 1rem 0 0;
+      padding: 0;
+    }
+    .compact-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .compact-list li::before {
+      content: '';
+      flex: 0 0 auto;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+    .product-note {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      background: var(--accent-glow);
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .section-header p span { display: block; }
     .num-card-status {
       display: inline-block;
       font-family: var(--font-mono);
@@ -172,7 +207,7 @@
     @media (max-width: 900px) {
       .hero--twocol .hero-content { grid-template-columns: 1fr; }
       .hero-illustration { order: -1; }
-      .num-grid--2, .num-grid--4 { grid-template-columns: 1fr 1fr; }
+      .num-grid--2, .num-grid--3, .num-grid--4 { grid-template-columns: 1fr 1fr; }
       .about-grid, .models-grid, .contact-grid, .pioneer-promo { grid-template-columns: 1fr; }
       .audience-grid { grid-template-columns: 1fr 1fr; }
       .mounts-grid { grid-template-columns: 1fr; }
@@ -180,7 +215,7 @@
       .pioneer-promo-body { padding: 1.75rem; }
     }
     @media (max-width: 560px) {
-      .num-grid--2, .num-grid--4, .audience-grid { grid-template-columns: 1fr; }
+      .num-grid--2, .num-grid--3, .num-grid--4, .audience-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -390,7 +425,7 @@
         <div class="section-label">Преимущества</div>
         <h2>Что даёт управление взглядом</h2>
       </div>
-      <div class="num-grid num-grid--4 reveal-stagger">
+      <div class="num-grid num-grid--3 reveal-stagger">
         <div class="num-card">
           <span class="num">01</span>
           <h3>Голос для тех, кто не может говорить</h3>
@@ -406,11 +441,9 @@
           <h3>Независимость и общение</h3>
           <p>Пользователь самостоятельно пишет сообщения, выходит в интернет, общается в мессенджерах и социальных сетях — без посторонней помощи.</p>
         </div>
-        <div class="num-card">
-          <span class="num">04</span>
-          <h3>Российская разработка</h3>
-          <p>Создано с учётом отечественных стандартов и потребностей пользователей. Русскоязычный интерфейс и техподдержка, работа без интернета.</p>
-        </div>
+      </div>
+      <div class="product-note reveal">
+        Российская разработка: русскоязычный интерфейс, техподдержка и работа без постоянного подключения к интернету.
       </div>
     </div>
   </section>
@@ -422,19 +455,34 @@
       <div class="section-header reveal">
         <div class="section-label">Аппаратная часть</div>
         <h2>Айтрекер Стерх — модели комплекса</h2>
-        <p>ИК-камера с невидимой подсветкой устанавливается под монитором. Все модели работают в ОС Windows на стационарных компьютерах.</p>
+        <p>
+          <span>ИК-камера с невидимой подсветкой устанавливается под монитором.</span>
+          <span>Все модели работают в ОС Windows на стационарных компьютерах.</span>
+        </p>
       </div>
       <div class="models-grid reveal-stagger">
         <div class="model-card">
           <span class="model-tag">01 · Домашний</span>
           <h3>Стерх Домашний</h3>
-          <p>Компактный комплект для использования дома: ИК-камера + программное обеспечение EyeCommunicator + монитор 21.5". Устанавливается на рабочее место и интегрируется с обычным компьютером.</p>
+          <p>Компактный комплект для индивидуального рабочего места дома.</p>
+          <ul class="compact-list">
+            <li>ИК-камера с невидимой подсветкой</li>
+            <li>программное обеспечение EyeCommunicator</li>
+            <li>монитор 21.5″</li>
+            <li>интеграция с обычным компьютером</li>
+          </ul>
           <div class="model-meta">→ Для индивидуального пользователя</div>
         </div>
         <div class="model-card">
           <span class="model-tag">02 · Профессиональный</span>
           <h3>Стерх Профессиональный</h3>
-          <p>Для реабилитационных центров и учреждений: увеличенный экран 23.8", усиленная конструкция, расширенная техподдержка. Рассчитан на интенсивное использование несколькими специалистами.</p>
+          <p>Комплекс для центров, учреждений и регулярной работы специалистов.</p>
+          <ul class="compact-list">
+            <li>увеличенный экран 23.8″</li>
+            <li>усиленная конструкция</li>
+            <li>расширенная техподдержка</li>
+            <li>сценарии для нескольких специалистов</li>
+          </ul>
           <div class="model-meta">→ Для центров и учреждений</div>
         </div>
       </div>
@@ -454,32 +502,56 @@
         <div class="num-card">
           <span class="num">01 · Ввод текста</span>
           <h3>Экранная клавиатура с управлением взглядом</h3>
-          <p>Полноценная экранная клавиатура, управляемая движениями глаз. Пользователь набирает текст, выбирая буквы и слова взглядом, для переписки, работы с документами и поиска в интернете.</p>
+          <ul class="compact-list">
+            <li>выбор букв, слов и команд взглядом</li>
+            <li>переписка, документы и поиск в интернете</li>
+            <li>настройка размера и расположения элементов</li>
+          </ul>
         </div>
         <div class="num-card">
           <span class="num">02 · Интеллект</span>
           <h3>Предиктивный ввод</h3>
-          <p>Предсказание следующего слова ускоряет набор текста и снижает утомляемость пользователя. Программа учится на основе словаря и истории ввода.</p>
+          <ul class="compact-list">
+            <li>подсказка следующего слова</li>
+            <li>ускорение набора текста</li>
+            <li>меньше утомляемости при долгой коммуникации</li>
+          </ul>
         </div>
         <div class="num-card">
           <span class="num">03 · Речь</span>
           <h3>Синтез речи на русском языке</h3>
-          <p>Программа озвучивает набранный текст через синтезатор речи на русском языке, возвращая возможность голосового общения тем, кто не может говорить.</p>
+          <ul class="compact-list">
+            <li>озвучивание набранного текста</li>
+            <li>понятная речь для общения с окружающими</li>
+            <li>быстрый переход от текста к голосу</li>
+          </ul>
         </div>
         <div class="num-card">
           <span class="num">04 · Коммуникация</span>
           <h3>Библиотека быстрых фраз</h3>
-          <p>Заранее заготовленные высказывания для частых ситуаций доступны одним взглядом. Можно создавать собственные наборы под индивидуальные нужды.</p>
+          <ul class="compact-list">
+            <li>готовые фразы для частых ситуаций</li>
+            <li>персональные наборы под пользователя</li>
+            <li>быстрые ответы одним взглядом</li>
+          </ul>
         </div>
         <div class="num-card">
           <span class="num">05 · Интернет</span>
           <h3>Доступ к браузеру, мессенджерам, соцсетям</h3>
-          <p>Полноценный доступ к веб-сайтам, мессенджерам и социальным сетям, переписка в email — всё с помощью управления взглядом, без участия рук.</p>
+          <ul class="compact-list">
+            <li>браузер и веб-сайты</li>
+            <li>мессенджеры, email и соцсети</li>
+            <li>работа без участия рук</li>
+          </ul>
         </div>
         <div class="num-card">
           <span class="num">06 · Настройка</span>
           <h3>Адаптация под пользователя</h3>
-          <p>Скорость отклика, чувствительность, размер элементов и цветовые схемы настраиваются под индивидуальные особенности и предпочтения пользователя.</p>
+          <ul class="compact-list">
+            <li>скорость отклика и чувствительность</li>
+            <li>размер интерфейсных элементов</li>
+            <li>цветовые схемы и индивидуальные параметры</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -536,7 +608,7 @@
           </svg>
         </div>
         <div class="pioneer-promo-body">
-          <span class="pioneer-promo-tag">→ Пионер · 590 000 ₽</span>
+          <span class="pioneer-promo-tag">→ Пионер</span>
           <h3>Готовый планшет со встроенным айтрекером и предустановленным ПО</h3>
           <p>12.9″ IPS-дисплей, Windows 11, EyeCommunicator и обучающие игры «Стерх: поймай взглядом» в комплекте. Айтрекер с точностью до 1°, рабочее расстояние 45–80 см, калибровка занимает менее 3 минут.</p>
           <div class="pioneer-promo-features">
