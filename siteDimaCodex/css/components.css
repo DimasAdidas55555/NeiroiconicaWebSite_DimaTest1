@@ -563,6 +563,43 @@
   font-family: var(--font-mono);
 }
 
+.trust-stat-note {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  margin-top: 0.35rem;
+}
+
+.trust-evidence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: -1.5rem 0 2.5rem;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+.trust-evidence-item {
+  background: var(--bg-card);
+  padding: 1.35rem 1.5rem;
+  min-width: 0;
+}
+
+.trust-evidence-item span {
+  display: block;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.trust-evidence-item p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
 .trust-logos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -677,6 +714,11 @@
     font-size: 0.72rem;
     line-height: 1.35;
     overflow-wrap: anywhere;
+  }
+
+  .trust-evidence {
+    grid-template-columns: 1fr;
+    margin-top: -1rem;
   }
 }
 

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   revealElements.forEach(el => revealObserver.observe(el));
 
   // ===== Animated Counter =====
-  const counters = document.querySelectorAll('[data-counter]');
+  const counters = document.querySelectorAll('[data-counter], [data-counter-from-date]');
 
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   counters.forEach(el => counterObserver.observe(el));
 
   function animateCounter(el) {
-    const target = parseInt(el.dataset.counter, 10);
+    const target = getCounterTarget(el);
     const suffix = el.dataset.suffix || '';
     const duration = 2000;
     const startTime = performance.now();
@@ -50,6 +50,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     requestAnimationFrame(update);
+  }
+
+  function getCounterTarget(el) {
+    if (el.dataset.counterFromDate) {
+      const [year, month, day] = el.dataset.counterFromDate.split('-').map(Number);
+      const start = new Date(year, month - 1, day);
+      const now = new Date();
+      let years = now.getFullYear() - start.getFullYear();
+      const anniversaryPassed =
+        now.getMonth() > start.getMonth() ||
+        (now.getMonth() === start.getMonth() && now.getDate() >= start.getDate());
+
+      if (!anniversaryPassed) years -= 1;
+      return Math.max(years, 0);
+    }
+
+    return parseInt(el.dataset.counter, 10);
   }
 
   // ===== Floating Data Stream =====
