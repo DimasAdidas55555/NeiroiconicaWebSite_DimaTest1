@@ -78,17 +78,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const maxX = 16;
     const maxY = 10;
 
-    heroIllustration.addEventListener('pointermove', (event) => {
+    window.addEventListener('pointermove', (event) => {
       const rect = heroIllustration.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+      const isVisible = rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth;
+
+      if (!isVisible) {
+        heroEye.style.transform = 'translate(0, 0)';
+        return;
+      }
+
+      const x = (event.clientX - (rect.left + rect.width / 2)) / (window.innerWidth / 2);
+      const y = (event.clientY - (rect.top + rect.height / 2)) / (window.innerHeight / 2);
       const dx = Math.max(-1, Math.min(1, x)) * maxX;
       const dy = Math.max(-1, Math.min(1, y)) * maxY;
 
       heroEye.style.transform = `translate(${dx}px, ${dy}px)`;
     });
 
-    heroIllustration.addEventListener('pointerleave', () => {
+    window.addEventListener('scroll', () => {
+      const rect = heroIllustration.getBoundingClientRect();
+      const isVisible = rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth;
+      if (!isVisible) {
+        heroEye.style.transform = 'translate(0, 0)';
+      }
+    }, { passive: true });
+
+    window.addEventListener('pointerleave', () => {
       heroEye.style.transform = 'translate(0, 0)';
     });
   }
