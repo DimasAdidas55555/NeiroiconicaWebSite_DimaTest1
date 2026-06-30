@@ -79,6 +79,15 @@
   display: block;
 }
 
+.hero-subtitle--stack {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.hero-subtitle--stack p {
+  margin: 0;
+}
+
 .hero-actions {
   display: flex;
   gap: 1rem;
@@ -298,6 +307,39 @@
 .benefit-card p {
   font-size: 0.9rem;
   line-height: 1.6;
+}
+
+.benefit-card .feature-points {
+  margin-top: 0.25rem;
+}
+
+.benefit-card .feature-points li {
+  font-size: 0.88rem;
+}
+
+.procurement-notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.procurement-note {
+  padding: 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.procurement-note h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .procurement-notes {
+    grid-template-columns: 1fr;
+  }
 }
 
 
