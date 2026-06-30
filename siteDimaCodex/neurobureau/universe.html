@@ -107,9 +107,10 @@
           Вселенная
           <span class="text-gradient">Нейробюро</span>
         </h1>
-        <p class="hero-subtitle">
-          Восемь продуктов, объединённых единой целью — дать исследователю полный набор инструментов для каждого этапа работы. Компонуйте в любом сочетании: каждый модуль дополняет остальные в исследовательском цикле.
-        </p>
+        <div class="hero-subtitle hero-subtitle--stack">
+          <p>Восемь продуктов, объединённых единой целью — дать исследователю полный набор инструментов для каждого этапа работы.</p>
+          <p>Компонуйте в любом сочетании: каждый модуль дополняет остальные в исследовательском цикле.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -122,7 +123,8 @@
         <div class="hub-intro-text">
           <div class="section-label">Вселенная</div>
           <h2>Один цикл — от стимула до результата</h2>
-          <p>Нейробюро — это семейство продуктов, покрывающих весь исследовательский цикл: подготовка стимулов, предъявление, синхронная запись одиннадцати модальностей, обработка и анализ. Каждый продукт самостоятелен, но вместе они усиливают друг друга — вы сами решаете, какая комбинация нужна под вашу задачу.</p>
+          <p>Нейробюро — это семейство продуктов, покрывающих весь исследовательский цикл: подготовка стимулов, предъявление, синхронная запись одиннадцати модальностей, обработка и анализ.</p>
+          <p>Каждый продукт самостоятелен, но вместе они усиливают друг друга — вы сами решаете, какая комбинация нужна под вашу задачу.</p>
         </div>
         <div class="hub-intro-stats reveal-stagger">
           <div class="hub-stat">
@@ -206,11 +208,30 @@
           font-weight: 700;
           margin-bottom: 0.5rem;
         }
-        .uni-card-desc {
+        .uni-card-points {
+          display: grid;
+          gap: 0.45rem;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+        .uni-card-points li {
+          display: flex;
+          align-items: baseline;
+          gap: 0.6rem;
           color: var(--text-secondary);
           font-size: 0.9rem;
-          line-height: 1.65;
-          margin: 0;
+          line-height: 1.55;
+        }
+        .uni-card-points li::before {
+          content: '';
+          flex: 0 0 auto;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: var(--card-color, var(--accent));
+          box-shadow: 0 0 8px var(--card-color, var(--accent));
+          transform: translateY(-2px);
         }
         .uni-card-status {
           font-family: var(--font-mono);
@@ -234,10 +255,12 @@
           font-size: 2rem;
           margin-bottom: 0.75rem;
         }
-        .uni-card--featured .uni-card-desc {
-          font-size: 1.05rem;
-          line-height: 1.75;
-          max-width: 700px;
+        .uni-card--featured .uni-card-points {
+          max-width: 760px;
+        }
+        .uni-card--featured .uni-card-points li {
+          font-size: 1.02rem;
+          line-height: 1.65;
         }
 
         /* Маленькие карточки */
@@ -248,9 +271,9 @@
           font-size: 1rem;
           margin-bottom: 0.4rem;
         }
-        .uni-card--small .uni-card-desc {
-          font-size: 0.85rem;
-          line-height: 1.55;
+        .uni-card--small .uni-card-points li {
+          font-size: 0.84rem;
+          line-height: 1.5;
         }
       </style>
 
@@ -259,9 +282,13 @@
         <a href="../products/neurobureau.html" class="uni-card uni-card--featured" style="--card-color: #3b82f6;">
           <span class="uni-card-marker"></span>
           <h3 class="uni-card-title">Нейробюро — мультимодальная платформа</h3>
-          <p class="uni-card-desc">
-            Ядро Вселенной и наш главный продукт. Айтрекинг — основной модуль, к которому подключаются физиология, ЭЭГ, мимика и голос. Синхронная запись, анализ без программирования, 28 показателей по областям интереса.
-          </p>
+          <ul class="uni-card-points">
+            <li>ядро Вселенной и главный продукт платформы</li>
+            <li>айтрекинг как основной модуль записи</li>
+            <li>подключение физиологии, ЭЭГ, мимики и голоса</li>
+            <li>синхронная запись и анализ без программирования</li>
+            <li>28 показателей по областям интереса</li>
+          </ul>
           <span class="uni-card-status uni-card-status--ready">Доступно</span>
         </a>
       </div>
@@ -271,28 +298,44 @@
         <a href="emotions.html" class="uni-card" style="--card-color: #6366f1;">
           <span class="uni-card-marker"></span>
           <h3 class="uni-card-title">Анализ эмоций</h3>
-          <p class="uni-card-desc">Распознавание эмоциональных реакций по мимике с веб-камеры. Автоматическая классификация базовых эмоций, валентности и интенсивности в реальном времени.</p>
+          <ul class="uni-card-points">
+            <li>распознавание реакций по мимике с веб-камеры</li>
+            <li>базовые эмоции, валентность и интенсивность</li>
+            <li>классификация в реальном времени</li>
+          </ul>
           <span class="uni-card-status uni-card-status--ready">Доступно</span>
         </a>
 
         <a href="cloud.html" class="uni-card" style="--card-color: #06b6d4;">
           <span class="uni-card-marker"></span>
           <h3 class="uni-card-title">Нейробюро.Облако</h3>
-          <p class="uni-card-desc">Облачное хранилище исследовательских данных. Совместный доступ для команды, управление проектами, автоматические отчёты.</p>
+          <ul class="uni-card-points">
+            <li>облачное хранилище исследовательских данных</li>
+            <li>совместный доступ для команды</li>
+            <li>управление проектами и автоматические отчёты</li>
+          </ul>
           <span class="uni-card-status uni-card-status--ready">Доступно</span>
         </a>
 
         <a href="reading.html" class="uni-card" style="--card-color: #0ea5e9;">
           <span class="uni-card-marker"></span>
           <h3 class="uni-card-title">Нейробюро.Чтение</h3>
-          <p class="uni-card-desc">Расширенный конструктор экспериментов для исследования чтения. Автоматическое деление текстов на области интереса, уникальные методы коррекции вертикального дрейфа.</p>
+          <ul class="uni-card-points">
+            <li>конструктор экспериментов для исследования чтения</li>
+            <li>автоматическое деление текстов на области интереса</li>
+            <li>коррекция вертикального дрейфа</li>
+          </ul>
           <span class="uni-card-status">Скоро</span>
         </a>
 
         <a href="ux.html" class="uni-card" style="--card-color: #8b5cf6;">
           <span class="uni-card-marker"></span>
           <h3 class="uni-card-title">Нейробюро.Юзабилити</h3>
-          <p class="uni-card-desc">Анализ взаимодействия пользователей с сайтами, мобильными приложениями и прототипами интерфейсов. Объективные данные о том, как люди используют ваш продукт.</p>
+          <ul class="uni-card-points">
+            <li>анализ сайтов, приложений и прототипов</li>
+            <li>данные о поведении пользователей</li>
+            <li>помогает понять, как люди используют продукт</li>
+          </ul>
           <span class="uni-card-status">Скоро</span>
         </a>
       </div>
@@ -302,21 +345,33 @@
         <a href="stimuli.html" class="uni-card uni-card--small" style="--card-color: #14b8a6;">
           <span class="uni-card-marker"></span>
           <h3 class="uni-card-title">Генератор стимулов</h3>
-          <p class="uni-card-desc">Пакетная генерация стимулов для основных когнитивных парадигм. Модуль оценки визуальной салиентности.</p>
+          <ul class="uni-card-points">
+            <li>пакетная генерация стимулов</li>
+            <li>основные когнитивные парадигмы</li>
+            <li>оценка визуальной салиентности</li>
+          </ul>
           <span class="uni-card-status">Скоро</span>
         </a>
 
         <a href="education.html" class="uni-card uni-card--small" style="--card-color: #0284c7;">
           <span class="uni-card-marker"></span>
           <h3 class="uni-card-title">Образовательный модуль</h3>
-          <p class="uni-card-desc">Готовые практикумы для школьников и студентов. Мотивирует на создание первых собственных исследований.</p>
+          <ul class="uni-card-points">
+            <li>готовые практикумы для школьников и студентов</li>
+            <li>первые собственные исследования</li>
+            <li>понятный вход в нейронауку</li>
+          </ul>
           <span class="uni-card-status">Скоро</span>
         </a>
 
         <a href="cognitive.html" class="uni-card uni-card--small" style="--card-color: #7c3aed;">
           <span class="uni-card-marker"></span>
           <h3 class="uni-card-title">Развивающий модуль</h3>
-          <p class="uni-card-desc">Методики развития когнитивных функций для детей и взрослых. Работает с айтрекером и без него.</p>
+          <ul class="uni-card-points">
+            <li>методики развития когнитивных функций</li>
+            <li>для детей и взрослых</li>
+            <li>работает с айтрекером и без него</li>
+          </ul>
           <span class="uni-card-status">Скоро</span>
         </a>
       </div>
@@ -331,7 +386,8 @@
         <div class="contact-info reveal">
           <div class="section-label">Начать</div>
           <h2>Соберите свою Вселенную</h2>
-          <p>Расскажите о ваших задачах — мы подберём набор модулей и организуем демонстрацию. Более 80 исследователей в России и СНГ уже работают с Нейробюро.</p>
+          <p>Расскажите о ваших задачах — мы подберём набор модулей и организуем демонстрацию.</p>
+          <p>Более 80 исследователей в России и СНГ уже работают с Нейробюро.</p>
           <div class="contact-details">
             <div class="contact-detail">
               <span class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
