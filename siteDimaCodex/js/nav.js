@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Helpers ──────────────────────────────────────────────────
   function pathFromRoot(relativePath) {
-    const scriptUrl = document.currentScript?.src;
+    const navScript = document.currentScript || Array.from(document.scripts).find(script => /(^|\/)nav\.js($|\?)/.test(script.src));
+    const scriptUrl = navScript?.src;
     if (scriptUrl) {
       return new URL(relativePath, new URL('../', scriptUrl)).href;
     }
