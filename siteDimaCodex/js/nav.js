@@ -83,11 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Helpers ──────────────────────────────────────────────────
   function pathFromRoot(relativePath) {
-    // Filter out Windows drive letters (e.g. "D:") that appear in file:// URLs
-    const parts = window.location.pathname.split('/').filter(p => p && !/^[A-Za-z]:$/.test(p));
-    // On file:// the site folder itself (e.g. "сайт") counts as an extra segment — subtract it
-    const extra = window.location.protocol === 'file:' ? 1 : 0;
-    const depth = Math.max(parts.length - 1 - extra, 0);
+    const scriptUrl = document.currentScript?.src;
+    if (scriptUrl) {
+      return new URL(relativePath, new URL('../', scriptUrl)).href;
+    }
+    const depth = Math.max(window.location.pathname.split('/').filter(Boolean).length - 1, 0);
     return '../'.repeat(depth) + relativePath;
   }
 
