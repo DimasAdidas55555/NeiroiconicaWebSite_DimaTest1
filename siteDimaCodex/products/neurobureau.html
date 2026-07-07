@@ -53,6 +53,56 @@
       font-size: 0.84rem;
       line-height: 1.45;
     }
+
+    .nb-points-group {
+      display: block !important;
+    }
+
+    .nb-points-group > span {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+    }
+
+    .nb-points-group > span::before {
+      content: '';
+      flex: 0 0 auto;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent-glow-strong);
+      transform: translateY(-2px);
+    }
+
+    .nb-points-group::before {
+      content: none !important;
+    }
+
+    .nb-subpoints {
+      display: grid;
+      gap: 0.35rem;
+      list-style: none;
+      margin: 0.45rem 0 0 1.3rem;
+      padding: 0;
+    }
+
+    .nb-subpoints li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .nb-subpoints li::before {
+      content: '';
+      flex: 0 0 auto;
+      width: 4px;
+      height: 4px;
+      border: 1px solid var(--accent);
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 
@@ -506,13 +556,17 @@
             <h3 style="font-size:2.25rem;margin:0.75rem 0 1rem;line-height:1.1;">Области интереса (AOI)</h3>
             <ul class="nb-points nb-points--lg">
               <li>5 форм AOI: прямоугольник, эллипс, круг, многоугольник, свободная форма</li>
-              <li>28 метрик по каждой области интереса</li>
-              <li>время до первой фиксации, доля и общее время просмотра</li>
-              <li>плотность и число фиксаций, визиты, возвраты и длительность визита</li>
-              <li>вариативность фиксаций и амплитуды саккад</li>
-              <li>входящие, исходящие, прогрессивные и регрессивные саккады</li>
-              <li>клики мыши на AOI, доля испытуемых и доля площади</li>
-              <li>сравнение между группами участников и стимулами одного эксперимента</li>
+              <li class="nb-points-group">
+                <span>28 метрик по каждой области интереса</span>
+                <ul class="nb-subpoints">
+                  <li>время до первой фиксации, доля и общее время просмотра</li>
+                  <li>плотность и число фиксаций, визиты, возвраты и длительность визита</li>
+                  <li>вариативность фиксаций и амплитуды саккад</li>
+                  <li>входящие, исходящие, прогрессивные и регрессивные саккады</li>
+                  <li>клики мыши на AOI, доля испытуемых и доля площади</li>
+                </ul>
+              </li>
+              <li>сравнение метрик между группами участников и стимулами одного эксперимента</li>
             </ul>
           </div>
           <div style="display:grid;grid-template-rows:1fr 1fr;gap:1rem;">
@@ -539,8 +593,7 @@
           <ul class="nb-points">
             <li>MultiMatch и расстояние Левенштейна</li>
             <li>сравнение двух групп</li>
-            <li>кластеризация с автовыбором k</li>
-            <li>подбор k по силуэтному коэффициенту в диапазоне 2-5</li>
+            <li>кластеризация с автовыбором k по силуэтному коэффициенту (2–5)</li>
           </ul>
         </div>
         <div style="background:var(--bg-card);border:1px solid var(--border);padding:1.75rem 2rem;">
@@ -614,8 +667,7 @@
             <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">03 · ТУМАННАЯ КАРТА</span>
             <h3 style="font-size:1.4rem;margin:0.75rem 0 0.75rem;">Что осталось без внимания</h3>
             <ul class="nb-points">
-              <li>инверсия тепловой карты</li>
-              <li>затемнение областей без фиксаций</li>
+              <li>инверсия тепловой карты — затемнение областей без фиксаций</li>
               <li>настройка прозрачности</li>
               <li>сглаживание визуализации</li>
             </ul>
@@ -754,10 +806,12 @@
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">14 пресетов мышц</h4>
             <ul class="nb-points">
-              <li>пресеты для лицевых, жевательных, шейных и плечевых мышц</li>
-              <li>m. corrugator, zygomaticus, orbicularis, mentalis, frontalis</li>
-              <li>m. trapezius, masseter, temporalis, biceps, triceps</li>
-              <li>flexor/extensor digitorum и sternocleidomastoideus</li>
+              <li>m. corrugator supercilii</li>
+              <li>m. zygomaticus major</li>
+              <li>m. orbicularis oculi, m. orbicularis oris, m. mentalis, m. frontalis</li>
+              <li>m. trapezius, m. masseter, m. temporalis</li>
+              <li>m. biceps brachii, m. triceps brachii</li>
+              <li>m. flexor и extensor digitorum, m. sternocleidomastoideus</li>
             </ul>
           </div>
           <div>
