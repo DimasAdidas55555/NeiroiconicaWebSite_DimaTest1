@@ -16,6 +16,44 @@
   <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/nav.css">
   <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .nb-points {
+      display: grid;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nb-points li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .nb-points li::before {
+      content: '';
+      flex: 0 0 auto;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent-glow-strong);
+      transform: translateY(-2px);
+    }
+
+    .nb-points--lg li {
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .nb-points--compact li {
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+  </style>
 </head>
 
 <!--
@@ -133,9 +171,11 @@
         <p style="font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);letter-spacing:0.18em;text-transform:uppercase;margin:0 0 1.5rem;">
           Айтрекинг · Физиология · Анализ поведения
         </p>
-        <p class="hero-subtitle">
-          Синхронная регистрация и анализ глазодвигательной активности и физиологических сигналов при предъявлении визуальных стимулов. Полностью русскоязычный интерфейс. Работает офлайн.
-        </p>
+        <div class="hero-subtitle hero-subtitle--stack">
+          <p>Синхронная регистрация и анализ глазодвигательной активности и физиологических сигналов при предъявлении визуальных стимулов.</p>
+          <p>Полностью русскоязычный интерфейс.</p>
+          <p>Работает офлайн.</p>
+        </div>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Запросить демо</a>
           <a href="#analysis" class="btn btn-outline">Возможности платформы</a>
@@ -290,7 +330,12 @@
             <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">01 · ОСНОВНОЙ МОДУЛЬ</span>
             <h3 style="font-size:2.25rem;margin:0.75rem 0 1rem;line-height:1.05;">Айтрекинг</h3>
             <div style="display:inline-block;padding:0.4rem 0.9rem;background:var(--accent);color:#fff;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.08em;font-weight:600;margin-bottom:1rem;">PathFinder · 60–500 Гц</div>
-            <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.65;max-width:520px;">Регистрация движений глаз, фиксации, саккады, зрачок и моргания. Калибровка по 9 точкам, автокоррекция дрейфа, синхронная запись со всей физиологией и метаданными стимула.</p>
+            <ul class="nb-points nb-points--lg" style="max-width:560px;">
+              <li>регистрация движений глаз: фиксации, саккады, зрачок и моргания</li>
+              <li>калибровка по 9 точкам</li>
+              <li>автокоррекция дрейфа</li>
+              <li>синхронная запись с физиологией и метаданными стимула</li>
+            </ul>
           </div>
           <div style="font-family:var(--font-mono);font-size:0.78rem;color:var(--accent);margin-top:1.5rem;letter-spacing:0.08em;position:relative;">→ ДОСТУПНО</div>
         </div>
@@ -300,21 +345,33 @@
             <span style="font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.12em;color:var(--accent);min-width:50px;">02</span>
             <div>
               <h4 style="margin:0;font-size:1.05rem;">КГР</h4>
-              <p style="color:var(--text-secondary);font-size:0.82rem;line-height:1.45;margin:0.2rem 0 0;">Кожно-гальваническая реакция, ФПГ, ЧСС</p>
+              <ul class="nb-points nb-points--compact" style="margin-top:0.35rem;">
+                <li>кожно-гальваническая реакция</li>
+                <li>ФПГ</li>
+                <li>ЧСС</li>
+              </ul>
             </div>
           </div>
           <div style="background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;">
             <span style="font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.12em;color:var(--accent);min-width:50px;">03</span>
             <div>
               <h4 style="margin:0;font-size:1.05rem;">ЭМГ</h4>
-              <p style="color:var(--text-secondary);font-size:0.82rem;line-height:1.45;margin:0.2rem 0 0;">Электромиография · 2 канала · 14 пресетов мышц</p>
+              <ul class="nb-points nb-points--compact" style="margin-top:0.35rem;">
+                <li>электромиография</li>
+                <li>2 канала</li>
+                <li>14 пресетов мышц</li>
+              </ul>
             </div>
           </div>
           <div style="background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;">
             <span style="font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.12em;color:var(--accent);min-width:50px;">04</span>
             <div>
               <h4 style="margin:0;font-size:1.05rem;">ЭКГ</h4>
-              <p style="color:var(--text-secondary);font-size:0.82rem;line-height:1.45;margin:0.2rem 0 0;">4 отведения, 6 алгоритмов R-пиков, ВСР</p>
+              <ul class="nb-points nb-points--compact" style="margin-top:0.35rem;">
+                <li>4 отведения</li>
+                <li>6 алгоритмов R-пиков</li>
+                <li>анализ ВСР</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -418,12 +475,22 @@
         <div style="background:var(--bg-card);border:1px solid var(--border);padding:1.75rem 2rem;">
           <div style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:var(--accent);margin-bottom:0.5rem;letter-spacing:0.1em;">01 · ОБРАБОТКА</div>
           <h4 style="font-size:1.05rem;margin-bottom:0.6rem;">Коррекция дрейфа</h4>
-          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;">Ручной и автоматический режимы; множитель MAD для выбросов, максимальное отклонение, максимальная коррекция; линейная или константная интерполяция.</p>
+          <ul class="nb-points">
+            <li>ручной и автоматический режимы</li>
+            <li>множитель MAD для выбросов</li>
+            <li>настройка максимального отклонения и коррекции</li>
+            <li>линейная или константная интерполяция</li>
+          </ul>
         </div>
         <div style="background:var(--bg-card);border:1px solid var(--border);padding:1.75rem 2rem;">
           <div style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:var(--accent);margin-bottom:0.5rem;letter-spacing:0.1em;">02 · ОБРАБОТКА</div>
           <h4 style="font-size:1.05rem;margin-bottom:0.6rem;">Детекция фиксаций и саккад</h4>
-          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;">I-DT и I-VT с автопорогами; метрики дисперсии — сумма размахов или расстояние от центроида; шумоподавление и объединение по времени и расстоянию.</p>
+          <ul class="nb-points">
+            <li>I-DT и I-VT с автопорогами</li>
+            <li>дисперсия как сумма размахов или расстояние от центроида</li>
+            <li>шумоподавление</li>
+            <li>объединение фиксаций по времени и расстоянию</li>
+          </ul>
         </div>
       </div>
 
@@ -437,12 +504,16 @@
           <div>
             <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.18em;color:var(--accent);font-weight:700;">03 · ГЛАВНЫЙ БЛОК</span>
             <h3 style="font-size:2.25rem;margin:0.75rem 0 1rem;line-height:1.1;">Области интереса (AOI)</h3>
-            <p style="color:var(--text-secondary);font-size:1rem;line-height:1.75;margin-bottom:1rem;">
-              Пять форм AOI на выбор: <strong>прямоугольник, эллипс, круг, многоугольник, свободная форма.</strong> По каждой области — 28 метрик: время до первой фиксации, доля и общее время просмотра, плотность и число фиксаций, число визитов и возвратов, длительность визита, коэффициенты вариации длительности фиксаций и амплитуды саккад, входящие и исходящие саккады, длина пути взгляда, прогрессивные и регрессивные саккады с амплитудой по каждому типу, клики мыши на AOI, доля испытуемых и доля площади.
-            </p>
-            <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.65;margin:0;">
-              Метрики сравниваются между группами участников и между стимулами в одном эксперименте.
-            </p>
+            <ul class="nb-points nb-points--lg">
+              <li>5 форм AOI: прямоугольник, эллипс, круг, многоугольник, свободная форма</li>
+              <li>28 метрик по каждой области интереса</li>
+              <li>время до первой фиксации, доля и общее время просмотра</li>
+              <li>плотность и число фиксаций, визиты, возвраты и длительность визита</li>
+              <li>вариативность фиксаций и амплитуды саккад</li>
+              <li>входящие, исходящие, прогрессивные и регрессивные саккады</li>
+              <li>клики мыши на AOI, доля испытуемых и доля площади</li>
+              <li>сравнение между группами участников и стимулами одного эксперимента</li>
+            </ul>
           </div>
           <div style="display:grid;grid-template-rows:1fr 1fr;gap:1rem;">
             <div style="background:var(--bg-secondary);border:1px solid var(--border);padding:1.75rem 2rem;display:flex;flex-direction:column;justify-content:center;">
@@ -465,12 +536,21 @@
         <div style="background:var(--bg-card);border:1px solid var(--border);padding:1.75rem 2rem;">
           <div style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:var(--accent);margin-bottom:0.5rem;letter-spacing:0.1em;">04 · ОБРАБОТКА</div>
           <h4 style="font-size:1.05rem;margin-bottom:0.6rem;">Сравнение и кластеризация</h4>
-          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;">MultiMatch и расстояние Левенштейна; сравнение двух групп; кластеризация с автовыбором k по силуэтному коэффициенту (2–5).</p>
+          <ul class="nb-points">
+            <li>MultiMatch и расстояние Левенштейна</li>
+            <li>сравнение двух групп</li>
+            <li>кластеризация с автовыбором k</li>
+            <li>подбор k по силуэтному коэффициенту в диапазоне 2-5</li>
+          </ul>
         </div>
         <div style="background:var(--bg-card);border:1px solid var(--border);padding:1.75rem 2rem;">
           <div style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:var(--accent);margin-bottom:0.5rem;letter-spacing:0.1em;">05 · ОБРАБОТКА</div>
           <h4 style="font-size:1.05rem;margin-bottom:0.6rem;">Зрачок и моргания</h4>
-          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;">Фильтр Баттерворта; детекция по диаметру и скорости.</p>
+          <ul class="nb-points">
+            <li>фильтр Баттерворта</li>
+            <li>детекция по диаметру зрачка</li>
+            <li>детекция по скорости изменения сигнала</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -499,7 +579,12 @@
           <div style="padding:2rem;">
             <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">01 · КАРТА ДВИЖЕНИЯ ВЗГЛЯДА</span>
             <h3 style="font-size:1.4rem;margin:0.75rem 0 0.75rem;">Маршрут и порядок фиксаций</h3>
-            <p style="color:var(--text-secondary);line-height:1.7;margin:0;">Фиксации с настройкой радиуса и нумерации, саккады с настройкой толщины и прозрачности; режимы — текущая, накопительный, последние N, временное окно; анимация появления фиксаций.</p>
+            <ul class="nb-points">
+              <li>фиксации с настройкой радиуса и нумерации</li>
+              <li>саккады с настройкой толщины и прозрачности</li>
+              <li>режимы: текущая, накопительный, последние N, временное окно</li>
+              <li>анимация появления фиксаций</li>
+            </ul>
           </div>
         </div>
 
@@ -511,7 +596,12 @@
           <div style="padding:2rem;">
             <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">02 · ТЕПЛОВАЯ КАРТА</span>
             <h3 style="font-size:1.4rem;margin:0.75rem 0 0.75rem;">Зоны концентрации внимания</h3>
-            <p style="color:var(--text-secondary);line-height:1.7;margin:0;">Длительность или количество фиксаций; настраиваемый радиус размытия; режимы накопительного отображения и временного окна.</p>
+            <ul class="nb-points">
+              <li>отображение по длительности или числу фиксаций</li>
+              <li>настраиваемый радиус размытия</li>
+              <li>накопительный режим</li>
+              <li>режим временного окна</li>
+            </ul>
           </div>
         </div>
 
@@ -523,7 +613,12 @@
           <div style="padding:2rem;">
             <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">03 · ТУМАННАЯ КАРТА</span>
             <h3 style="font-size:1.4rem;margin:0.75rem 0 0.75rem;">Что осталось без внимания</h3>
-            <p style="color:var(--text-secondary);line-height:1.7;margin:0;">Инверсия тепловой карты — затемнение областей без фиксаций; настройка прозрачности и сглаживания.</p>
+            <ul class="nb-points">
+              <li>инверсия тепловой карты</li>
+              <li>затемнение областей без фиксаций</li>
+              <li>настройка прозрачности</li>
+              <li>сглаживание визуализации</li>
+            </ul>
           </div>
         </div>
 
@@ -535,7 +630,12 @@
           <div style="padding:2rem;">
             <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">04 · ПЧЕЛИНЫЙ РОЙ</span>
             <h3 style="font-size:1.4rem;margin:0.75rem 0 0.75rem;">Как двигался взгляд группы</h3>
-            <p style="color:var(--text-secondary);line-height:1.7;margin:0;">Динамическая визуализация фиксаций нескольких испытуемых на видеостимулах; экспорт в MP4; настройка размера и прозрачности точек, режимов воспроизведения.</p>
+            <ul class="nb-points">
+              <li>динамика фиксаций нескольких испытуемых</li>
+              <li>работа с видеостимулами</li>
+              <li>экспорт в MP4</li>
+              <li>настройка размера, прозрачности и режима воспроизведения</li>
+            </ul>
           </div>
         </div>
 
@@ -555,7 +655,12 @@
         <div style="padding:2rem 2.5rem;">
           <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">05 · ВРЕМЕННА́Я ШКАЛА</span>
           <h4 style="font-size:1.25rem;margin:0.5rem 0 0.75rem;">Зрачок и события во времени</h4>
-          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin:0;">Размер левого и правого зрачка, события, моргания; ручные метки на шкале; синхронизация с таймлайном стимула.</p>
+          <ul class="nb-points">
+            <li>размер левого и правого зрачка</li>
+            <li>события и моргания</li>
+            <li>ручные метки на шкале</li>
+            <li>синхронизация с таймлайном стимула</li>
+          </ul>
         </div>
       </div>
 
@@ -610,15 +715,29 @@
         <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;">
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">Регистрация</h4>
-            <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;">Кожное сопротивление, проводимость, фотоплетизмограмма; расчёт ЧСС из ФПГ; запись фонового уровня.</p>
+            <ul class="nb-points">
+              <li>кожное сопротивление и проводимость</li>
+              <li>фотоплетизмограмма</li>
+              <li>расчёт ЧСС из ФПГ</li>
+              <li>запись фонового уровня</li>
+            </ul>
           </div>
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">Обработка</h4>
-            <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;">Фильтр Баттерворта 4-го порядка. Декомпозиция тонической и фазической: <strong>cvxEDA</strong>. Детекция пиков: <strong>NeuroKit · Gamboa · Kim · Nabian</strong>.</p>
+            <ul class="nb-points">
+              <li>фильтр Баттерворта 4-го порядка</li>
+              <li>декомпозиция тонической и фазической составляющих: cvxEDA</li>
+              <li>детекция пиков: NeuroKit, Gamboa, Kim, Nabian</li>
+            </ul>
           </div>
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">Метрики</h4>
-            <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;">Тонический уровень, отношение к базе, z-оценка; средняя амплитуда; число реакций; латентность первой; время нарастания/восстановления.</p>
+            <ul class="nb-points">
+              <li>тонический уровень, отношение к базе и z-оценка</li>
+              <li>средняя амплитуда и число реакций</li>
+              <li>латентность первой реакции</li>
+              <li>время нарастания и восстановления</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -634,15 +753,30 @@
         <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;">
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">14 пресетов мышц</h4>
-            <p style="color:var(--text-secondary);font-size:0.85rem;line-height:1.6;margin:0;font-style:italic;">m. corrugator supercilii, m. zygomaticus major, m. orbicularis oculi, m. orbicularis oris, m. mentalis, m. frontalis, m. trapezius, m. masseter, m. temporalis, m. biceps brachii, m. triceps brachii, m. flexor и extensor digitorum, m. sternocleidomastoideus.</p>
+            <ul class="nb-points">
+              <li>пресеты для лицевых, жевательных, шейных и плечевых мышц</li>
+              <li>m. corrugator, zygomaticus, orbicularis, mentalis, frontalis</li>
+              <li>m. trapezius, masseter, temporalis, biceps, triceps</li>
+              <li>flexor/extensor digitorum и sternocleidomastoideus</li>
+            </ul>
           </div>
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">Обработка</h4>
-            <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;">Полосовой фильтр; режекторный 50 Гц; настройка окна огибающей; детрендирование; порог и минимальная длительность активации.</p>
+            <ul class="nb-points">
+              <li>полосовой фильтр</li>
+              <li>режекторный фильтр 50 Гц</li>
+              <li>настройка окна огибающей</li>
+              <li>детрендирование, порог и минимальная длительность активации</li>
+            </ul>
           </div>
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">Метрики</h4>
-            <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;">RMS, MAV, пиковая амплитуда, iEMG; медианная и средняя частота спектра; асимметрия и коактивация каналов.</p>
+            <ul class="nb-points">
+              <li>RMS, MAV, пиковая амплитуда и iEMG</li>
+              <li>медианная и средняя частота спектра</li>
+              <li>асимметрия каналов</li>
+              <li>коактивация каналов</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -658,15 +792,29 @@
         <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;">
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">Регистрация</h4>
-            <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;">Отведения <strong>I (LA-RA) · II (LL-RA) · III (LL-LA) · Vx-RL</strong>; отображение меток PQRST; расчёт частоты сердечных сокращений.</p>
+            <ul class="nb-points">
+              <li>отведения I (LA-RA), II (LL-RA), III (LL-LA), Vx-RL</li>
+              <li>отображение меток PQRST</li>
+              <li>расчёт частоты сердечных сокращений</li>
+            </ul>
           </div>
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">Детекция R-пиков · 6 алгоритмов</h4>
-            <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;"><strong>Pan-Tompkins · Hamilton · NeuroKit · Christov · Elgendi · PROMAC.</strong> Коррекция эктопических сокращений; детекция потери сигнала.</p>
+            <ul class="nb-points">
+              <li>Pan-Tompkins, Hamilton, NeuroKit</li>
+              <li>Christov, Elgendi, PROMAC</li>
+              <li>коррекция эктопических сокращений</li>
+              <li>детекция потери сигнала</li>
+            </ul>
           </div>
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">Метрики</h4>
-            <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65;margin:0;">ЧСС и её отношение к базе; интервал R-R; RMSSD; pNN50; SDNN; мощность HF; LF/HF; частота дыхания из ЭКГ.</p>
+            <ul class="nb-points">
+              <li>ЧСС и отношение к базе</li>
+              <li>интервал R-R, RMSSD, pNN50, SDNN</li>
+              <li>мощность HF и LF/HF</li>
+              <li>частота дыхания из ЭКГ</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -685,15 +833,29 @@
       <div class="reveal" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;">
         <div style="background:var(--bg-card);border:1px solid var(--border);padding:2rem 1.75rem;">
           <div style="font-family:var(--font-mono);font-size:1rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;margin-bottom:0.75rem;">CSV · XLSX</div>
-          <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.65;margin:0;">Сырые координаты, фиксации, AOI, матрица переходов, зрачок.</p>
+          <ul class="nb-points">
+            <li>сырые координаты взгляда</li>
+            <li>фиксации и события</li>
+            <li>метрики AOI и матрица переходов</li>
+            <li>данные по зрачку</li>
+          </ul>
         </div>
         <div style="background:var(--bg-card);border:1px solid var(--border);padding:2rem 1.75rem;">
           <div style="font-family:var(--font-mono);font-size:1rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;margin-bottom:0.75rem;">PNG</div>
-          <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.65;margin:0;">Карты взгляда, тепловые и туманные карты.</p>
+          <ul class="nb-points">
+            <li>карты движения взгляда</li>
+            <li>тепловые карты</li>
+            <li>туманные карты</li>
+            <li>иллюстрации для отчётов и публикаций</li>
+          </ul>
         </div>
         <div style="background:var(--bg-card);border:1px solid var(--border);padding:2rem 1.75rem;">
           <div style="font-family:var(--font-mono);font-size:1rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;margin-bottom:0.75rem;">MP4</div>
-          <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.65;margin:0;">Динамическая визуализация «пчелиный рой».</p>
+          <ul class="nb-points">
+            <li>динамическая визуализация “пчелиный рой”</li>
+            <li>воспроизведение движения группы</li>
+            <li>видеофрагменты для презентаций</li>
+          </ul>
         </div>
       </div>
     </div>
