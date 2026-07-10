@@ -16,6 +16,43 @@
   <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/nav.css">
   <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .asee-points {
+      display: grid;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .asee-points li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .asee-points li::before {
+      content: '';
+      flex: 0 0 auto;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent-glow-strong);
+      transform: translateY(-2px);
+    }
+
+    .hero-subtitle .asee-points {
+      margin-top: 0.15rem;
+    }
+
+    .asee-pupil {
+      transition: transform 120ms ease-out;
+      will-change: transform;
+    }
+  </style>
 </head>
 
 <!--
@@ -126,9 +163,14 @@
           <span class="text-gradient">айтрекинг-очки</span>
           нового поколения
         </h1>
-        <p class="hero-subtitle">
-          Портативные айтрекинг-очки aSee Glasses от 7invensun для исследований в реальных условиях. До 240 Гц, точность 0.5°, всего 50 граммов.
-        </p>
+        <div class="hero-subtitle hero-subtitle--stack">
+          <p>Портативные айтрекинг-очки aSee Glasses от 7invensun для исследований в реальных условиях.</p>
+          <ul class="asee-points">
+            <li>до 240 Гц</li>
+            <li>точность 0.5°</li>
+            <li>всего 50 граммов</li>
+          </ul>
+        </div>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Запросить демо</a>
           <a href="#solution" class="btn btn-outline">Узнать больше</a>
@@ -137,7 +179,7 @@
 
       <div class="hero-visual">
         <div class="hero-illustration">
-          <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="asee-glasses-hero" viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Background scanpath dots -->
             <circle cx="60" cy="80" r="2" fill="var(--accent)" opacity="0.3"/>
             <circle cx="140" cy="55" r="1.5" fill="var(--accent)" opacity="0.2"/>
@@ -156,9 +198,11 @@
             <!-- Left lens inner glow -->
             <rect x="68" y="128" width="139" height="74" rx="14" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
             <!-- Left pupil / gaze origin -->
-            <circle cx="137" cy="165" r="18" fill="rgba(96,165,250,0.08)" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
-            <circle cx="137" cy="165" r="8" fill="rgba(96,165,250,0.15)" stroke="var(--accent)" stroke-width="1" opacity="0.8"/>
-            <circle cx="137" cy="165" r="3" fill="var(--accent)" opacity="0.9"/>
+            <g class="asee-pupil" data-origin-x="137" data-origin-y="165">
+              <circle cx="137" cy="165" r="18" fill="rgba(96,165,250,0.08)" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
+              <circle cx="137" cy="165" r="8" fill="rgba(96,165,250,0.15)" stroke="var(--accent)" stroke-width="1" opacity="0.8"/>
+              <circle cx="137" cy="165" r="3" fill="var(--accent)" opacity="0.9"/>
+            </g>
             <!-- Left camera sensor -->
             <circle cx="88" cy="135" r="5" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity="0.5"/>
             <circle cx="88" cy="135" r="2" fill="var(--accent)" opacity="0.4"/>
@@ -172,9 +216,11 @@
             <rect x="265" y="120" width="155" height="90" rx="18" stroke="var(--accent)" stroke-width="2.5" fill="rgba(96,165,250,0.04)"/>
             <rect x="273" y="128" width="139" height="74" rx="14" stroke="var(--accent)" stroke-width="0.8" opacity="0.3" fill="none"/>
             <!-- Right pupil / gaze origin -->
-            <circle cx="343" cy="165" r="18" fill="rgba(96,165,250,0.08)" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
-            <circle cx="343" cy="165" r="8" fill="rgba(96,165,250,0.15)" stroke="var(--accent)" stroke-width="1" opacity="0.8"/>
-            <circle cx="343" cy="165" r="3" fill="var(--accent)" opacity="0.9"/>
+            <g class="asee-pupil" data-origin-x="343" data-origin-y="165">
+              <circle cx="343" cy="165" r="18" fill="rgba(96,165,250,0.08)" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
+              <circle cx="343" cy="165" r="8" fill="rgba(96,165,250,0.15)" stroke="var(--accent)" stroke-width="1" opacity="0.8"/>
+              <circle cx="343" cy="165" r="3" fill="var(--accent)" opacity="0.9"/>
+            </g>
             <!-- Right camera sensors -->
             <circle cx="293" cy="135" r="5" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity="0.5"/>
             <circle cx="293" cy="135" r="2" fill="var(--accent)" opacity="0.4"/>
@@ -237,7 +283,10 @@
             Портативные айтрекинг-очки позволяют исследовать зрительное поведение человека в естественных условиях — в магазине, на рабочем месте, в учебном классе, при вождении, на производстве.
           </p>
           <p>
-            В отличие от стационарного айтрекера, мобильные очки не ограничивают участника монитором: он свободно перемещается, взаимодействует с людьми и предметами, а камеры фиксируют и сцену перед ним, и направление его взгляда. Технология основана на роговичном отражении инфракрасного излучения.
+            В отличие от стационарного айтрекера, мобильные очки не ограничивают участника монитором: он свободно перемещается, взаимодействует с людьми и предметами, а камеры фиксируют и сцену перед ним, и направление его взгляда.
+          </p>
+          <p>
+            Технология основана на роговичном отражении инфракрасного излучения.
           </p>
         </div>
       </div>
@@ -446,5 +495,46 @@
   <script src="../js/nav.js"></script>
   <script src="../js/animations.js"></script>
   <script src="../js/cursor-glow.js"></script>
+  <script>
+    (() => {
+      const svg = document.querySelector('.asee-glasses-hero');
+      if (!svg) return;
+
+      const pupils = Array.from(svg.querySelectorAll('.asee-pupil')).map((node) => ({
+        node,
+        x: Number(node.dataset.originX),
+        y: Number(node.dataset.originY),
+      }));
+      const point = svg.createSVGPoint();
+
+      function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
+
+      function movePupils(clientX, clientY) {
+        const matrix = svg.getScreenCTM();
+        if (!matrix) return;
+        point.x = clientX;
+        point.y = clientY;
+        const cursor = point.matrixTransform(matrix.inverse());
+
+        pupils.forEach((pupil) => {
+          const dx = clamp((cursor.x - pupil.x) * 0.16, -34, 34);
+          const dy = clamp((cursor.y - pupil.y) * 0.18, -15, 15);
+          pupil.node.style.transform = `translate(${dx}px, ${dy}px)`;
+        });
+      }
+
+      window.addEventListener('pointermove', (event) => {
+        movePupils(event.clientX, event.clientY);
+      }, { passive: true });
+
+      window.addEventListener('pointerleave', () => {
+        pupils.forEach((pupil) => {
+          pupil.node.style.transform = 'translate(0, 0)';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
