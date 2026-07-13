@@ -20,15 +20,27 @@
       });
     }
 
-    prev?.addEventListener('click', () => show(index - 1));
-    next?.addEventListener('click', () => show(index + 1));
-    dots.forEach((dot, dotIndex) => dot.addEventListener('click', () => show(dotIndex)));
+    prev?.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      show(index - 1);
+    });
+    next?.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      show(index + 1);
+    });
+    dots.forEach((dot, dotIndex) => dot.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      show(dotIndex);
+    }));
 
     show(0);
   });
 
   const zoomableImages = document.querySelectorAll(
-    '.media-gallery img, .media-frame img, .sr-slide img, .pioneer-promo-visual img'
+    '.media-gallery img, .media-frame img, .sr-slide img, .pioneer-promo-visual img, .hero-illustration img'
   );
 
   if (!zoomableImages.length) return;
@@ -61,7 +73,11 @@
 
   zoomableImages.forEach((image) => {
     image.classList.add('media-zoomable');
-    image.addEventListener('click', () => openLightbox(image));
+    image.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      openLightbox(image);
+    });
   });
 
   closeButton.addEventListener('click', closeLightbox);

@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/assistiv.css">
   <style>
     /* ─── Hero illustration ─── */
@@ -137,6 +138,7 @@
     }
     .pioneer-promo-visual svg { width: 100%; max-width: 320px; height: auto; }
     .pioneer-promo-visual img { width: 100%; height: 100%; max-height: 360px; object-fit: contain; display: block; }
+    .pioneer-promo-visual .media-gallery { max-width: 420px; aspect-ratio: 4/3; }
     .pioneer-promo-body { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
     .pioneer-promo-tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.75rem; }
     .pioneer-promo h3 { font-size: 1.85rem; line-height: 1.15; margin-bottom: 1rem; }
@@ -570,7 +572,24 @@
 
       <a href="pioner.html" class="pioneer-promo reveal">
         <div class="pioneer-promo-visual">
-          <img src="../assets/images/tablet-pioneer/tablet_pioneer_1.jpg" alt="Tablet Pioneer product photo">
+          <div class="media-gallery media-gallery--clean" data-media-gallery>
+            <div class="media-gallery-track">
+              <figure class="media-slide media-slide--contain">
+                <img src="../assets/images/tablet-pioneer/tablet_pioneer_1.jpg" alt="Tablet Pioneer product photo 1">
+                <figcaption class="media-caption">Планшет Пионер <span>01 / 02</span></figcaption>
+              </figure>
+              <figure class="media-slide media-slide--contain">
+                <img src="../assets/images/tablet-pioneer/tablet_pioneer_2.jpg" alt="Tablet Pioneer product photo 2">
+                <figcaption class="media-caption">Планшет Пионер <span>02 / 02</span></figcaption>
+              </figure>
+            </div>
+            <button class="media-gallery-btn media-gallery-btn--prev" type="button" data-gallery-prev aria-label="Previous image"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="media-gallery-btn media-gallery-btn--next" type="button" data-gallery-next aria-label="Next image"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+            <div class="media-gallery-dots" aria-hidden="true">
+              <button class="media-gallery-dot" type="button" data-gallery-dot></button>
+              <button class="media-gallery-dot" type="button" data-gallery-dot></button>
+            </div>
+          </div>
         </div>
         <div class="pioneer-promo-body">
           <span class="pioneer-promo-tag">→ Пионер</span>

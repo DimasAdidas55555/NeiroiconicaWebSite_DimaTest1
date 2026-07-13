@@ -9,12 +9,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/assistiv.css">
   <style>
     .hero--twocol .hero-content { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3rem; align-items: center; }
     .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(26,79,204,0.12); border: 1px solid rgba(26,79,204,0.25); border-radius: 9999px; padding: 0.35em 1em; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 1.5rem; }
     .hero-illustration { display: flex; align-items: center; justify-content: center; }
     .hero-illustration svg { width: 100%; max-width: 360px; height: auto; filter: drop-shadow(0 12px 36px rgba(26,79,204,0.18)); }
+    .hero-illustration img { width: 100%; max-width: 460px; max-height: 520px; object-fit: contain; filter: drop-shadow(0 12px 36px rgba(26,79,204,0.18)); }
 
     /* Price banner */
     .price-banner {
@@ -239,55 +241,9 @@
             <a href="#specs" class="btn btn-outline">Характеристики</a>
           </div>
         </div>
-        <div class="hero-illustration reveal">
-          <svg viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="screen-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#0a1228"/>
-                <stop offset="100%" stop-color="#142850"/>
-              </linearGradient>
-              <radialGradient id="halo-grad" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="rgba(45,106,237,0.15)"/>
-                <stop offset="100%" stop-color="rgba(45,106,237,0)"/>
-              </radialGradient>
-            </defs>
-            <!-- Halo -->
-            <circle cx="160" cy="200" r="170" fill="url(#halo-grad)"/>
-            <!-- Tablet body -->
-            <rect x="40" y="40" width="240" height="320" rx="16" fill="#1a1a1f" stroke="#1a4fcc" stroke-width="2"/>
-            <!-- Screen -->
-            <rect x="54" y="54" width="212" height="270" rx="6" fill="url(#screen-grad)"/>
-            <!-- Top bar (output) -->
-            <rect x="62" y="62" width="196" height="26" rx="4" fill="rgba(45,106,237,0.18)"/>
-            <text x="160" y="80" text-anchor="middle" font-size="10" fill="#7aabff" font-family="Inter,sans-serif">Привет, мама!</text>
-            <!-- Symbol grid 3x3 -->
-            <rect x="62" y="98" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
-            <rect x="130" y="98" width="60" height="48" rx="4" fill="rgba(45,106,237,0.35)" stroke="#2d6aed" stroke-width="1.8"/>
-            <rect x="198" y="98" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
-            <rect x="62" y="154" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
-            <rect x="130" y="154" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
-            <rect x="198" y="154" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
-            <rect x="62" y="210" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
-            <rect x="130" y="210" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
-            <rect x="198" y="210" width="60" height="48" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.25)"/>
-            <!-- Cursor on active cell -->
-            <circle cx="160" cy="122" r="7" fill="#2d6aed" opacity="0.85"/>
-            <circle cx="160" cy="122" r="13" fill="none" stroke="#2d6aed" stroke-width="1.8" opacity="0.5"/>
-            <!-- Quick phrases bar -->
-            <rect x="62" y="270" width="196" height="44" rx="4" fill="rgba(45,106,237,0.06)" stroke="rgba(45,106,237,0.15)"/>
-            <rect x="70" y="282" width="60" height="20" rx="2" fill="rgba(45,106,237,0.18)"/>
-            <rect x="138" y="282" width="55" height="20" rx="2" fill="rgba(45,106,237,0.12)"/>
-            <rect x="201" y="282" width="50" height="20" rx="2" fill="rgba(45,106,237,0.12)"/>
-            <!-- Eyetracker bar at bottom edge -->
-            <rect x="54" y="332" width="212" height="20" rx="3" fill="#0a1228" stroke="rgba(45,106,237,0.5)"/>
-            <circle cx="84" cy="342" r="3" fill="#2d6aed" opacity="0.7"/>
-            <circle cx="160" cy="342" r="4" fill="#2d6aed"/>
-            <circle cx="236" cy="342" r="3" fill="#2d6aed" opacity="0.7"/>
-            <!-- IR shine -->
-            <circle cx="160" cy="342" r="2" fill="white" opacity="0.6"/>
-            <!-- Camera at top -->
-            <circle cx="160" cy="48" r="3" fill="#2d6aed" opacity="0.6"/>
-          </svg>
+                <div class="hero-illustration reveal">
+          <!-- Rollback note: this photo replaced the original drawn tablet SVG in the hero. If needed, restore the previous SVG from git history before this change. -->
+          <img src="../assets/images/tablet-pioneer/tablet_pioneer_1.jpg" alt="Tablet Pioneer product photo">
         </div>
       </div>
     </div>
@@ -539,5 +495,6 @@
   <script src="../js/nav.js"></script>
   <script src="../js/animations.js"></script>
   <script src="../js/cursor-trail.js"></script>
+  <script src="../js/media-gallery.js"></script>
 </body>
 </html>
