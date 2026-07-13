@@ -370,13 +370,16 @@
     <div class="container">
       <div class="solution-grid reveal">
         <div class="solution-image">
-          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;padding:2rem;aspect-ratio:4/3;background:rgba(255,255,255,0.02);border:1px solid var(--border);">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.4">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);opacity:0.5;letter-spacing:0.1em">ФОТО ПРОДУКТА</span>
+          <div class="media-gallery" data-media-gallery>
+            <div class="media-gallery-track">
+              <figure class="media-slide media-slide--contain"><img src="../assets/images/neurobureau-cloud/Cloud_Menu_experiments.jpg" alt="Neurobureau Cloud experiments menu"><figcaption class="media-caption">Меню экспериментов <span>01 / 04</span></figcaption></figure>
+              <figure class="media-slide media-slide--contain"><img src="../assets/images/neurobureau-cloud/Cloud_import_experiments.jpg" alt="Neurobureau Cloud experiment import"><figcaption class="media-caption">Импорт эксперимента <span>02 / 04</span></figcaption></figure>
+              <figure class="media-slide media-slide--contain"><img src="../assets/images/neurobureau-cloud/Cloud_movement_of_the_gaze.jpg" alt="Neurobureau Cloud gaze movement"><figcaption class="media-caption">Движение взгляда <span>03 / 04</span></figcaption></figure>
+              <figure class="media-slide media-slide--contain"><img src="../assets/images/neurobureau-cloud/Cloud_heatmap.jpg" alt="Neurobureau Cloud heatmap"><figcaption class="media-caption">Тепловая карта <span>04 / 04</span></figcaption></figure>
+            </div>
+            <button class="media-gallery-btn media-gallery-btn--prev" type="button" data-gallery-prev aria-label="Previous image"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="media-gallery-btn media-gallery-btn--next" type="button" data-gallery-next aria-label="Next image"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+            <div class="media-gallery-dots" aria-hidden="true"><button class="media-gallery-dot" type="button" data-gallery-dot></button><button class="media-gallery-dot" type="button" data-gallery-dot></button><button class="media-gallery-dot" type="button" data-gallery-dot></button><button class="media-gallery-dot" type="button" data-gallery-dot></button></div>
           </div>
         </div>
         <div class="solution-text">
@@ -520,5 +523,6 @@
   <script src="../js/nav.js"></script>
   <script src="../js/animations.js"></script>
   <script src="../js/cursor-glow.js"></script>
+  <script src="../js/media-gallery.js"></script>
 </body>
 </html>

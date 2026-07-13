@@ -492,14 +492,16 @@
         </div>
 
         <!-- Правая колонка: заглушка под фото 4:3 (альбомная) -->
-        <div class="img-placeholder" style="aspect-ratio:4/3;background:var(--bg-card);border:1px dashed var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;color:var(--text-muted);text-align:center;padding:2rem;position:relative;overflow:hidden;">
-          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-            <circle cx="8.5" cy="8.5" r="1.5"/>
-            <polyline points="21 15 16 10 5 21"/>
-          </svg>
-          <span style="font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.7;">Фото · 4:3</span>
-          <span style="font-size:0.85rem;line-height:1.5;max-width:240px;opacity:0.55;">Реальное фото проведения эксперимента в лаборатории</span>
+        <div class="media-frame" style="aspect-ratio:4/3;">
+          <div class="media-gallery" data-media-gallery>
+            <div class="media-gallery-track">
+              <figure class="media-slide media-slide--contain"><img src="../assets/images/neurobureau-platform/NB_UI_Menu_experiments.png" alt="Neurobureau experiments menu"><figcaption class="media-caption">Меню экспериментов <span>01 / 02</span></figcaption></figure>
+              <figure class="media-slide media-slide--contain"><img src="../assets/images/neurobureau-platform/NB_UI_1_experiment.png" alt="Neurobureau experiment screen"><figcaption class="media-caption">Открытый эксперимент <span>02 / 02</span></figcaption></figure>
+            </div>
+            <button class="media-gallery-btn media-gallery-btn--prev" type="button" data-gallery-prev aria-label="Previous image"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="media-gallery-btn media-gallery-btn--next" type="button" data-gallery-next aria-label="Next image"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+            <div class="media-gallery-dots" aria-hidden="true"><button class="media-gallery-dot" type="button" data-gallery-dot></button><button class="media-gallery-dot" type="button" data-gallery-dot></button></div>
+          </div>
         </div>
       </div>
     </div>
@@ -625,10 +627,7 @@
       <div class="reveal" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-bottom:3rem;">
 
         <div style="background:linear-gradient(135deg,var(--bg-card),var(--bg-card-hover));border:1px solid var(--border);border-left:4px solid var(--accent);overflow:hidden;display:flex;flex-direction:column;">
-          <div class="img-placeholder" style="aspect-ratio:4/3;background:var(--bg-secondary);border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;color:var(--text-muted);">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;opacity:0.55;">Изображение · 4:3</span>
-          </div>
+          <div class="media-frame media-frame--contain" style="aspect-ratio:4/3;border-bottom:1px solid var(--border);"><img src="../assets/images/neurobureau-platform/visualizations/Viz_2.png" alt="Gaze movement visualization"></div>
           <div style="padding:2rem;">
             <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">01 · КАРТА ДВИЖЕНИЯ ВЗГЛЯДА</span>
             <h3 style="font-size:1.4rem;margin:0.75rem 0 0.75rem;">Маршрут и порядок фиксаций</h3>
@@ -642,10 +641,7 @@
         </div>
 
         <div style="background:linear-gradient(135deg,var(--bg-card),var(--bg-card-hover));border:1px solid var(--border);border-left:4px solid var(--accent);overflow:hidden;display:flex;flex-direction:column;">
-          <div class="img-placeholder" style="aspect-ratio:4/3;background:var(--bg-secondary);border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;color:var(--text-muted);">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;opacity:0.55;">Изображение · 4:3</span>
-          </div>
+          <div class="media-frame media-frame--contain" style="aspect-ratio:4/3;border-bottom:1px solid var(--border);"><img src="../assets/images/neurobureau-platform/visualizations/Viz_4.png" alt="Heatmap visualization"></div>
           <div style="padding:2rem;">
             <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">02 · ТЕПЛОВАЯ КАРТА</span>
             <h3 style="font-size:1.4rem;margin:0.75rem 0 0.75rem;">Зоны концентрации внимания</h3>
@@ -659,10 +655,7 @@
         </div>
 
         <div style="background:linear-gradient(135deg,var(--bg-card),var(--bg-card-hover));border:1px solid var(--border);border-left:4px solid var(--accent);overflow:hidden;display:flex;flex-direction:column;">
-          <div class="img-placeholder" style="aspect-ratio:4/3;background:var(--bg-secondary);border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;color:var(--text-muted);">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;opacity:0.55;">Изображение · 4:3</span>
-          </div>
+          <div class="media-frame media-frame--contain" style="aspect-ratio:4/3;border-bottom:1px solid var(--border);"><img src="../assets/images/neurobureau-platform/visualizations/Viz_6.png" alt="Fog map visualization"></div>
           <div style="padding:2rem;">
             <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">03 · ТУМАННАЯ КАРТА</span>
             <h3 style="font-size:1.4rem;margin:0.75rem 0 0.75rem;">Что осталось без внимания</h3>
@@ -675,10 +668,7 @@
         </div>
 
         <div style="background:linear-gradient(135deg,var(--bg-card),var(--bg-card-hover));border:1px solid var(--border);border-left:4px solid var(--accent);overflow:hidden;display:flex;flex-direction:column;">
-          <div class="img-placeholder" style="aspect-ratio:4/3;background:var(--bg-secondary);border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;color:var(--text-muted);">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;opacity:0.55;">Изображение · 4:3</span>
-          </div>
+          <div class="media-frame media-frame--contain" style="aspect-ratio:4/3;border-bottom:1px solid var(--border);"><img src="../assets/images/neurobureau-platform/visualizations/Viz_7.png" alt="Bee swarm visualization"></div>
           <div style="padding:2rem;">
             <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">04 · ПЧЕЛИНЫЙ РОЙ</span>
             <h3 style="font-size:1.4rem;margin:0.75rem 0 0.75rem;">Как двигался взгляд группы</h3>
@@ -700,10 +690,7 @@
       </div>
       <!-- 05: Временная шкала — на всю ширину (график банером + текст под ним) -->
       <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);overflow:hidden;margin-bottom:1.5rem;">
-        <div class="img-placeholder" style="aspect-ratio:7/1;background:var(--bg-secondary);border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.4rem;color:var(--text-muted);">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><polyline points="3 17 7 11 11 14 15 8 19 12 21 9"/><line x1="3" y1="20" x2="21" y2="20"/></svg>
-          <span style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;opacity:0.55;">Длинный график · временна́я шкала</span>
-        </div>
+        <div class="media-frame media-frame--contain" style="aspect-ratio:7/1;border-bottom:1px solid var(--border);"><img src="../assets/images/neurobureau-platform/graphs/RL_Pupils.png" alt="Left and right pupil timeline"></div>
         <div style="padding:2rem 2.5rem;">
           <span style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);">05 · ВРЕМЕННА́Я ШКАЛА</span>
           <h4 style="font-size:1.25rem;margin:0.5rem 0 0.75rem;">Зрачок и события во времени</h4>
@@ -736,11 +723,7 @@
           </p>
         </div>
 
-        <div class="img-placeholder" style="aspect-ratio:1/1;background:var(--bg-card);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;color:var(--text-muted);">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="6" height="6"/><rect x="15" y="3" width="6" height="6"/><rect x="3" y="15" width="6" height="6"/><rect x="15" y="15" width="6" height="6"/><line x1="9" y1="6" x2="15" y2="6"/><line x1="6" y1="9" x2="6" y2="15"/><line x1="18" y1="9" x2="18" y2="15"/><line x1="9" y1="18" x2="15" y2="18"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <span style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;">Матрица · 1:1</span>
-          <span style="font-size:0.85rem;line-height:1.5;max-width:240px;text-align:center;opacity:0.55;padding:0 1rem;">Скриншот матрицы переходов с реальных данных</span>
-        </div>
+        <div class="media-frame media-frame--contain" style="aspect-ratio:1/1;"><img src="../assets/images/neurobureau-platform/matrixs/Matr_1.png" alt="AOI transition matrix"></div>
 
       </div>
     </div>
@@ -760,10 +743,7 @@
       <div class="reveal" style="background:linear-gradient(135deg,var(--bg-card),var(--bg-card-hover));border:1px solid var(--border);border-left:4px solid var(--accent);padding:2.5rem;margin-bottom:1.5rem;">
         <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);margin-bottom:0.5rem;">03.1 · МОДУЛЬ КГР</div>
         <h3 style="font-size:1.5rem;margin-bottom:1.25rem;">Кожно-гальваническая реакция</h3>
-        <div class="img-placeholder" style="aspect-ratio:7/1;background:var(--bg-secondary);border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;gap:0.75rem;color:var(--text-muted);margin-bottom:1.75rem;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><polyline points="3 14 6 14 8 9 11 17 13 11 16 14 21 14"/></svg>
-          <span style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;opacity:0.55;">Длинный график · КГР · 7:1</span>
-        </div>
+        <div class="media-frame media-frame--contain" style="aspect-ratio:7/1;margin-bottom:1.75rem;"><img src="../assets/images/neurobureau-platform/graphs/SR_SC_BPC_PPG.png" alt="GSR PPG and heart rate graph"></div>
         <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;">
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">Регистрация</h4>
@@ -798,10 +778,7 @@
       <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);padding:2.5rem;margin-bottom:1.5rem;">
         <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);margin-bottom:0.5rem;">03.2 · МОДУЛЬ ЭМГ</div>
         <h3 style="font-size:1.5rem;margin-bottom:1.25rem;">Электромиография · 2 канала</h3>
-        <div class="img-placeholder" style="aspect-ratio:7/1;background:var(--bg-secondary);border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;gap:0.75rem;color:var(--text-muted);margin-bottom:1.75rem;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><polyline points="3 14 5 14 6 11 8 17 9 8 11 18 13 11 14 14 21 14"/></svg>
-          <span style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;opacity:0.55;">Длинный график · ЭМГ · 7:1</span>
-        </div>
+        <div class="media-frame media-frame--contain" style="aspect-ratio:7/1;margin-bottom:1.75rem;"><img src="../assets/images/neurobureau-platform/graphs/EMG.png" alt="EMG graph"></div>
         <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;">
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">14 пресетов мышц</h4>
@@ -839,10 +816,7 @@
       <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);padding:2.5rem;">
         <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);margin-bottom:0.5rem;">03.3 · МОДУЛЬ ЭКГ</div>
         <h3 style="font-size:1.5rem;margin-bottom:1.25rem;">Электрокардиография · 4 отведения</h3>
-        <div class="img-placeholder" style="aspect-ratio:7/1;background:var(--bg-secondary);border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;gap:0.75rem;color:var(--text-muted);margin-bottom:1.75rem;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><polyline points="3 14 7 14 8 12 9 16 10 8 11 18 12 14 21 14"/></svg>
-          <span style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;opacity:0.55;">Длинный график · ЭКГ (PQRST) · 7:1</span>
-        </div>
+        <div class="media-frame media-frame--contain" style="aspect-ratio:7/1;margin-bottom:1.75rem;"><img src="../assets/images/neurobureau-platform/graphs/EKG.png" alt="ECG graph"></div>
         <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;">
           <div>
             <h4 style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem;text-transform:uppercase;">Регистрация</h4>
@@ -966,5 +940,6 @@
   <script src="../js/nav.js"></script>
   <script src="../js/animations.js"></script>
   <script src="../js/cursor-glow.js"></script>
+  <script src="../js/media-gallery.js"></script>
 </body>
 </html>

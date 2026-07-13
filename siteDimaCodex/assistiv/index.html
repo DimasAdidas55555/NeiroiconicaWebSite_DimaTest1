@@ -136,6 +136,7 @@
       min-height: 320px;
     }
     .pioneer-promo-visual svg { width: 100%; max-width: 320px; height: auto; }
+    .pioneer-promo-visual img { width: 100%; height: 100%; max-height: 360px; object-fit: contain; display: block; }
     .pioneer-promo-body { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
     .pioneer-promo-tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.75rem; }
     .pioneer-promo h3 { font-size: 1.85rem; line-height: 1.15; margin-bottom: 1rem; }
@@ -569,43 +570,7 @@
 
       <a href="pioner.html" class="pioneer-promo reveal">
         <div class="pioneer-promo-visual">
-          <svg viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="screen-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#0a1228"/>
-                <stop offset="100%" stop-color="#142850"/>
-              </linearGradient>
-            </defs>
-            <!-- Tablet body -->
-            <rect x="30" y="30" width="220" height="260" rx="14" fill="#1a1a1f" stroke="#1a4fcc" stroke-width="1.5"/>
-            <!-- Screen -->
-            <rect x="42" y="42" width="196" height="218" rx="6" fill="url(#screen-grad)"/>
-            <!-- Screen content: AAC grid -->
-            <rect x="50" y="50" width="180" height="22" rx="4" fill="rgba(45,106,237,0.15)"/>
-            <text x="140" y="65" text-anchor="middle" font-size="9" fill="#7aabff" font-family="Inter,sans-serif">Я хочу...</text>
-            <!-- Symbol grid 3x3 -->
-            <rect x="50" y="80" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
-            <rect x="112" y="80" width="56" height="44" rx="4" fill="rgba(45,106,237,0.3)" stroke="#2d6aed" stroke-width="1.5"/>
-            <rect x="174" y="80" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
-            <rect x="50" y="130" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
-            <rect x="112" y="130" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
-            <rect x="174" y="130" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
-            <rect x="50" y="180" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
-            <rect x="112" y="180" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
-            <rect x="174" y="180" width="56" height="44" rx="4" fill="rgba(45,106,237,0.1)" stroke="rgba(45,106,237,0.2)"/>
-            <!-- Cursor on active cell -->
-            <circle cx="140" cy="100" r="6" fill="#2d6aed" opacity="0.85"/>
-            <circle cx="140" cy="100" r="11" fill="none" stroke="#2d6aed" stroke-width="1.5" opacity="0.5"/>
-            <!-- Bottom strip — eyetracker bar -->
-            <rect x="50" y="232" width="180" height="20" rx="3" fill="rgba(26,26,31,0.8)" stroke="rgba(45,106,237,0.4)"/>
-            <circle cx="80" cy="242" r="2.5" fill="#2d6aed" opacity="0.7"/>
-            <circle cx="140" cy="242" r="3.5" fill="#2d6aed" opacity="0.9"/>
-            <circle cx="200" cy="242" r="2.5" fill="#2d6aed" opacity="0.7"/>
-            <!-- Stand suggestion -->
-            <rect x="125" y="290" width="30" height="6" rx="2" fill="#1a4fcc" opacity="0.4"/>
-            <!-- Soft shadow / glow -->
-            <ellipse cx="140" cy="305" rx="100" ry="6" fill="rgba(26,79,204,0.15)"/>
-          </svg>
+          <img src="../assets/images/tablet-pioneer/tablet_pioneer_1.jpg" alt="Tablet Pioneer product photo">
         </div>
         <div class="pioneer-promo-body">
           <span class="pioneer-promo-tag">→ Пионер</span>

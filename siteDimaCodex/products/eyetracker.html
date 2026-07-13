@@ -84,7 +84,7 @@
         </span>
         Нейроиконика
       </a>
-      <button class="nav-burger" aria-label="Меню">
+      <button class="nav-burger" aria-label="Gallery control">
         <span></span>
         <span></span>
         <span></span>
@@ -341,7 +341,33 @@
     <div class="container">
       <div class="solution-grid reveal">
         <div class="solution-image">
-          <div style="width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.03);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.1em;">ФОТО ПРОДУКТА</div>
+          <div class="media-gallery" data-media-gallery>
+            <div class="media-gallery-track">
+              <figure class="media-slide media-slide--contain">
+                <img src="../assets/images/asee-glasses/asee_glasses_1.jpg" alt="aSee Glasses product photo">
+                <figcaption class="media-caption">aSee Glasses <span>01 / 03</span></figcaption>
+              </figure>
+              <figure class="media-slide media-slide--contain">
+                <img src="../assets/images/asee-glasses/asee_glasses_2.png" alt="aSee Glasses product photo">
+                <figcaption class="media-caption">aSee Glasses <span>02 / 03</span></figcaption>
+              </figure>
+              <figure class="media-slide media-slide--contain">
+                <img src="../assets/images/asee-glasses/asee_glasses_3.jpg" alt="aSee Glasses product photo">
+                <figcaption class="media-caption">aSee Glasses <span>03 / 03</span></figcaption>
+              </figure>
+            </div>
+            <button class="media-gallery-btn media-gallery-btn--prev" type="button" data-gallery-prev aria-label="Gallery control">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="media-gallery-btn media-gallery-btn--next" type="button" data-gallery-next aria-label="Gallery control">
+              <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            <div class="media-gallery-dots" aria-hidden="true">
+              <button class="media-gallery-dot" type="button" data-gallery-dot></button>
+              <button class="media-gallery-dot" type="button" data-gallery-dot></button>
+              <button class="media-gallery-dot" type="button" data-gallery-dot></button>
+            </div>
+          </div>
         </div>
         <div class="solution-text">
           <div class="section-label">Партнёрское оборудование</div>
@@ -495,6 +521,7 @@
   <script src="../js/nav.js"></script>
   <script src="../js/animations.js"></script>
   <script src="../js/cursor-glow.js"></script>
+  <script src="../js/media-gallery.js"></script>
   <script>
     (() => {
       const svg = document.querySelector('.asee-glasses-hero');

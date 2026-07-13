@@ -401,22 +401,36 @@
         scroll-snap-align: center;
         aspect-ratio: 16/9;
         background: var(--bg-card);
-        border: 1px dashed var(--border);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.75rem;
-        color: var(--text-muted);
+        border: 1px solid var(--border);
+        overflow: hidden;
+        position: relative;
       }
+      .sr-slide img { width: 100%; height: 100%; display: block; object-fit: cover; }
       .sr-slide-num {
+        position: absolute;
+        left: 1rem;
+        bottom: 1rem;
+        z-index: 1;
+        padding: 0.45rem 0.65rem;
+        background: rgba(5, 12, 28, 0.76);
+        border: 1px solid rgba(96, 165, 250, 0.2);
+        color: var(--text-primary);
         font-family: var(--font-mono);
         font-size: 0.72rem;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        opacity: 0.55;
       }
-      .sr-slide-label { font-size: 0.95rem; opacity: 0.7; }
+      .sr-slide-label {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 1;
+        padding: 0.45rem 0.65rem;
+        background: rgba(5, 12, 28, 0.76);
+        border: 1px solid rgba(96, 165, 250, 0.2);
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
       .sr-controls {
         display: flex;
         align-items: center;
@@ -457,29 +471,69 @@
       <div class="sr-carousel reveal">
         <div class="sr-track" id="srTrack">
           <div class="sr-slide">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span class="sr-slide-num">Фото 01 · 16:9</span>
-            <span class="sr-slide-label">Профессионал — общий план</span>
+            <img src="../assets/images/shielded-rooms/ShRoom_1.jpg" alt="Shielded room exterior 1">
+            <span class="sr-slide-num">Фото 01 / 13</span>
+            <span class="sr-slide-label">Внешний вид</span>
           </div>
           <div class="sr-slide">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span class="sr-slide-num">Фото 02 · 16:9</span>
-            <span class="sr-slide-label">Эксперт — рабочее место исследователя</span>
+            <img src="../assets/images/shielded-rooms/ShRoom_2.jpg" alt="Shielded room exterior 2">
+            <span class="sr-slide-num">Фото 02 / 13</span>
+            <span class="sr-slide-label">Внешний вид</span>
           </div>
           <div class="sr-slide">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span class="sr-slide-num">Фото 03 · 16:9</span>
-            <span class="sr-slide-label">Акустик — внутренняя отделка</span>
+            <img src="../assets/images/shielded-rooms/ShRoom_3.jpg" alt="Shielded room exterior 3">
+            <span class="sr-slide-num">Фото 03 / 13</span>
+            <span class="sr-slide-label">Внешний вид</span>
           </div>
           <div class="sr-slide">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span class="sr-slide-num">Фото 04 · 16:9</span>
-            <span class="sr-slide-label">Детская лаборатория</span>
+            <img src="../assets/images/shielded-rooms/ShRoom_4.jpg" alt="Shielded room exterior 4">
+            <span class="sr-slide-num">Фото 04 / 13</span>
+            <span class="sr-slide-label">Внешний вид</span>
           </div>
           <div class="sr-slide">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span class="sr-slide-num">Фото 05 · 16:9</span>
-            <span class="sr-slide-label">Сборка и пусконаладка</span>
+            <img src="../assets/images/shielded-rooms/ShRoom_5.jpg" alt="Shielded room exterior 5">
+            <span class="sr-slide-num">Фото 05 / 13</span>
+            <span class="sr-slide-label">Внешний вид</span>
+          </div>
+          <div class="sr-slide">
+            <img src="../assets/images/shielded-rooms/ShRoom_6.jpg" alt="Shielded room exterior 6">
+            <span class="sr-slide-num">Фото 06 / 13</span>
+            <span class="sr-slide-label">Внешний вид</span>
+          </div>
+          <div class="sr-slide">
+            <img src="../assets/images/shielded-rooms/ShRoom_7.jpg" alt="Shielded room exterior 7">
+            <span class="sr-slide-num">Фото 07 / 13</span>
+            <span class="sr-slide-label">Внешний вид</span>
+          </div>
+          <div class="sr-slide">
+            <img src="../assets/images/shielded-rooms/ShRoom_8.jpg" alt="Shielded room exterior 8">
+            <span class="sr-slide-num">Фото 08 / 13</span>
+            <span class="sr-slide-label">Внешний вид</span>
+          </div>
+          <div class="sr-slide">
+            <img src="../assets/images/shielded-rooms/ShRoom_In_1.jpg" alt="Shielded room interior 1">
+            <span class="sr-slide-num">Фото 09 / 13</span>
+            <span class="sr-slide-label">Интерьер</span>
+          </div>
+          <div class="sr-slide">
+            <img src="../assets/images/shielded-rooms/ShRoom_In_2.jpg" alt="Shielded room interior 2">
+            <span class="sr-slide-num">Фото 10 / 13</span>
+            <span class="sr-slide-label">Интерьер</span>
+          </div>
+          <div class="sr-slide">
+            <img src="../assets/images/shielded-rooms/ShRoom_In_3.jpg" alt="Shielded room interior 3">
+            <span class="sr-slide-num">Фото 11 / 13</span>
+            <span class="sr-slide-label">Интерьер</span>
+          </div>
+          <div class="sr-slide">
+            <img src="../assets/images/shielded-rooms/ShRoom_experiment_1.jpg" alt="Experiment in shielded room 1">
+            <span class="sr-slide-num">Фото 12 / 13</span>
+            <span class="sr-slide-label">Эксперимент</span>
+          </div>
+          <div class="sr-slide">
+            <img src="../assets/images/shielded-rooms/ShRoom_experiment_2.jpg" alt="Experiment in shielded room 2">
+            <span class="sr-slide-num">Фото 13 / 13</span>
+            <span class="sr-slide-label">Эксперимент</span>
           </div>
         </div>
 
