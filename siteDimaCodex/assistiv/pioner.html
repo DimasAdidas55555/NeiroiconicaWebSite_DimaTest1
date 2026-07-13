@@ -14,9 +14,36 @@
   <style>
     .hero--twocol .hero-content { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3rem; align-items: center; }
     .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(26,79,204,0.12); border: 1px solid rgba(26,79,204,0.25); border-radius: 9999px; padding: 0.35em 1em; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 1.5rem; }
-    .hero-illustration { display: flex; align-items: center; justify-content: center; }
+    .hero-illustration { display: flex; align-items: center; justify-content: center; position: relative; }
+    .hero-illustration::before {
+      content: '';
+      position: absolute;
+      inset: 7% 3%;
+      background: radial-gradient(circle at 50% 50%, rgba(45,106,237,0.16), transparent 68%);
+      filter: blur(24px);
+      pointer-events: none;
+    }
     .hero-illustration svg { width: 100%; max-width: 360px; height: auto; filter: drop-shadow(0 12px 36px rgba(26,79,204,0.18)); }
-    .hero-illustration img { width: 100%; max-width: 460px; max-height: 520px; object-fit: contain; filter: drop-shadow(0 12px 36px rgba(26,79,204,0.18)); }
+    .hero-illustration img {
+      width: 100%;
+      max-width: 460px;
+      max-height: 520px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 36px rgba(26,79,204,0.18));
+    }
+    .pioneer-hero-photo {
+      position: relative;
+      z-index: 1;
+      border-radius: 22px;
+      -webkit-mask-image:
+        linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%),
+        linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+      -webkit-mask-composite: source-in;
+      mask-image:
+        linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%),
+        linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+      mask-composite: intersect;
+    }
 
     /* Price banner */
     .price-banner {
@@ -243,7 +270,7 @@
         </div>
                 <div class="hero-illustration reveal">
           <!-- Rollback note: this photo replaced the original drawn tablet SVG in the hero. If needed, restore the previous SVG from git history before this change. -->
-          <img src="../assets/images/tablet-pioneer/tablet_pioneer_1.jpg" alt="Tablet Pioneer product photo">
+          <img class="pioneer-hero-photo" src="../assets/images/tablet-pioneer/tablet_pioneer_1.jpg" alt="Tablet Pioneer product photo">
         </div>
       </div>
     </div>
