@@ -15,14 +15,161 @@
   <link rel="stylesheet" href="../css/nav.css">
   <link rel="stylesheet" href="../css/components.css">
 <style>
-.timeline { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 3rem; }
-.timeline::before { content: ''; position: absolute; left: 0.85rem; top: 0.5rem; bottom: 0.5rem; width: 1px; background: var(--border); }
-.timeline-item { display: grid; grid-template-columns: 5rem 1fr; gap: 1.5rem; padding: 1.5rem 0; position: relative; }
-.timeline-item::before { content: ''; position: absolute; left: -2.17rem; top: 1.8rem; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
-.timeline-year { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); font-weight: 700; padding-top: 0.2rem; letter-spacing: 0.05em; }
-.timeline-content h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
-.timeline-content p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; }
-@media (max-width: 768px) { .timeline { padding-left: 2rem; } .timeline-item { grid-template-columns: 3.5rem 1fr; gap: 1rem; } }
+.about-hero .hero-subtitle { max-width: 760px; }
+.about-hero .hero-actions { justify-content: center; }
+.mission-panel {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border: 1px solid rgba(59, 130, 246, 0.32);
+  background:
+    linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(14, 165, 233, 0.04)),
+    var(--bg-card);
+}
+.mission-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(90deg, rgba(0,0,0,0.2), rgba(0,0,0,0.95));
+  pointer-events: none;
+}
+.mission-panel > * { position: relative; z-index: 1; }
+.mission-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.mission-kicker::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.75);
+}
+.mission-statement {
+  max-width: 920px;
+  margin: 0;
+  font-size: clamp(1.55rem, 3vw, 2.55rem);
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.mission-note {
+  max-width: 760px;
+  margin-top: 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+.about-card,
+.trust-card,
+.team-card,
+.approach-step,
+.science-panel {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.about-card,
+.trust-card,
+.team-card {
+  padding: 1.5rem;
+}
+.about-card h3,
+.trust-card h3,
+.team-card h3,
+.approach-step h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+.about-card p,
+.trust-card p,
+.team-card p,
+.approach-step p,
+.science-panel p {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+.card-index {
+  display: block;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.approach-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  background: rgba(15, 23, 42, 0.38);
+}
+.approach-step {
+  padding: 1.5rem;
+  border-width: 0;
+  border-right: 1px solid var(--border);
+  background: transparent;
+}
+.approach-step:last-child { border-right: 0; }
+.science-panel {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  padding: clamp(2rem, 4vw, 3rem);
+}
+.science-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+.science-tags span {
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--text-secondary);
+  padding: 0.55rem 0.7rem;
+  font-size: 0.86rem;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 1100px) {
+  .about-grid,
+  .trust-grid,
+  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .approach-list { grid-template-columns: 1fr; }
+  .approach-step { border-right: 0; border-bottom: 1px solid var(--border); }
+  .approach-step:last-child { border-bottom: 0; }
+}
+@media (max-width: 768px) {
+  .about-grid,
+  .trust-grid,
+  .team-grid,
+  .science-panel { grid-template-columns: 1fr; }
+  .mission-panel { padding: 1.5rem; }
+}
 </style>
 </head>
 
@@ -108,7 +255,7 @@
 
 
   <!-- ===== HERO (compact) ===== -->
-  <section class="hero hero--compact">
+  <section class="hero hero--compact about-hero">
     <div class="container hero-content">
       <div class="hero-text">
         <div class="hero-badge"><span>О компании</span></div>
@@ -117,54 +264,216 @@
           <span class="text-gradient">мы</span>
         </h1>
         <p class="hero-subtitle">
-          Лидеры в области нейротехнологий и научного оборудования для исследований когнитивных процессов.
+          Нейроиконика — российская команда нейротехнологий для науки, медицины, образования и ассистивной коммуникации.
         </p>
+        <p class="hero-subtitle">
+          Мы разрабатываем и поставляем оборудование и программное обеспечение для исследований взгляда, поведения и физиологических реакций.
+        </p>
+        <div class="hero-actions">
+          <a href="contacts.html" class="btn btn-primary">Связаться</a>
+          <a href="../index.html#solutions" class="btn btn-secondary">Наши решения</a>
+        </div>
       </div>
     </div>
   </section>
-
-  <div class="dev-banner-wrap">
-    <div class="dev-page-banner">
-      <span><strong>В разработке</strong> — раздел готовится. Скоро здесь появится информация о миссии, истории и команде Нейроиконики.</span>
-    </div>
-  </div>
 
 
   <!-- ===== НАША МИССИЯ ===== -->
   <section>
     <div class="container">
-      <div class="section-centered reveal">
-          <div class="section-label">Миссия</div>
-          <h2>Наша миссия</h2>
-          <p style="color:var(--text-muted);font-style:italic;border:1px dashed var(--border);padding:2rem;border-radius:var(--radius-md);text-align:center;">Раздел в разработке. Здесь будет текст о миссии компании, истории создания и ценностях.</p>
+      <div class="mission-panel reveal">
+        <div class="mission-kicker">Наша миссия</div>
+        <p class="mission-statement">
+          Делать технологии исследования человека доступными, точными и понятными для тех, кто развивает науку, медицину, образование и коммуникацию.
+        </p>
+        <p class="mission-note">
+          Мы помогаем увидеть то, что трудно заметить напрямую: куда человек смотрит, как распределяет внимание, как реагирует на стимулы и как взаимодействует с миром. Из этих данных рождаются более точные исследования, удобные интерфейсы, эффективная реабилитация и новые способы общения.
+        </p>
       </div>
     </div>
   </section>
 
 
-  <!-- ===== ИСТОРИЯ ===== -->
+  <!-- ===== ЧТО МЫ ДЕЛАЕМ ===== -->
   <section>
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-label">История</div>
-        <h2>Наш путь</h2>
+        <div class="section-label">Направления</div>
+        <h2>Что мы делаем</h2>
+        <p>Собираем вокруг исследователя полную инфраструктуру: от регистрации данных до анализа, обучения и поддержки.</p>
       </div>
-      <div class="reveal">
-        <p style="color:var(--text-muted);font-style:italic;border:1px dashed var(--border);padding:2rem;border-radius:var(--radius-md);text-align:center;">Раздел в разработке. Здесь будет таймлайн с ключевыми этапами развития компании.</p>
+      <div class="about-grid reveal-stagger">
+        <article class="about-card">
+          <span class="card-index">01</span>
+          <h3>Айтрекинг</h3>
+          <p>Стационарные и портативные решения для регистрации взгляда в лаборатории, клинике, учебной среде и реальных условиях.</p>
+        </article>
+        <article class="about-card">
+          <span class="card-index">02</span>
+          <h3>Нейробюро</h3>
+          <p>Мультимодальная платформа для предъявления стимулов, синхронной записи данных, обработки и анализа результатов.</p>
+        </article>
+        <article class="about-card">
+          <span class="card-index">03</span>
+          <h3>Ассистивные технологии</h3>
+          <p>Системы управления компьютером взглядом, коммуникации, обучения и сенсомоторной тренировки для пользователей и специалистов.</p>
+        </article>
+        <article class="about-card">
+          <span class="card-index">04</span>
+          <h3>Исследовательские среды</h3>
+          <p>Экранированные камеры и комплексные решения для экспериментов, где важны стабильные условия и защита от помех.</p>
+        </article>
       </div>
     </div>
   </section>
 
 
-  <!-- ===== ЦИФРЫ ===== -->
+  <!-- ===== ДОВЕРИЕ ===== -->
   <section>
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-label">Компания в цифрах</div>
-        <h2>Цифры, которые говорят за нас</h2>
+        <div class="section-label">Доверие</div>
+        <h2>Почему с нами работают</h2>
+        <p>Мы не просто передаём оборудование. Мы помогаем подобрать конфигурацию, запустить систему и встроить её в реальные исследовательские процессы.</p>
       </div>
-      <div class="reveal">
-        <p style="color:var(--text-muted);font-style:italic;border:1px dashed var(--border);padding:2rem;border-radius:var(--radius-md);text-align:center;">Раздел в разработке. Здесь будут ключевые показатели компании: годы работы, количество сотрудников, пользователей и публикаций.</p>
+      <div class="trust-grid reveal-stagger">
+        <article class="trust-card">
+          <h3>С 2017 года на рынке</h3>
+          <p>ООО «Нейроиконика» зарегистрировано 24.03.2017. За это время мы прошли путь от отдельных решений до комплексной продуктовой экосистемы.</p>
+        </article>
+        <article class="trust-card">
+          <h3>Собственная разработка</h3>
+          <p>Создаём аппаратные и программные решения, развиваем платформу Нейробюро и поддерживаем пользователей на русском языке.</p>
+        </article>
+        <article class="trust-card">
+          <h3>Опыт внедрения</h3>
+          <p>Работаем с вузами, НИИ, клиниками, компаниями и специалистами, которым важны точность данных и понятный запуск.</p>
+        </article>
+        <article class="trust-card">
+          <h3>Поддержка закупок</h3>
+          <p>Помогаем подбирать комплектацию под техническое задание и готовить документы для закупочных процедур.</p>
+        </article>
+        <article class="trust-card">
+          <h3>Обучение команды</h3>
+          <p>Проводим обучение под уровень специалистов: от первого знакомства с методом до уверенной работы с данными.</p>
+        </article>
+        <article class="trust-card">
+          <h3>Методологическая помощь</h3>
+          <p>Помогаем не только с техникой, но и с логикой исследования: дизайном эксперимента, записью, обработкой и интерпретацией.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ПОДХОД ===== -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Подход</div>
+        <h2>Как мы работаем</h2>
+      </div>
+      <div class="approach-list reveal-stagger">
+        <article class="approach-step">
+          <span class="card-index">01</span>
+          <h3>Разбираемся в задаче</h3>
+          <p>Уточняем цели исследования, условия работы, требования к данным и ограничения площадки.</p>
+        </article>
+        <article class="approach-step">
+          <span class="card-index">02</span>
+          <h3>Подбираем решение</h3>
+          <p>Предлагаем конфигурацию оборудования и программного обеспечения без лишней сложности.</p>
+        </article>
+        <article class="approach-step">
+          <span class="card-index">03</span>
+          <h3>Помогаем с запуском</h3>
+          <p>Организуем поставку, настройку, демонстрацию и ввод системы в рабочий процесс.</p>
+        </article>
+        <article class="approach-step">
+          <span class="card-index">04</span>
+          <h3>Обучаем</h3>
+          <p>Показываем, как проводить запись, работать с интерфейсом, проверять качество и готовить данные к анализу.</p>
+        </article>
+        <article class="approach-step">
+          <span class="card-index">05</span>
+          <h3>Остаёмся рядом</h3>
+          <p>Поддерживаем пользователей после внедрения и помогаем развивать лабораторию дальше.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== НАУКА И ИНЖЕНЕРИЯ ===== -->
+  <section>
+    <div class="container">
+      <div class="science-panel reveal">
+        <div>
+          <div class="section-label">Наука + инженерия</div>
+          <h2>Мы говорим с исследователями на одном языке</h2>
+          <p>
+            Наша работа находится на стыке инженерии, когнитивных наук, психофизиологии, клинической практики и альтернативной коммуникации. Поэтому мы понимаем не только характеристики оборудования, но и то, как эти характеристики влияют на эксперимент, данные и итоговые выводы.
+          </p>
+          <p>
+            Для нас важно, чтобы технология не была чёрным ящиком. Она должна помогать специалисту видеть больше, работать точнее и принимать решения увереннее.
+          </p>
+        </div>
+        <div class="science-tags" aria-label="Области экспертизы">
+          <span>видеоокулография</span>
+          <span>когнитивные исследования</span>
+          <span>психофизиология</span>
+          <span>нейромаркетинг</span>
+          <span>клиническая диагностика</span>
+          <span>ассистивная коммуникация</span>
+          <span>мультимодальные данные</span>
+          <span>образование</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== КОМАНДА ===== -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Команда</div>
+        <h2>Кто стоит за продуктами</h2>
+        <p>Над решениями Нейроиконики работают специалисты разных профилей. Именно это позволяет соединять приборы, программное обеспечение, методологию и поддержку в одну рабочую систему.</p>
+      </div>
+      <div class="team-grid reveal-stagger">
+        <article class="team-card">
+          <h3>Инженеры</h3>
+          <p>Проектируют аппаратные решения, комплектации и исследовательские среды.</p>
+        </article>
+        <article class="team-card">
+          <h3>Разработчики ПО</h3>
+          <p>Создают интерфейсы, алгоритмы обработки, визуализации и инструменты анализа.</p>
+        </article>
+        <article class="team-card">
+          <h3>Исследователи</h3>
+          <p>Помогают связывать технологию с задачами науки, медицины и образования.</p>
+        </article>
+        <article class="team-card">
+          <h3>Методисты</h3>
+          <p>Готовят обучение, инструкции и сценарии внедрения под разные уровни команд.</p>
+        </article>
+        <article class="team-card">
+          <h3>Поддержка</h3>
+          <p>Сопровождает пользователей после поставки и помогает решать практические вопросы.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CTA ===== -->
+  <section>
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2>Расскажите о Вашей задаче</h2>
+        <p>Подскажем, какое решение подойдёт, как его внедрить и с чего лучше начать.</p>
+        <a href="contacts.html" class="btn btn-primary">Связаться</a>
       </div>
     </div>
   </section>
