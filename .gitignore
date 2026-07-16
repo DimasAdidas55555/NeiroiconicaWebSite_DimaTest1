@@ -13,6 +13,13 @@ desktop.ini
 
 # Other experimental local copies
 siteDimaClode/
+Resources/
+
+# Local image drafts and rejected exports
+**/rubbish/
+**/alpha-preview-checkerboard/
+**/*_bad.png
+**/*_white-bg-original.png
 
 # Dependencies/build output, if the static site later grows tooling
 node_modules/
