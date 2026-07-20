@@ -142,6 +142,29 @@
 
       <div class="pub-list">
 
+        <!-- ===== 2026 ===== -->
+
+        <div class="pub-item" data-category="eyetracking">
+          <div class="pub-item-year">2026</div>
+          <h4>Implementation and Testing of an Automatic Data Processing Algorithm for a Digital Oculograph</h4>
+          <p class="pub-item-authors">E. Yu. Shelepin, K. A. Skuratova, P. A. Lekhnitskaya, K. Yu. Shelepin</p>
+          <p class="pub-item-source">(2026). <em>Neuroscience and Behavioral Physiology</em>, <em>56</em>(4), 768–774. DOI 10.1007/s11055-026-02016-w</p>
+        </div>
+
+        <div class="pub-item" data-category="aac">
+          <div class="pub-item-year">2026</div>
+          <h4>Технические средства альтернативной и дополнительной коммуникации: сравнительно-исторические национальные траектории XX века</h4>
+          <p class="pub-item-authors">К. Ю. Шелепин, Д. А. Наумова, Е. Ю. Шелепин, К. А. Скуратова</p>
+          <p class="pub-item-source">(2026). <em>Коллекция гуманитарных исследований</em>, № 2(47), 35–54. DOI 10.21626/j-chr/2026-2(47)/4</p>
+        </div>
+
+        <div class="pub-item" data-category="aac clinical">
+          <div class="pub-item-year">2026</div>
+          <h4>Особенности применения альтернативной и дополнительной коммуникации при моторных нарушениях у детей и взрослых</h4>
+          <p class="pub-item-authors">К. Ю. Шелепин, Е. Ю. Шелепин, К. А. Скуратова [и др.]</p>
+          <p class="pub-item-source">(2026). <em>Обозрение психиатрии и медицинской психологии имени В. М. Бехтерева</em>, <em>60</em>(2), 58–71. DOI 10.31363/2313-7053-2026-2-1189</p>
+        </div>
+
         <!-- ===== 2025 ===== -->
 
         <div class="pub-item" data-category="eyetracking">
@@ -782,7 +805,7 @@
         tab.classList.add('active');
         const filter = tab.dataset.filter;
         items.forEach(item => {
-          if (filter === 'all' || item.dataset.category === filter) {
+          if (filter === 'all' || item.dataset.category.split(' ').includes(filter)) {
             item.style.display = '';
           } else {
             item.style.display = 'none';
