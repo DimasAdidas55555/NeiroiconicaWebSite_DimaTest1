@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Inject flyout for "Вселенная Нейробюро" ──────────────────
   const modules = [
     { name: 'Мультимодальная платформа', path: 'products/neurobureau.html', status: 'ready', desc: 'Ядро экосистемы' },
-    { name: 'Анализ эмоций',             path: 'neurobureau/emotions.html',  status: 'ready', desc: 'FACS · КГР · ЧСС' },
+    { name: 'Анализ эмоций',             path: 'neurobureau/emotions.html',  status: 'soon',  desc: 'Осень 2026' },
     { name: 'Нейробюро.Облако',          path: 'neurobureau/cloud.html',     status: 'ready', desc: 'Совместная аналитика' },
     { name: 'Нейробюро.Чтение',          path: 'neurobureau/reading.html',   status: 'soon',  desc: 'Анализ текстовосприятия' },
     { name: 'Нейробюро.UX',             path: 'neurobureau/ux.html',        status: 'soon',  desc: 'UX-исследования' },
