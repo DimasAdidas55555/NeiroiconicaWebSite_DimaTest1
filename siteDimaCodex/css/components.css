@@ -436,6 +436,36 @@
   object-position: center;
 }
 
+.nb-viz-card {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.nb-viz-card .media-frame--viz {
+  height: clamp(280px, 18vw, 340px);
+  aspect-ratio: auto;
+  flex: 0 0 auto;
+}
+
+.nb-viz-body {
+  padding: 2rem;
+  min-height: 250px;
+}
+
+@media (max-width: 768px) {
+  .nb-viz-card .media-frame--viz {
+    height: clamp(210px, 52vw, 300px);
+  }
+
+  .nb-viz-body {
+    min-height: 0;
+  }
+}
+
 .media-gallery {
   width: 100%;
   height: 100%;
