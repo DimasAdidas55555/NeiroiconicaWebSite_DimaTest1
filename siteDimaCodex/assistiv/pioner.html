@@ -174,6 +174,56 @@
       line-height: 1.65;
     }
 
+    /* Video case placeholder */
+    .video-case {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 2rem;
+    }
+    .video-case-frame {
+      aspect-ratio: 16 / 9;
+      background:
+        linear-gradient(135deg, rgba(26,79,204,0.12), rgba(26,79,204,0.02)),
+        var(--bg-secondary);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-case-frame::before {
+      content: '';
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 28px rgba(26,79,204,0.35);
+    }
+    .video-case-frame::after {
+      content: '';
+      position: absolute;
+      border-left: 18px solid #fff;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      transform: translateX(3px);
+    }
+    .video-case-note {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .video-case h3 { margin-bottom: 0.75rem; }
+    .video-case p { color: var(--text-secondary); line-height: 1.7; margin: 0; }
+
     /* Contact */
     .contact { background: var(--bg-secondary); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
@@ -183,7 +233,7 @@
     @media (max-width: 900px) {
       .hero--twocol .hero-content { grid-template-columns: 1fr; }
       .hero-illustration { order: -1; }
-      .num-grid--2, .num-grid--3, .specs-grid, .software-grid, .accessories-grid, .contact-grid, .kit-list { grid-template-columns: 1fr; }
+      .num-grid--2, .num-grid--3, .specs-grid, .software-grid, .accessories-grid, .contact-grid, .kit-list, .video-case { grid-template-columns: 1fr; }
       .spec-row:nth-child(2n) { border-right: none; }
       .spec-row { border-bottom: 1px solid var(--border); }
       .spec-row:last-child { border-bottom: none; }
@@ -439,6 +489,26 @@
           <span class="num">04 · Образование</span>
           <h3>Инклюзивные классы и коррекционные школы</h3>
           <p>Один планшет — всё нужное ПО для уроков, общения с одноклассниками и работы с учебными материалами.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ВИДЕО-КЕЙС ===== -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left; margin-bottom:1.5rem;">
+        <div class="section-label">Видео-кейс</div>
+        <h2>Как Пионер помогает в реальной жизни</h2>
+        <p style="margin:0;">Здесь появится смонтированная история пользователя: короткое видео о том, как планшет помогает общаться, заниматься и управлять компьютером при помощи взгляда.</p>
+      </div>
+      <div class="video-case reveal">
+        <div class="video-case-frame" aria-label="Место для будущего видео-кейса"></div>
+        <div>
+          <div class="video-case-note">Материал готовится</div>
+          <h3>Реальный кейс с согласия пользователя</h3>
+          <p>После подготовки видео добавим сюда ролик, краткое описание ситуации и результат: какие задачи решал пользователь, как был настроен Пионер и что изменилось после внедрения.</p>
         </div>
       </div>
     </div>
