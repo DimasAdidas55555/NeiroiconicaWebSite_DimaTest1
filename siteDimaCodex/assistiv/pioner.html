@@ -208,6 +208,63 @@
     }
     .video-case h3 { margin-bottom: 0.75rem; }
     .video-case p { color: var(--text-secondary); line-height: 1.7; margin: 0; }
+    .video-story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .video-story-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .video-story-poster {
+      aspect-ratio: 16 / 9;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .video-story-poster img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .video-story-poster::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8, 15, 30, 0.08), rgba(8, 15, 30, 0.42));
+      pointer-events: none;
+    }
+    .video-story-status {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      z-index: 1;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(26, 79, 204, 0.88);
+      padding: 0.45rem 0.7rem;
+    }
+    .video-story-body {
+      padding: 1.5rem;
+    }
+    .video-story-body h3 {
+      margin-bottom: 0.65rem;
+      font-size: 1.1rem;
+    }
+    .video-story-body p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
 
     /* Contact */
     .contact { background: var(--bg-secondary); }
@@ -218,7 +275,7 @@
     @media (max-width: 900px) {
       .hero--twocol .hero-content { grid-template-columns: 1fr; }
       .hero-illustration { order: -1; }
-      .num-grid--2, .num-grid--3, .specs-grid, .software-grid, .accessories-grid, .contact-grid, .kit-list, .video-case { grid-template-columns: 1fr; }
+      .num-grid--2, .num-grid--3, .specs-grid, .software-grid, .accessories-grid, .contact-grid, .kit-list, .video-case, .video-story-grid { grid-template-columns: 1fr; }
       .spec-row:nth-child(2n) { border-right: none; }
       .spec-row { border-bottom: 1px solid var(--border); }
       .spec-row:last-child { border-bottom: none; }
@@ -487,7 +544,7 @@
       <div class="section-header reveal" style="text-align:left; margin-bottom:1.5rem;">
         <div class="section-label">Видео-кейс</div>
         <h2>Как Пионер помогает в реальной жизни</h2>
-        <p style="margin:0;">История о том, как планшет помогает общаться, заниматься и управлять компьютером при помощи взгляда.</p>
+        <p style="margin:0;">История Алисы: как планшет помогает общаться, заниматься и управлять компьютером при помощи взгляда.</p>
       </div>
       <div class="video-case reveal">
         <div class="video-case-frame">
@@ -501,6 +558,29 @@
           <h3>Реальный кейс с согласия пользователя</h3>
           <p>В ролике показано, как Пионер используется в повседневной коммуникации и занятиях. Видео помогает увидеть не только устройство, но и сам сценарий работы: настройку, взаимодействие с интерфейсом и результат для пользователя.</p>
         </div>
+      </div>
+      <!-- Pioner story placeholders: replace cards with video players when interview clips are approved for publication. -->
+      <div class="video-story-grid reveal">
+        <article class="video-story-card">
+          <div class="video-story-poster">
+            <img src="../assets/video/Alisa_Interview_Alisa_1_poster.jpg" alt="Интервью с Алисой">
+            <span class="video-story-status">Интервью · скоро</span>
+          </div>
+          <div class="video-story-body">
+            <h3>Интервью с Алисой</h3>
+            <p>Личный взгляд пользователя: что изменилось в общении, занятиях и самостоятельности после появления Пионера.</p>
+          </div>
+        </article>
+        <article class="video-story-card">
+          <div class="video-story-poster">
+            <img src="../assets/video/Alisa_Interview_Mom_1_poster.jpg" alt="Интервью с мамой Алисы">
+            <span class="video-story-status">Интервью · скоро</span>
+          </div>
+          <div class="video-story-body">
+            <h3>Интервью с мамой Алисы</h3>
+            <p>Опыт семьи: как проходило знакомство с устройством, какие сценарии оказались важными и где Пионер помогает каждый день.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
