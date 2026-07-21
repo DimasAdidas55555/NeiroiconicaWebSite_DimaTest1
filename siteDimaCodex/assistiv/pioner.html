@@ -253,6 +253,21 @@
     }
     .video-story-panel { display: none; }
     .video-story-panel.is-active { display: block; }
+    .video-consent-note {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(74,111,165,0.06);
+      border-left: 3px solid var(--text-muted);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+    .video-consent-note p {
+      margin: 0 0 0.75rem;
+    }
+    .video-consent-note p:last-child {
+      margin-bottom: 0;
+    }
     .video-story-placeholder {
       aspect-ratio: 16 / 9;
       background: var(--bg-secondary);
@@ -569,22 +584,19 @@
       <div class="section-header reveal" style="text-align:left; margin-bottom:1.5rem;">
         <div class="section-label">Видео-кейс</div>
         <h2>Как Пионер помогает в реальной жизни</h2>
-        <p style="margin:0;">История Алисы: как планшет помогает общаться, заниматься и управлять компьютером при помощи взгляда.</p>
+        <p style="margin:0;">История Алисы: как планшет помогает общаться, обучаться и управлять планшетом при помощи взгляда.</p>
       </div>
       <!-- Pioner story tabs: connect interview videos here after publication approval. -->
       <div class="video-story reveal" data-video-story>
         <div class="video-story-tabs" role="tablist" aria-label="Видеоистория Алисы">
           <button class="video-story-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="alisa-case" id="tab-alisa-case" data-video-tab="alisa-case">
-            <span class="video-story-tab-kicker">01 · видео</span>
-            <span class="video-story-tab-title">Реальный опыт</span>
+            <span class="video-story-tab-title">01 · Реальный опыт</span>
           </button>
           <button class="video-story-tab" type="button" role="tab" aria-selected="false" aria-controls="alisa-interview" id="tab-alisa-interview" data-video-tab="alisa-interview">
-            <span class="video-story-tab-kicker">02 · интервью</span>
-            <span class="video-story-tab-title">Интервью с Алисой</span>
+            <span class="video-story-tab-title">02 · Интервью с Алисой</span>
           </button>
           <button class="video-story-tab" type="button" role="tab" aria-selected="false" aria-controls="alisa-mom" id="tab-alisa-mom" data-video-tab="alisa-mom">
-            <span class="video-story-tab-kicker">03 · интервью</span>
-            <span class="video-story-tab-title">Интервью с мамой</span>
+            <span class="video-story-tab-title">03 · Интервью с мамой Алисы</span>
           </button>
         </div>
         <div class="video-story-panel is-active" role="tabpanel" id="alisa-case" aria-labelledby="tab-alisa-case" data-video-panel="alisa-case">
@@ -597,8 +609,8 @@
             </div>
             <div>
               <div class="video-case-note">Реальный опыт</div>
-              <h3>Реальный кейс с согласия пользователя</h3>
-              <p>В ролике показано, как Пионер используется в повседневной коммуникации и занятиях. Видео помогает увидеть не только устройство, но и сам сценарий работы: настройку, взаимодействие с интерфейсом и результат для пользователя.</p>
+              <h3>Реальный опыт</h3>
+              <p>Не про устройство само по себе, а про человека, которому технология помогает быть услышанным.</p>
             </div>
           </div>
         </div>
@@ -611,9 +623,8 @@
               </video>
             </div>
             <div>
-              <div class="video-case-note">Интервью</div>
               <h3>Интервью с Алисой</h3>
-              <p>Личный взгляд пользователя: что изменилось в общении, занятиях и самостоятельности после появления Пионера.</p>
+              <p>Личный взгляд Алисы на использование Пионера: что стало удобнее, понятнее и важнее в ежедневном общении.</p>
             </div>
           </div>
         </div>
@@ -626,11 +637,14 @@
               </video>
             </div>
             <div>
-              <div class="video-case-note">Интервью</div>
               <h3>Интервью с мамой Алисы</h3>
-              <p>Опыт семьи: как проходило знакомство с устройством, какие сценарии оказались важными и где Пионер помогает каждый день.</p>
+              <p>Взгляд родителя на то, как ассистивная технология меняет коммуникацию, обучение и повседневные сценарии жизни.</p>
             </div>
           </div>
+        </div>
+        <div class="video-consent-note">
+          <p>Законными представителями участников были подписаны письменные информированные согласия на фото- и видеосъёмку, а также на использование полученных материалов для демонстрации результатов работы комплекса, подготовки презентационных материалов и освещения проекта.</p>
+          <p>Съёмки проводились во время занятия ребёнка со специалистом в присутствии родителей.</p>
         </div>
       </div>
     </div>
