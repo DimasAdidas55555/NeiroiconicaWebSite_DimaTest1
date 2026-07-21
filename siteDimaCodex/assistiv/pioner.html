@@ -208,31 +208,65 @@
     }
     .video-case h3 { margin-bottom: 0.75rem; }
     .video-case p { color: var(--text-secondary); line-height: 1.7; margin: 0; }
-    .video-story-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .video-story-card {
-      background: var(--bg-card);
+    .video-story-tabs {
+      display: flex;
+      gap: 0;
+      align-items: stretch;
+      margin-bottom: 1.25rem;
       border: 1px solid var(--border);
+      background: var(--bg-card);
       overflow: hidden;
     }
-    .video-story-poster {
+    .video-story-tab {
+      flex: 1 1 0;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1rem 1.25rem;
+      background: transparent;
+      border: 0;
+      border-right: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: left;
+      transition: background .2s, color .2s;
+    }
+    .video-story-tab:last-child { border-right: 0; }
+    .video-story-tab:hover,
+    .video-story-tab.is-active {
+      background: rgba(26,79,204,0.1);
+      color: var(--text-primary);
+    }
+    .video-story-tab-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .video-story-tab-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      white-space: normal;
+    }
+    .video-story-panel { display: none; }
+    .video-story-panel.is-active { display: block; }
+    .video-story-placeholder {
       aspect-ratio: 16 / 9;
       background: var(--bg-secondary);
-      border-bottom: 1px solid var(--border);
+      border: 1px solid var(--border);
       position: relative;
       overflow: hidden;
     }
-    .video-story-poster img {
+    .video-story-placeholder img {
       width: 100%;
       height: 100%;
       display: block;
       object-fit: cover;
     }
-    .video-story-poster::after {
+    .video-story-placeholder::after {
       content: '';
       position: absolute;
       inset: 0;
@@ -253,18 +287,6 @@
       background: rgba(26, 79, 204, 0.88);
       padding: 0.45rem 0.7rem;
     }
-    .video-story-body {
-      padding: 1.5rem;
-    }
-    .video-story-body h3 {
-      margin-bottom: 0.65rem;
-      font-size: 1.1rem;
-    }
-    .video-story-body p {
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin: 0;
-    }
 
     /* Contact */
     .contact { background: var(--bg-secondary); }
@@ -275,7 +297,10 @@
     @media (max-width: 900px) {
       .hero--twocol .hero-content { grid-template-columns: 1fr; }
       .hero-illustration { order: -1; }
-      .num-grid--2, .num-grid--3, .specs-grid, .software-grid, .accessories-grid, .contact-grid, .kit-list, .video-case, .video-story-grid { grid-template-columns: 1fr; }
+      .num-grid--2, .num-grid--3, .specs-grid, .software-grid, .accessories-grid, .contact-grid, .kit-list, .video-case { grid-template-columns: 1fr; }
+      .video-story-tabs { flex-direction: column; }
+      .video-story-tab { border-right: 0; border-bottom: 1px solid var(--border); }
+      .video-story-tab:last-child { border-bottom: 0; }
       .spec-row:nth-child(2n) { border-right: none; }
       .spec-row { border-bottom: 1px solid var(--border); }
       .spec-row:last-child { border-bottom: none; }
@@ -546,41 +571,63 @@
         <h2>Как Пионер помогает в реальной жизни</h2>
         <p style="margin:0;">История Алисы: как планшет помогает общаться, заниматься и управлять компьютером при помощи взгляда.</p>
       </div>
-      <div class="video-case reveal">
-        <div class="video-case-frame">
-          <video controls preload="metadata" playsinline poster="../assets/video/Alisa_full_video_1_poster.jpg">
-            <source src="../assets/video/Alisa_full_video_1.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео. <a href="../assets/video/Alisa_full_video_1.mp4">Открыть ролик</a>.
-          </video>
+      <!-- Pioner story tabs: connect interview videos here after publication approval. -->
+      <div class="video-story reveal" data-video-story>
+        <div class="video-story-tabs" role="tablist" aria-label="Видеоистория Алисы">
+          <button class="video-story-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="alisa-case" id="tab-alisa-case" data-video-tab="alisa-case">
+            <span class="video-story-tab-kicker">01 · видео</span>
+            <span class="video-story-tab-title">Реальный опыт</span>
+          </button>
+          <button class="video-story-tab" type="button" role="tab" aria-selected="false" aria-controls="alisa-interview" id="tab-alisa-interview" data-video-tab="alisa-interview">
+            <span class="video-story-tab-kicker">02 · скоро</span>
+            <span class="video-story-tab-title">Интервью с Алисой</span>
+          </button>
+          <button class="video-story-tab" type="button" role="tab" aria-selected="false" aria-controls="alisa-mom" id="tab-alisa-mom" data-video-tab="alisa-mom">
+            <span class="video-story-tab-kicker">03 · скоро</span>
+            <span class="video-story-tab-title">Интервью с мамой</span>
+          </button>
         </div>
-        <div>
-          <div class="video-case-note">Реальный опыт</div>
-          <h3>Реальный кейс с согласия пользователя</h3>
-          <p>В ролике показано, как Пионер используется в повседневной коммуникации и занятиях. Видео помогает увидеть не только устройство, но и сам сценарий работы: настройку, взаимодействие с интерфейсом и результат для пользователя.</p>
+        <div class="video-story-panel is-active" role="tabpanel" id="alisa-case" aria-labelledby="tab-alisa-case" data-video-panel="alisa-case">
+          <div class="video-case">
+            <div class="video-case-frame">
+              <video controls preload="metadata" playsinline poster="../assets/video/Alisa_full_video_1_poster.jpg">
+                <source src="../assets/video/Alisa_full_video_1.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео. <a href="../assets/video/Alisa_full_video_1.mp4">Открыть ролик</a>.
+              </video>
+            </div>
+            <div>
+              <div class="video-case-note">Реальный опыт</div>
+              <h3>Реальный кейс с согласия пользователя</h3>
+              <p>В ролике показано, как Пионер используется в повседневной коммуникации и занятиях. Видео помогает увидеть не только устройство, но и сам сценарий работы: настройку, взаимодействие с интерфейсом и результат для пользователя.</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <!-- Pioner story placeholders: replace cards with video players when interview clips are approved for publication. -->
-      <div class="video-story-grid reveal">
-        <article class="video-story-card">
-          <div class="video-story-poster">
-            <img src="../assets/video/Alisa_Interview_Alisa_1_poster.jpg" alt="Интервью с Алисой">
-            <span class="video-story-status">Интервью · скоро</span>
+        <div class="video-story-panel" role="tabpanel" id="alisa-interview" aria-labelledby="tab-alisa-interview" data-video-panel="alisa-interview" hidden>
+          <div class="video-case">
+            <div class="video-story-placeholder">
+              <img src="../assets/video/Alisa_Interview_Alisa_1_poster.jpg" alt="Интервью с Алисой">
+              <span class="video-story-status">Интервью · скоро</span>
+            </div>
+            <div>
+              <div class="video-case-note">Интервью</div>
+              <h3>Интервью с Алисой</h3>
+              <p>Личный взгляд пользователя: что изменилось в общении, занятиях и самостоятельности после появления Пионера. Позже здесь появится полный ролик.</p>
+            </div>
           </div>
-          <div class="video-story-body">
-            <h3>Интервью с Алисой</h3>
-            <p>Личный взгляд пользователя: что изменилось в общении, занятиях и самостоятельности после появления Пионера.</p>
+        </div>
+        <div class="video-story-panel" role="tabpanel" id="alisa-mom" aria-labelledby="tab-alisa-mom" data-video-panel="alisa-mom" hidden>
+          <div class="video-case">
+            <div class="video-story-placeholder">
+              <img src="../assets/video/Alisa_Interview_Mom_1_poster.jpg" alt="Интервью с мамой Алисы">
+              <span class="video-story-status">Интервью · скоро</span>
+            </div>
+            <div>
+              <div class="video-case-note">Интервью</div>
+              <h3>Интервью с мамой Алисы</h3>
+              <p>Опыт семьи: как проходило знакомство с устройством, какие сценарии оказались важными и где Пионер помогает каждый день. Позже здесь появится полный ролик.</p>
+            </div>
           </div>
-        </article>
-        <article class="video-story-card">
-          <div class="video-story-poster">
-            <img src="../assets/video/Alisa_Interview_Mom_1_poster.jpg" alt="Интервью с мамой Алисы">
-            <span class="video-story-status">Интервью · скоро</span>
-          </div>
-          <div class="video-story-body">
-            <h3>Интервью с мамой Алисы</h3>
-            <p>Опыт семьи: как проходило знакомство с устройством, какие сценарии оказались важными и где Пионер помогает каждый день.</p>
-          </div>
-        </article>
+        </div>
       </div>
     </div>
   </section>
@@ -664,5 +711,33 @@
   <script src="../js/animations.js"></script>
   <script src="../js/cursor-trail.js"></script>
   <script src="../js/media-gallery.js"></script>
+  <script>
+    document.querySelectorAll('[data-video-story]').forEach((story) => {
+      const tabs = story.querySelectorAll('[data-video-tab]');
+      const panels = story.querySelectorAll('[data-video-panel]');
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const target = tab.dataset.videoTab;
+
+          tabs.forEach((item) => {
+            const isActive = item === tab;
+            item.classList.toggle('is-active', isActive);
+            item.setAttribute('aria-selected', String(isActive));
+          });
+
+          panels.forEach((panel) => {
+            const isActive = panel.dataset.videoPanel === target;
+            panel.classList.toggle('is-active', isActive);
+            panel.hidden = !isActive;
+
+            if (!isActive) {
+              panel.querySelectorAll('video').forEach((video) => video.pause());
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
