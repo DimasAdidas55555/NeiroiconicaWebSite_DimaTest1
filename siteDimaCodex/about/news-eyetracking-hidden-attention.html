@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Новости — Нейроиконика</title>
-  <meta name="description" content="Новости компании Нейробюро: обновления продуктов, участие в конференциях, партнёрства.">
+  <title>Взгляд, который выдаёт мысли — Нейроиконика</title>
+  <meta name="description" content="Как айтрекинг помогает исследовать внимание, эмоции, чтение, рекламу и культурные различия.">
   <link rel="icon" type="image/png" href="../assets/logos/favicon_v1.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -14,6 +14,58 @@
   <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/nav.css">
   <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .article-wrap {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .article-meta {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .article-lead {
+      font-size: 1.2rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+    }
+    .article-content {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+    }
+    .article-card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .article-card p {
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin: 0;
+    }
+    .article-source {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(74,111,165,0.06);
+      border-left: 3px solid var(--text-muted);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+    .article-back {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 
 <body data-product="neurobureau">
@@ -97,30 +149,71 @@
     </div>
   </nav>
 
-
-  <!-- ===== HERO (compact) ===== -->
   <section class="hero hero--compact">
     <div class="container hero-content">
       <div class="hero-text">
-        <div class="hero-badge"><span>Новости</span></div>
+        <div class="hero-badge"><span>Публикация</span></div>
         <h1 class="hero-title">
-          <span class="text-gradient">Новости</span>
+          Взгляд, который выдаёт мысли:
+          <span class="text-gradient">как айтрекинг помогает исследовать внимание</span>
         </h1>
         <p class="hero-subtitle">
-          Последние обновления продуктов, участие в конференциях и события команды Нейробюро.
+          Почему движения глаз становятся объективным инструментом для психологии, маркетинга, образования и исследований поведения.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ===== NEWS GRID ===== -->
   <section>
     <div class="container">
-      <div class="news-grid" id="news-grid-all"></div>
-      <div id="news-pagination" style="display:flex;justify-content:center;gap:0.5rem;margin-top:3rem;flex-wrap:wrap;"></div>
+      <article class="article-wrap reveal">
+        <div class="article-meta">19 августа 2026 · Айтрекинг · Исследования</div>
+        <p class="article-lead">
+          Айтрекинг позволяет увидеть, как распределяется внимание человека: что он замечает первым, где задерживает взгляд, какие стимулы избегает и как меняет стратегию восприятия в зависимости от задачи.
+        </p>
+
+        <div class="article-content">
+          <div class="article-card">
+            <h2>Эмоции и внимание</h2>
+            <p>В исследованиях эмоционального восприятия айтрекер фиксирует не только факт реакции, но и её динамику: скорость первого взгляда, длительность фиксации, возвраты к лицам с разным выражением. Это помогает отделять субъективные ощущения участника от объективных показателей внимания.</p>
+          </div>
+
+          <div class="article-card">
+            <h2>Реклама и визуальные акценты</h2>
+            <p>В рекламных макетах взгляд может задерживаться не там, где его ждёт дизайнер. Размер и положение логотипа, зона скидки, лицо модели и анонс новой коллекции по-разному собирают фиксации и удерживают внимание. Такие данные помогают проверять дизайн не только по впечатлениям, но и по поведению взгляда.</p>
+          </div>
+
+          <div class="article-card">
+            <h2>Эмпатия и социальное восприятие</h2>
+            <p>Паттерны взгляда могут отличаться у людей с разными способами эмоционального отклика. Айтрекинг даёт возможность изучать, как человек рассматривает лицо собеседника, какие зоны выбирает и как долго удерживает внимание на эмоционально значимых признаках.</p>
+          </div>
+
+          <div class="article-card">
+            <h2>Культура, цвет и смысл</h2>
+            <p>Один и тот же цвет может быть связан с разными ассоциациями в разных культурах. Исследования показывают, что такие различия проявляются не только в ответах участников, но и в движениях глаз: взгляд отражает культурные коды, которые человек не всегда осознаёт и проговаривает.</p>
+          </div>
+
+          <div class="article-card">
+            <h2>Чтение, обучение и визуальная поддержка</h2>
+            <p>При чтении текста с иллюстрациями стратегия взгляда зависит от уровня подготовки. Новички чаще опираются на картинки, участники среднего уровня переключаются между текстом и изображением, а опытные читатели удерживают фокус на тексте. Даже когда картинки не улучшают понимание напрямую, они меняют саму стратегию чтения.</p>
+          </div>
+
+          <div class="article-card">
+            <h2>Движение и мобильный айтрекинг</h2>
+            <p>Когда участнику нужно двигаться, жестикулировать или решать задачу в естественной среде, стационарного айтрекера уже недостаточно. Мобильные айтрекинг-системы позволяют записывать взгляд в движении и изучать поведение ближе к реальным условиям.</p>
+          </div>
+        </div>
+
+        <div class="article-source">
+          Материал подготовлен на основе обзора Рявкиной Татьяны Дмитриевны, студентки лаборатории факультета психологии СПбГУ.
+        </div>
+
+        <div class="article-back">
+          <a class="btn btn-outline" href="news.html">← Все новости</a>
+        </div>
+      </article>
     </div>
   </section>
-
 
   <footer class="footer">
     <div class="container">
@@ -130,55 +223,6 @@
 
   <script src="../js/nav.js"></script>
   <script src="../js/animations.js"></script>
-  <script>
-    var PER_PAGE = 6;
-    var currentPage = 1;
-
-    function renderPage(news, page) {
-      var grid = document.getElementById('news-grid-all');
-      var pagination = document.getElementById('news-pagination');
-      var totalPages = Math.ceil(news.length / PER_PAGE);
-      var start = (page - 1) * PER_PAGE;
-      var slice = news.slice(start, start + PER_PAGE);
-
-      grid.innerHTML = '';
-      slice.forEach(function(n, i) {
-        var card = document.createElement(n.url ? 'a' : 'div');
-        // Highlight the first (most recent) news card on each page
-        card.className = 'news-card' + (i === 0 ? ' news-card--featured' : '');
-        if (n.url) card.href = n.url;
-        card.innerHTML = '<div class="news-card-date">' + n.date + ' · ' + n.tag + '</div><h4>' + n.title + '</h4><p>' + n.text + '</p>';
-        grid.appendChild(card);
-      });
-
-      pagination.innerHTML = '';
-      for (var i = 1; i <= totalPages; i++) {
-        (function(p) {
-          var btn = document.createElement('button');
-          btn.className = 'filter-tab' + (p === page ? ' active' : '');
-          btn.textContent = p;
-          btn.addEventListener('click', function() {
-            currentPage = p;
-            renderPage(news, p);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          });
-          pagination.appendChild(btn);
-        })(i);
-      }
-    }
-
-    function renderNews() {
-      if (!window.NEWS) return;
-      renderPage(window.NEWS, 1);
-    }
-
-    (function() {
-      var s = document.createElement('script');
-      s.src = '../js/news-data.js?_=' + Date.now();
-      s.onload = renderNews;
-      document.head.appendChild(s);
-    })();
-  </script>
   <script src="../js/constellation.js"></script>
   <script src="../js/cursor-glow.js"></script>
 </body>
