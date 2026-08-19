@@ -2126,6 +2126,14 @@
   font-size: 0.8rem;
 }
 
+.news-card-link {
+  display: inline-flex;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
 @media (max-width: 768px) {
   .news-grid { grid-template-columns: 1fr; }
 }

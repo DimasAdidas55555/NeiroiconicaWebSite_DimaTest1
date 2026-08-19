@@ -586,7 +586,7 @@
         const card = document.createElement(n.url ? 'a' : 'div');
         card.className = 'news-card' + (i === 0 ? ' news-card--featured' : '');
         if (n.url) card.href = 'about/' + n.url;
-        card.innerHTML = `<div class="news-card-date">${n.date} · ${n.tag}</div><h4>${n.title}</h4><p>${n.text}</p>`;
+        card.innerHTML = `<div class="news-card-date">${n.date} · ${n.tag}</div><h4>${n.title}</h4><p>${n.text}</p>${n.url ? '<span class="news-card-link">Читать подробнее →</span>' : ''}`;
         grid.appendChild(card);
       });
     })();
