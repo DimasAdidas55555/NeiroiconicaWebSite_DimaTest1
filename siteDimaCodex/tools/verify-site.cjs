@@ -44,6 +44,14 @@ const files=['index.html',...['about','assistiv','neurobureau','products'].flatM
  }
  console.log(JSON.stringify({pages:files.length,viewports:[1440,375],menus:menus.size,errors,failures,screenshots:shots},null,2));
  assert.equal(menus.size,1,'Navigation differs between pages');
+ await page.goto('http://127.0.0.1:4173/products/eyetracker.html');
+ assert.equal((await page.locator('h1').textContent()).trim(),'aSee Glasses');
+ assert.equal(await page.locator('#erp-F2').getAttribute('data-product'),'aSee Glasses');
+ await page.locator('h1').screenshot({path:path.join(shots,'asee-title-mobile.png')});
+ await page.goto('http://127.0.0.1:4173/neurobureau/universe.html');
+ assert.equal(await page.locator('.hub-stat-number[data-counter="3"]').count(),1);
+ assert.match(await page.locator('.hub-stat').nth(1).textContent(),/продукта доступны/);
+ assert.doesNotMatch(await page.locator('meta[name="description"]').getAttribute('content'),/модальност/);
  await page.goto('http://127.0.0.1:4173/neurobureau/cases.html');
  await page.selectOption('[data-filter="product"]','EmScan');
  console.log('EmScan filter:',await page.locator('[data-case]:visible').count());
