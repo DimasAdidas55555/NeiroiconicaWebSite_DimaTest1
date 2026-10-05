@@ -94,14 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Inject flyout for "Вселенная Нейробюро" ──────────────────
   const modules = [
-    { name: 'Мультимодальная платформа', path: 'products/neurobureau.html', status: 'ready', desc: 'Ядро экосистемы' },
-    { name: 'Анализ эмоций',             path: 'neurobureau/emotions.html',  status: 'soon',  desc: 'Осень 2026' },
+    { name: 'АПК Нейробюро (ядро)', path: 'products/neurobureau.html', status: 'ready', desc: 'Ядро экосистемы' },
+    { name: 'Нейробюро.Эмоции (EmScan)', path: 'products/emscan.html', status: 'ready', desc: 'Анализ эмоций по мимике' },
     { name: 'Нейробюро.Облако',          path: 'neurobureau/cloud.html',     status: 'ready', desc: 'Совместная аналитика' },
-    { name: 'Нейробюро.Чтение',          path: 'neurobureau/reading.html',   status: 'soon',  desc: 'Анализ текстовосприятия' },
-    { name: 'Нейробюро.UX',             path: 'neurobureau/ux.html',        status: 'soon',  desc: 'UX-исследования' },
-    { name: 'Генератор стимулов',        path: 'neurobureau/stimuli.html',   status: 'soon',  desc: 'Управление экспериментом' },
-    { name: 'Образовательный модуль',    path: 'neurobureau/education.html', status: 'soon',  desc: 'Обучение и практикумы' },
-    { name: 'Развивающий модуль',        path: 'neurobureau/cognitive.html', status: 'soon',  desc: 'Когнитивные тренировки' },
+    { name: 'Нейробюро.Юзабилити', path: 'neurobureau/ux.html', status: 'year', desc: 'Анализ сайтов и приложений' },
+    { name: 'Нейробюро.Практикум', path: 'neurobureau/education.html', status: 'year', desc: 'Лабораторные практикумы' },
+    { name: 'Нейробюро.Чтение', path: 'neurobureau/reading.html', status: 'soon', desc: 'Анализ чтения' },
+    { name: 'Нейробюро.Стимулы', path: 'neurobureau/stimuli.html', status: 'soon', desc: 'Генерация стимулов' },
+    { name: 'Нейробюро.Тренажёр', path: 'neurobureau/cognitive.html', status: 'soon', desc: 'Когнитивные тренировки' },
   ];
 
   document.querySelectorAll('.nav-dropdown a').forEach(link => {
@@ -130,46 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="dropdown-label">${m.name}</span>
           <span class="dropdown-desc">${m.desc}</span>
         </span>
-        <span class="flyout-status flyout-status--${m.status}">${m.status === 'soon' ? 'скоро' : ''}</span>
+        <span class="flyout-status flyout-status--${m.status}">${m.status === 'soon' ? 'скоро' : m.status === 'year' ? 'до конца 2026' : ''}</span>
       </a>
     `).join('');
     wrapper.appendChild(flyout);
   });
 
-  // ── Remove "Платформа" link from Нейробюро dropdown ─────────
-  document.querySelectorAll('.nav-item').forEach(item => {
-    const btn = item.querySelector('.nav-link');
-    if (!btn || !btn.textContent.includes('Нейробюро')) return;
-    const dropdown = item.querySelector('.nav-dropdown');
-    if (!dropdown) return;
-    Array.from(dropdown.querySelectorAll('a')).forEach(a => {
-      if (a.querySelector('.dropdown-label')?.textContent?.trim() === 'Платформа') a.remove();
-    });
-  });
-
-  // ── Inject "Документация" link into Нейробюро dropdown ───────
-  document.querySelectorAll('.nav-item').forEach(item => {
-    const btn = item.querySelector('.nav-link');
-    if (!btn || !btn.textContent.includes('Нейробюро')) return;
-
-    const dropdown = item.querySelector('.nav-dropdown');
-    if (!dropdown) return;
-
-    // Skip if already injected (check label text specifically, not full link text)
-    if (Array.from(dropdown.querySelectorAll('.dropdown-label')).some(el => el.textContent.trim() === 'Документация')) return;
-
-    // Find "Кейсы" link to insert before it
-    const casesLink = Array.from(dropdown.querySelectorAll('a')).find(a => a.textContent.includes('Кейсы'));
-
-    const docLink = document.createElement('a');
-    docLink.href = pathFromRoot('neurobureau/manual.html');
-    docLink.innerHTML = `<span class="dropdown-text"><span class="dropdown-label">Документация</span><span class="dropdown-desc">Руководство пользователя</span></span>`;
-
-    if (casesLink) {
-      dropdown.insertBefore(docLink, casesLink);
-    } else {
-      dropdown.appendChild(docLink);
-    }
-  });
+  // Documentation returns when the revised manuals are supplied.
 
 });

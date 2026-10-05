@@ -1,0 +1,68 @@
+{
+  "index.html": [
+    "<script data-b24-form=\"inline/48/l1gd1w\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');\n          </script>"
+  ],
+  "about/contacts.html": [
+    "<script data-b24-form=\"inline/48/l1gd1w\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');\n          </script>"
+  ],
+  "assistiv/games.html": [
+    "<script data-b24-form=\"inline/50/lr7z6c\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_50.js');\n          </script>"
+  ],
+  "assistiv/index.html": [
+    "<script data-b24-form=\"inline/50/lr7z6c\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_50.js');\n          </script>"
+  ],
+  "assistiv/manuals.html": [
+    "<script data-b24-form=\"inline/50/lr7z6c\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_50.js');\n          </script>"
+  ],
+  "assistiv/pioner.html": [
+    "<script data-b24-form=\"inline/50/lr7z6c\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_50.js');\n          </script>"
+  ],
+  "neurobureau/cloud.html": [
+    "<script data-b24-form=\"inline/48/l1gd1w\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');\n          </script>"
+  ],
+  "neurobureau/cognitive.html": [
+    "<script data-b24-form=\"inline/52/gb0fyr\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_52.js');\n          </script>"
+  ],
+  "neurobureau/education.html": [
+    "<script data-b24-form=\"inline/52/gb0fyr\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_52.js');\n          </script>"
+  ],
+  "neurobureau/emotions.html": [
+    "<script data-b24-form=\"inline/48/l1gd1w\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');\n          </script>"
+  ],
+  "neurobureau/reading.html": [
+    "<script data-b24-form=\"inline/52/gb0fyr\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_52.js');\n          </script>"
+  ],
+  "neurobureau/stimuli.html": [
+    "<script data-b24-form=\"inline/52/gb0fyr\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_52.js');\n          </script>"
+  ],
+  "neurobureau/training.html": [
+    "<script data-b24-form=\"inline/54/pl0pd5\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_54.js');\n          </script>"
+  ],
+  "neurobureau/universe.html": [
+    "<script data-b24-form=\"inline/48/l1gd1w\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');\n          </script>"
+  ],
+  "neurobureau/ux.html": [
+    "<script data-b24-form=\"inline/52/gb0fyr\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_52.js');\n          </script>"
+  ],
+  "products/eyetracker.html": [
+    "<script data-b24-form=\"inline/48/l1gd1w\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');\n          </script>"
+  ],
+  "products/fnirs.html": [
+    "<script data-b24-form=\"inline/48/l1gd1w\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');\n          </script>"
+  ],
+  "products/neurobureau.html": [
+    "<script data-b24-form=\"inline/48/l1gd1w\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');\n          </script>"
+  ],
+  "products/shielded-rooms.html": [
+    "<script data-b24-form=\"inline/48/l1gd1w\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');\n          </script>"
+  ],
+  "products/stationary-eyetracker.html": [
+    "<script data-b24-form=\"inline/48/l1gd1w\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_48.js');\n          </script>"
+  ],
+  "products/emscan.html": [
+    "<script data-b24-form=\"inline/52/gb0fyr\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_52.js');\n          </script>"
+  ],
+  "products/neurob-glasses.html": [
+    "<script data-b24-form=\"inline/52/gb0fyr\" data-skip-moving=\"true\">\n          (function(w,d,u){\n          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);\n          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);\n          })(window,document,'https://cdn-ru.bitrix24.ru/b7665441/crm/form/loader_52.js');\n          </script>"
+  ]
+}

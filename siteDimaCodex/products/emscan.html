@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EmScan: анализ эмоций по мимике | Нейроиконика</title>
+  <link rel="icon" type="image/png" href="../assets/logos/favicon_v1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/components.css">
+<meta name="description" content="Самостоятельный анализ мимики. EmScan для отелей и пилот в «Омега Сириус»."><link rel="stylesheet" href="../css/revision.css"></head>
+<body data-product="neurobureau">
+  <div class="grid-bg"></div>
+  <div class="data-stream"></div>
+  <div class="nav-overlay"></div>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"></path></svg>
+        </span>
+        Нейроиконика
+      </a>
+      <button class="nav-burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">Наука и исследования <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"></path></svg></button>
+          <div class="nav-dropdown"><div class="dropdown-group-label">Наши решения</div><a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">АПК Нейробюро</span></span></a><a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Стационарный айтрекер</span></span></a><a href="../products/emscan.html"><span class="dropdown-text"><span class="dropdown-label">EmScan</span></span></a><a href="../products/neurob-glasses.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекинг-очки NeuroB</span></span></a><a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span></span></a><div class="dropdown-group-label">Партнёрское оборудование</div><a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span></span></a><a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span></span></a></div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Нейробюро
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"></path></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
+            <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
+            <a href="../neurobureau/training.html"><span class="dropdown-text"><span class="dropdown-label">Обучение и поддержка</span><span class="dropdown-desc">Документация и техподдержка</span></span></a>
+            <a href="../neurobureau/cases.html"><span class="dropdown-text"><span class="dropdown-label">Кейсы</span><span class="dropdown-desc">Примеры исследований</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Ассистив
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"></path></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../assistiv/index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
+            <a href="../assistiv/pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
+            <a href="../assistiv/games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
+            <a href="../assistiv/training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
+
+            <a href="../assistiv/cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            О нас
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"></path></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
+            <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
+            <a href="../about/patents.html"><span class="dropdown-text"><span class="dropdown-label">Наши патенты</span><span class="dropdown-desc">Свидетельства и товарные знаки</span></span></a>
+            <a href="../about/news.html"><span class="dropdown-text"><span class="dropdown-label">Новости</span><span class="dropdown-desc">Последние события</span></span></a>
+            <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
+          </div>
+        </li>
+        <li class="nav-cta">
+          <a href="../about/contacts.html#erp-F1" class="btn btn-primary">Связаться</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="revision-hero"><div class="container"><div class="revision-crumbs"><a href="../index.html">Главная</a><span>/</span><span>Наука и исследования</span><span>/ EmScan</span></div><h1>EmScan</h1><span class="revision-status">Готов</span><p>Анализ эмоций по мимике.</p><p>Полноценный продукт для анализа эмоций. Работает самостоятельно, без участия других датчиков.</p><a class="btn btn-primary" href="#erp-F2" data-request-product="EmScan">Запросить демо</a></div></section><section class="revision-section" id="features"><div class="container"><h2>Чем EmScan отличается</h2><div class="revision-grid"><article class="revision-card"><h3>Без других датчиков</h3><p>Только видео: анализ мимики без электродов, айтрекера и носимых устройств.</p></article><article class="revision-card"><h3>Без привязки к экрану</h3><p>Человеку не нужно сидеть перед монитором: достаточно камеры в помещении.</p></article><article class="revision-card"><h3>Расширенный перечень AU</h3><p>Больше единиц действия мимики для тонкой оценки состояния.</p></article><article class="revision-card"><h3>Эмоции в реальном времени</h3><p>Базовые эмоции, валентность и активация по ходу работы.</p></article></div></div></section><section class="revision-section" id="comparison"><div class="container"><h2>EmScan и модуль «Мимика и голос»</h2><table class="revision-table"><thead><tr><th scope="col">Модуль в Нейробюро</th><th scope="col">EmScan</th></tr></thead><tbody><tr><td>Одна из модальностей платформы; работает синхронно с айтрекингом</td><td>Самостоятельный продукт; не требует айтрекера и других датчиков</td></tr><tr><td>Участник смотрит на стимулы на экране</td><td>Камера анализирует мимику в помещении</td></tr><tr><td>AU4, AU6, AU12; 7 категориальных эмоций, валентность и активация</td><td>Расширенный перечень AU</td></tr></tbody></table><div class="revision-placeholder" role="img" aria-label="Интерфейс EmScan: изображение ожидается"><span>Изображение будет добавлено</span></div></div></section><section class="revision-section" id="hotels"><div class="container"><h2>EmScan для отелей</h2><p>Система аналитики эмоций персонала. Оценивает эмоциональный фон сотрудников по мимике в реальном времени и сообщает руководителю.</p><div class="revision-grid"><article class="revision-card"><h3>Что анализирует</h3><ul class="revision-points"><li>Эмоциональный фон персонала по мимике</li><li>Триггеры конфликтов: повышенный голос, нецензурная лексика</li><li>Внешний вид: бейдж, галстук, жилет</li></ul></article><article class="revision-card"><h3>Как работает</h3><ul class="revision-points"><li>Широкоугольные видеокамеры в зале</li><li>Специализированные нейросетевые модели</li><li>Без датчиков на сотрудниках</li><li>Уведомления руководителям в мессенджер</li></ul></article></div><div class="revision-actions"><a class="btn btn-primary" href="#erp-F2" data-request-product="EmScan для отелей">Запросить демо для отеля</a></div><h3 style="margin-top:3rem">Пилот в отеле «Омега Сириус»</h3><p>ИНТЦ «Сириус»</p><ol class="revision-timeline"><li><time>Этап 1</time><p>Около двух месяцев: подтверждена работоспособность прототипа.</p></li><li><time>Этап 2</time><p>Упрощение интерфейса и добавление широкоугольных камер.</p></li></ol><p>По сообщению о пилоте, персонал воспринял систему как игровой элемент, а не как надзор. Операционный управляющий отеля Илья Зеленин отметил нейтральное восприятие напоминаний системы и планы постоянного внедрения после доработки интерфейса.</p><p><a href="https://sirius-ft.ru/tpost/rezident-innovatsionnogo-tsentra-testiruet-sistemu-analitiki-emotsiy-personala-v-otele-omega-sirius/" target="_blank" rel="noopener">Материал о пилоте на сайте «Сириуса»</a></p><div class="revision-placeholder" role="img" aria-label="Пилот в отеле «Омега Сириус»: изображение ожидается"><span>Изображение будет добавлено</span></div></div></section><section class="revision-section" id="contact"><div class="container"><h2>Обсудим Вашу задачу</h2><div class="erp-form" id="erp-F2" data-form="F2" data-product="EmScan"><!-- ВСТАВИТЬ КОД ФОРМЫ F2 ИЗ ERP --><h3>Запросить демо или расчёт</h3><p class="erp-context">Тема: EmScan</p><p>Форма появится здесь. Пока напишите нам на почту.</p><p><a class="erp-fallback" href="mailto:info@neuroiconica.ru?subject=EmScan">info@neuroiconica.ru</a></p></div></div></section><footer class="footer"><div class="container"><p>© 2025 Нейроиконика. Все права защищены.</p><p><a href="../about/contacts.html#erp-F1">Связаться</a></p></div></footer>
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cursor-glow.js"></script>
+
+
+<script src="../js/revision.js"></script>
+
+</body></html>

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
+<html lang="ru"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Истории пользователей — Нейроиконика Ассистив</title>
   <meta name="description" content="Реальные истории людей, для которых технология управления взглядом стала частью жизни. ДЦП, БАС, реабилитация, образование.">
   <link rel="icon" type="image/png" href="../assets/logos/favicon_v1.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/assistiv.css">
   <style>
     .dev-banner {
@@ -78,7 +77,137 @@
       .planned-card.is-wide { grid-column: auto; }
     }
   </style>
-</head>
+<link rel="stylesheet" href="../css/revision.css"><style>    .video-case {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 2rem;
+    }
+    .video-case-frame {
+      aspect-ratio: 16 / 9;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .video-case-frame video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .video-case-note {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .video-case h3 { margin-bottom: 0.75rem; }
+    .video-case p { color: var(--text-secondary); line-height: 1.7; margin: 0; }
+    .video-story-tabs {
+      display: flex;
+      gap: 0;
+      align-items: stretch;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      overflow: hidden;
+    }
+    .video-story-tab {
+      flex: 1 1 0;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1rem 1.25rem;
+      background: transparent;
+      border: 0;
+      border-right: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: left;
+      transition: background .2s, color .2s;
+    }
+    .video-story-tab:last-child { border-right: 0; }
+    .video-story-tab:hover,
+    .video-story-tab.is-active {
+      background: rgba(26,79,204,0.1);
+      color: var(--text-primary);
+    }
+    .video-story-tab-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .video-story-tab-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      white-space: normal;
+    }
+    .video-story-panel { display: none; }
+    .video-story-panel.is-active { display: block; }
+    .video-consent-note {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(74,111,165,0.06);
+      border-left: 3px solid var(--text-muted);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+    .video-consent-note p {
+      margin: 0 0 0.75rem;
+      max-width: none;
+    }
+    .video-consent-note p:last-child {
+      margin-bottom: 0;
+    }
+    .video-story-placeholder {
+      aspect-ratio: 16 / 9;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .video-story-placeholder img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .video-story-placeholder::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8, 15, 30, 0.08), rgba(8, 15, 30, 0.42));
+      pointer-events: none;
+    }
+    .video-story-status {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      z-index: 1;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(26, 79, 204, 0.88);
+      padding: 0.45rem 0.7rem;
+    }
+
+    /* Contact */
+</style></head>
 
 <body data-product="assistiv">
   <div class="grid-bg"></div>
@@ -88,25 +217,17 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="../index.html" class="nav-logo">
-        <span class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg></span>
+        <span class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"></path></svg></span>
         Нейроиконика
       </a>
       <button class="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>
       <ul class="nav-menu">
         <li class="nav-item">
-          <button class="nav-link" aria-expanded="false">Оборудование <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
-          <div class="nav-dropdown">
-            <div class="dropdown-group-label">Наши решения</div>
-            <a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекер Нейробюро</span><span class="dropdown-desc">Стационарный айтрекер</span></span></a>
-            <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом</span></span></a>
-            <a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span><span class="dropdown-desc">Контролируемая среда</span></span></a>
-            <div class="dropdown-group-label">Партнёрское оборудование</div>
-            <a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span><span class="dropdown-desc">Портативные айтрекинг-очки</span></span></a>
-            <a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span><span class="dropdown-desc">fNIRS-система</span></span></a>
-          </div>
+          <button class="nav-link" aria-expanded="false">Наука и исследования <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"></path></svg></button>
+          <div class="nav-dropdown"><div class="dropdown-group-label">Наши решения</div><a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">АПК Нейробюро</span></span></a><a href="../products/stationary-eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">Стационарный айтрекер</span></span></a><a href="../products/emscan.html"><span class="dropdown-text"><span class="dropdown-label">EmScan</span></span></a><a href="../products/neurob-glasses.html"><span class="dropdown-text"><span class="dropdown-label">Айтрекинг-очки NeuroB</span></span></a><a href="../products/shielded-rooms.html"><span class="dropdown-text"><span class="dropdown-label">Экранированные камеры</span></span></a><div class="dropdown-group-label">Партнёрское оборудование</div><a href="../products/eyetracker.html"><span class="dropdown-text"><span class="dropdown-label">aSee Glasses</span></span></a><a href="../products/fnirs.html"><span class="dropdown-text"><span class="dropdown-label">InfraMind II</span></span></a></div>
         </li>
         <li class="nav-item">
-          <button class="nav-link" aria-expanded="false">Нейробюро <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <button class="nav-link" aria-expanded="false">Нейробюро <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"></path></svg></button>
           <div class="nav-dropdown">
             <a href="../neurobureau/universe.html"><span class="dropdown-text"><span class="dropdown-label">Вселенная Нейробюро</span><span class="dropdown-desc">Все продукты платформы</span></span></a>
             <a href="../products/neurobureau.html"><span class="dropdown-text"><span class="dropdown-label">Платформа</span><span class="dropdown-desc">Основной модуль</span></span></a>
@@ -117,19 +238,19 @@
         <li class="nav-item">
           <button class="nav-link" aria-expanded="false">
             Ассистив
-            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+            <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"></path></svg>
           </button>
           <div class="nav-dropdown">
             <a href="index.html"><span class="dropdown-text"><span class="dropdown-label">EyeCommunicator</span><span class="dropdown-desc">Управление взглядом, синтез речи</span></span></a>
             <a href="pioner.html"><span class="dropdown-text"><span class="dropdown-label">Планшет Пионер</span><span class="dropdown-desc">Готовое ассистивное решение</span></span></a>
             <a href="games.html"><span class="dropdown-text"><span class="dropdown-label">Развивающие игры</span><span class="dropdown-desc">Поймай взглядом</span></span></a>
             <a href="training.html"><span class="dropdown-text"><span class="dropdown-label">Диагностика и обучение</span><span class="dropdown-desc">Для специалистов и родителей</span></span></a>
-            <a href="manuals.html"><span class="dropdown-text"><span class="dropdown-label">Инструкции</span><span class="dropdown-desc">Документация по продуктам</span></span></a>
+
             <a href="cases.html"><span class="dropdown-text"><span class="dropdown-label">Истории пользователей</span><span class="dropdown-desc">Реальные кейсы</span></span></a>
           </div>
         </li>
         <li class="nav-item">
-          <button class="nav-link" aria-expanded="false">О нас <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"/></svg></button>
+          <button class="nav-link" aria-expanded="false">О нас <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L6 7.5L9 4.5"></path></svg></button>
           <div class="nav-dropdown">
             <a href="../about/who-we-are.html"><span class="dropdown-text"><span class="dropdown-label">Кто мы</span><span class="dropdown-desc">История и команда</span></span></a>
             <a href="../about/publications.html"><span class="dropdown-text"><span class="dropdown-label">Наши публикации</span><span class="dropdown-desc">Научные статьи</span></span></a>
@@ -138,7 +259,7 @@
             <a href="../about/contacts.html"><span class="dropdown-text"><span class="dropdown-label">Контакты</span><span class="dropdown-desc">Свяжитесь с нами</span></span></a>
           </div>
         </li>
-        <li class="nav-cta"><a href="../about/contacts.html" class="btn btn-primary">Связаться</a></li>
+        <li class="nav-cta"><a href="../about/contacts.html#erp-F1" class="btn btn-primary">Связаться</a></li>
       </ul>
     </div>
   </nav>
@@ -149,9 +270,9 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <div class="dev-banner">Раздел в разработке</div>
+
           <h1 class="hero-title">Истории <span class="text-gradient">пользователей</span></h1>
-          <p class="hero-subtitle">Мы собираем истории людей, для которых технологии управления взглядом изменили жизнь. ДЦП, БАС, реабилитация после инсультов и травм, инклюзивное образование. Скоро здесь появятся реальные кейсы использования EyeCommunicator и планшета Пионер.</p>
+          <p class="hero-subtitle">Истории людей и семей, опыт специалистов и интервью о жизни с технологиями управления взглядом.</p>
         </div>
       </div>
     </div>
@@ -159,65 +280,80 @@
 
 
   <!-- ===== ЧТО ПОЯВИТСЯ ===== -->
-  <section style="padding-top: 0;">
+  <section class="revision-section" data-case-list=""><div class="container"><div class="revision-filters" data-case-filters=""><label>Решение<select data-filter="product"><option value="">Все</option><option>Стерх</option><option>Пионер</option><option>EyeCommunicator</option><option>Игры</option></select></label><label>Тип материала<select data-filter="type"><option value="">Все</option><option>История пользователя</option><option>Опыт специалиста</option><option>Интервью</option></select></label><label>Рубрика<select data-filter="area"><option value="">Все</option><option>Дома</option><option>Реабилитация</option><option>Образование</option><option>Дети с РАС</option><option>Крепления и спецоборудование</option><option>Истории за годы</option></select></label><button type="reset" class="btn btn-outline">Сбросить</button></div><p data-case-count="" aria-live="polite"></p><p class="revision-empty" data-case-empty="" hidden="">Пока нет материалов по выбранным условиям.</p><article class="revision-case" data-case="" data-product="Пионер|Игры" data-type="История пользователя|Интервью" data-area="Дома|Образование"><div class="revision-meta"><span>История пользователя · Интервью</span><span>Дома · Образование</span></div><h2>История Алисы</h2><p>Как планшет помогает общаться, обучаться и управлять устройством при помощи взгляда.</p><p>Решения: <a href="pioner.html">Планшет Пионер</a>, <a href="games.html">развивающие игры</a>.</p><div class="revision-grid"><div><h3>Было</h3><p>Освоение игр на удержание внимания.</p></div><div><h3>Что изменилось</h3><p>Алиса научилась использовать экранную клавиатуру для написания диктантов на домашнем обучении.</p></div></div><h3>Что дальше</h3><p>Продолжение истории будем публиковать по мере появления новых материалов.</p><div class="video-story" data-video-story="">
+        <div class="video-story-tabs" role="tablist" aria-label="Видеоистория Алисы">
+          <button class="video-story-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="alisa-case" id="tab-alisa-case" data-video-tab="alisa-case">
+            <span class="video-story-tab-title">01 · Реальный опыт</span>
+          </button>
+          <button class="video-story-tab" type="button" role="tab" aria-selected="false" aria-controls="alisa-interview" id="tab-alisa-interview" data-video-tab="alisa-interview">
+            <span class="video-story-tab-title">02 · Интервью с Алисой</span>
+          </button>
+          <button class="video-story-tab" type="button" role="tab" aria-selected="false" aria-controls="alisa-mom" id="tab-alisa-mom" data-video-tab="alisa-mom">
+            <span class="video-story-tab-title">03 · Интервью с мамой Алисы</span>
+          </button>
+        </div>
+        <div class="video-story-panel is-active" role="tabpanel" id="alisa-case" aria-labelledby="tab-alisa-case" data-video-panel="alisa-case">
+          <div class="video-case">
+            <div class="video-case-frame">
+              <video controls="" preload="metadata" playsinline="" poster="../assets/video/Alisa_full_video_1_poster.jpg">
+                <source src="../assets/video/Alisa_full_video_1.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео. <a href="../assets/video/Alisa_full_video_1.mp4">Открыть ролик</a>.
+              </video>
+            </div>
+            <div>
+              <h3>Реальный опыт</h3>
+              <p>Не про устройство само по себе, а про человека, которому технология помогает быть услышанным.</p>
+            </div>
+          </div>
+        </div>
+        <div class="video-story-panel" role="tabpanel" id="alisa-interview" aria-labelledby="tab-alisa-interview" data-video-panel="alisa-interview" hidden="">
+          <div class="video-case">
+            <div class="video-case-frame">
+              <video controls="" preload="metadata" playsinline="" poster="../assets/video/Alisa_Interview_Alisa_1_poster.jpg">
+                <source src="../assets/video/Alisa_Interview_Alisa_1.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео. <a href="../assets/video/Alisa_Interview_Alisa_1.mp4">Открыть интервью</a>.
+              </video>
+            </div>
+            <div>
+              <h3>Интервью с Алисой</h3>
+              <p>Личный взгляд Алисы на использование Пионера: что стало удобнее, понятнее и важнее в ежедневном общении.</p>
+            </div>
+          </div>
+        </div>
+        <div class="video-story-panel" role="tabpanel" id="alisa-mom" aria-labelledby="tab-alisa-mom" data-video-panel="alisa-mom" hidden="">
+          <div class="video-case">
+            <div class="video-case-frame">
+              <video controls="" preload="metadata" playsinline="" poster="../assets/video/Alisa_Interview_Mom_1_poster.jpg">
+                <source src="../assets/video/Alisa_Interview_Mom_1.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео. <a href="../assets/video/Alisa_Interview_Mom_1.mp4">Открыть интервью</a>.
+              </video>
+            </div>
+            <div>
+              <h3>Интервью с мамой Алисы</h3>
+              <p>Взгляд родителя на то, как ассистивная технология меняет коммуникацию, обучение и повседневные сценарии жизни.</p>
+            </div>
+          </div>
+        </div>
+        <div class="video-consent-note">
+          <p>Законными представителями участников были подписаны письменные информированные согласия на фото- и видеосъёмку, а также на использование полученных материалов для демонстрации результатов работы комплекса, подготовки презентационных материалов и освещения проекта.</p>
+          <p>Съёмки проводились во время занятия ребёнка со специалистом в присутствии родителей.</p>
+          <p>В видео представлены фрагменты занятий специального педагога Шелеповой Оксаны Евгеньевны.</p>
+        </div>
+      </div></article><div class="revision-callout"><h3>Расскажите свою историю</h3><p>Если Вы пользуетесь EyeCommunicator или работаете с ним как специалист — поделитесь опытом.</p><p>Опубликуем с Вашего согласия.</p><a href="#erp-F6" class="btn btn-primary">Связаться с нами</a></div></div></section>
+
+
+  <section class="revision-section" id="contact"><div class="container"><div class="erp-form" id="erp-F6" data-form="F6" data-product="Истории пользователей"><!-- ВСТАВИТЬ КОД ФОРМЫ F6 ИЗ ERP --><h3>Расскажите свою историю</h3><p class="erp-context">Тема: Истории пользователей</p><p>Форма появится здесь. Пока напишите нам на почту.</p><a class="erp-fallback" href="mailto:info@neuroiconica.ru">info@neuroiconica.ru</a></div></div></section><footer class="footer">
     <div class="container">
-      <div class="section-header reveal" style="text-align:left;">
-        <div class="section-label">Содержание раздела</div>
-        <h2>Какие кейсы здесь будут</h2>
-        <p style="margin:0;">Истории о том, как технология применяется в реальной жизни и в работе специалистов.</p>
-      </div>
-      <div class="planned-grid reveal-stagger">
-        <div class="planned-card is-wide">
-          <span class="num">01 · Дома</span>
-          <h3>Индивидуальные пользователи</h3>
-          <p>Дети с ДЦП, взрослые с БАС, восстановление после инсульта или травмы. Как комплекс встраивается в повседневную жизнь и какие задачи решает.</p>
-        </div>
-        <div class="planned-card">
-          <span class="num">02 · Реабилитация</span>
-          <h3>Центры и клиники</h3>
-          <p>Реабилитационные центры, паллиативные отделения, ожоговые центры. Опыт интеграции айтрекинга в комплексные программы восстановления.</p>
-        </div>
-        <div class="planned-card">
-          <span class="num">03 · Образование</span>
-          <h3>Школы и инклюзивные классы</h3>
-          <p>Коррекционные школы, инклюзивные классы, работа логопедов и нейропсихологов. Как дети получают доступ к обучению через управление взглядом.</p>
-        </div>
-        <div class="planned-card">
-          <span class="num">04 · Дети с РАС</span>
-          <h3>Расстройства аутистического спектра</h3>
-          <p>Развитие коммуникации у неговорящих детей. Опыт родителей и специалистов, динамика и результаты, рекомендации по занятиям.</p>
-        </div>
-        <div class="planned-card is-wide">
-          <span class="num">05 · Спецоборудование</span>
-          <h3>Индивидуальные крепления</h3>
-          <p>Нестандартные решения по креплениям к коляскам и кроватям, адаптация рабочего места под физические особенности конкретного пользователя.</p>
-        </div>
-        <div class="planned-card">
-          <span class="num">06 · Долгосрочно</span>
-          <h3>Истории за годы</h3>
-          <p>Что меняется за месяцы и годы использования: прогресс пользователей, эволюция возможностей, влияние на качество жизни семьи.</p>
-        </div>
-      </div>
-
-      <div class="cta-block reveal">
-        <h3>Расскажите свою историю</h3>
-        <p>Если Вы пользуетесь EyeCommunicator или работаете с ним как специалист — поделитесь опытом.</p>
-        <p>Опубликуем с Вашего согласия и поможем другим увидеть, как это работает в реальной жизни.</p>
-        <a href="../about/contacts.html" class="btn btn-primary">Связаться с нами</a>
-      </div>
-    </div>
-  </section>
-
-
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 Нейроиконика. Все права защищены.</p>
-    </div>
+      <p>© 2025 Нейроиконика. Все права защищены.</p>
+    <p><a href="../about/contacts.html#erp-F1">Связаться</a></p></div>
   </footer>
 
   <script src="../js/nav.js"></script>
   <script src="../js/animations.js"></script>
 
   <script src="../js/cursor-trail.js"></script>
-</body>
-</html>
+
+
+<script src="../js/revision.js"></script>
+<script src="../js/video-story.js"></script>
+</body></html>
