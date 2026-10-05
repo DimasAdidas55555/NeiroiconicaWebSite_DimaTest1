@@ -6,6 +6,7 @@ const root=path.resolve(__dirname,'..');
 const files=['index.html',...['about','assistiv','neurobureau','products'].flatMap(dir=>fs.readdirSync(path.join(root,dir)).filter(n=>n.endsWith('.html')).map(n=>dir+'/'+n))].filter(n=>n!=='neurobureau/emotions.html');
 (async()=>{
  const browser=await chromium.launch({channel:'msedge',headless:true});
+ try {
  const page=await browser.newPage();
  await page.route('**/*',route=>{const u=new URL(route.request().url());if(u.hostname!=='127.0.0.1'||/\.mp4$/i.test(u.pathname))return route.abort();return route.continue();});
  const failures=[],errors=[],menus=new Set();
@@ -24,6 +25,8 @@ const files=['index.html',...['about','assistiv','neurobureau','products'].flatM
     nav:[...document.querySelectorAll('nav a')].map(a=>[a.textContent.replace(/\s+/g,' ').trim(),new URL(a.href).pathname]),
     missingAlt:[...document.querySelectorAll('img')].filter(i=>!i.hasAttribute('alt')).length,
     h1:document.querySelectorAll('h1').length,
+    description:document.querySelector('meta[name="description"]')?.content,
+    lang:document.documentElement.lang,
     title:document.title,
     noindex:document.querySelector('meta[name="robots"]')?.content.includes('noindex')
    }));
@@ -38,6 +41,12 @@ const files=['index.html',...['about','assistiv','neurobureau','products'].flatM
      if(!fs.existsSync(dest))failures.push({file,type:'missing file',ref});
     }
     if(result.h1!==1&&!result.noindex)failures.push({file,type:'h1 count',count:result.h1});
+    if(!result.noindex&&(!result.description||result.lang!=='ru'))failures.push({file,type:'metadata'});
+    const source=fs.readFileSync(path.join(root,file),'utf8');
+    if(/neiroiconica@yandex\.ru|cases@neurobureau\.ru|60[–-]500|60 до 500/.test(source))failures.push({file,type:'outdated contact or frequency'});
+    if(/44-ФЗ|223-ФЗ|ГОЗ/.test(source)&&!['index.html','about/who-we-are.html'].includes(file))failures.push({file,type:'procurement on wrong page'});
+    if(file.includes('manual')&&!result.noindex)failures.push({file,type:'manual must be noindex'});
+    if(result.nav.some(([label,url])=>/manual/.test(url)))failures.push({file,type:'manual in navigation'});
    }
    if(['index.html','products/emscan.html','products/neurob-glasses.html','products/stationary-eyetracker.html','products/neurobureau.html','neurobureau/universe.html','neurobureau/education.html','assistiv/cases.html','about/who-we-are.html'].includes(file))await page.screenshot({path:path.join(shots,file.replaceAll('/','-')+'-'+width+'.png'),fullPage:true});
   }
@@ -52,6 +61,22 @@ const files=['index.html',...['about','assistiv','neurobureau','products'].flatM
  assert.equal(await page.locator('.hub-stat-number[data-counter="3"]').count(),1);
  assert.match(await page.locator('.hub-stat').nth(1).textContent(),/продукта доступны/);
  assert.doesNotMatch(await page.locator('meta[name="description"]').getAttribute('content'),/модальност/);
+ assert.equal(await page.locator('#products a.revision-card').count(),8);
+ assert.deepEqual(await page.locator('#products .revision-grid').evaluateAll(grids=>grids.map(g=>g.children.length)),[3,2,3]);
+ assert.equal((await page.locator('#products a[href="../neurobureau/cognitive.html"] h3').textContent()).trim(),'Нейробюро.Тренажёр');
+ await page.goto('http://127.0.0.1:4173/neurobureau/cognitive.html');
+ assert.equal((await page.locator('h1').textContent()).trim(),'Нейробюро.Тренажёр');
+ assert.match(await page.title(),/^Нейробюро\.Тренажёр/);
+ assert.equal(await page.locator('#erp-F3').getAttribute('data-product'),'Нейробюро.Тренажёр');
+ assert.equal((await page.locator('nav .nav-flyout a[href$="/cognitive.html"] .dropdown-label').textContent()).trim(),'Нейробюро.Тренажёр');
+ await page.goto('http://127.0.0.1:4173/products/neurobureau.html');
+ const moduleStatus=await page.locator('#additional-modules .revision-card').evaluateAll(cards=>Object.fromEntries(cards.map(c=>[c.querySelector('h3').textContent,c.querySelector('.revision-status').textContent])));
+ assert.equal(moduleStatus['Мимика и голос'],'Доступно');
+ assert.equal(moduleStatus['ЭЭГ'],'В разработке · 2027');
+ assert.equal(await page.locator('img[src*="neurobureau-platform"]').count(),0);
+ assert.doesNotMatch(await page.locator('#visualizations').textContent(),/матриц.*переход/i);
+ assert.doesNotMatch(await page.locator('body').textContent(),/Shimmer/);
+ console.log('Specification content checks OK');
  await page.goto('http://127.0.0.1:4173/neurobureau/cases.html');
  await page.selectOption('[data-filter="product"]','EmScan');
  console.log('EmScan filter:',await page.locator('[data-case]:visible').count());
@@ -80,6 +105,6 @@ const files=['index.html',...['about','assistiv','neurobureau','products'].flatM
  await page.keyboard.press('Escape');
  assert.equal(await page.locator('.nav-menu').evaluate(el=>el.classList.contains('open')),false);
  await page.goto('http://127.0.0.1:4173/neurobureau/emotions.html');await page.waitForURL('**/products/emscan.html');console.log('Redirect OK');
- await browser.close();
  if(failures.length||errors.length)process.exitCode=1;
-})();
+ } finally { await browser.close(); }
+})().catch(error=>{console.error(error);process.exitCode=1;});
