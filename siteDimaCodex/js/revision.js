@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     update();
   });
 
-  // The ERP adapter can read this context when embed codes become available.
+  // ERP product selection and email fallback share the page/button context.
   const params = new URLSearchParams(location.search);
   document.querySelectorAll('.erp-form').forEach(form => {
     form.erpContext = {
